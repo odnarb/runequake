@@ -445,6 +445,8 @@ teleport_touch =
 			return;
 	}
 
+          if (other.teleport_time > time && (other.flags & FL_MONSTER)) // Cobalt, Shambler Teleporter fix
+                    return;
 	// only teleport living creatures
 	if (other.health <= 0 || other.solid != SOLID_SLIDEBOX)
 		return;
