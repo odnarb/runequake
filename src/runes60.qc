@@ -690,7 +690,7 @@ Rune_AntiPack =
 	setorigin (antipack, self.origin - '0 0 24');
 	setmodel (antipack, "progs/backpack.mdl");
 	setsize (antipack,'-16 -16 0', '16 16 56');
-
+          antipack.colormap = self.colormap; // Cobalt - antipacks also change to players color too
 	antipack.think		= AntiPack_Arm;
 	antipack.nextthink	= time + 3;
 
