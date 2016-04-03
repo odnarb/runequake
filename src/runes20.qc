@@ -225,7 +225,7 @@ Holo_Think =
 		remove (self);
 		return;
 	}
-          if (self.owner.button2 && (!vlen(self.velocity)) // Cobalt - make the holo jump if its owner jumps
+          if (self.owner.button2 && self.velocity_z == 0) // Cobalt - make the holo jump if its owner jumps
           {
           self.movetype = MOVETYPE_STEP;
           sound (self, CHAN_AUTO, "player/plyrjmp8.wav", 1, ATTN_NORM);
@@ -258,12 +258,12 @@ Rune_Holo =
 
 	hologram = spawn ();
 	hologram.movetype = MOVETYPE_NONE;
-	hologram.solid = SOLID_NOT;
+	hologram.solid = SOLID_TRIGGER; // Cobalt, just testing, No longer non solid
 	hologram.owner = self;
 	hologram.classname = "hologram";
 	setmodel (hologram, "progs/player.mdl");
+          setsize (hologram, VEC_HULL_MIN, VEC_HULL_MAX); // Cobalt - make it player size so it wont fall into the floor
 	setorigin (hologram, self.origin);
-	setsize (hologram, VEC_HULL_MIN, VEC_HULL_MAX); // Cobalt - make it player size so it wont fall into the floor
 	hologram.angles = self.angles;
 	hologram.colormap = self.colormap;
 	hologram.think = Holo_Think;
