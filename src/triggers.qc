@@ -408,7 +408,8 @@ spawn_tdeath =
 	death.nextthink	= time + (sys_ticrate * 2);
 	death.think	= SUB_Remove;
 	death.owner	= death_owner;
-
+          if (death.owner.runetype != RN_CLOAK) // Cobalt - brief effect to confirm telefrag field
+          death.effects = EF_BRIGHTFIELD;
 	force_retouch	= 2;		// make sure even still objects get hit
 };
 
