@@ -12,3 +12,4 @@ iplog.dat
 qconsole.log
 banlog.dat
 config.cfg
+*.bak
