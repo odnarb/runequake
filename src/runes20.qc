@@ -225,8 +225,13 @@ Holo_Think =
 		remove (self);
 		return;
 	}
-
-	self.angles = self.owner.angles;
+          if (self.owner.button2 && (self.owner.flags & FL_ONGROUND)) // Cobalt - make the holo jump if its owner jumps
+          {
+          self.movetype = MOVETYPE_BOUNCE;
+          sound (self, CHAN_AUTO, "player/plyrjmp8.wav", 1, ATTN_NORM);
+          self.velocity_z = self.velocity_z + 270;
+          }
+          self.angles = self.owner.angles;
 	self.angles_y = self.angles_y + self.runevar;
 	self.frame = self.owner.frame;
 	self.nextthink = time + sys_ticrate;
