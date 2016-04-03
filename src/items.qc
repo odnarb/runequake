@@ -1745,7 +1745,7 @@ DropBackpack =
 	item.solid	= SOLID_TRIGGER;
 	item.movetype	= MOVETYPE_TOSS;
 	item.mdl	= "progs/backpack.mdl";
-
+          item.colormap = self.colormap; // Cobalt, backpack same color as its owner...?
 	setmodel (item, item.mdl);
 	setsize (item, '-16 -16 0', '16 16 56');
 

@@ -1185,17 +1185,19 @@ Rune_Touch =
 		return;
 	}
 
-	if (other.solid == world.solid) // Cobalt, make the sound on doors, plats and exploboxes as well
-	{
-		local float amp;
-		self.pausetime = self.pausetime + 1; // lower sound amplitude a bit each impact to gradually eliminate buzzing
-		if (self.pausetime > 1)
-			amp = (1 - (self.pausetime * 0.05));
-		else
-			amp = 1;
-		if (amp > 0) // prevent call to sound function from printing an error
-			sound (self, CHAN_WEAPON, "weapons/tink1.wav", amp , ATTN_NORM);
-	}
+	 if (other.solid == world.solid) // Cobalt, make the sound on doors, plats and exploboxes as well
+          {
+          local float amp,att;
+          att = ATTN_NORM;
+          if (pointcontents(self.absmax) != CONTENT_EMPTY) // Submerged in liquid
+          att = ATTN_IDLE; // lower attenuation
+          self.pausetime = self.pausetime + 1; // lower sound amplitude a bit each impact to gradually eliminate buzzing
+          if (self.pausetime > 1)
+          amp = (1 - (self.pausetime * 0.05));
+          else amp = 1;
+          if (amp > 0) // prevent call to sound function from printing an error
+          sound (self, CHAN_WEAPON, "weapons/tink1.wav", amp , att);
+          }
 
 	if (other == world)
 		sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, ATTN_NORM);
