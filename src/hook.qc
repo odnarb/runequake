@@ -164,6 +164,12 @@ HookPull =
 	else
 		vel = normalize (vel) * 700;
 	self.owner.velocity = vel;
+          
+          if (self.enemy.flags & FL_CLIENT)
+          {
+          self.nextthink = time + self.enemy.nextthink + (frametime * (0.05 / 0.0138889));
+          }                    
+          else
 	self.nextthink = time + sys_ticrate;
 };
 
