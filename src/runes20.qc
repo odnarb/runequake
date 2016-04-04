@@ -255,6 +255,7 @@ Rune_Holo =
 	if (self.runevar >= MAX_HOLO)
 	{
 		centerprint (self, "Too many fakes!");
+                    self_sound (self,"doors/basetry.wav"); // Sound for nostalgic Pieface                    
 		return;
 	}
 	self.runevar = self.runevar + 1;
