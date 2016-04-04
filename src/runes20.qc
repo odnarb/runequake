@@ -238,7 +238,7 @@ Holo_Think =
           self.angles = self.owner.angles;
 	self.angles_y = self.angles_y + self.runevar;
 	self.frame = self.owner.frame;
-	self.nextthink = self.owner.nextthink + frametime;
+	self.nextthink = time;
 };
 
 void (float riders, entity of_e)
