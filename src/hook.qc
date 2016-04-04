@@ -167,7 +167,7 @@ HookPull =
           
           if (self.enemy.flags & FL_CLIENT)
           {
-          self.nextthink = time + (frametime * (0.05 / 0.0138889));
+          self.nextthink = time + (frametime * (0.025 / 0.0138889));
           }                    
           else
 	self.nextthink = time + sys_ticrate;
