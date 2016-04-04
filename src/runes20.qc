@@ -225,7 +225,7 @@ Holo_Think =
 		remove (self);
 		return;
 	}
-          if (self.owner.button2) // Cobalt - make the holo jump if its owner jumps
+          if (self.owner.button2 && self.movetype == MOVETYPE_TOSS) // Cobalt - make the holo jump if its owner jumps
           {
           if (self.flags & FL_ONGROUND)
           {
@@ -261,7 +261,10 @@ Rune_Holo =
 	self.runevar = self.runevar + 1;
 
 	hologram = spawn ();
+          if (self.flags & FL_ONGROUND)
 	hologram.movetype = MOVETYPE_TOSS;
+          else
+          hologram.movetype = 0;     
 	hologram.solid = SOLID_TRIGGER; // Cobalt, just testing, No longer non solid
 	hologram.owner = self;
 	hologram.classname = "hologram";
