@@ -150,7 +150,7 @@ BFG_Warmup =
 	self.lip = time + 15;
 	self.nextthink = time + sys_ticrate;
 	self.think = BFG_Zap;
-          self.avelocity_z = self.ammo_cells; // Cobalt, just a test to see if it looks kool
+          self.avelocity_z = self.owner.ammo_cells; // Cobalt, just a test to see if it looks kool
 };
 
 void ()
