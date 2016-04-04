@@ -150,6 +150,7 @@ BFG_Warmup =
 	self.lip = time + 15;
 	self.nextthink = time + sys_ticrate;
 	self.think = BFG_Zap;
+          self.avelocity = vectoangles(self.velocity); // Cobalt, just a test to see if it looks kool
 };
 
 void ()
