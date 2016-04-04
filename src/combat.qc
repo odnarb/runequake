@@ -442,6 +442,10 @@ T_Damage =
 				attacker.runevar = attacker.runevar + 1;
 			}
 		}
+                    
+               if (attacker == world && targ.waterlevel > 2 && targ.air_finished < time) // Simplified QIP Armor drown fix
+	     save = 0;
+                    
 		if (save >= targ.armorvalue)
 		{
 			// lost all armor
