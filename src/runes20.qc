@@ -229,7 +229,6 @@ Holo_Think =
           {
           if (self.flags & FL_ONGROUND)
           {
-          self.movetype = MOVETYPE_TOSS;
           self.flags = self.flags - FL_ONGROUND;
           sound (self, CHAN_AUTO, "player/plyrjmp8.wav", 1, ATTN_NORM);
           self.velocity_z = self.velocity_z + 270;
@@ -262,7 +261,7 @@ Rune_Holo =
 	self.runevar = self.runevar + 1;
 
 	hologram = spawn ();
-	hologram.movetype = MOVETYPE_NONE;
+	hologram.movetype = MOVETYPE_TOSS;
 	hologram.solid = SOLID_TRIGGER; // Cobalt, just testing, No longer non solid
 	hologram.owner = self;
 	hologram.classname = "hologram";
