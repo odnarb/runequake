@@ -1187,7 +1187,7 @@ Rune_Touch =
 
 	 if (other.solid == world.solid) // Cobalt, make the sound on doors, plats and exploboxes as well
           {
-          local float amp,att;
+          local float amp,att; // Amp float prevent calls to sound function from printing an error
           att = ATTN_NORM;
           if (pointcontents(self.absmax) != CONTENT_EMPTY) // Submerged in liquid
           att = ATTN_IDLE; // lower attenuation
@@ -1195,8 +1195,11 @@ Rune_Touch =
           if (self.pausetime > 1)
           amp = (1 - (self.pausetime * 0.05));
           else amp = 1;
-          if (amp > 0) // prevent call to sound function from printing an error
+          if (amp > 0 && time < self.attack_finished) // Cobalt - improve occurence of sound with a timer
+          {                    
           sound (self, CHAN_WEAPON, "weapons/tink1.wav", amp , att);
+          self.attack_finished = time + 0.0125
+          }
           }
 
 	if (other == world)
