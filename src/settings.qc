@@ -118,18 +118,19 @@ string START_LEVEL_EXEC		= "startlevel.cfg";
 //     SPLASH_3 = "Server admin is quake@mojo.com\n\n";
 //     SPLASH_4 = "Let's be careful out there\n";
 
-if (cvar ("developer"))
-string SPLASH_1 = "----------------------------------\n\n";
-string SPLASH_2 = "--------Community RuneQuake-------\n";
-string SPLASH_3 = "----------- Dev Server------------\n";
-string SPLASH_4 = "----------------------------------\n";
-string SPLASH_5 = "----------------------------------\n";
-else
-string SPLASH_1 = "Welcome to the Community RuneQuake Server!\n\n";
-string SPLASH_2 = "Join us in voice chat & support! http://appear.in/qcc\n";
-string SPLASH_3 = "Admins are Cobalt, Gunm4n and Sgt. PieFace\n";
-string SPLASH_4 = "Admin support SergeantPieFace@gmail.com\n";
-string SPLASH_5 = "Support will be right with you!\n";
+if (cvar ("developer")) {
+    string SPLASH_1 = "----------------------------------\n\n";
+    string SPLASH_2 = "--------Community RuneQuake-------\n";
+    string SPLASH_3 = "----------- Dev Server------------\n";
+    string SPLASH_4 = "----------------------------------\n";
+    string SPLASH_5 = "----------------------------------\n";
+} else {
+    string SPLASH_1 = "Welcome to the Community RuneQuake Server!\n\n";
+    string SPLASH_2 = "Join us in voice chat & support! http://appear.in/qcc\n";
+    string SPLASH_3 = "Admins are Cobalt, Gunm4n and Sgt. PieFace\n";
+    string SPLASH_4 = "Admin support SergeantPieFace@gmail.com\n";
+    string SPLASH_5 = "Support will be right with you!\n";
+}
 
 
 // This is the amount of water you can be standing in and still safely
