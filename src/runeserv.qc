@@ -1195,8 +1195,11 @@ Rune_Touch =
           if (self.pausetime > 1)
           amp = (1 - (self.pausetime * 0.05));
           else amp = 1;
-          if (amp > 0) // prevent call to sound function from printing an error
+          if (amp > 0 && time < self.attack_finished) // Cobalt add timer to improve tink sound 
+          {// amp float prevents call to sound function from printing an error
           sound (self, CHAN_WEAPON, "weapons/tink1.wav", amp , att);
+          self.attack_finished = time + 0.125;
+          }
           }
 
 	if (other == world)
