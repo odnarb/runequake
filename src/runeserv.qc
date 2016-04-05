@@ -1193,9 +1193,9 @@ Rune_Touch =
           
           if (pointcontents(self.absmin) != CONTENT_EMPTY) //  in some liquid
           {
+          self.movetype = MOVETYPE_FLY;
           self.velocity = self.velocity / (0 - self.watertype); // Slow us down based on what kind of liquid
           att = self.waterlevel + 0.5; // lower attenuation
-          self.movetype = MOVETYPE_FLY;
           }
           else if (vlen(self.velocity < 33) && self.movetype != MOVETYPE_FLY) // change movetype might be better fix
           self.movetype = MOVETYPE_TOSS; 
