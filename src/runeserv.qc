@@ -1200,8 +1200,6 @@ Rune_Touch =
           }
           }
 
-	if (other == world)
-		sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, ATTN_NORM);
 
 	if (other.classname != "player")
 		return;
