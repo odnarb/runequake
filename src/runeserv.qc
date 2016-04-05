@@ -1191,7 +1191,7 @@ Rune_Touch =
           att = ATTN_NORM;
           
           
-          if (self.watertype != CONTENT_EMPTY) //  in some liquid
+          if (pointcontents (self.absmin) != CONTENT_EMPTY) //  in some liquid
           {
                     self.effects = EF_BRIGHTFIELD;
                     if (framecount & 1)
