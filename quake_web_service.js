@@ -39,7 +39,7 @@ app.get('/deploy-quake-prod', function (req, res) {
     }
     quake_response = {
         status: "success",
-        details: "Copied progs.dat to /runequake folder, changed level!"
+        details: "Copied progs.dat to /runequake folder!"
     };
 
     var exec = require('child_process').exec;
