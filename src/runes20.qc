@@ -225,9 +225,9 @@ Holo_Think =
 		remove (self);
 		return;
 	}
-          if (self.owner.button2 && self.movetype == MOVETYPE_TOSS) // Cobalt - make the holo jump if its owner jumps
+          if (self.owner.button2) // Cobalt - make the holo jump if its owner jumps
           {
-          if (self.flags & FL_ONGROUND)
+          if ((self.flags & FL_ONGROUND) && (self.owner.flags & FL_JUMPRELEASED))
           {
           self.flags = self.flags - FL_ONGROUND;
           sound (self, CHAN_AUTO, "player/plyrjmp8.wav", 1, ATTN_NORM);
