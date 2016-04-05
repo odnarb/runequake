@@ -1201,7 +1201,7 @@ Rune_Touch =
           self.velocity = self.velocity / (0 - (self.watertype + 1)); // Slow us down based on what kind of liquid
           att = self.waterlevel + 0.5; // lower attenuation
           }
-          else if (vlen(self.velocity) < 33) && self.movetype != MOVETYPE_FLY) // change movetype might be better fix
+          else if (vlen(self.velocity) < 33 && self.movetype != MOVETYPE_FLY) // change movetype might be better fix
           self.movetype = MOVETYPE_TOSS; 
           if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
           {                    
