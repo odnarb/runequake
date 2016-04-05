@@ -1,4 +1,3 @@
-CVS/
 poq/
 qw/
 progs.dat
@@ -7,9 +6,10 @@ shmack-progs.dat
 shmack-qwprogs.dat
 rune-progs.dat
 src/map-auto.qc
-src/find.log
 iplog.dat
-qconsole.log
 banlog.dat
 config.cfg
+autoexec.cfg
 *.bak
+*.log
+src/*.log
