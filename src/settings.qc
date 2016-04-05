@@ -88,7 +88,10 @@ float QSMACK_IMPULSE_5		= 0;
 
 float FORWARD_MAX_PLAYERS	= 0; // 0 = disabled
 string FORWARD_DEST		= IN_POQ("quake.runequake.com", "qw.runequake.com");
+if (cvar ("developer"))
 string FORWARD_NAME		= "Rune Quake Development Server";
+else
+string FORWARD_NAME		= "Rune Quake Community Server";
 
 // This is the name of a config file which the server will run
 // at the start of every level.  It's okay if this is defined
