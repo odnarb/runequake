@@ -1189,9 +1189,15 @@ Rune_Touch =
           {
           local float att; 
           att = ATTN_NORM;
-          if (pointcontents(self.absmax) != CONTENT_EMPTY) // Submerged in liquid
-          att = ATTN_IDLE; // lower attenuation
-          if (vlen(self.velocity < 33)) // change movetype might be better fix
+          
+          
+          if (pointcontents(self.absmin) != CONTENT_EMPTY) //  in some liquid
+          {
+          self.velocity = self.velocity / (0 - self.watertype); // Slow us down based on what kind of liquid
+          att = self.waterlevel + 0.5; // lower attenuation
+          self.movetype = MOVETYPE_FLY;
+          }
+          else if (vlen(self.velocity < 33) && self.movetype != MOVETYPE_FLY) // change movetype might be better fix
           self.movetype = MOVETYPE_TOSS; 
           if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
           {                    
