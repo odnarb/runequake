@@ -112,6 +112,7 @@ string START_LEVEL_EXEC		= "startlevel.cfg";
 // Use "\n" to start a new line.  If you don't do this the game
 // will wrap your text for you.
 //
+//
 // Eg:
 //     SPLASH_1 = "Welcome to Mojo World!\n\n";
 //     SPLASH_2 = "http://quake.mojo.com\n\n";
