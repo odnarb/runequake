@@ -34,7 +34,7 @@ types		:= poq qw
 type		:= xxx # overridden by target-specific value
 
 dir_poq		:= ../poq
-dir_shamck_poq	:= runequake
+dir_shamck_poq	:= runequake-dev
 progs_poq	:= ../progs.dat
 progs_poq_ts	:= $(progs_poq).ts
 src_m4_poq	:= $(addprefix $(dir_poq)/,$(src_m4))
@@ -151,34 +151,9 @@ $(progs_all):
 	cd $(dir_$(type)); \
 	    qccx /O2; cp -p settings.qc.real settings.qc && exit $$ret
     # XXX fastqcc umask bug
-	chmod o-w $@
-	[ ! -d $$HOME/quake/runequake ] || cp $@ $$HOME/quake/runequake
-
-# XXX This hasn't been updated since QW changes.
-
-#monster_dir := build-monster
-#$(progs_monster): $(src) XXX
-#	rm -rf $(monster_dir)
-#	mkdir $(monster_dir)
-#	cd $(monster_dir) && cp ../*.qc .
-#	cd $(monster_dir) && perl -pi -we 's,^\s*//nomonster,,' *.qc
-#	cd $(monster_dir) && perl -nlwe '\
-#		s/^\s+//; \
-#		s/\s+$$//; \
-#		next if $$_ eq "nomonst.qc"; \
-#		s-^//nomonster\s+--; \
-#		$$c = $$c = "fastqcc chokes on the long progs.dat path"; \
-#		s|^\.\./progs\.dat$$|progs.dat| and $$ok = 1; \
-#		print; \
-#		END { $$ok or die "did not see ../progs.dat" }' \
-#		../progs.src > progs.src
-#	cd $(monster_dir) && rm -f func.qc
-#	cd $(monster_dir) && $(make_func)
-#	cd $(monster_dir) && fastqcc
-#	mv $(monster_dir)/progs.dat $@
-## XXX fastqcc umask bug
 #	chmod o-w $@
-#	rm -rf $(monster_dir)
+#	[ ! -d $$HOME/quake/runequake-dev ] || cp $@ $$HOME/quake/runequake-dev
+
 
 $(patch) $(t_patch): $(src_m4) $(src_extra_dep)
 	@[ ! -f $@ ] || { echo "mv $@ $@.bak"; mv $@ $@.bak; }
@@ -194,11 +169,11 @@ diffdiff: $(t_patch)
 install: $(foreach type,$(types),$(progs_$(type)_ts)) $(patch)
 
 $(foreach type,$(types),$(progs_$(type)_ts)):
-	ssh -C shmack "\
-	    cd /usr/local/quake/jail/$(dir_shmack_$(type)) && \
-	    cat >progs.tmp && \
-	    mv progs.tmp $(notdir $<)" < $<
-	touch $@
+	#ssh -C shmack "\
+	#    cd /usr/local/quake/jail/$(dir_shmack_$(type)) && \
+	#    cat >progs.tmp && \
+	#    mv progs.tmp $(notdir $<)" < $<
+	#touch $@
 
 clean:
 	rm -f $(foreach type,$(types),$(progs_$(type)) $(src_m4_$(type)) \
