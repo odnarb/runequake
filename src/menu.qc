@@ -86,7 +86,7 @@ aq_menu_print_n =
 			"\2 to start playing\n\n"
 			"\bRune Quake\b\n"
 			"Version ", version, "\n\n",
-			SPLASH_1, SPLASH_2, SPLASH_3, SPLASH_4);
+			SPLASH_1, SPLASH_2, SPLASH_3, SPLASH_4, SPLASH_5);
 	}
 
 	else if (m == AQS_MENU_MAIN)
