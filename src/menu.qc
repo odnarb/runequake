@@ -81,12 +81,23 @@ aq_menu_print_n =
 
 	if (m == AQS_MENU_SPLASH)
 	{
-		centerprint7 (self,
-			"Type \1 for the menu,\n"
-			"\2 to start playing\n\n"
-			"\bRune Quake\b\n"
-			"Version ", version, "\n\n",
-			SPLASH_1, SPLASH_2, SPLASH_3, SPLASH_4, SPLASH_5);
+		if (cvar ("developer")) {
+			string SPLASH_FILL = "--------------------------------\n";
+			string SPLASH_DEV  = "---------RQ DEV SERVER----------\n";
+			centerprint7 (self,
+				"Type \1 for the menu,\n"
+				"\2 to start playing\n\n"
+				"\bRune Quake\b\n"
+				"Version ", version, "\n\n",
+				SPLASH_FILL, SPLASH_FILL, SPLASH_DEV, SPLASH_FILL, SPLASH_FILL);
+		} else {
+			centerprint7 (self,
+				"Type \1 for the menu,\n"
+				"\2 to start playing\n\n"
+				"\bRune Quake\b\n"
+				"Version ", version, "\n\n",
+				SPLASH_1, SPLASH_2, SPLASH_3, SPLASH_4, SPLASH_5);
+		}
 	}
 
 	else if (m == AQS_MENU_MAIN)
