@@ -1205,7 +1205,7 @@ Rune_Touch =
           self.movetype = MOVETYPE_TOSS; 
           if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
           {                    
-          sound (self, CHAN_WEAPON, "weapons/tink1.wav", (random () + 0.15) , att);
+          sound (self, CHAN_WEAPON, "weapons/tink1.wav", random (), att);
           self.attack_finished = time + 0.125;
           }
           }
