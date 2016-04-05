@@ -1697,6 +1697,6 @@ float	maybe_bprint_option_hack;
 entity	last_teleport;
 
 .float items2; // Cobalt, Engine will show rune on hud
-
+.float gravity;// actually a system global from the Mission Pack builds of Quake
 // development
 float	gamemode_set;

@@ -1191,8 +1191,9 @@ Rune_Touch =
           att = ATTN_NORM;
           
           
-          if (pointcontents(self.absmin) != CONTENT_EMPTY) //  in some liquid
+          if (self.watertype) != CONTENT_EMPTY) //  in some liquid
           {
+                    self.effects = EF_BRIGHTFIELD;
           self.movetype = MOVETYPE_FLY;
           self.velocity = self.velocity / (0 - self.watertype); // Slow us down based on what kind of liquid
           att = self.waterlevel + 0.5; // lower attenuation
