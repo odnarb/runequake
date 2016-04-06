@@ -242,7 +242,7 @@ player_aliases =
 	self_stuffcmd (self, "alias ignorethis \"echo Welcome Rune Quake player!\"\n");
 
 	// Prevent honest people from using cam.cfg.
-	self_stuffcmd (self, "alias chase_active \"echo chase_active has been disabled on this server.\"\n");
+	//self_stuffcmd (self, "alias chase_active \"echo chase_active has been disabled on this server.\"\n");
 
 	self_stuffcmd (self, "alias w5 \"wait;wait;wait;wait;wait;\"\n");
 	self_stuffcmd (self, "alias cl \"impulse ");
