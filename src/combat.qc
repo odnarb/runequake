@@ -180,6 +180,7 @@ T_Damage =
 
 	// check for quad damage powerup on the attacker or it's owner (for pets)
 	if (attacker.super_damage_finished >= time || attacker.owner.super_damage_finished >= time)
+                    if (dtype != "sniped") // Cobalt, fix for sniper rune inflicting 4x dmg
 		damage = damage * 4;
 
 	if (attacker.runetype)
