@@ -26,6 +26,8 @@ app.post('/deploy-quake-dev', function (req, res) {
     var exec = require('child_process').exec;
     var child = exec('/home/ubuntu/deploy-quake-dev.sh',
         function(error, stdout, stderr) {
+            quake_response.compile_output = stdout;
+            quake_response.compile_errors = stderr;
             if (error !== null) {
                 res.status(500).json({ error: 'Failed to deploy runequake code' });
             }
@@ -47,8 +49,6 @@ app.get('/deploy-quake-prod', function (req, res) {
     var exec = require('child_process').exec;
     var child = exec('/home/ubuntu/deploy-quake-prod.sh',
         function(error, stdout, stderr) {
-            quake_response.compile_output = stdout;
-            quake_response.compile_errors = stderr;
             if (error !== null) {
                 res.status(500).json({ error: 'Failed to deploy runequake code' });
             }
