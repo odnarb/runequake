@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var CryptoJS = require('crypto-js');
+//var CryptoJS = require('crypto-js');
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
 
@@ -11,10 +11,16 @@ console.reset = function () {
 }
 
 app.post('/deploy-quake-dev', function (req, res) {
-    var sent_secret = req.get('X-Hub-Signature');
-    var my_generated_secret = "sha1=" + CryptoJS.HmacSHA1( JSON.stringify(req.body), key);
+    //var sent_secret = req.get('X-Hub-Signature');
+    //var my_generated_secret = "sha1=" + CryptoJS.HmacSHA1( JSON.stringify(req.body), key);
 
-    if( my_generated_secret != sent_secret ) {
+    // if( my_generated_secret != sent_secret ) {
+    //     res.status(403);
+    //     return res.json({ status: "failed", reason: "Bad login" });
+    // }
+
+    var guid = req.query.guid;
+    if( key != guid ) {
         res.status(403);
         return res.json({ status: "failed", reason: "Bad login" });
     }
