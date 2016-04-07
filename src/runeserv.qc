@@ -1317,9 +1317,6 @@ Rune_Spawn =
 	setorigin (rune, sorigin);
 
 	setsize (rune, '-16 -16 IN_QW(-15, 0)', '16 16 IN_QW(35, 50)');
-          if (pointcontents (sorigin) < CONTENT_SOLID)
-          rune.movetype = MOVETYPE_FLY;
-          else
 	rune.movetype = MOVETYPE_BOUNCE;
 	rune.solid = SOLID_TRIGGER;
 	rune.flags = FL_ITEM;
