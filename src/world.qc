@@ -39,10 +39,11 @@ World Types:
 void ()
 worldspawn =
 {
-          while (world.sounds != 3)
-          {
+          
           world.sounds = rint (random () * 9) + 2; // Random cd track
-	}
+          while (world.sounds == 3) // not the intermission
+          world.sounds = rint (random () * 9) + 2;
+	
           
           InternalInit ();
 	InitBodyQue ();
