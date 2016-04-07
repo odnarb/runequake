@@ -6,8 +6,8 @@ git checkout src/*.qc
 git pull
 cd src
 make
-$rc=$?
-if[ $rc != 0 ]; then
+rc=$?
+if [ $rc -ne 0 ]; then
     echo "RuneQuake compile FAILED..exiting"
     exit
 fi
