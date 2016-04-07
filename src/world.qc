@@ -39,8 +39,12 @@ World Types:
 void ()
 worldspawn =
 {
-          world.sounds = rint (random () * 16) + 2; // Random cd track
-	InternalInit ();
+          while (world.sounds != 3)
+          {
+          world.sounds = rint (random () * 9) + 2; // Random cd track
+	}
+          
+          InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
 	precaches ();

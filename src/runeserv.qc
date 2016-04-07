@@ -1189,7 +1189,7 @@ Rune_Touch =
           {
           local float att,pc,dec; 
           local vector lq;
-       
+          att = 1;
           lq = ((self.absmin + self.absmax) * 0.5);
           lq_z = self.absmin_z - 4;
           pc = pointcontents (lq); /*
@@ -1221,7 +1221,7 @@ Rune_Touch =
           
           if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
           {
-          att = (self.waterlevel + 1); // lower attenuation
+          att = (self.waterlevel + att); // lower attenuation
           bprint ("Attenuation is ");
           bprint (ftos(att));
           bprint ("\n");          
