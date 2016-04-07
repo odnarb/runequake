@@ -1190,7 +1190,7 @@ Rune_Touch =
           local float att; 
           att = ATTN_NORM;
           
-          
+          /*
           if (pointcontents (self.absmin) < CONTENT_SOLID) //  in some liquid
           {
                     self.effects = EF_BRIGHTFIELD;
@@ -1206,6 +1206,8 @@ Rune_Touch =
           }
           else if (vlen (self.velocity) < 33 && self.movetype != MOVETYPE_FLY) // change movetype might be better fix
           self.movetype = MOVETYPE_TOSS; 
+          */
+          
           if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
           {                    
           sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, att);
