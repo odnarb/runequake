@@ -1189,13 +1189,13 @@ Rune_Touch =
           {
           local float att,pc; 
           att = ATTN_NORM;
-          pc = pointcontents (self.absmin);
+          pc = pointcontents (self.absmin - '0 0 2');
          
           if (pc < CONTENT_SOLID) //  in some liquid
           {
                     local float dec;
                     self.effects = EF_BRIGHTFIELD;
-                   if (framecount & 1)
+                   if (random () < 0.5)
           self.movetype = MOVETYPE_FLY;
           else
           self.movetype = MOVETYPE_FLYMISSILE;
@@ -1203,9 +1203,12 @@ Rune_Touch =
           self.velocity_x = self.velocity_x / dec; // Slow us down based on what kind of liquid
           self.velocity_y = self.velocity_y / dec; 
           self.velocity_z = self.velocity_z / dec; 
+          
+          self.avelocity = vectoangles (self.velocity);
           att = self.waterlevel + 0.5; // lower attenuation
           }
-          else if (vlen (self.velocity) < 33 && self.movetype != MOVETYPE_FLY) // change movetype might be better fix
+          else if (vlen (self.velocity) < 33)
+          if (self.movetype == MOVETYPE_BOUNCE) // change movetype might be better fix
           self.movetype = MOVETYPE_TOSS; 
           
           
