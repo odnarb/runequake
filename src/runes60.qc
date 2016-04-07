@@ -74,6 +74,7 @@ Glue_Stuck =
 	}
 
 	self.runent.effects	= self.runent.effects | EF_FROZEN;
+          self.runent.fixangle = TRUE; // Cobalt, glue prevents angle changes
 	setorigin (self.runent, self.origin);
 
 	self.runent.velocity	= VEC_ORIGIN;
