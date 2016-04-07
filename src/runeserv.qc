@@ -1201,7 +1201,7 @@ Rune_Touch =
           //if (random () < 0.5)
           //self.movetype = MOVETYPE_FLY;
            //else
-          self.movetype = MOVETYPE_FLYMISSILE;
+         // self.movetype = MOVETYPE_FLYMISSILE;
           if (pc == CONTENT_WATER) dec = 0.333;
           if (pc == CONTENT_SLIME) dec = 0.666;
           if (pc = CONTENT_LAVA) dec = 0.85;
@@ -1221,7 +1221,7 @@ Rune_Touch =
           if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
           {                    
           sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, att);
-          self.effects = self.effects | 2; // For debug
+          //self.effects = self.effects | 2; // For debug
           self.attack_finished = time + 0.125;
           }
           }
@@ -1317,6 +1317,9 @@ Rune_Spawn =
 	setorigin (rune, sorigin);
 
 	setsize (rune, '-16 -16 IN_QW(-15, 0)', '16 16 IN_QW(35, 50)');
+          if (pointcontents (sorigin) < CONTENT_SOLID)
+          rune.movetype = MOVETYPE_FLY;
+          else
 	rune.movetype = MOVETYPE_BOUNCE;
 	rune.solid = SOLID_TRIGGER;
 	rune.flags = FL_ITEM;
