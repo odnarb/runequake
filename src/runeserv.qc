@@ -1221,11 +1221,11 @@ Rune_Touch =
           
           if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
           {
-          if (pointcontents (self.absmin) < CONTENT_SOLID); // lower attenuation
+          if ((pointcontents (self.absmin)) < CONTENT_SOLID); // lower attenuation
           att = 1.5; 
-           if (pointcontents (self.origin) < CONTENT_SOLID); // lower attenuation
+           if ((pointcontents (self.origin)) < CONTENT_SOLID); // lower attenuation
           att = 2;
-           if (pointcontents (self.absmax) < CONTENT_SOLID); // lower attenuation
+           if ((pointcontents (self.absmax)) < CONTENT_SOLID); // lower attenuation
           att = 3;
           bprint ("Attenuation is ");
           bprint (ftos(att));
