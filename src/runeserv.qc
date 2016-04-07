@@ -1195,16 +1195,17 @@ Rune_Touch =
           {
                     
           self.effects = EF_BRIGHTFIELD;
-          if (random () < 0.5)
+          //if (random () < 0.5)
           self.movetype = MOVETYPE_FLY;
-          else
-          self.movetype = MOVETYPE_FLYMISSILE;
+          //else
+          //self.movetype = MOVETYPE_FLYMISSILE;
           if (pc == CONTENT_WATER) dec = 0.5;
           if (pc == CONTENT_SLIME) dec = 0.333;
           if (pc = CONTENT_LAVA) dec = 0.2;
-          self.velocity_x = self.velocity_x * dec; // Slow us down based on what kind of liquid
-          self.velocity_y = self.velocity_y * dec; 
-          self.velocity_z = self.velocity_z * dec; 
+          
+          if (dec)
+          self.velocity = self.velocity * dec; // Slow us down based on what kind of liquid
+           
           
           self.avelocity_z = 290;
           att = self.waterlevel + 0.5; // lower attenuation
