@@ -238,28 +238,28 @@ $frame frame1
 
 $modelname end1
 $cd id1/models/end1
-//$flags 8		// client side rotate
+$flags 8		// client side rotate
 $base base
 $skin skin
 $frame frame1
 
 $modelname end2
 $cd id1/models/end2
-//$flags 8		// client side rotate
+$flags 8		// client side rotate
 $base base
 $skin skin
 $frame frame1
 
 $modelname end3
 $cd id1/models/end3
-//$flags 8		// client side rotate
+$flags 8		// client side rotate
 $base base
 $skin skin
 $frame frame1
 
 $modelname end4
 $cd id1/models/end4
-//$flags 8		// client side rotate
+$flags 8		// client side rotate
 $base base
 $skin skin
 $frame frame1
