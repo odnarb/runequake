@@ -1191,11 +1191,11 @@ Rune_Touch =
           att = ATTN_NORM;
           
           
-          if (pointcontents (self.absmin) < -2) //  in some liquid
+          if (pointcontents (self.absmin) < CONTENT_SOLID) //  in some liquid
           {
                     self.effects = EF_BRIGHTFIELD;
-                    if (framecount & 1)
-          self.movetype = MOVETYPE_FLY;
+            //        if (framecount & 1)
+          //self.movetype = MOVETYPE_FLY;
           //else
           //self.movetype = MOVETYPE_FLYMISSILE;
           self.walkframe = 0 - (self.watertype + 1);
