@@ -39,8 +39,7 @@ app.get('/deploy-quake-dev', function (req, res) {
                 }
                 res.status(500).json(error);
             }
-            quake_response.status = "success";
-            quake_response.details = "Code pulled in, compiled, copied progs.dat, changed level!";
+            quake_response.status_details = "If compile output does not show errors, the level will have changed.";
             return res.json(quake_response);
     });
 });
