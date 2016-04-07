@@ -1195,13 +1195,13 @@ Rune_Touch =
           pc = pointcontents (lq);
           if (pc < CONTENT_SOLID && pc > CONTENT_SKY) //  in some liquid
           {
-          self.flags = self.flags - self.flags & FL_ONGROUND;
+        //  self.flags = self.flags - self.flags & FL_ONGROUND;
          // setsize (self, self.mins, self.maxs);          
           self.effects = EF_BRIGHTFIELD;
           //if (random () < 0.5)
-          self.movetype = MOVETYPE_FLY;
+          //self.movetype = MOVETYPE_FLY;
            //else
-          //self.movetype = MOVETYPE_FLYMISSILE;
+          self.movetype = MOVETYPE_FLYMISSILE;
           if (pc == CONTENT_WATER) dec = 0.333;
           if (pc == CONTENT_SLIME) dec = 0.666;
           if (pc = CONTENT_LAVA) dec = 0.85;
