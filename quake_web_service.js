@@ -6,11 +6,6 @@ app.use(bodyParser.json()); // for parsing application/json
 
 var key = process.argv[2]; //get the key from command line, why not
 
-var quake_response = {
-    status: "success",
-    details: "Code pulled in, compiled, copied progs.dat, changed level!"
-};
-
 console.reset = function () {
     return process.stdout.write('\033c');
 }
@@ -26,12 +21,20 @@ app.post('/deploy-quake-dev', function (req, res) {
     var exec = require('child_process').exec;
     var child = exec('/home/ubuntu/deploy-quake-dev.sh',
         function(error, stdout, stderr) {
-            quake_response.compile_output      = stdout;
-            quake_response.compile_errors      = stderr;
-            quake_response.child_process_error = error;
+            var quake_response = {
+                compile_output: stdout,
+                compile_errors: stderr,
+                child_process_error: error
+            };
             if (error !== null) {
-                res.status(500).json({ error: 'Failed to deploy runequake code' });
+                var error = {
+                    error: 'Failed to deploy runequake code',
+                    quake_response: quake_response
+                }
+                res.status(500).json(error);
             }
+            quake_response.status = "success";
+            quake_response.details = "Code pulled in, compiled, copied progs.dat, changed level!";
             return res.json(quake_response);
     });
 });
