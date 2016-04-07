@@ -1189,10 +1189,10 @@ Rune_Touch =
           {
           local float att,pc,dec; 
           local vector lq;
-          att = ATTN_NORM;
+       
           lq = ((self.absmin + self.absmax) * 0.5);
           lq_z = self.absmin_z - 4;
-          pc = pointcontents (lq);
+          pc = pointcontents (lq); /*
           if (pc < CONTENT_SOLID && pc > CONTENT_SKY) //  in some liquid
           {
         //  self.flags = self.flags - self.flags & FL_ONGROUND;
@@ -1211,15 +1211,17 @@ Rune_Touch =
            
           
           
-          att = self.waterlevel + 0.5; // lower attenuation
+          
           }
-          else if (vlen (self.velocity) < 33)
+          */
+          if (vlen (self.velocity) < 33)
           if (self.movetype == MOVETYPE_BOUNCE) // change movetype might be better fix
           self.movetype = MOVETYPE_TOSS; 
           
           
           if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
-          {                    
+          {
+          att = ceil (self.waterlevel + 0.5); // lower attenuation                    
           sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, att);
           //self.effects = self.effects | 2; // For debug
           self.attack_finished = time + 0.125;
