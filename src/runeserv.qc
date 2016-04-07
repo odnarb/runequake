@@ -1196,8 +1196,8 @@ Rune_Touch =
                     self.effects = EF_BRIGHTFIELD;
                     if (framecount & 1)
           self.movetype = MOVETYPE_FLY;
-          else
-          self.movetype = MOVETYPE_FLYMISSILE;
+          //else
+          //self.movetype = MOVETYPE_FLYMISSILE;
           self.walkframe = 0 - (self.watertype + 1);
           self.velocity_x = self.velocity_x / self.walkframe; // Slow us down based on what kind of liquid
           self.velocity_y = self.velocity_y / self.walkframe; 
