@@ -1187,12 +1187,15 @@ Rune_Touch =
 
 	 if (other.solid == world.solid) // Cobalt, make the sound on doors, plats and exploboxes as well
           {
-          local float att,pc,dec; 
+          local float att;
+          local float pc;
+          local float dec; 
           local vector lq;
           att = 1;
           lq = ((self.absmin + self.absmax) * 0.5);
           lq_z = self.absmin_z - 4;
-          pc = pointcontents (lq); /*
+          pc = pointcontents (lq); 
+          /*
           if (pc < CONTENT_SOLID && pc > CONTENT_SKY) //  in some liquid
           {
         //  self.flags = self.flags - self.flags & FL_ONGROUND;
@@ -1208,17 +1211,11 @@ Rune_Touch =
           
           if (dec > 0)
           self.velocity = self.velocity - (self.velocity * dec); // Slow us down based on what kind of liquid
-           
-          
-          
-          
           }
           */
           if (vlen (self.velocity) < 33)
           if (self.movetype == MOVETYPE_BOUNCE) // change movetype might be better fix
-          self.movetype = MOVETYPE_TOSS; 
-          
-          
+          self.movetype = MOVETYPE_TOSS;
           if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
           {
           local float pcc;
