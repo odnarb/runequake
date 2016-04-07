@@ -1189,9 +1189,9 @@ Rune_Touch =
           {
           local float att,pc,dec; 
           att = ATTN_NORM;
-          pc = pointcontents (self.absmin - '0 0 2');
+          pc = self.watertype;
          
-          if (pc < CONTENT_SOLID) //  in some liquid
+          if (pc < CONTENT_SOLID && pc > CONTENT_SKY) //  in some liquid
           {
                     
           self.effects = EF_BRIGHTFIELD;
@@ -1207,7 +1207,7 @@ Rune_Touch =
           self.velocity = self.velocity * dec; // Slow us down based on what kind of liquid
            
           
-          self.avelocity_z = 290;
+          self.avelocity_z = 240;
           att = self.waterlevel + 0.5; // lower attenuation
           }
           else if (vlen (self.velocity) < 33)
