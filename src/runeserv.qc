@@ -1204,7 +1204,7 @@ Rune_Touch =
           self.velocity_y = self.velocity_y / dec; 
           self.velocity_z = self.velocity_z / dec; 
           
-          self.avelocity_z = 290;;
+          self.avelocity_z = 290;
           att = self.waterlevel + 0.5; // lower attenuation
           }
           else if (vlen (self.velocity) < 33)
