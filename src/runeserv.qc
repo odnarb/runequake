@@ -1196,7 +1196,7 @@ Rune_Touch =
           if (pc < CONTENT_SOLID && pc > CONTENT_SKY) //  in some liquid
           {
           self.flags = self.flags - self.flags & FL_ONGROUND;
-          setsize (self, self.mins, self.maxs);          
+         // setsize (self, self.mins, self.maxs);          
           self.effects = EF_BRIGHTFIELD;
           //if (random () < 0.5)
           self.movetype = MOVETYPE_FLY;
