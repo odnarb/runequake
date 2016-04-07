@@ -1198,13 +1198,13 @@ Rune_Touch =
                   // if (random () < 0.5)
          // self.movetype = MOVETYPE_FLY;
          // else
-          self.movetype = MOVETYPE_FLYMISSILE;
+          //self.movetype = MOVETYPE_FLYMISSILE;
           dec = 0 - (pc + 1);
-          //self.velocity_x = self.velocity_x / dec; // Slow us down based on what kind of liquid
-          //self.velocity_y = self.velocity_y / dec; 
-          //self.velocity_z = self.velocity_z / dec; 
+          self.velocity_x = self.velocity_x / dec; // Slow us down based on what kind of liquid
+          self.velocity_y = self.velocity_y / dec; 
+          self.velocity_z = self.velocity_z / dec; 
           
-          self.avelocity = vectoangles (self.velocity);
+          self.avelocity_z = 290;;
           att = self.waterlevel + 0.5; // lower attenuation
           }
           else if (vlen (self.velocity) < 33)
