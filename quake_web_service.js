@@ -10,7 +10,7 @@ console.reset = function () {
     return process.stdout.write('\033c');
 }
 
-app.post('/deploy-quake-dev', function (req, res) {
+app.get('/deploy-quake-dev', function (req, res) {
     //var sent_secret = req.get('X-Hub-Signature');
     //var my_generated_secret = "sha1=" + CryptoJS.HmacSHA1( JSON.stringify(req.body), key);
 
