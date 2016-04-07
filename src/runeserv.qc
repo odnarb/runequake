@@ -1193,12 +1193,13 @@ Rune_Touch =
          
           if (pc < CONTENT_SOLID && pc > CONTENT_SKY) //  in some liquid
           {
-                    
+          self.flags = self.flags - self.flags & FL_ONGROUND;
+          setsize (self, VEC_ORIGIN, VEC_ORIGIN);          
           self.effects = EF_BRIGHTFIELD;
-          //if (random () < 0.5)
+          if (random () < 0.5)
           self.movetype = MOVETYPE_FLY;
-          //else
-          //self.movetype = MOVETYPE_FLYMISSILE;
+           else
+          self.movetype = MOVETYPE_FLYMISSILE;
           if (pc == CONTENT_WATER) dec = 0.5;
           if (pc == CONTENT_SLIME) dec = 0.333;
           if (pc = CONTENT_LAVA) dec = 0.2;
@@ -1207,7 +1208,7 @@ Rune_Touch =
           self.velocity = self.velocity * dec; // Slow us down based on what kind of liquid
            
           
-          self.avelocity_z = 240;
+          
           att = self.waterlevel + 0.5; // lower attenuation
           }
           else if (vlen (self.velocity) < 33)
