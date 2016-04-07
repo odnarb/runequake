@@ -1195,7 +1195,7 @@ Rune_Touch =
           lq = ((self.absmin + self.absmax) * 0.5);
           lq_z = self.absmin_z - 4;
           pc = pointcontents (lq); 
-          /*
+          
           if (pc < CONTENT_SOLID && pc > CONTENT_SKY) //  in some liquid
           {
         //  self.flags = self.flags - self.flags & FL_ONGROUND;
@@ -1205,14 +1205,17 @@ Rune_Touch =
           //self.movetype = MOVETYPE_FLY;
            //else
          // self.movetype = MOVETYPE_FLYMISSILE;
-          if (pc == CONTENT_WATER) dec = 0.333;
-          if (pc == CONTENT_SLIME) dec = 0.666;
-          if (pc = CONTENT_LAVA) dec = 0.85;
+          if (pc == CONTENT_WATER)
+          dec = 0.333;
+          if (pc == CONTENT_SLIME) 
+          dec = 0.666;
+          if (pc = CONTENT_LAVA) 
+          dec = 0.85;
           
           if (dec > 0)
           self.velocity = self.velocity - (self.velocity * dec); // Slow us down based on what kind of liquid
           }
-          */
+          
           if (vlen (self.velocity) < 33)
           if (self.movetype == MOVETYPE_BOUNCE) // change movetype might be better fix
           self.movetype = MOVETYPE_TOSS;
@@ -1229,9 +1232,7 @@ Rune_Touch =
                     pcc = pointcontents (self.absmax);
                     if (pcc < CONTENT_SOLID) // lower attenuation
                     att = 3;
-                    bprint ("Attenuation is ");
-                    bprint (ftos(att));
-                    bprint ("\n");
+
                     sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, att);
                     //self.effects = self.effects | 2; // For debug
                     self.attack_finished = time + 0.125;
