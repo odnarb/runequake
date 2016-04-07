@@ -1221,7 +1221,10 @@ Rune_Touch =
           
           if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
           {
-          att = ceil (self.waterlevel + 0.5); // lower attenuation                    
+          att = ceil (self.waterlevel + 0.5); // lower attenuation
+          bprint ("Attenuation is ");
+          bprint (ftos(att));
+          bprint ("\n");          
           sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, att);
           //self.effects = self.effects | 2; // For debug
           self.attack_finished = time + 0.125;
