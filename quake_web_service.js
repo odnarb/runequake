@@ -26,8 +26,9 @@ app.post('/deploy-quake-dev', function (req, res) {
     var exec = require('child_process').exec;
     var child = exec('/home/ubuntu/deploy-quake-dev.sh',
         function(error, stdout, stderr) {
-            quake_response.compile_output = stdout;
-            quake_response.compile_errors = stderr;
+            quake_response.compile_output      = stdout;
+            quake_response.compile_errors      = stderr;
+            quake_response.child_process_error = error;
             if (error !== null) {
                 res.status(500).json({ error: 'Failed to deploy runequake code' });
             }
