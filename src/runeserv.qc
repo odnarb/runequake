@@ -1187,26 +1187,27 @@ Rune_Touch =
 
 	 if (other.solid == world.solid) // Cobalt, make the sound on doors, plats and exploboxes as well
           {
-          local float att; 
+          local float att,pc; 
           att = ATTN_NORM;
-          
-          /*
-          if (pointcontents (self.absmin) < CONTENT_SOLID) //  in some liquid
+          pc = pointcontents (self.absmin);
+         
+          if (pc < CONTENT_SOLID) //  in some liquid
           {
+                    local float dec;
                     self.effects = EF_BRIGHTFIELD;
-            //        if (framecount & 1)
-          //self.movetype = MOVETYPE_FLY;
-          //else
-          //self.movetype = MOVETYPE_FLYMISSILE;
-          self.walkframe = 0 - (self.watertype + 1);
-          self.velocity_x = self.velocity_x / self.walkframe; // Slow us down based on what kind of liquid
-          self.velocity_y = self.velocity_y / self.walkframe; 
-          self.velocity_z = self.velocity_z / self.walkframe; 
+                   if (framecount & 1)
+          self.movetype = MOVETYPE_FLY;
+          else
+          self.movetype = MOVETYPE_FLYMISSILE;
+          dec = 0 - (pc + 1);
+          self.velocity_x = self.velocity_x / dec; // Slow us down based on what kind of liquid
+          self.velocity_y = self.velocity_y / dec; 
+          self.velocity_z = self.velocity_z / dec; 
           att = self.waterlevel + 0.5; // lower attenuation
           }
           else if (vlen (self.velocity) < 33 && self.movetype != MOVETYPE_FLY) // change movetype might be better fix
           self.movetype = MOVETYPE_TOSS; 
-          */
+          
           
           if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
           {                    
