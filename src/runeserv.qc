@@ -1216,24 +1216,25 @@ Rune_Touch =
           if (vlen (self.velocity) < 33)
           if (self.movetype == MOVETYPE_BOUNCE) // change movetype might be better fix
           self.movetype = MOVETYPE_TOSS;
-          if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
+          // Cobalt - improve occurence of sound with a timer
+          if (self.attack_finished < time)
           {
-          local float pcc;
-          pcc = pointcontents (self.absmin);
-          if (pcc < CONTENT_SOLID); // lower attenuation
-          att = 1.5; 
-          pcc = pointcontents (self.origin);
-          if (pcc < CONTENT_SOLID); // lower attenuation
-          att = 2;
-          pcc = pointcontents (self.absmax);
-          if (pcc < CONTENT_SOLID); // lower attenuation
-          att = 3;
-          bprint ("Attenuation is ");
-          bprint (ftos(att));
-          bprint ("\n");          
-          sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, att);
-          //self.effects = self.effects | 2; // For debug
-          self.attack_finished = time + 0.125;
+                    local float pcc;
+                    pcc = pointcontents (self.absmin);
+                    if (pcc < CONTENT_SOLID); // lower attenuation
+                    att = 1.5; 
+                    pcc = pointcontents (self.origin);
+                    if (pcc < CONTENT_SOLID); // lower attenuation
+                    att = 2;
+                    pcc = pointcontents (self.absmax);
+                    if (pcc < CONTENT_SOLID); // lower attenuation
+                    att = 3;
+                    bprint ("Attenuation is ");
+                    bprint (ftos(att));
+                    bprint ("\n");          
+                    sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, att);
+                    //self.effects = self.effects | 2; // For debug
+                    self.attack_finished = time + 0.125;
           }
           }
 
