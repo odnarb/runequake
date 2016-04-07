@@ -51,6 +51,7 @@ worldspawn =
 void ()
 StartFrame =
 {
+          framecount = framecount + 1; // Cobalt count number of frames
 	check_teamplay ();
 	check_console_command ();
 	CheckRules ();

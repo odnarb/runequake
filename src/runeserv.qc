@@ -1187,20 +1187,29 @@ Rune_Touch =
 
 	 if (other.solid == world.solid) // Cobalt, make the sound on doors, plats and exploboxes as well
           {
-          local float amp,att;
+          local float att; 
           att = ATTN_NORM;
-          if (pointcontents(self.absmax) != CONTENT_EMPTY) // Submerged in liquid
-          att = ATTN_IDLE; // lower attenuation
-          self.pausetime = self.pausetime + 1; // lower sound amplitude a bit each impact to gradually eliminate buzzing
-          if (self.pausetime > 1)
-          amp = (1 - (self.pausetime * 0.05));
-          else amp = 1;
-          if (amp > 0) // prevent call to sound function from printing an error
-          sound (self, CHAN_WEAPON, "weapons/tink1.wav", amp , att);
+          
+          
+          if (pointcontents (self.absmin) < -2) //  in some liquid
+          {
+                    self.effects = EF_BRIGHTFIELD;
+                    if (framecount & 1)
+          self.movetype = MOVETYPE_FLY;
+          else
+          self.movetype = MOVETYPE_FLYMISSILE;
+          self.velocity = self.velocity / (0 - (self.watertype + 1)); // Slow us down based on what kind of liquid
+          att = self.waterlevel + 0.5; // lower attenuation
+          }
+          else if (vlen (self.velocity) < 33 && self.movetype != MOVETYPE_FLY) // change movetype might be better fix
+          self.movetype = MOVETYPE_TOSS; 
+          if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
+          {                    
+          sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, att);
+          self.attack_finished = time + 0.125;
+          }
           }
 
-	if (other == world)
-		sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, ATTN_NORM);
 
 	if (other.classname != "player")
 		return;

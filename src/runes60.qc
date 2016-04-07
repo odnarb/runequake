@@ -690,8 +690,18 @@ Rune_AntiPack =
 	setorigin (antipack, self.origin - '0 0 24');
 	setmodel (antipack, "progs/backpack.mdl");
 	setsize (antipack,'-16 -16 0', '16 16 56');
-          antipack.colormap = rint (random () * 15) + 1; // Cobalt - antipacks change to random player colors
-	antipack.think		= AntiPack_Arm;
+          antipack.aiment= nextent (world);
+          while (antipack.aiment)
+          {
+          if (antipack.aiment.flags & FL_CLIENT)
+          if (random () > 0.9)
+          {                    
+          antipack.colormap = antipack.aiment.colormap; // Cobalt - antipacks change to random player colors
+	antipack.aiment = world;
+          }
+          antipack.aiment = nextent (antipack.aiment);
+          }
+          antipack.think		= AntiPack_Arm;
 	antipack.nextthink	= time + 3;
 
 	sound (self, CHAN_WEAPON, "demon/dhit2.wav", 1, ATTN_NORM);
