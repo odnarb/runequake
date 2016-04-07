@@ -4,12 +4,16 @@ var CryptoJS = require('crypto-js');
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
 
-var key = process.env[2]; //get the key from command line, why not
+var key = process.argv[2]; //get the key from command line, why not
 
 var quake_response = {
     status: "success",
     details: "Code pulled in, compiled, copied progs.dat, changed level!"
 };
+
+console.reset = function () {
+    return process.stdout.write('\033c');
+}
 
 app.post('/deploy-quake-dev', function (req, res) {
     var sent_secret = req.get('X-Hub-Signature');
@@ -22,8 +26,6 @@ app.post('/deploy-quake-dev', function (req, res) {
     var exec = require('child_process').exec;
     var child = exec('/home/ubuntu/deploy-quake-dev.sh',
         function(error, stdout, stderr) {
-            console.log(`stdout: ${stdout}`);
-            console.log(`stderr: ${stderr}`);
             if (error !== null) {
                 res.status(500).json({ error: 'Failed to deploy runequake code' });
             }
@@ -45,8 +47,8 @@ app.get('/deploy-quake-prod', function (req, res) {
     var exec = require('child_process').exec;
     var child = exec('/home/ubuntu/deploy-quake-prod.sh',
         function(error, stdout, stderr) {
-            console.log(`stdout: ${stdout}`);
-            console.log(`stderr: ${stderr}`);
+            quake_response.compile_output = stdout;
+            quake_response.compile_errors = stderr;
             if (error !== null) {
                 res.status(500).json({ error: 'Failed to deploy runequake code' });
             }
