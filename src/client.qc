@@ -1531,15 +1531,24 @@ WaterMove =
 	if (self.waterlevel)
 	{
 		// Player enters liquid.
+                    local string wt;
 		if (!self.flags & FL_INWATER)
 		{
 			if (self.watertype == CONTENT_WATER)
+                              {
+                                        wt = "waterzap";
 				sound (self, CHAN_BODY, "player/inh2o.wav", 1, ATTN_NORM);
-			else if (self.watertype == CONTENT_SLIME)
+			}
+                              else if (self.watertype == CONTENT_SLIME)
+                              {
+                                        wt = "slimezap";
 				sound (self, CHAN_BODY, "player/slimbrn2.wav", 1, ATTN_NORM);
-			else if (self.watertype == CONTENT_LAVA)
+			}
+                              else if (self.watertype == CONTENT_LAVA)
+                              {
+                                        wt = "lavazap";
 				sound (self, CHAN_BODY, "player/inlava.wav", 1, ATTN_NORM);
-
+                              }
 			self.flags = self.flags + FL_INWATER;
 			self.dmgtime = 0;
 		}
@@ -1552,7 +1561,7 @@ WaterMove =
 		{
 			sound (self, CHAN_AUTO, "weapons/lstart.wav", 1, ATTN_NORM);
 			discharge_hack = 1;
-			T_RadiusDamage (RADIUS_NORMAL, self, self, 20 * self.ammo_cells, world, "waterzap");
+			T_RadiusDamage (RADIUS_NORMAL, self, self, 20 * self.ammo_cells, world, wt);
 			discharge_hack = 0;
 			self.ammo_cells = 0;
 			set_current_ammo ();
@@ -2520,6 +2529,10 @@ ClientObituary =
 			}
 			else if (dt == "waterzap")
 				bprint (" jumped into the water, while ELECTRIFIED!\n");
+                              else if (dt == "slimezap")
+				bprint (" jumped into the slime, while ELECTRIFIED!\n");
+                              else if (dt == "lavazap")
+				bprint (" jumped into the lave, while ELECTRIFIED!\n");
 			else if (dt == "dspotexplode")
 				bprint (" was there when his own death spot exploded\n");
 			else if (dt == "dspot")
