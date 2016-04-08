@@ -371,15 +371,15 @@ nn = rint (random () * 10) + 1; // Pick another if same one we just played
 	while (other != world)
 	{
            
-          if (CD_XTRACK != -1)
-          {
-          stuffcmd (other, "cd resume\n");
-          sprint (other, " CD RESUME\n");
-          }
-          else
+          if (nn == 3)
           {
           stuffcmd (other, "cd pause\n");
           sprint (other, " CD PAUSE\n");
+          }
+          else if (nn != 3 && CD_XTRACK == -1)
+          {
+          stuffcmd (other, "cd resume\n");
+          sprint (other, " CD RESUME\n");          
           }
 
           other = find (other, classname, "player");
