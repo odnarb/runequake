@@ -1993,8 +1993,6 @@ CheckPowerups =
 				if (!deathmatch & DM_DM_MASK)
 					sprint (self, "Ring of Shadows magic is fading\n");
 				stuffcmd (self, "bf\n");
-                                        self.modelindex = modelindex_player;
-                                        self.effects = self.effects | EF_MAYBE_DRAW;
 				sound (self, CHAN_AUTO, "items/inv2.wav", 1, ATTN_NORM);
 				self.invisible_time = time + 1;
 			}
@@ -2009,18 +2007,16 @@ CheckPowerups =
 		if (self.invisible_finished < time)
 		{	// just stopped
 			self.items = self.items - IT_INVISIBILITY;
-                              if (self.effects & EF_MAYBE_DRAW)
-			self.effects = self.effects - EF_MAYBE_DRAW;
 			self.invisible_finished = 0;
 			self.invisible_time = 0;
 		}
 
 	// use the eyes
-          if (!(self.effects & EF_FROZEN))
-          {
+         
+         
 		self.frame = 0;
 		self.modelindex = modelindex_eyes;
-          }
+          
 	}
 
 	//RUNE SERV: Cloaky rune thing.
