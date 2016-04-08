@@ -340,3 +340,141 @@ SUB_CheckRefire =
 	self.cnt = 1;
 	self.think = thinkst;
 };
+
+void () CDTrack =
+{
+	
+local float sil;
+local float nn;
+if (CD_XTRACK)
+nn = CD_XTRACK;
+else
+nn = world.sounds;
+sil = random ();
+if (sil <= 0.33)
+sil = (rint (random () *24) + 2) * (rint (random () *8) + 2); // short Silence length, 4-36 secs
+else if (sil <= 0.66)
+sil = (rint (random () *50) + 10) * (rint (random () *16) + 10); // med Silence length, 20-66 secs
+else
+sil = (rint (random () *60) + 20) * (rint (random () *32) + 20); // long Silence length, 40-92 secs
+
+if (CD_START == -2)  return; /// no humans so just let it play world sounds for a while
+else
+{
+
+nn = CD_RNTRACK;
+CD_XTRACK = nn;  // Current world.sounds , approximate...
+}
+
+if (nn == 3)
+nn = 12;
+
+
+         WriteByte (MSG_ALL,SVC_CDTRACK);
+         WriteByte (MSG_ALL,nn);
+         WriteByte (MSG_ALL,nn);
+
+	  
+//msg_entity = self;
+//WriteByte(MSG_ONE, 8);
+//WriteByte(MSG_ONE, 2);
+// Time of current cd track
+//local string sb;
+// sb = ftos (gettime (4));
+// sb = strzone (sb);
+// bprint (sb);
+// sb = strunzone (sb);
+
+	local string a,c,d,e,jj,kk,r,tsr,tsb,nl;
+
+	
+	tsr ="                   TRACK";
+	r = ftos (nn);
+	jj = "                         œœCurrent CD Track now playingœœ\n";
+nl = "‘\n";
+if (nn == 2)
+{
+tsb = " QUAKE";
+tsr ="                                TRACK";
+CD_END = time + 308;
+}
+
+else if ( nn == 4)
+{
+tsb = " The Hall of Souls";
+tsr ="                            TRACK";
+CD_END = time + 500;
+}
+
+else if ( nn == 5)
+{
+tsr ="                             TRACK";
+tsb = " The Grisly Grotto";
+CD_END = time + 305;
+}
+else if ( nn == 6)
+{
+tsb = " Parallel Dimensions";	
+tsr ="                           TRACK";
+CD_END = time + 444;
+}
+else if ( nn == 7)
+{
+tsr ="                              TRACK";
+tsb = " The Underearth";
+CD_END = time + 517;
+}
+else if ( nn == 8)
+{
+tsr ="                                 TRACK";
+tsb = " Damnation";
+CD_END = time + 518;
+}
+else if ( nn == 9)
+{
+tsr ="                              TRACK";
+tsb = " The Necropolis";
+CD_END = time + 389;
+}
+else if ( nn == 10)
+{
+tsb = " The Ziggurat Vertigo";
+tsr ="                          TRACK";
+CD_END = time + 212;
+}
+else if (nn == 11)
+{
+tsb = " Gloom Keep";
+tsr ="                               TRACK";
+CD_END = time + 319;
+}
+else if (nn ==12)
+{
+tsr ="                                 TRACK";
+tsb = " Silence";
+CD_END = time + sil;
+}
+
+	
+CD_END = CD_END + 0.15 + (random () * 0.25); // Slight leader
+
+a = strcat (jj, tsr); //current cd track: track
+e = strcat (a, r); //current cd track(newline) track (r)
+
+c = strcat (e,tsb); //current cd track(newline) track (r) (title)
+kk = strcat (c,nl); //current cd track(newline) track (r) (title) (newline)
+
+
+
+
+WriteByte(MSG_ALL, 8);
+WriteByte(MSG_ALL, 2);
+WriteString(MSG_ALL, kk);
+
+
+
+
+
+};
+
+

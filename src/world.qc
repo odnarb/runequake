@@ -40,9 +40,7 @@ void ()
 worldspawn =
 {
           
-          world.sounds = rint (random () * 9) + 2; // Random cd track
-          while (world.sounds == 3) // not the intermission
-          world.sounds = rint (random () * 9) + 2;
+         
 	
           
           InternalInit ();
@@ -64,6 +62,20 @@ StartFrame =
 	spawn_runes ();
 	update_client_pings ();
 	IN_QW(update_deathmatch ();)
+          
+          if (time < ((cvar ("timelimit") * 60) - 30))
+          if (time > CD_END && CD_START != -2)
+          {
+          CDTrack ();
+          CD_START = time;
+          }
+          
+          
+          CD_RNTRACK = rint (random () * 9) + 2; // Random cd track
+          while (CD_RNTRACK == 3) // not the intermission
+          CD_RNTRACK = rint (random () * 9) + 2;
+          
+          
 };
 
 /*

@@ -1205,6 +1205,7 @@ Rune_Touch =
           //self.movetype = MOVETYPE_FLY;
            //else
          // self.movetype = MOVETYPE_FLYMISSILE;
+           self.gravity = 1;
           if (pc == CONTENT_WATER)
           dec = 0.333;
           if (pc == CONTENT_SLIME) 
@@ -1222,18 +1223,23 @@ Rune_Touch =
           // Cobalt - improve occurence of sound with a timer
           if (self.attack_finished < time)
           {
-                    local float pcc;
-                    pcc = pointcontents (self.absmin);
-                    if (pcc < CONTENT_SOLID) // lower attenuation
+                    
+                    pc = pointcontents (self.absmin);
+                    if (pc < CONTENT_SOLID) // lower attenuation
                     att = 1.5; 
-                    pcc = pointcontents (self.origin);
-                    if (pcc < CONTENT_SOLID) // lower attenuation
+                    pc = pointcontents (self.origin);
+                    if (pc < CONTENT_SOLID) // lower attenuation
                     att = 2;
-                    pcc = pointcontents (self.absmax);
-                    if (pcc < CONTENT_SOLID) // lower attenuation
+                    pc = pointcontents (self.absmax);
+                    if (pc < CONTENT_SOLID) // lower attenuation
                     att = 3;
-
-                    sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, att);
+                    local float amp;
+		self.pausetime = self.pausetime + 1; // lower sound amplitude a bit each impact to gradually eliminate buzzing
+		if (self.pausetime > 1)
+	          amp = (1 - (self.pausetime * 0.05));
+		else
+	          amp = 1;
+                    sound (self, CHAN_WEAPON, "weapons/tink1.wav", amp, att);
                     //self.effects = self.effects | 2; // For debug
                     self.attack_finished = time + 0.125;
           }

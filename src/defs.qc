@@ -1698,5 +1698,9 @@ entity	last_teleport;
 
 .float items2; // Cobalt, Engine will show rune on hud
 .float gravity;// actually a system global from the Mission Pack builds of Quake
+float CD_START; // CD Music start track for map
+float CD_END; // CD Music end track for map
+float CD_XTRACK; // Current track playing with player(s) on server
+float CD_RNTRACK; // Random nonstop cd track value
 // development
 float	gamemode_set;
