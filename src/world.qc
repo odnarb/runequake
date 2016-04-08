@@ -63,6 +63,8 @@ StartFrame =
 	update_client_pings ();
 	IN_QW(update_deathmatch ();)
           
+          CD_RNTRACK = rint (random () * 9) + 2; // Random cd track
+          
           if (time < ((cvar ("timelimit") * 60) - 30))
           if (time > CD_END && CD_START != -2)
           {
@@ -71,9 +73,8 @@ StartFrame =
           }
           
 
-          CD_RNTRACK = rint (random () * 9) + 2; // Random cd track
-          while (CD_XTRACK == CD_RNTRACK)
-          CD_RNTRACK = rint (random () * 9) + 2; // Pick another if same one we just played
+          
+        
           
 };
 
