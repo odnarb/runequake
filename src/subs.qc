@@ -367,7 +367,7 @@ CD_XTRACK = nn;  // Current world.sounds , approximate...
 }
 
 if (nn == 3)
-nn = 12;
+nn = 0;
 
 
          WriteByte (MSG_ALL,SVC_CDTRACK);
@@ -448,7 +448,7 @@ tsb = " Gloom Keep";
 tsr ="                               êTRACK";
 CD_END = time + 319;
 }
-else if (nn ==12)
+else
 {
 tsr ="                                 êTRACK";
 tsb = " Silence";

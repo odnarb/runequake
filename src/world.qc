@@ -72,8 +72,7 @@ StartFrame =
           
           
           CD_RNTRACK = rint (random () * 9) + 2; // Random cd track
-          while (CD_RNTRACK == 3) // not the intermission
-          CD_RNTRACK = rint (random () * 9) + 2;
+ 
           
           
 };
