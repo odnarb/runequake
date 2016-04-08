@@ -466,7 +466,8 @@ tsr ="                                 êTRACK";
 tsb = " Silence";
 CD_END = time + sil;
 }
-else
+
+if (nn != -1)
 {
          WriteByte (MSG_ALL,SVC_CDTRACK);
          WriteByte (MSG_ALL,nn);

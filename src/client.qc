@@ -2532,7 +2532,7 @@ ClientObituary =
                               else if (dt == "slimezap")
 				bprint (" jumped into the slime, while ELECTRIFIED!\n");
                               else if (dt == "lavazap")
-				bprint (" jumped into the lave, while ELECTRIFIED!\n");
+				bprint (" jumped into the lava, while ELECTRIFIED!\n");
 			else if (dt == "dspotexplode")
 				bprint (" was there when his own death spot exploded\n");
 			else if (dt == "dspot")
