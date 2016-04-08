@@ -365,7 +365,7 @@ nn = rint (random () * 10) + 1; // Pick another if same one we just played
 
           if (nn == 3 || CD_XTRACK == -1)
           {
-          nn = -1;
+          
           
           other = find (world, classname, "player");
 	while (other != world)
@@ -384,7 +384,7 @@ nn = rint (random () * 10) + 1; // Pick another if same one we just played
 
           other = find (other, classname, "player");
 	}
-          
+          nn = -1;
           }
          
 
