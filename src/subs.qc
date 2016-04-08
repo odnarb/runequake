@@ -359,16 +359,14 @@ sil = (rint (random () *60) + 20) * (rint (random () *32) + 20); // long Silence
 
 
 nn = CD_RNTRACK;
-CD_XTRACK = nn;  // Current world.sounds , approximate...
+
 
 
 if (nn == 3)
 nn = 0;
 
 
-         WriteByte (MSG_ALL,SVC_CDTRACK);
-         WriteByte (MSG_ALL,nn);
-         WriteByte (MSG_ALL,nn);
+       
 
 	  
 //msg_entity = self;
@@ -444,13 +442,16 @@ tsb = " Gloom Keep";
 tsr ="                               êTRACK";
 CD_END = time + 319;
 }
-else
+else if (nn == 0)
 {
 tsr ="                                 êTRACK";
 tsb = " Silence";
 CD_END = time + sil;
 }
 
+         WriteByte (MSG_ALL,SVC_CDTRACK);
+         WriteByte (MSG_ALL,nn);
+         WriteByte (MSG_ALL,nn);
 	
 CD_END = CD_END + 0.15 + (random () * 0.25); // Slight leader
 
@@ -467,7 +468,7 @@ WriteByte(MSG_ALL, 8);
 WriteByte(MSG_ALL, 2);
 WriteString(MSG_ALL, kk);
 
-
+CD_XTRACK = nn;  // Current world.sounds , approximate...
 
 
 
