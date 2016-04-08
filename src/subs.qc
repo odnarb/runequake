@@ -468,7 +468,7 @@ WriteByte(MSG_ALL, 8);
 WriteByte(MSG_ALL, 2);
 WriteString(MSG_ALL, kk);
 
-CD_XTRACK = nn;  // Current world.sounds , approximate...
+world.sounds = CD_XTRACK = nn;  // Current world.sounds , approximate...
 
 
 
