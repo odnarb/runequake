@@ -360,8 +360,8 @@ sil = (rint (random () *60) + 20) * (rint (random () *32) + 20); // long Silence
 
 nn = CD_RNTRACK;
 
-//while (CD_XTRACK == nn)
-//nn = rint (random () * 9) + 2; // Pick another if same one we just played
+while (CD_XTRACK == nn)
+nn = rint (random () * 9) + 2; // Pick another if same one we just played
 
 if (nn == 3)
 nn = 0;
@@ -469,7 +469,7 @@ WriteByte(MSG_ALL, 8);
 WriteByte(MSG_ALL, 2);
 WriteString(MSG_ALL, kk);
 
-world.sounds = CD_XTRACK = nn;  // Current world.sounds , approximate...
+CD_XTRACK = nn;  // Current world.sounds , approximate...
 
 
 
