@@ -68,7 +68,7 @@ StartFrame =
           if (!intermission_running)
           if (time > CD_END && CD_START != -2)
           {
-          if (time < ((cvar ("timelimit") * 60) - 30))
+          if (time >= ((cvar ("timelimit") * 60) - 30))
           CD_RNTRACK = 3; // Force silence if near end of level          
           CDTrack ();
           CD_START = time;
