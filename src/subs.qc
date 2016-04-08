@@ -361,7 +361,7 @@ sil = (rint (random () *60) + 20) * (rint (random () *32) + 20); // long Silence
 nn = CD_RNTRACK;
 
 while (CD_XTRACK == nn)
-nn = rint (random () * 9) + 2; // Pick another if same one we just played
+nn = rint (random () * 10) + 1; // Pick another if same one we just played
 
 if (nn == 3)
 nn = 0;
