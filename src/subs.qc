@@ -407,7 +407,7 @@ if (nn == 2)
 {
 tsb = " QUAKE";
 tsr ="                                êTRACK";
-CD_END = time + 308;
+CD_END = time + 308.5;
 }
 
 else if ( nn == 4)
@@ -421,7 +421,7 @@ else if ( nn == 5)
 {
 tsr ="                             êTRACK";
 tsb = " The Grisly Grotto";
-CD_END = time + 305;
+CD_END = time + 365;
 }
 else if ( nn == 6)
 {
@@ -439,7 +439,7 @@ else if ( nn == 8)
 {
 tsr ="                                 êTRACK";
 tsb = " Damnation";
-CD_END = time + 518;
+CD_END = time + 335.5;
 }
 else if ( nn == 9)
 {

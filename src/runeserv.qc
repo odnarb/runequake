@@ -1223,16 +1223,20 @@ Rune_Touch =
           // Cobalt - improve occurence of sound with a timer
           if (self.attack_finished < time)
           {
-                    
-                    pc = pointcontents (self.absmin);
+                    if (dec > 0)
+                    {
+                    pc = pointcontents (lq);
                     if (pc < CONTENT_SOLID) // lower attenuation
                     att = 1.5; 
                     pc = pointcontents (self.origin);
                     if (pc < CONTENT_SOLID) // lower attenuation
                     att = 2;
-                    pc = pointcontents (self.absmax);
+                    lq_z = self.absmin_z;
+                    pc = pointcontents (lq);
                     if (pc < CONTENT_SOLID) // lower attenuation
                     att = 3;
+                    
+                    }
                     local float amp;
 		self.pausetime = self.pausetime + 1; // lower sound amplitude a bit each impact to gradually eliminate buzzing
 		if (self.pausetime > 1)
