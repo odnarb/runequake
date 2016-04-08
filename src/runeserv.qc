@@ -1239,6 +1239,7 @@ Rune_Touch =
 	          amp = (1 - (self.pausetime * 0.05));
 		else
 	          amp = 1;
+                    if (amp > 0)
                     sound (self, CHAN_WEAPON, "weapons/tink1.wav", amp, att);
                     //self.effects = self.effects | 2; // For debug
                     self.attack_finished = time + 0.125;
