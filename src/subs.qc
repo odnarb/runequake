@@ -413,7 +413,7 @@ if (nn == 2)
 {
 tsb = " QUAKE";
 tsr ="                                êTRACK";
-CD_END = time + 308.5;
+CD_END = time + 308.75;
 }
 
 else if ( nn == 4)
