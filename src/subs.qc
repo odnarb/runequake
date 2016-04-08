@@ -363,9 +363,26 @@ nn = CD_RNTRACK;
 while (CD_XTRACK == nn)
 nn = rint (random () * 10) + 1; // Pick another if same one we just played
 
-if (nn == 3)
-nn = 0;
+          if (nn == 3 || CD_XTRACK == -1)
+          {
+          nn = -1;
+          
+          other = find (world, classname, "player");
+	while (other != world)
+	{
+          if (other.flags & FL_CLIENT)
+          {
+          if (CD_XTRACK == -1)
+          stuffcmd (other, "cd resume\n");
+          else
+          stuffcmd (other, "cd pause\n");
+          }
 
+          other = find (other, classname, "player");
+	}
+          
+          }
+         
 
        
 
@@ -443,17 +460,18 @@ tsb = " Gloom Keep";
 tsr ="                               êTRACK";
 CD_END = time + 319;
 }
-else if (nn == 0)
+else if (nn == -1)
 {
 tsr ="                                 êTRACK";
 tsb = " Silence";
 CD_END = time + sil;
 }
-
+else
+{
          WriteByte (MSG_ALL,SVC_CDTRACK);
          WriteByte (MSG_ALL,nn);
          WriteByte (MSG_ALL,nn);
-	
+}
 CD_END = CD_END + 0.15 + (random () * 0.25); // Slight leader
 
 a = strcat (jj, tsr); //current cd track: track
