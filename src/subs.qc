@@ -372,10 +372,15 @@ nn = rint (random () * 10) + 1; // Pick another if same one we just played
 	{
            
           if (CD_XTRACK == -1)
+          {
           stuffcmd (other, "cd resume\n");
+          sprint (other, " CD RESUME\n");
+          }
           else
+          {
           stuffcmd (other, "cd pause\n");
-          
+          sprint (other, " CD PAUSE\n");
+          }
 
           other = find (other, classname, "player");
 	}
@@ -466,11 +471,12 @@ tsb = " Silence";
 CD_END = time + sil;
 }
 
+if (nn != -1){
 
          WriteByte (MSG_ALL,SVC_CDTRACK);
          WriteByte (MSG_ALL,nn);
          WriteByte (MSG_ALL,nn);
-
+}
 CD_END = CD_END + 0.15 + (random () * 0.25); // Slight leader
 
 a = strcat (jj, tsr); //current cd track: track

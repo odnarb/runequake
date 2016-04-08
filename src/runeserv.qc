@@ -1182,6 +1182,7 @@ Rune_Touch =
 	if (Rune_Must_Move ())
 	{
 		self.nextthink = time;
+                    self.pausetime = 0;
 		return;
 	}
 
