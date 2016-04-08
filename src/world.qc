@@ -70,10 +70,10 @@ StartFrame =
           CD_START = time;
           }
           
-          
+
           CD_RNTRACK = rint (random () * 9) + 2; // Random cd track
- 
-          
+          while (CD_XTRACK == CD_RN_TRACK)
+          CD_RNTRACK = rint (random () * 9) + 2; // Pick another if same one we just played
           
 };
 

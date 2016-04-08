@@ -346,10 +346,7 @@ void () CDTrack =
 	
 local float sil;
 local float nn;
-if (CD_XTRACK)
-nn = CD_XTRACK;
-else
-nn = world.sounds;
+
 sil = random ();
 if (sil <= 0.33)
 sil = (rint (random () *24) + 2) * (rint (random () *8) + 2); // short Silence length, 4-36 secs
@@ -358,13 +355,12 @@ sil = (rint (random () *50) + 10) * (rint (random () *16) + 10); // med Silence 
 else
 sil = (rint (random () *60) + 20) * (rint (random () *32) + 20); // long Silence length, 40-92 secs
 
-if (CD_START == -2)  return; /// no humans so just let it play world sounds for a while
-else
-{
+//if (CD_START == -2)  return; /// no humans so just let it play world sounds for a while
+
 
 nn = CD_RNTRACK;
 CD_XTRACK = nn;  // Current world.sounds , approximate...
-}
+
 
 if (nn == 3)
 nn = 0;
