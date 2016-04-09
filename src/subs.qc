@@ -543,17 +543,17 @@ score = score + 1; // side at knee level
      
 	 if (score > 0)
 	 {
-	 if (vlen(head.velocity) > 44.5)
-		  return 0;
+	 //if (head.button8 && vlen(head.velocity) > 44.5)
+	//	  return 0;
 
 
 		 
-		  
+	/*	  
 	 local string val;
-	 val = strcat ("Blocked  () SCORE: ", (ftos(score)));
-	 val = strcat (val, "");
-	centerprint (head, val);
-	
+	 val = strcat ("^5Blocked  () SCORE: ", (ftos(score)));
+	 val = strcat (val, "^7");
+	LogMsg2 (head, val);
+	*/
 	return 1;
 	}
         return FALSE;    // Entity is not in blocked.
