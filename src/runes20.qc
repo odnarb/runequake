@@ -226,6 +226,7 @@ Holo_Think =
 		return;
 	}
           if (self.owner.think == PlayerJump) // Cobalt - make the holo jump if its owner jumps
+          {
           local entity tmp;
           tmp = self;
           self = self.owner;
