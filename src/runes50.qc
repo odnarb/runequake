@@ -29,7 +29,7 @@ Athlete_Jump =
 	self.button2 = 0;
 
 	// player jumping sound
-	//sound (self, CHAN_JUMP, "player/plyrjmp8.wav", 1, ATTN_NORM);
+	sound (self, CHAN_JUMP, "player/plyrjmp8.wav", 1, ATTN_NORM);
 
 	self.velocity_z = self.velocity_z + 540;
 };
@@ -43,6 +43,8 @@ Athlete_Run =
 		if (vlen(self.velocity) < 440) // Cobalt fix attempt for bug
 		self.velocity = self.velocity + self.velocity * 0.10; */
                     
+                    if (self.flags & FL_ONGROUND)
+                    {
                     // Try new calculation sugguested by Number 6
                     local float f, ms, v;
                     
@@ -58,17 +60,17 @@ Athlete_Run =
                     else
                     if (v < f)
                     {
-                    if (self.cl[CL_CMD_FORWARD] > 20)
+                    if (self.cl[CL_CMD_FORWARD])
                     self.velocity = self.velocity * (f / v);
                     else
                     {
                     f = ms * 1.25;
-                    if ( (fabs(self.cl[CL_CMD_SIDE]) > 20) ||  (fabs(self.cl[CL_CMD_FORWARD]) < 20) )
+                    if ( (self.cl[CL_CMD_SIDE]) ||  (self.cl[CL_CMD_FORWARD]) )
                     self.velocity = self.velocity * (f / v);
                     }
                     }
                    
-                    
+                    }
 };
 
 float ()
