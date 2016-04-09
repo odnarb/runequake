@@ -63,7 +63,7 @@ Athlete_Run =
                     self.velocity = self.velocity * (cap / v);
                     else
                     {
-                    f = ms * 1.25;
+                    cap = ms * 1.25;
                     if (self.velocity_x || self.velocity_y)
                     self.velocity = self.velocity * (cap / v);
                     }
