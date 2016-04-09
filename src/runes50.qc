@@ -54,7 +54,7 @@ Athlete_Run =
                     f =  ms * 1.6 * k; // at 320 max, this is 576
                    
                     v = vlen(self.velocity);
-                    if ((!self.cl[CL_CMD_FORWARD] || !self.cl[CL_CMD_SIDE])
+                    if ((!self.cl[CL_CMD_FORWARD] || !self.cl[CL_CMD_SIDE]))
                     {
                     if (v > ms)
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
