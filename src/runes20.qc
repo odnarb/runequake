@@ -225,18 +225,17 @@ Holo_Think =
 		remove (self);
 		return;
 	}
-          if (self.owner.think == PlayerJump) // Cobalt - make the holo jump if its owner jumps
+          if (self.owner.button2 && self.owner.velocity_z > 0 && (self.flags & FL_ONGROUND)) // Cobalt - make the holo jump if its owner jumps
           {
-          local entity tmp;
-          tmp = self;
+
           self = self.owner;
-          PlayerJump ();
-          self = tmp;
+          Athlete_Jump ();
+
           }
           self.angles = self.owner.angles;
 	self.angles_y = self.angles_y + self.runevar;
 	self.frame = self.owner.frame;
-	self.nextthink = time;
+	self.nextthink = self.owner.nextthink;
 };
 
 void (float riders, entity of_e)
