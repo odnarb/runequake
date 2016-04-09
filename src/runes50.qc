@@ -21,8 +21,7 @@ Athlete_Jump =
 {
 	if (self.flags & FL_WATERJUMP
 			|| self.waterlevel >= 2
-			|| !self.flags & FL_ONGROUND
-			|| !self.flags & FL_JUMPRELEASED)
+			|| !self.flags & FL_ONGROUND)
 		return;
 
 	self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
@@ -35,9 +34,11 @@ Athlete_Jump =
 	self.velocity_z = self.velocity_z + 540;
 };
 
-void ()
+void (float mode)
 Athlete_Run =
 {
+          
+          if (!mode) return
           /*
 	if ((self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE]) && self.flags & FL_ONGROUND)
 		if (vlen(self.velocity) < 440) // Cobalt fix attempt for bug
@@ -68,12 +69,6 @@ Athlete_Run =
                     }
                     }
                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
 };
 
