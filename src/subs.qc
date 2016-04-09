@@ -472,12 +472,11 @@ tsb = " Silence";
 CD_END = time + sil;
 }
 
-if (nn != -1){
 
          WriteByte (MSG_ALL,SVC_CDTRACK);
          WriteByte (MSG_ALL,nn);
          WriteByte (MSG_ALL,nn);
-}
+
 CD_END = CD_END + 0.15 + (random () * 0.25); // Slight leader
 
 a = strcat (jj, tsr); //current cd track: track
