@@ -498,4 +498,63 @@ CD_XTRACK = nn;  // Current world.sounds , approximate...
 
 };
 
+float(entity head) Blocked =
+{
+if (/*head.stairstime > time || */head.health < 1 || head.waterlevel > 0) return 0;
+local float score;
+local vector here;
+here = head.origin - '0 0 10';
 
+if (vlen(head.velocity) >= 28) return 0;
+
+
+
+   if (head.flags & FL_CLIENT) 
+{	
+
+
+
+if (pointcontents (here + '18 0 0') == CONTENT_SOLID) 
+score = score + 1; // Front at knee level
+
+
+
+if (pointcontents (here + '-18 0 0') == CONTENT_SOLID) score = score + 1; // back at knee level
+
+if (pointcontents (here + '18 18 0') == CONTENT_SOLID) 
+score = score + 1; // Front side at knee level
+if (pointcontents (here + '18 -18 0') == CONTENT_SOLID) 
+score = score + 1; // Front side knee level
+
+if (pointcontents (here + '-18 18 0') == CONTENT_SOLID) 
+score = score + 1; // back side at knee level
+if (pointcontents (here + '-18 -18 0') == CONTENT_SOLID) 
+score = score + 1; // back side at knee level
+
+if (pointcontents (here + '0 18 0') == CONTENT_SOLID) 	
+score = score + 1; // side at knee level
+if (pointcontents (here + '0 -18 0') == CONTENT_SOLID) 
+score = score + 1; // side at knee level
+
+
+}
+
+     
+     
+	 if (score)
+	 {
+	 //if (head.button8 && vlen(head.velocity) > 44.5)
+	//	  return 0;
+
+
+		 
+	/*	  
+	 local string val;
+	 val = strcat ("^5Blocked  () SCORE: ", (ftos(score)));
+	 val = strcat (val, "^7");
+	LogMsg2 (head, val);
+	*/
+	return 1;
+	}
+        return FALSE;    // Entity is not in blocked.
+};

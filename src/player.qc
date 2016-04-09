@@ -106,8 +106,9 @@ void ()
 player_stand = [$stand1, player_stand]
 {
 	self.weaponframe = 0;
-
-	if (self.velocity_x || self.velocity_y)
+           // Cobalt - Use blocked for better animaiton
+	//if (self.velocity_x || self.velocity_y)
+          if ((self.velocity_x || self.velocity_y) && !Blocked (self))
 	{
 		self.walkframe = 0;
 		player_run ();
@@ -134,8 +135,9 @@ void ()
 player_run = [$rockrun1, player_run]
 {
 	self.weaponframe = 0;
-
-	if (!self.velocity_x && !self.velocity_y)
+          // Cobalt use block function ax experiment for more realistic animation
+	//if (!self.velocity_x && !self.velocity_y)
+          if ((!self.velocity_x && !self.velocity_y) || (Blocked (self) && !self.waterlevel))
 	{
 		player_stand ();
 		return;
