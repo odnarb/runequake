@@ -1203,7 +1203,7 @@ Rune_Touch =
          //setsize (self, self.mins, self.maxs);          
           self.effects = EF_BRIGHTFIELD;
           //if (random () < 0.5)
-          //self.movetype = MOVETYPE_FLY;
+          self.movetype = MOVETYPE_FLY;
            //else
          // self.movetype = MOVETYPE_FLYMISSILE;
            self.gravity = 50;
