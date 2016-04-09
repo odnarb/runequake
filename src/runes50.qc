@@ -49,8 +49,7 @@ Athlete_Run =
                     local float cap, ms, v;
                     
                     ms = cvar("sv_maxspeed");
-                    cap =  ms * 1.1
-                   
+                    cap =  ms * 1.1;
                     v = vlen(self.velocity);
                     if (self.velocity_x || self.velocity_y)
                     {
