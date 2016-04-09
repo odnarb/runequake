@@ -46,27 +46,27 @@ Athlete_Run =
                     if (self.flags & FL_ONGROUND)
                     {
                     // Try new calculation sugguested by Number 6
-                    local float f, ms, v;
+                    local float cap, ms, v;
                     
                     ms = cvar("sv_maxspeed");
-                    f =  ms * 1.6; // at 320 max, this is 576
+                    cap =  ms * 1.1
                    
                     v = vlen(self.velocity);
-                    if ((self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE]))
+                    if (self.velocity_x || self.velocity_y)
                     {
                     if (v > ms)
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
                     }
                     else
-                    if (v < f)
+                    if (v < cap)
                     {
-                    if (self.cl[CL_CMD_FORWARD])
-                    self.velocity = self.velocity * (f / v);
+                    if (self.velocity_x)
+                    self.velocity = self.velocity * (cap / v);
                     else
                     {
                     f = ms * 1.25;
-                    if ( (self.cl[CL_CMD_SIDE]) ||  (self.cl[CL_CMD_FORWARD]) )
-                    self.velocity = self.velocity * (f / v);
+                    if (self.velocity_x || self.velocity_y)
+                    self.velocity = self.velocity * (cap / v);
                     }
                     }
                    
