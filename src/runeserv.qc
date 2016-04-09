@@ -1206,7 +1206,7 @@ Rune_Touch =
           //self.movetype = MOVETYPE_FLY;
            //else
          // self.movetype = MOVETYPE_FLYMISSILE;
-           self.gravity = 1;
+           self.gravity = 50;
           if (pc == CONTENT_WATER)
           dec = 0.333;
           if (pc == CONTENT_SLIME) 
