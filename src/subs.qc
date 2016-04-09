@@ -548,12 +548,12 @@ score = score + 1; // side at knee level
 
 
 		 
-	/*	  
+		  
 	 local string val;
 	 val = strcat ("^5Blocked  () SCORE: ", (ftos(score)));
 	 val = strcat (val, "^7");
-	LogMsg2 (head, val);
-	*/
+	centerprint (head, val);
+	
 	return 1;
 	}
         return FALSE;    // Entity is not in blocked.
