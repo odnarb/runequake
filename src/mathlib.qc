@@ -446,6 +446,7 @@ DP_QC_RANDOMVEC, DP_QC_SINCOSSQRTPOW, EXT_BITSHIFT
 *********************************************************
 */
 
+/*
 var float (float num) sqrt;
 var float (float num) sin;
 var float (float num) cos;
@@ -490,8 +491,7 @@ float(float minimum, float val, float maximum) ext_bound = #96;
 float(float a, float b) ext_pow = #97;
 float(float number, float quantity) ext_bitshift = #218;
 
-// This is common, may need to comment out if already defined.
-float(string s) checkextension = #99;
+
 
 
 // The engine sin/cos builtins use radians rather than degrees. This is less useful, so convert
@@ -560,4 +560,6 @@ void () MathlibCheckBuiltins =
 	}
 };
 
+
+*/
 

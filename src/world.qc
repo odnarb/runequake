@@ -47,7 +47,7 @@ worldspawn =
 	Light_Setup ();
 	place_my_items ();
 	IN_POQ(InitSearchHunk();)
-          MathlibCheckBuiltins();
+      
           
 };
 
