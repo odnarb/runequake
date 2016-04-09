@@ -30,7 +30,7 @@ Athlete_Jump =
 	self.button2 = 0;
 
 	// player jumping sound
-	sound (self, CHAN_JUMP, "player/plyrjmp8.wav", 1, ATTN_NORM);
+	//sound (self, CHAN_JUMP, "player/plyrjmp8.wav", 1, ATTN_NORM);
 
 	self.velocity_z = self.velocity_z + 540;
 };
@@ -50,7 +50,7 @@ Athlete_Run =
                     f =  ms * 1.6; // at 320 max, this is 576
                    
                     v = vlen(self.velocity);
-                    if ((!self.cl[CL_CMD_FORWARD] || !self.cl[CL_CMD_SIDE]))
+                    if ((self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE]))
                     {
                     if (v > ms)
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
@@ -63,7 +63,7 @@ Athlete_Run =
                     else
                     {
                     f = ms * 1.25;
-                    if ( (fabs(self.cl[CL_CMD_SIDE]) > 20) ||  (self.cl[CL_CMD_FORWARD] < 20) )
+                    if ( (fabs(self.cl[CL_CMD_SIDE]) > 20) ||  (fabs(self.cl[CL_CMD_FORWARD]) < 20) )
                     self.velocity = self.velocity * (f / v);
                     }
                     }

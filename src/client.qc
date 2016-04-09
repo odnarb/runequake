@@ -1505,8 +1505,8 @@ PlayerJump =
 		sound (self, CHAN_JUMP, "player/plyrjmp8.wav", 1, ATTN_NORM);
 
 	IN_POQ([-
-                    if (self.runetype == RN_ATHLETE && self.impulse == IMP_RUNE_USE)
-                    self.velocity_z = self.velocity_z + 540;
+                    if (self.runetype == RN_ATHLETE)
+                    Athlete_Jump ();
                     else
 		self.velocity_z = self.velocity_z + 270;
 	-])
