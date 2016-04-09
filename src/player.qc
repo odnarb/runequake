@@ -137,7 +137,7 @@ player_run = [$rockrun1, player_run]
 	self.weaponframe = 0;
           // Cobalt use block function ax experiment for more realistic animation
 	//if (!self.velocity_x && !self.velocity_y)
-          if ((!self.velocity_x && !self.velocity_y) || (Blocked (self) && !self.waterlevel))
+          if ((!self.velocity_x && !self.velocity_y) || ((Blocked (self) && !self.waterlevel)))
 	{
 		player_stand ();
 		return;

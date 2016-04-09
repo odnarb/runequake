@@ -500,7 +500,7 @@ CD_XTRACK = nn;  // Current world.sounds , approximate...
 
 float(entity head) Blocked =
 {
-if (/*head.stairstime > time || */head.health < 1 || head.waterlevel > 0) return 0;
+if (head.health < 1 || head.waterlevel > 0) return 0;
 local float score;
 local vector here;
 here = head.origin - '0 0 10';
@@ -541,10 +541,10 @@ score = score + 1; // side at knee level
 
      
      
-	 if (score)
+	 if (score > 0)
 	 {
-	 //if (head.button8 && vlen(head.velocity) > 44.5)
-	//	  return 0;
+	 if (vlen(head.velocity) > 44.5)
+		  return 0;
 
 
 		 
