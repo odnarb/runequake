@@ -430,12 +430,12 @@ T_Damage =
 		SUB_Null ();
 	else if (targ.armorvalue == 0)
 		SUB_Null ();
-	else if (attacker.runetype == RN_PIERCING)
+	else if (attacker.runetype == RN_PIERCING && dtype != "gas")
 		sound (targ, CHAN_AUTO, "weapons/ric1.wav", 1, ATTN_NORM);
 	else
 	{
 		save = ceil (targ.armortype * damage);
-		if (attacker.runetype == RN_JACK)
+		if (attacker.runetype == RN_JACK && dtype != "gas")
 		{
 			save = ceil (save * RN_JACK_PIERCING);
 			if (attacker.runevar == 3)
