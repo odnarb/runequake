@@ -1960,6 +1960,9 @@ PlayerPreThink =
 
 	if (self.runetype > 0)
 		Rune_Think ();
+          else self.th_runeuse = world.th_runeuse;
+           if (self.th_runeuse)
+             self.th_runeuse ();
 
 	if (time > self.attack_finished && self.currentammo == 0)
 	{

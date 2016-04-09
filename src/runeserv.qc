@@ -19,27 +19,29 @@
 void ()
 Rune_Think =
 {
-	if	(self.runetype == RN_REGEN)		Rune_Regen ();
-	else if (self.runetype == RN_FIREWALK)		Rune_Firewalk ();
-	else if (self.runetype == RN_ZAP)		Rune_Zap ();
-	else if (self.runetype == RN_BOMB)		Rune_Bomb ();
-	else if (self.runetype == RN_CLOAK)		Rune_Cloak ();
-	else if (self.runetype == RN_CAMO)		Rune_Camo ();
-	else if (self.runetype == RN_JUMP)		Rune_Jump ();
-	else if (self.runetype == RN_AMMO)		Rune_Ammo ();
-	else if (self.runetype == RN_SHIELD)		Shield_On ();
-	else if (self.runetype == RN_REPEL)		Rune_Repel ();
-	else if (self.runetype == RN_FLY)		Rune_Fly ();
-	else if (self.runetype == RN_WEIRD)		Rune_Weird ();
+	if (self.runetype == RN_REGEN)		self.th_runeuse = Rune_Regen;
+	else if (self.runetype == RN_FIREWALK)		self.th_runeuse = Rune_Firewalk;
+	else if (self.runetype == RN_ZAP)		self.th_runeuse = Rune_Zap;
+	else if (self.runetype == RN_BOMB)		self.th_runeuse = Rune_Bomb;
+	else if (self.runetype == RN_CLOAK)		self.th_runeuse = Rune_Cloak;
+	else if (self.runetype == RN_CAMO)		self.th_runeuse = Rune_Camo;
+	else if (self.runetype == RN_JUMP)		self.th_runeuse = Rune_Jump;
+	else if (self.runetype == RN_AMMO)		self.th_runeuse = Rune_Ammo;
+	else if (self.runetype == RN_SHIELD)		self.th_runeuse = Shield_On;
+	else if (self.runetype == RN_REPEL)		self.th_runeuse = Rune_Repel;
+	else if (self.runetype == RN_FLY)		self.th_runeuse = Rune_Fly;
+	else if (self.runetype == RN_WEIRD)		self.th_runeuse = Rune_Weird;
 	IN_QW([-
-	else if (self.runetype == RN_IMPACT)		Rune_Impact ();
+	else if (self.runetype == RN_IMPACT)		self.th_runeuse = Rune_Impact;
 	-])
-	else if (self.runetype == RN_BERSERK)		Berserk_Bleed ();
+	else if (self.runetype == RN_BERSERK)		self.th_runeuse = Berserk_Bleed;
 	//else if (self.runetype == RN_ATHLETE)		Athlete_Run (0);
-	else if (self.runetype == RN_QUAD)		quad_think ();
-	else if (self.runetype == RN_JACK)		jack_think ();
-	else if (self.runetype == RN_BLIZZARD)		Blizzard_Think ();
-	else if (self.runetype == RN_THOR)		Rune_Thor ();
+	else if (self.runetype == RN_QUAD)		self.th_runeuse = quad_think;
+	else if (self.runetype == RN_JACK)		self.th_runeuse = jack_think;
+	else if (self.runetype == RN_BLIZZARD)		self.th_runeuse =Blizzard_Think;
+	else if (self.runetype == RN_THOR)		self.th_runeuse = Rune_Thor;
+          
+         
 };
 
 void ()
