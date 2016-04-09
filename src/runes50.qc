@@ -38,7 +38,7 @@ void (float mode)
 Athlete_Run =
 {
           
-          if (!mode) return
+          if (!mode) return;
           /*
 	if ((self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE]) && self.flags & FL_ONGROUND)
 		if (vlen(self.velocity) < 440) // Cobalt fix attempt for bug
