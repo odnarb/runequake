@@ -67,8 +67,6 @@ Athlete_Run =
                     else
                     {
                     f = ms * 1.25 * k;
-                    
-                    side & back normally .8 * ms
                     if ( (fabs(self.cl[CL_CMD_SIDE]) > 20) ||  (self.cl[CL_CMD_FORWARD] < 20) )
                     self.velocity = self.velocity * (f / v);
                     }
