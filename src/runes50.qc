@@ -44,7 +44,7 @@ Athlete_Run =
 		self.velocity = self.velocity + self.velocity * 0.10; */
                     
                     // Try new calculation sugguested by Number 6
-                    local float f, ms, v;
+                    local float f, ms, v, k;
                     k = 1;
                     
                     if (k)
