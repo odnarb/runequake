@@ -1201,12 +1201,12 @@ Rune_Touch =
           {
         //  self.flags = self.flags - self.flags & FL_ONGROUND;
          //setsize (self, self.mins, self.maxs);          
-          self.effects = EF_BRIGHTFIELD;
-          //if (random () < 0.5)
+         
+          if (random () < 0.5)
           self.movetype = MOVETYPE_FLY;
-           //else
-         // self.movetype = MOVETYPE_FLYMISSILE;
-           self.gravity = 50;
+          else
+         self.movetype = MOVETYPE_FLYMISSILE;
+          // self.gravity = 50;
           if (pc == CONTENT_WATER)
           dec = 0.333;
           if (pc == CONTENT_SLIME) 
