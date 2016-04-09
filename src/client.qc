@@ -1505,6 +1505,9 @@ PlayerJump =
 		sound (self, CHAN_JUMP, "player/plyrjmp8.wav", 1, ATTN_NORM);
 
 	IN_POQ([-
+                    if (self.runetype == RN_ATHLETE)
+                    self.velocity_z = self.velocity_z + 540;
+                    else
 		self.velocity_z = self.velocity_z + 270;
 	-])
 };

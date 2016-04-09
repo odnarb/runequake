@@ -35,7 +35,7 @@ Rune_Think =
 	else if (self.runetype == RN_IMPACT)		Rune_Impact ();
 	-])
 	else if (self.runetype == RN_BERSERK)		Berserk_Bleed ();
-	else if (self.runetype == RN_ATHLETE)		Athlete_Run ();
+	else if (self.runetype == RN_ATHLETE)		SUB_Null ();
 	else if (self.runetype == RN_QUAD)		quad_think ();
 	else if (self.runetype == RN_JACK)		jack_think ();
 	else if (self.runetype == RN_BLIZZARD)		Blizzard_Think ();
@@ -80,7 +80,7 @@ Rune_Button =
 	else if (self.runetype == RN_DUAL)		Rune_Dual ();
 	else if (self.runetype == RN_WEIRD)		Weird_Throw ();
 	else if (self.runetype == RN_HOOK)		HookToggle ();
-	else if (self.runetype == RN_ATHLETE)		Athlete_Jump ();
+	else if (self.runetype == RN_ATHLETE)		Athlete_Run ();
 	else if (self.runetype == RN_ZOMBIE)		Rune_Zombie ();
 	else if (self.runetype == RN_TORCH)		Rune_Torch ();
 	else if (self.runetype == RN_QUAD)		quad_activate ();

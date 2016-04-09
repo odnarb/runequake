@@ -44,14 +44,10 @@ Athlete_Run =
 		self.velocity = self.velocity + self.velocity * 0.10; */
                     
                     // Try new calculation sugguested by Number 6
-                    local float f, ms, v, k;
-                    k = 1;
-                    
-                    if (k)
-                    {
+                    local float f, ms, v;
                     
                     ms = cvar("sv_maxspeed");
-                    f =  ms * 1.6 * k; // at 320 max, this is 576
+                    f =  ms * 1.6; // at 320 max, this is 576
                    
                     v = vlen(self.velocity);
                     if ((!self.cl[CL_CMD_FORWARD] || !self.cl[CL_CMD_SIDE]))
@@ -66,12 +62,12 @@ Athlete_Run =
                     self.velocity = self.velocity * (f / v);
                     else
                     {
-                    f = ms * 1.25 * k;
+                    f = ms * 1.25;
                     if ( (fabs(self.cl[CL_CMD_SIDE]) > 20) ||  (self.cl[CL_CMD_FORWARD] < 20) )
                     self.velocity = self.velocity * (f / v);
                     }
                     }
-                    }
+                   
                     
                     
                     
