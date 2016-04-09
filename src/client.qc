@@ -2231,7 +2231,7 @@ PlayerPostThink =
               			
 	       if (self.flags & FL_JUMPRELEASED && !self.waterlevel && self.runetype == RN_HASTE)
 		if (time > self.attack_finished && checkbottom (self)) // && !Blocked (self))
-              self.nextthink = self.nextthink - (frametime * 1.1);	
+              self.nextthink = self.nextthink - (frametime * 1.15);	
 	       }
           
 };

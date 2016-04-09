@@ -550,8 +550,8 @@ score = score + 1; // side at knee level
 		 
 		  
 	 local string val;
-	 val = strcat ("^5Blocked  () SCORE: ", (ftos(score)));
-	 val = strcat (val, "^7");
+	 val = strcat ("Blocked  () SCORE: ", (ftos(score)));
+	 val = strcat (val, "");
 	centerprint (head, val);
 	
 	return 1;
