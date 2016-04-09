@@ -38,9 +38,49 @@ Athlete_Jump =
 void ()
 Athlete_Run =
 {
+          /*
 	if ((self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE]) && self.flags & FL_ONGROUND)
 		if (vlen(self.velocity) < 440) // Cobalt fix attempt for bug
-		self.velocity = self.velocity + self.velocity * 0.10;
+		self.velocity = self.velocity + self.velocity * 0.10; */
+                    
+                    // Try new calculation sugguested by Number 6
+                    local float f, ms, v;
+                    k = 1;
+                    
+                    if (k)
+                    {
+                    
+                    ms = cvar("sv_maxspeed");
+                    f =  ms * 1.6 * k; // at 320 max, this is 576
+                   
+                    v = vlen(self.velocity);
+                    if ((!self.cl[CL_CMD_FORWARD] || !self.cl[CL_CMD_SIDE])
+                    {
+                    if (v > ms)
+                    self.velocity = self.velocity * 0.95;// (ms / v); // cap it
+                    }
+                    else
+                    if (v < f)
+                    {
+                    if (self.cl[CL_CMD_FORWARD] > 20)
+                    self.velocity = self.velocity * (f / v);
+                    else
+                    {
+                    f = ms * 1.25 * k;
+                    
+                    side & back normally .8 * ms
+                    if ( (fabs(self.cl[CL_CMD_SIDE]) > 20) ||  (self.cl[CL_CMD_FORWARD] < 20) )
+                    self.velocity = self.velocity * (f / v);
+                    }
+                    }
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 };
 
 float ()
