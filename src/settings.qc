@@ -116,7 +116,7 @@ string START_LEVEL_EXEC		= "startlevel.cfg";
 //     SPLASH_3 = "Server admin is quake@mojo.com\n\n";
 //     SPLASH_4 = "Let's be careful out there\n";
 
-string SPLASH_1 = "Welcome to the Community RuneQuake Server!\n\n";
+string SPLASH_1 = "Welcome to the Community RuneQuake Server!\nςρ®σεςφερυαε®γονλ\n\n";
 string SPLASH_2 = "Join us in voice chat & support! http://appear.in/qcc\n";
 string SPLASH_3 = "Admins are Cobalt, Gunm4n and Sgt. PieFace\n";
 string SPLASH_4 = "Admin support SergeantPieFace@gmail.com\n";
