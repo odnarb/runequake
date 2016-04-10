@@ -1155,7 +1155,9 @@ Rune_Move =
 	self.owner = world;
 	self.enemy = world;
 	self.runevar = 0;
-
+          self.pausetime = 0; // Cobalt - reset its sound level and restore movetype jic
+          if (!checkbottom (self))
+          self.movetype = MOVETYPE_BOUNCE;
 	temp = SelectRuneSpawnPoint ();
 	setorigin (self, temp.origin);
 
@@ -1184,7 +1186,7 @@ Rune_Touch =
 	if (Rune_Must_Move ())
 	{
 		self.nextthink = time;
-                    self.pausetime = 0;
+                    
 		return;
 	}
 
