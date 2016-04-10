@@ -486,11 +486,9 @@ c = strcat (e,tsb); //current cd track(newline) track (r) (title)
 kk = strcat (c,nl); //current cd track(newline) track (r) (title) (newline)
 
 
+CD_MSG = kk;
 
 
-WriteByte(MSG_ALL, 8);
-WriteByte(MSG_ALL, 2);
-WriteString(MSG_ALL, kk);
 
 CD_XTRACK = nn;  // Current world.sounds , approximate...
 

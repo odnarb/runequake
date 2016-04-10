@@ -68,9 +68,26 @@ StartFrame =
           if (time > CD_END && CD_START != -2)
           {
           if (time >= ((cvar ("timelimit") * 60) - 30))
-          CD_RNTRACK = 3; // Force silence if near end of level          
+          CD_RNTRACK = 3; // Force silence if near end of level
           CDTrack ();
           CD_START = time;
+          
+          other = find (world, classname, "player");
+	while (other != world)
+	{
+           if (!(other.aqflags & AQ_QUIET))
+           { 
+          msg_entity = other;
+	WriteByte (MSG_ONE, 8);
+          WriteByte(MSG_ONE, 2);
+          WriteString(MSG_ONE, CD_MSG);
+           }
+          other = find (other, classname, "player");
+	}
+          
+          
+          
+         
           }
           
 
