@@ -273,12 +273,12 @@ shambler_slave_retribution =
 	self = old_self;
 };
 
-// Cobalt - Test respawn ares for Shambler otherwise cancel the teleport
+// Cobalt - Test respawn areas for Shambler otherwise cancel the teleport
 float (entity this)
 ShamblerSizeOk =
 {
-local entity testfield;
-local vector corner1,corner2,corner3,corner4;
+          local entity testfield;
+          local vector corner1,corner2,corner3,corner4;
 
            corner1 = this.absmin;
 	 corner2 = this.absmax;
@@ -292,20 +292,20 @@ local vector corner1,corner2,corner3,corner4;
 	 corner4_x = corner1_x;
 
 
-testfield = spawn ();
-setorigin (testfield, this.origin);
+          testfield = spawn ();
+          setorigin (testfield, this.origin);
 
-setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
-traceline (testfield.absmin, testfield.absmax, 0, this);
-if (trace_fraction == 1 && trace_ent == world)
-{
-     traceline (corner3, corner4, 0, this);     
-     if (trace_fraction == 1 && trace_ent == world)
-     return 1;
-}
-          
+          setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
+          traceline (testfield.absmin, testfield.absmax, 0, this);
+          if (trace_fraction == 1 && trace_ent == world)
+          {
+               traceline (corner3, corner4, 0, this);     
+               if (trace_fraction == 1 && trace_ent == world)
+               return 1;
+          }
+                    
 
-return 0;          
+          return 0;          
 };
 
 void (float riders, entity of_e)
