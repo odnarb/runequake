@@ -293,7 +293,7 @@ ShamblerSizeOk =
 
 
           testfield = spawn ();
-          setorigin (testfield, this.origin);
+          setorigin (testfield, this.origin + '0 0 9'); // Cobalt offset for stairs or small lip
 
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
           traceline (testfield.absmin, testfield.absmax, 0, this);
