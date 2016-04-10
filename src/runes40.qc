@@ -278,7 +278,7 @@ float (entity this)
 ShamblerSizeOk =
 {
 local entity testfield;
-local vector corner1,corner2,corner3,corner4
+local vector corner1,corner2,corner3,corner4;
 
            corner1 = this.absmin;
 	 corner2 = this.absmax;
