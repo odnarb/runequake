@@ -1601,7 +1601,7 @@ BackpackTouch =
 
 	acount = 0;
           local string cr;
-          if (self.message != self.netname)
+          if (self.message != other.netname)
           {
           cr = strcat ("You got ", self.message);
           cr = strcat (cr, "'s old backpack:\n^3");
