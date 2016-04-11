@@ -1600,13 +1600,16 @@ BackpackTouch =
 		return;
 
 	acount = 0;
-	sprint (other, "You get ");
-
+          local string cr;
+          cr = strcat ("You got ", self.message);
+          cr = strcat (cr, "'s old backpack: ");
+	sprint (other, cr);
+           
 	if (self.items)
 		if ((other.items & self.items) == 0)
 		{
 			acount = 1;
-			sprint (other, "the ");
+			sprint (other, "A ");
 			sprint (other, self.netname);
 		}
 
@@ -1710,7 +1713,7 @@ DropBackpack =
 	item.classname	= "backpack";
 	item.origin	= self.origin - '0 0 24';
 	item.owner	= self;
-
+          item.message = self.netname; // Cobalt - keep the backpack owners name around a while
 	item.items = self.weapon & WEAPON_NONALT_MASK;
 	if (item.items == IT_AXE)
 		item.netname = "Axe";
