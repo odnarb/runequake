@@ -70,11 +70,11 @@ StartFrame =
 	IN_QW(update_deathmatch ();)
           
           CD_RNTRACK = rint (random () * 10) + 1; // Random cd track
-           local float sl;
+           
           if (!intermission_running)
           if (time > CD_END && CD_START != -2)
           {
-          if (time >= ((cvar ("timelimit") * 60) - 30))
+          if (time >= (((cvar ("timelimit") * 60) - 30)))
           CD_RNTRACK = 3; // Force silence if near end of level
           CDTrack ();
           CD_START = time;
@@ -82,26 +82,36 @@ StartFrame =
           other = find (world, classname, "player");
 	while (other != world)
 	{
-           sl = sl + 1;
-           
+            if (!(other.aqflags & AQ_QUIET))
+           { 
+          msg_entity = other;
+	WriteByte (MSG_ONE, 8);
+          WriteByte(MSG_ONE, 2);
+          WriteString(MSG_ONE, CD_MSG);
+           }         
+                    
+                    
+         
+           PLAYERS = 0;
           other = find (other, classname, "player");
 	}
 
           }
           
-        PLAYERS = sl;
-          
+          other = find (world, classname, "player");
+	while (other != world)
+	{
+            PLAYERS = PLAYERS + 1;
+                    
+                    
+         
+           
+          other = find (other, classname, "player");
+	}
         
-          
-};
-
-void ()
-EndFrame =
-{
-
-bprint ("Total Players: ");
-bprint (ftos(PLAYERS));
-bprint ("\n");
+        bprint ("Total Players: ");
+        bprint (ftos(PLAYERS));
+        bprint ("\n");
           
           // Cobalt  - load balance experiment
 local float bal;
@@ -117,7 +127,17 @@ bal = 1 / sys_ticrate;
 bprint (ftos(fabs(bal)));
 bprint ("\n");
 }
+        
+        
+        
+        
+          
+        
+          
 };
+
+
+
 /*
 ==============================================================================
 
