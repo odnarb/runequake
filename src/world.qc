@@ -110,7 +110,7 @@ sys_ticrate = sys_ticrate + bal;
 cvar_set ("sys_ticrate", ftos(sys_ticrate + bal));
 bprint ("Server Framerate set to ");
 bal = 1 / sys_ticrate;
-bprint (fabs(ftos(bal)));
+bprint (ftos(fabs(bal)));
 bprint ("\n");
 }
 };
