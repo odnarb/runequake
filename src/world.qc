@@ -109,7 +109,8 @@ if (cvar ("sys_ticrate") < (sys_ticrate + bal))
 sys_ticrate = sys_ticrate + bal;          
 cvar_set ("sys_ticrate", ftos(sys_ticrate + bal));
 bprint ("Server Framerate set to ");
-bprint (fabs(ftos(1/ sys_ticrate)))
+bal = 1 / sys_ticrate;
+bprint (fabs(ftos(bal)));
 bprint ("\n");
 }
 };
