@@ -98,6 +98,10 @@ StartFrame =
 void ()
 EndFrame =
 {
+
+bprint ("Total Players: ");
+bprint (ftos(PLAYERS));
+bprint ("\n");
           
           // Cobalt  - load balance experiment
 local float bal;
