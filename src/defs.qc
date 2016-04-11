@@ -1703,6 +1703,8 @@ float CD_END; // CD Music end track for map
 float CD_XTRACK; // Current track playing with player(s) on server
 float CD_RNTRACK; // Random nonstop cd track value
 string CD_MSG; // Message string broadcast to players regarding cd track
+
+float PLAYERS, MAX_CLIENTS; // Cobalt  - track max players and active clients
 .void()	th_runeuse; // Cobalt experiment for more flexable Rune code
 // development
 float	gamemode_set;

@@ -374,13 +374,13 @@ nn = rint (random () * 10) + 1; // Pick another if same one we just played
           if (nn == 3 && CD_XTRACK != -1)
           {
           stuffcmd (other, "cd pause\n");
-          sprint (other, " CD PAUSE\n");
+          //sprint (other, " CD PAUSE\n");
            nn = -1;
           }
           else if (CD_XTRACK == -1)
           {
           stuffcmd (other, "cd resume\n");
-          sprint (other, " CD RESUME\n");          
+          //sprint (other, " CD RESUME\n");          
           }
 
           other = find (other, classname, "player");

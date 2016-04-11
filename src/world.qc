@@ -48,6 +48,13 @@ worldspawn =
 	place_my_items ();
 	IN_POQ(InitSearchHunk();)
       
+      other = nextent(world);
+	while (other != world)
+	{
+           MAX_CLIENTS = MAX_CLIENTS + 1;
+
+           other = nextent (other);
+	}
           
 };
 
@@ -63,7 +70,7 @@ StartFrame =
 	IN_QW(update_deathmatch ();)
           
           CD_RNTRACK = rint (random () * 10) + 1; // Random cd track
-          
+           local float sl;
           if (!intermission_running)
           if (time > CD_END && CD_START != -2)
           {
@@ -71,26 +78,18 @@ StartFrame =
           CD_RNTRACK = 3; // Force silence if near end of level
           CDTrack ();
           CD_START = time;
-          
+         
           other = find (world, classname, "player");
 	while (other != world)
 	{
-           if (!(other.aqflags & AQ_QUIET))
-           { 
-          msg_entity = other;
-	WriteByte (MSG_ONE, 8);
-          WriteByte(MSG_ONE, 2);
-          WriteString(MSG_ONE, CD_MSG);
-           }
+           sl = sl + 1;
+           
           other = find (other, classname, "player");
 	}
-          
-          
-          
-         
+
           }
           
-
+        PLAYERS = sl;
           
         
           
