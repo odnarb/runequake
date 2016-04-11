@@ -1607,7 +1607,7 @@ BackpackTouch =
           cr = strcat (cr, "'s old backpack:\n^3");
 	}
           else
-          cr = "Your found old backpack:\n^3";
+          cr = "Your found your old backpack:\n^3";
           
           sprint (other, cr);
            
