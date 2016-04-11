@@ -95,6 +95,24 @@ StartFrame =
           
 };
 
+void ()
+EndFrame =
+{
+          
+          // Cobalt  - load balance experiment
+local float bal;
+if (PLAYERS > 1)
+bal = (PLAYERS * 0.00075);
+
+if (cvar ("sys_ticrate") < (sys_ticrate + bal))
+{
+sys_ticrate = sys_ticrate + bal;          
+cvar_set ("sys_ticrate", (sys_ticrate + bal);
+bprint ("Server Framerate set to ");
+bprint (fabs(ftos(1/ sys_ticrate)))
+bprint ("\n");
+}
+};
 /*
 ==============================================================================
 
