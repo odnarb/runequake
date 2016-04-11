@@ -79,12 +79,12 @@ StartFrame =
           CDTrack ();
           CD_START = time;
          
-          other = find (world, classname, "player");
-	while (other != world)
+          msg_entity = find (world, classname, "player");
+	while (msg_entity != world)
 	{
-            if (!(other.aqflags & AQ_QUIET))
+            if (!(msg_entity.aqflags & AQ_QUIET))
            { 
-          msg_entity = other;
+ 
 	WriteByte (MSG_ONE, 8);
           WriteByte(MSG_ONE, 2);
           WriteString(MSG_ONE, CD_MSG);
@@ -92,11 +92,13 @@ StartFrame =
                     
                     
          
-           PLAYERS = 0;
-          other = find (other, classname, "player");
+           
+          msg_entity = find (msg_entity, classname, "player");
 	}
 
           }
+          
+          PLAYERS = 0;
           
           other = find (world, classname, "player");
 	while (other != world)
@@ -114,6 +116,8 @@ StartFrame =
         bprint ("\n");
           
           // Cobalt  - load balance experiment
+if (time > 10)
+{
 local float bal;
 if (PLAYERS > 1)
 bal = (PLAYERS * 0.00075);
@@ -127,7 +131,7 @@ bal = 1 / sys_ticrate;
 bprint (ftos(fabs(bal)));
 bprint ("\n");
 }
-        
+}        
         
         
         
