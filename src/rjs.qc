@@ -1914,7 +1914,7 @@ player_init =
 		msg_entity = self;
 		proto_intermission (MSG_ONE);
 	}
-          
+          PLAYERS = PLAYERS + 1;
           LoadBalance ();
           
 };

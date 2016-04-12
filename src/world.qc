@@ -98,23 +98,6 @@ StartFrame =
 
           }
           
-          PLAYERS = 0;
-          
-          other = find (world, classname, "player");
-	while (other != world)
-	{
-            PLAYERS = PLAYERS + 1;
-                    
-                    
-         
-           
-          other = find (other, classname, "player");
-	}
-        
-       
-          
-  
-        
           
         
           
