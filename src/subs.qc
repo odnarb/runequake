@@ -568,22 +568,22 @@ local float bal, tr;
 tr = cvar ("sys_ticrate");
 bal = (PLAYERS * 0.00075);
 
-if (tr != (tr + bal))
+if (tr != (tr - bal))
 {
-          bal = tr + bal;
+          bal = tr - bal;
           localcmd ("sys_ticrate ");
           localcmd ((ftos(bal)));
           localcmd ("\n");
           bprint ("Server Framerate set to ");
           bal = 1 / bal;
-          bprint (ftos(ceil(bal)));
+          bprint (ftos(fabs(bal)));
           bprint (" FPS\n");
 }
 }
-else if (cvar ("sys_ticrate") != 0.025)
+else if (cvar ("sys_ticrate") != 0.0375)
 {
 localcmd ("sys_ticrate ");
-         localcmd ((ftos(0.025)));
+         localcmd ((ftos(0.0375)));
          localcmd ("\n");        
 }  
      
