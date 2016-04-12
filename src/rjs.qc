@@ -1614,6 +1614,14 @@ common_impulses =
 		sprint (self, s);
 		sprint (self, "\n");
 	}
+          else if (self.impulse == IMP_SERVER_FPS)
+	{
+		local string fps;
+                    fps = "Server framerate is : ";
+		fps = strcat (fps, (ftos (frametime)));
+		sprint (self, fps);
+		sprint (self, "\n");
+	}
 
 	else if (self.impulse == QSMACK_IMPULSE_1)
 	{

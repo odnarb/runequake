@@ -267,6 +267,7 @@ player_aliases =
 	player_init_impulse_alias ("cycle-alternates",		IMP_CYCLE_ALTERNATES);
 	player_init_impulse_alias ("eff",			IMP_EFFICIENCY);
 	player_init_impulse_alias ("efficiency",		IMP_EFFICIENCY);
+          player_init_impulse_alias ("framerate",		          IMP_SERVER_FPS);
 	player_init_impulse_alias ("fix-angles",		IMP_FIX_BATMAN);
 	player_init_impulse_alias ("help-levels",		IMP_HELP_LEVELS);
 	player_init_impulse_alias ("help-match",		IMP_HELP_MATCH);
