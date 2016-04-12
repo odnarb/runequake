@@ -225,13 +225,17 @@ Holo_Think =
 		remove (self);
 		return;
 	}
+          
           if (self.owner.button2 && self.owner.velocity_z > 0 && (self.flags & FL_ONGROUND)) // Cobalt - make the holo jump if its owner jumps
           Athlete_Jump ();
 
           
           self.angles = self.owner.angles;
 	self.angles_y = self.angles_y + self.runevar;
+          if (self.owner.modelindex == modelindex_player) // Cobalt - fix for holo showing borked frame if owner picks up a cloaking rune or  a ring
 	self.frame = self.owner.frame;
+          else
+          player_stand ();                   
 	self.nextthink = time;
 };
 
