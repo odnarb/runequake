@@ -566,7 +566,7 @@ if (PLAYERS > 1 && time > 10)
 {
           local float bal, tr;
           tr = cvar ("sys_ticrate");
-          bal = 0.00075;
+          bal = 0.00175;
 
           if (rt == 1)
           bal = tr - bal;
