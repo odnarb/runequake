@@ -564,11 +564,11 @@ LoadBalance =
           // Cobalt  - load balance experiment
 if (PLAYERS > 1 && time > 10)
 {
-local float bal;
-
+local float bal, tr;
+tr = cvar ("sys_ticrate");
 bal = (PLAYERS * 0.00075);
 
-if (cvar ("sys_ticrate") != (cvar ("sys_ticrate") + bal))
+if (tr != (tr + bal))
 {
           bal = frametime + bal;          
 
