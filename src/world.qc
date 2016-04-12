@@ -124,7 +124,10 @@ bal = (PLAYERS * 0.00075);
 if (cvar ("sys_ticrate") < (sys_ticrate + bal))
 {
 sys_ticrate = sys_ticrate + bal;          
-cvar_set ("sys_ticrate", ftos(sys_ticrate + bal));
+
+  localcmd ("sys_ticrate ");
+         localcmd ((ftos(sys_ticrate)));
+         localcmd ("\n");
 bprint ("Server Framerate set to ");
 bal = 1 / sys_ticrate;
 bprint (ftos(fabs(bal)));
