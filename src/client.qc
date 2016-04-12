@@ -2392,7 +2392,7 @@ ClientDisconnect =
 	setmodel (self, string_null);
 	Log_Client_Disconnect ();
           PLAYERS = PLAYERS - 1;
-          LoadBalance ();
+          LoadBalance (2);
 };
 
 /*

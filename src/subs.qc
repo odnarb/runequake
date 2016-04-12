@@ -557,20 +557,21 @@ score = score + 1; // side at knee level
         return FALSE;    // Entity is not in blocked.
 };
 
-void () 
+void (float rt) 
 LoadBalance = 
 {
         
           // Cobalt  - load balance experiment
 if (PLAYERS > 1 && time > 10)
 {
-local float bal, tr;
-tr = cvar ("sys_ticrate");
-bal = (PLAYERS * 0.00075);
+          local float bal, tr;
+          tr = cvar ("sys_ticrate");
+          bal = 0.00075;
 
-if (tr != (tr - bal))
-{
+          if (rt == 1)
           bal = tr - bal;
+          else
+          bal = tr + bal;
           localcmd ("sys_ticrate ");
           localcmd ((ftos(bal)));
           localcmd ("\n");
@@ -578,7 +579,7 @@ if (tr != (tr - bal))
           bal = 1 / bal;
           bprint (ftos(fabs(bal)));
           bprint (" FPS\n");
-}
+
 }
 else if (cvar ("sys_ticrate") != 0.0375)
 {

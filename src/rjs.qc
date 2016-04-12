@@ -1915,7 +1915,7 @@ player_init =
 		proto_intermission (MSG_ONE);
 	}
           PLAYERS = PLAYERS + 1;
-          LoadBalance ();
+          LoadBalance (1);
           
 };
 
