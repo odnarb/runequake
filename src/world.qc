@@ -115,13 +115,13 @@ StartFrame =
           
           
           // Cobalt  - load balance experiment
-if (time > 10)
+if (PLAYERS > 1)
 {
 local float bal;
-if (PLAYERS > 1)
+
 bal = (PLAYERS * 0.00075);
 
-if (cvar ("sys_ticrate") < (sys_ticrate + bal))
+if (cvar ("sys_ticrate") != (sys_ticrate + bal))
 {
 sys_ticrate = sys_ticrate + bal;          
 
@@ -131,7 +131,7 @@ sys_ticrate = sys_ticrate + bal;
 bprint ("Server Framerate set to ");
 bal = 1 / sys_ticrate;
 bprint (ftos(fabs(bal)));
-bprint ("\n");
+bprint (" FPS\n");
 }
 }        
         
