@@ -1914,6 +1914,9 @@ player_init =
 		msg_entity = self;
 		proto_intermission (MSG_ONE);
 	}
+          
+          LoadBalance ();
+          
 };
 
 void ()
