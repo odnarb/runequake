@@ -213,6 +213,7 @@ Rune_DSpots =
 	centerprint (self, "Death spot created\nRUN!");
 };
 
+
 void ()
 Holo_Think =
 {
@@ -232,10 +233,10 @@ Holo_Think =
           
           self.angles = self.owner.angles;
 	self.angles_y = self.angles_y + self.runevar;
-          if (self.owner.modelindex == modelindex_player) // Cobalt - fix for holo showing borked frame if owner picks up a cloaking rune or  a ring
+          self.modelindex = self.owner.modelindex; // Cobalt - fix for holo showing borked frame if owner picks up a cloaking rune or  a ring
 	self.frame = self.owner.frame;
           else
-          player_stand ();                   
+          holo_stand ();                   
 	self.nextthink = time;
 };
 
