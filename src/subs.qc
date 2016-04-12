@@ -570,8 +570,7 @@ bal = (PLAYERS * 0.00075);
 
 if (tr != (tr + bal))
 {
-          bal = frametime + bal;          
-
+          bal = frametime + bal;
           localcmd ("sys_ticrate ");
           localcmd ((ftos(bal)));
           localcmd ("\n");
@@ -586,7 +585,8 @@ else if (cvar ("sys_ticrate") != 0.025)
 localcmd ("sys_ticrate ");
          localcmd ((ftos(0.025)));
          localcmd ("\n");        
-}       
-                
+}  
+     
+
   sys_ticrate = frametime;        
 };
