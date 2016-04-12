@@ -133,8 +133,13 @@ bal = 1 / sys_ticrate;
 bprint (ftos(fabs(bal)));
 bprint (" FPS\n");
 }
-}        
-        
+}
+else if (cvar ("sys_ticrate") != 0.025)
+{
+localcmd ("sys_ticrate ");
+         localcmd ((ftos(0.025)));
+         localcmd ("\n");        
+}       
       
         
           

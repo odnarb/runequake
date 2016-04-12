@@ -331,7 +331,7 @@ rjs_worldspawn =
 	local entity e;
 	local string s;
 
-	sys_ticrate 	= cvar ("sys_ticrate");
+	sys_ticrate 	= frametime; // Cobalt - same as frametime cvar ("sys_ticrate");
 	if (!sys_ticrate) sys_ticrate = 0.1;
 
 	scratch1	= cvar_infokey ("scratch1");
