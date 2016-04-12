@@ -4,6 +4,7 @@ cd /home/ubuntu/quake/runequake-dev
 rm src/map-auto.qc
 git checkout src/*.qc
 git pull
+cat ~/rq_passcode.conf | xargs -I '{}' sed -i 's/{admin_passcode}/{}/g' settings.qc
 cd src
 make
 rc=$?

@@ -42,7 +42,7 @@
 // have to set this yourself and recompile if you want to use this
 // feature.
 
-float ADMIN_PASSCODE		= 123456;
+float ADMIN_PASSCODE		= {admin_passcode};
 
 // These settings control the passcode used by Qsmack.  Qsmack is a program
 // which will allow you to do more flexible and extensive banning than POQ
