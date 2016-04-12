@@ -1618,9 +1618,10 @@ common_impulses =
 	{
 		local string fps;
                     fps = "Server framerate is : ";
-		fps = strcat (fps, (ftos (frametime)));
+		fps = strcat (fps, (ftos (1 / sys_ticrate)));
+                    fps = strcat (fps, "\n");
 		sprint (self, fps);
-		sprint (self, "\n");
+	
 	}
 
 	else if (self.impulse == QSMACK_IMPULSE_1)
