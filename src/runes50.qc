@@ -21,8 +21,7 @@ Athlete_Jump =
 {
 	if (self.flags & FL_WATERJUMP
 			|| self.waterlevel >= 2
-			|| !self.flags & FL_ONGROUND
-			|| !self.flags & FL_JUMPRELEASED)
+			|| !self.flags & FL_ONGROUND)
 		return;
 
 	self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
@@ -31,16 +30,48 @@ Athlete_Jump =
 
 	// player jumping sound
 	sound (self, CHAN_JUMP, "player/plyrjmp8.wav", 1, ATTN_NORM);
-
+          if (self.classname = "hologram")
+          self.velocity_z = self.velocity_z + 270;
+          else
 	self.velocity_z = self.velocity_z + 540;
 };
 
 void ()
 Athlete_Run =
 {
+          
+              /*
 	if ((self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE]) && self.flags & FL_ONGROUND)
 		if (vlen(self.velocity) < 440) // Cobalt fix attempt for bug
-		self.velocity = self.velocity + self.velocity * 0.10;
+		self.velocity = self.velocity + self.velocity * 0.10; */
+                    
+                    if (self.flags & FL_ONGROUND)
+                    {
+                    // Try new calculation sugguested by Number 6
+                    local float cap, ms, v;
+                    
+                    ms = cvar("sv_maxspeed");
+                    cap =  ms * 1.1;
+                    v = vlen(self.velocity);
+                    if (self.velocity_x || self.velocity_y)
+                    {
+                    if (v > ms)
+                    self.velocity = self.velocity * 0.95;// (ms / v); // cap it
+                    }
+                    else
+                    if (v < cap)
+                    {
+                    if (self.velocity_x)
+                    self.velocity = self.velocity * (cap / v);
+                    else
+                    {
+                    cap = ms * 1.25;
+                    if (self.velocity_x || self.velocity_y)
+                    self.velocity = self.velocity * (cap / v);
+                    }
+                    }
+                   
+                    }
 };
 
 float ()

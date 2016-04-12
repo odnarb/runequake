@@ -1902,8 +1902,8 @@ player_init =
 		bprint (self.netname);
 		bprint (" connected to the server\n");
 
-		//sprint_admin (PQ_Version ());
-		//bprint ("\n");
+		bprint (PQ_Version ());
+		bprint ("\n");
 
 		sound (self, CHAN_BODY, "shalrath/sight.wav", 1, ATTN_NONE);
 	}

@@ -19,27 +19,29 @@
 void ()
 Rune_Think =
 {
-	if	(self.runetype == RN_REGEN)		Rune_Regen ();
-	else if (self.runetype == RN_FIREWALK)		Rune_Firewalk ();
-	else if (self.runetype == RN_ZAP)		Rune_Zap ();
-	else if (self.runetype == RN_BOMB)		Rune_Bomb ();
-	else if (self.runetype == RN_CLOAK)		Rune_Cloak ();
-	else if (self.runetype == RN_CAMO)		Rune_Camo ();
-	else if (self.runetype == RN_JUMP)		Rune_Jump ();
-	else if (self.runetype == RN_AMMO)		Rune_Ammo ();
-	else if (self.runetype == RN_SHIELD)		Shield_On ();
-	else if (self.runetype == RN_REPEL)		Rune_Repel ();
-	else if (self.runetype == RN_FLY)		Rune_Fly ();
-	else if (self.runetype == RN_WEIRD)		Rune_Weird ();
+	if (self.runetype == RN_REGEN)		self.th_runeuse = Rune_Regen;
+	else if (self.runetype == RN_FIREWALK)		self.th_runeuse = Rune_Firewalk;
+	else if (self.runetype == RN_ZAP)		self.th_runeuse = Rune_Zap;
+	else if (self.runetype == RN_BOMB)		self.th_runeuse = Rune_Bomb;
+	else if (self.runetype == RN_CLOAK)		self.th_runeuse = Rune_Cloak;
+	else if (self.runetype == RN_CAMO)		self.th_runeuse = Rune_Camo;
+	else if (self.runetype == RN_JUMP)		self.th_runeuse = Rune_Jump;
+	else if (self.runetype == RN_AMMO)		self.th_runeuse = Rune_Ammo;
+	else if (self.runetype == RN_SHIELD)		self.th_runeuse = Shield_On;
+	else if (self.runetype == RN_REPEL)		self.th_runeuse = Rune_Repel;
+	else if (self.runetype == RN_FLY)		self.th_runeuse = Rune_Fly;
+	else if (self.runetype == RN_WEIRD)		self.th_runeuse = Rune_Weird;
 	IN_QW([-
-	else if (self.runetype == RN_IMPACT)		Rune_Impact ();
+	else if (self.runetype == RN_IMPACT)		self.th_runeuse = Rune_Impact;
 	-])
-	else if (self.runetype == RN_BERSERK)		Berserk_Bleed ();
-	else if (self.runetype == RN_ATHLETE)		Athlete_Run ();
-	else if (self.runetype == RN_QUAD)		quad_think ();
-	else if (self.runetype == RN_JACK)		jack_think ();
-	else if (self.runetype == RN_BLIZZARD)		Blizzard_Think ();
-	else if (self.runetype == RN_THOR)		Rune_Thor ();
+	else if (self.runetype == RN_BERSERK)		self.th_runeuse = Berserk_Bleed;
+          else if (self.runetype == RN_ATHLETE)		Athlete_Run ();
+	else if (self.runetype == RN_QUAD)		self.th_runeuse = quad_think;
+	else if (self.runetype == RN_JACK)		self.th_runeuse = jack_think;
+	else if (self.runetype == RN_BLIZZARD)		self.th_runeuse =Blizzard_Think;
+	else if (self.runetype == RN_THOR)		self.th_runeuse = Rune_Thor;
+          
+         
 };
 
 void ()
@@ -80,7 +82,7 @@ Rune_Button =
 	else if (self.runetype == RN_DUAL)		Rune_Dual ();
 	else if (self.runetype == RN_WEIRD)		Weird_Throw ();
 	else if (self.runetype == RN_HOOK)		HookToggle ();
-	else if (self.runetype == RN_ATHLETE)		Athlete_Jump ();
+	else if (self.runetype == RN_ATHLETE)		Athlete_Run ();
 	else if (self.runetype == RN_ZOMBIE)		Rune_Zombie ();
 	else if (self.runetype == RN_TORCH)		Rune_Torch ();
 	else if (self.runetype == RN_QUAD)		quad_activate ();
@@ -1153,7 +1155,9 @@ Rune_Move =
 	self.owner = world;
 	self.enemy = world;
 	self.runevar = 0;
-
+          self.pausetime = 0; // Cobalt - reset its sound level and restore movetype jic
+          if (!checkbottom (self))
+          self.movetype = MOVETYPE_BOUNCE;
 	temp = SelectRuneSpawnPoint ();
 	setorigin (self, temp.origin);
 
@@ -1182,34 +1186,72 @@ Rune_Touch =
 	if (Rune_Must_Move ())
 	{
 		self.nextthink = time;
+                    
 		return;
 	}
 
 	 if (other.solid == world.solid) // Cobalt, make the sound on doors, plats and exploboxes as well
           {
-          local float att; 
-          att = ATTN_NORM;
+          local float att;
+          local float pc;
+          local float dec; 
+          local vector lq;
+          att = 1;
+          lq = ((self.absmin + self.absmax) * 0.5);
+          lq_z = self.absmin_z - 4;
+          pc = pointcontents (lq); 
           
-          
-          if (pointcontents (self.absmin) < -2) //  in some liquid
+          if (pc < CONTENT_SOLID && pc > CONTENT_SKY) //  in some liquid
           {
-                    self.effects = EF_BRIGHTFIELD;
-                    if (framecount & 1)
+        //  self.flags = self.flags - self.flags & FL_ONGROUND;
+         //setsize (self, self.mins, self.maxs);          
+         
+          if (random () < 0.5)
           self.movetype = MOVETYPE_FLY;
           else
-          self.movetype = MOVETYPE_FLYMISSILE;
-          self.walkframe = 0 - (self.watertype + 1);
-          self.velocity_x = self.velocity_x / self.walkframe; // Slow us down based on what kind of liquid
-          self.velocity_y = self.velocity_y / self.walkframe; 
-          self.velocity_z = self.velocity_z / self.walkframe; 
-          att = self.waterlevel + 0.5; // lower attenuation
+         self.movetype = MOVETYPE_FLYMISSILE;
+          // self.gravity = 50;
+          if (pc == CONTENT_WATER)
+          dec = 0.333;
+          if (pc == CONTENT_SLIME) 
+          dec = 0.666;
+          if (pc = CONTENT_LAVA) 
+          dec = 0.85;
+          
+          if (dec > 0)
+          self.velocity = self.velocity - (self.velocity * dec); // Slow us down based on what kind of liquid
           }
-          else if (vlen (self.velocity) < 33 && self.movetype != MOVETYPE_FLY) // change movetype might be better fix
-          self.movetype = MOVETYPE_TOSS; 
-          if (self.attack_finished < time) // Cobalt - improve occurence of sound with a timer
-          {                    
-          sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1.0, att);
-          self.attack_finished = time + 0.125;
+          
+          if (vlen (self.velocity) < 33)
+          if (self.movetype == MOVETYPE_BOUNCE) // change movetype might be better fix
+          self.movetype = MOVETYPE_TOSS;
+          // Cobalt - improve occurence of sound with a timer
+          if (self.attack_finished < time)
+          {
+                    if (dec > 0)
+                    {
+                    pc = pointcontents (lq);
+                    if (pc < CONTENT_SOLID) // lower attenuation
+                    att = 1.5; 
+                    pc = pointcontents (self.origin);
+                    if (pc < CONTENT_SOLID) // lower attenuation
+                    att = 2;
+                    lq_z = self.absmin_z;
+                    pc = pointcontents (lq);
+                    if (pc < CONTENT_SOLID) // lower attenuation
+                    att = 3;
+                    
+                    }
+                    local float amp;
+		self.pausetime = self.pausetime + 1; // lower sound amplitude a bit each impact to gradually eliminate buzzing
+		if (self.pausetime > 1)
+	          amp = (1 - (self.pausetime * 0.05));
+		else
+	          amp = 1;
+                    if (amp > 0)
+                    sound (self, CHAN_WEAPON, "weapons/tink1.wav", amp, att);
+                    //self.effects = self.effects | 2; // For debug
+                    self.attack_finished = time + 0.125;
           }
           }
 

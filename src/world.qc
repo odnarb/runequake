@@ -39,13 +39,23 @@ World Types:
 void ()
 worldspawn =
 {
-	InternalInit ();
+
+          InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
 	precaches ();
 	Light_Setup ();
 	place_my_items ();
 	IN_POQ(InitSearchHunk();)
+      
+      other = nextent(world);
+	while (other != world)
+	{
+           MAX_CLIENTS = MAX_CLIENTS + 1;
+
+           other = nextent (other);
+	}
+          
 };
 
 void ()
@@ -58,7 +68,78 @@ StartFrame =
 	spawn_runes ();
 	update_client_pings ();
 	IN_QW(update_deathmatch ();)
+          
+          CD_RNTRACK = rint (random () * 10) + 1; // Random cd track
+           
+          if (!intermission_running)
+          if (time > CD_END && CD_START != -2)
+          {
+          if (time >= (((cvar ("timelimit") * 60) - 30)))
+          CD_RNTRACK = 3; // Force silence if near end of level
+          CDTrack ();
+          CD_START = time;
+         
+          msg_entity = find (world, classname, "player");
+	while (msg_entity != world)
+	{
+            if (!(msg_entity.aqflags & AQ_QUIET))
+           { 
+ 
+	WriteByte (MSG_ONE, 8);
+          WriteByte(MSG_ONE, 2);
+          WriteString(MSG_ONE, CD_MSG);
+           }         
+                    
+                    
+         
+           
+          msg_entity = find (msg_entity, classname, "player");
+	}
+
+          }
+          
+          PLAYERS = 0;
+          
+          other = find (world, classname, "player");
+	while (other != world)
+	{
+            PLAYERS = PLAYERS + 1;
+                    
+                    
+         
+           
+          other = find (other, classname, "player");
+	}
+        
+       
+          
+          
+          // Cobalt  - load balance experiment
+if (time > 10)
+{
+local float bal;
+if (PLAYERS > 1)
+bal = (PLAYERS * 0.00075);
+
+if (cvar ("sys_ticrate") < (sys_ticrate + bal))
+{
+sys_ticrate = sys_ticrate + bal;          
+cvar_set ("sys_ticrate", ftos(sys_ticrate + bal));
+bprint ("Server Framerate set to ");
+bal = 1 / sys_ticrate;
+bprint (ftos(fabs(bal)));
+bprint ("\n");
+}
+}        
+        
+      
+        
+          
+        
+          
 };
+
+
 
 /*
 ==============================================================================

@@ -50,6 +50,8 @@ walkmove (angle, speed) primitive is all or nothing
 entity	sight_entity;
 float	sight_entity_time;
 
+// Cobalt Use Mathlibs func for now
+/* 
 float (float v)
 anglemod =
 {
@@ -58,7 +60,7 @@ anglemod =
 
 	return v;
 };
-
+*/
 /*
 ==============================================================================
 

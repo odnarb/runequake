@@ -166,9 +166,7 @@ HookPull =
 	self.owner.velocity = vel;
           
           if (self.enemy.flags & FL_CLIENT)
-          {
-          self.nextthink = time + (frametime * (0.0125 / 0.0138889));
-          }                    
+          self.nextthink = time + (frametime * 2); // Cobalt tweak the dmg factor for test                 
           else
 	self.nextthink = time + sys_ticrate;
 };

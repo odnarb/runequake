@@ -17,6 +17,7 @@ combat.qc
 items.qc
 weapons.qc
 precache.qc
+mathlib.qc
 world.qc
 client.qc
 player.qc

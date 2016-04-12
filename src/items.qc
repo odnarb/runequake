@@ -1600,13 +1600,22 @@ BackpackTouch =
 		return;
 
 	acount = 0;
-	sprint (other, "You get ");
-
+          local string cr;
+          if (self.message != other.netname)
+          {
+          cr = strcat ("You got ", self.message);
+          cr = strcat (cr, "'s old backpack:\n^3");
+	}
+          else
+          cr = "Your found your old backpack:\n^3";
+          
+          sprint (other, cr);
+           
 	if (self.items)
 		if ((other.items & self.items) == 0)
 		{
 			acount = 1;
-			sprint (other, "the ");
+			sprint (other, "A ");
 			sprint (other, self.netname);
 		}
 
@@ -1663,7 +1672,7 @@ BackpackTouch =
 		sprint (other, " cells");
 	}
 
-	sprint (other, "\n");
+	sprint (other, "^7\n");
 
 	// backpack touch sound
 	item_sound (other, CHAN_ITEM, "weapons/lock4.wav", 1, ATTN_NORM);
@@ -1710,7 +1719,7 @@ DropBackpack =
 	item.classname	= "backpack";
 	item.origin	= self.origin - '0 0 24';
 	item.owner	= self;
-
+          item.message = self.netname; // Cobalt - keep the backpack owners name around a while
 	item.items = self.weapon & WEAPON_NONALT_MASK;
 	if (item.items == IT_AXE)
 		item.netname = "Axe";

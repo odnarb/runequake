@@ -1455,7 +1455,11 @@ PlayerJump =
 		self.flags = self.flags - self.flags & FL_JUMPRELEASED;
 		return;
 	}
-
+           if (self.runetype == RN_ATHLETE && (vlen(self.velocity) > cvar("sv_maxspeed")))
+           {
+                     Athlete_Jump ();
+                     return;
+           }
 	if (self.flags & FL_WATERJUMP)
 		return;
 
@@ -1505,6 +1509,7 @@ PlayerJump =
 		sound (self, CHAN_JUMP, "player/plyrjmp8.wav", 1, ATTN_NORM);
 
 	IN_POQ([-
+                  
 		self.velocity_z = self.velocity_z + 270;
 	-])
 };
@@ -1531,15 +1536,24 @@ WaterMove =
 	if (self.waterlevel)
 	{
 		// Player enters liquid.
+                    local string wt;
 		if (!self.flags & FL_INWATER)
 		{
 			if (self.watertype == CONTENT_WATER)
+                              {
+                                        wt = "waterzap";
 				sound (self, CHAN_BODY, "player/inh2o.wav", 1, ATTN_NORM);
-			else if (self.watertype == CONTENT_SLIME)
+			}
+                              else if (self.watertype == CONTENT_SLIME)
+                              {
+                                        wt = "slimezap";
 				sound (self, CHAN_BODY, "player/slimbrn2.wav", 1, ATTN_NORM);
-			else if (self.watertype == CONTENT_LAVA)
+			}
+                              else if (self.watertype == CONTENT_LAVA)
+                              {
+                                        wt = "lavazap";
 				sound (self, CHAN_BODY, "player/inlava.wav", 1, ATTN_NORM);
-
+                              }
 			self.flags = self.flags + FL_INWATER;
 			self.dmgtime = 0;
 		}
@@ -1552,7 +1566,7 @@ WaterMove =
 		{
 			sound (self, CHAN_AUTO, "weapons/lstart.wav", 1, ATTN_NORM);
 			discharge_hack = 1;
-			T_RadiusDamage (RADIUS_NORMAL, self, self, 20 * self.ammo_cells, world, "waterzap");
+			T_RadiusDamage (RADIUS_NORMAL, self, self, 20 * self.ammo_cells, world, wt);
 			discharge_hack = 0;
 			self.ammo_cells = 0;
 			set_current_ammo ();
@@ -1946,6 +1960,9 @@ PlayerPreThink =
 
 	if (self.runetype > 0)
 		Rune_Think ();
+          else self.th_runeuse = world.th_runeuse;
+           if (self.th_runeuse)
+             self.th_runeuse ();
 
 	if (time > self.attack_finished && self.currentammo == 0)
 	{
@@ -1984,8 +2001,6 @@ CheckPowerups =
 				if (!deathmatch & DM_DM_MASK)
 					sprint (self, "Ring of Shadows magic is fading\n");
 				stuffcmd (self, "bf\n");
-                                        self.modelindex = modelindex_player;
-                                        self.effects = self.effects | EF_FROZEN;
 				sound (self, CHAN_AUTO, "items/inv2.wav", 1, ATTN_NORM);
 				self.invisible_time = time + 1;
 			}
@@ -2000,18 +2015,16 @@ CheckPowerups =
 		if (self.invisible_finished < time)
 		{	// just stopped
 			self.items = self.items - IT_INVISIBILITY;
-                              if (self.effects & EF_FROZEN)
-			self.effects = self.effects - EF_FROZEN;
 			self.invisible_finished = 0;
 			self.invisible_time = 0;
 		}
 
 	// use the eyes
-          if (!(self.effects & EF_FROZEN))
-          {
+         
+         
 		self.frame = 0;
 		self.modelindex = modelindex_eyes;
-          }
+          
 	}
 
 	//RUNE SERV: Cloaky rune thing.
@@ -2212,6 +2225,15 @@ PlayerPostThink =
 
 	if (!self.aqflags & AQ_NO_HUD)
 		draw_hud (0);
+          
+          	if (self.velocity_x || self.velocity_y)
+              {
+              			
+	       if (self.flags & FL_JUMPRELEASED && !self.waterlevel && self.runetype == RN_HASTE)
+		if (time > self.attack_finished && checkbottom (self)) // && !Blocked (self))
+              self.nextthink = self.nextthink - (frametime * 1.15);	
+	       }
+          
 };
 
 void ()
@@ -2520,6 +2542,10 @@ ClientObituary =
 			}
 			else if (dt == "waterzap")
 				bprint (" jumped into the water, while ELECTRIFIED!\n");
+                              else if (dt == "slimezap")
+				bprint (" jumped into the slime, while ELECTRIFIED!\n");
+                              else if (dt == "lavazap")
+				bprint (" jumped into the lava, while ELECTRIFIED!\n");
 			else if (dt == "dspotexplode")
 				bprint (" was there when his own death spot exploded\n");
 			else if (dt == "dspot")
