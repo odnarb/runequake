@@ -576,7 +576,7 @@ if (tr != (tr + bal))
           localcmd ("\n");
           bprint ("Server Framerate set to ");
           bal = 1 / bal;
-          bprint (ceil(fabs(bal)));
+          bprint (ftos(ceil(bal)));
           bprint (" FPS\n");
 }
 }
