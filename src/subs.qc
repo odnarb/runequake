@@ -570,15 +570,15 @@ bal = (PLAYERS * 0.00075);
 
 if (cvar ("sys_ticrate") != (cvar ("sys_ticrate") + bal))
 {
-sys_tic = sys_ticrate + bal;          
+          bal = frametime + bal;          
 
-  localcmd ("sys_ticrate ");
-         localcmd ((ftos(sys_ticrate)));
-         localcmd ("\n");
-bprint ("Server Framerate set to ");
-bal = 1 / sys_ticrate;
-bprint (ceil(fabs(bal)));
-bprint (" FPS\n");
+          localcmd ("sys_ticrate ");
+          localcmd ((ftos(bal)));
+          localcmd ("\n");
+          bprint ("Server Framerate set to ");
+          bal = 1 / bal;
+          bprint (ceil(fabs(bal)));
+          bprint (" FPS\n");
 }
 }
 else if (cvar ("sys_ticrate") != 0.025)
