@@ -1617,7 +1617,7 @@ common_impulses =
           else if (self.impulse == IMP_SERVER_FPS)
 	{
 		local string fps;
-                    sprint (self "Server framerate is : ");
+                    sprint (self, "Server framerate is: ");
 		fps = (ftos (1 / sys_ticrate));
 		sprint (self, fps);
 	          sprint (self, " FPS\n");
