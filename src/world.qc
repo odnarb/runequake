@@ -115,6 +115,7 @@ StartFrame =
         bprint (ftos(PLAYERS));
         bprint ("\n");
           
+          /*
           // Cobalt  - load balance experiment
 if (time > 10)
 {
@@ -133,7 +134,7 @@ bprint ("\n");
 }
 }        
         
-        
+        */
         
           
         
