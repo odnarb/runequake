@@ -111,11 +111,9 @@ StartFrame =
           other = find (other, classname, "player");
 	}
         
-        bprint ("Total Players: ");
-        bprint (ftos(PLAYERS));
-        bprint ("\n");
+       
           
-          /*
+          
           // Cobalt  - load balance experiment
 if (time > 10)
 {
@@ -134,7 +132,7 @@ bprint ("\n");
 }
 }        
         
-        */
+      
         
           
         
