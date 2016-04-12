@@ -13,3 +13,4 @@ autoexec.cfg
 *.bak
 *.log
 src/*.log
+node_modules/
