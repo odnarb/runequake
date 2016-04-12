@@ -5,7 +5,7 @@ rm src/map-auto.qc
 git checkout src/*.qc
 git pull
 cd src
-cat ~/rq_passcode.conf | xargs -I '{}' sed -i 's/{admin_passcode}/{}/g' settings.qc
+cat /home/ubuntu/rq_passcode.conf | xargs -I '{}' sed -i 's/{admin_passcode}/{}/g' settings.qc
 make
 rc=$?
 if [ $rc -ne 0 ]; then
