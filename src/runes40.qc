@@ -293,18 +293,21 @@ ShamblerSizeOk =
 
 
           testfield = spawn ();
-          setorigin (testfield, this.origin + '0 0 9'); // Cobalt offset for stairs or small lip
-
+          testfield.classname = "testfield";
+          setorigin (testfield, this.origin + this.view_ofs); // Cobalt offset f
+          trace_ent = testfield;
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
           traceline (testfield.absmin, testfield.absmax, 0, this);
-          if (trace_fraction == 1 && trace_ent == world)
+          if (trace_fraction == 1 && trace_ent == testfield)
           {
                traceline (corner3, corner4, 0, this);     
-               if (trace_fraction == 1 && trace_ent == world)
+               if (trace_fraction == 1 && trace_ent == testfield)
                return 1;
           }
                     
-
+           centerprint (this, "Not enough room for your Shambler");
+           sprint (this, trace_ent.classname);
+           sprint (this, "\n");
           return 0;          
 };
 
@@ -348,7 +351,7 @@ Rune_ShamblerReloc =
           }
           else
           {
-          centerprint (self.owner, "Not enough room for your Shambler");
+         
                     self_sound (self.owner,"shambler/sidle.wav");   
                self = old_self;                    
 		return;          
