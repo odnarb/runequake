@@ -1618,7 +1618,7 @@ common_impulses =
 	{
 		local string fps;
                     sprint (self, "Server framerate is: ");
-		fps = (ftos (1 / frametime));
+		fps = (ftos (ceil(1 / frametime)));
 		sprint (self, fps);
 	          sprint (self, " FPS\n");
 	}

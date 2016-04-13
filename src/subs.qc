@@ -577,7 +577,7 @@ if (PLAYERS > 1 && time > 10)
           localcmd ("\n");
           bprint ("Server Framerate set to ");
           bal = 1 / bal;
-          bprint (ftos(fabs(bal)));
+          bprint (ftos(ceil(bal)));
           bprint (" FPS\n");
 
 }
