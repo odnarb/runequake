@@ -139,6 +139,16 @@ void ()	sham_smash10	= [$smash10,	sham_smash11]
 
 	if (!CanDamage (self.enemy, self))
 		return;
+             if (random () < 0.5)
+          {
+          self.message = strcat (" got pounded by ", self.owner.netname);
+           self.message = strcat (self.message, "'s Shambler.\n");
+          }
+          else
+          {
+          self.message = strcat (" was crushed by ", self.owner.netname);
+           self.message = strcat (self.message, "'s Shambler.\n");
+          }
 
 	ldmg = 40 * (0.01 + random () + random () + random ());
 	T_Damage (self.enemy, self, self, ldmg, string_null);
@@ -180,6 +190,16 @@ ShamClaw =
 // swing left
 void ()	sham_swingl1	= [$swingl1,	sham_swingl2]
 {
+             if (random () < 0.5)
+          {
+          self.message = strcat (" was clawed by ", self.owner.netname);
+           self.message = strcat (self.message, "'s Shambler.\n");
+          }
+          else
+          {
+          self.message = strcat (" was ripped to pieces by ", self.owner.netname);
+           self.message = strcat (self.message, "'s Shambler.\n");
+          }
 	SuperDamageSound ();
 	sound (self, CHAN_VOICE, "shambler/melee2.wav", 1, ATTN_NORM);
 	ai_charge (5);
@@ -202,6 +222,17 @@ void () sham_swingl9	= [$swingl9,	sham_run1]
 // swing right
 void ()	sham_swingr1	= [$swingr1,	sham_swingr2]
 {
+          
+          if (random () < 0.5)
+          {
+          self.message = strcat (" was smashed by ", self.owner.netname);
+           self.message = strcat (self.message, "'s Shambler.\n");
+          }
+          else
+          {
+          self.message = strcat (" was torn to pieces by ", self.owner.netname);
+           self.message = strcat (self.message, "'s Shambler.\n");
+          }
 	SuperDamageSound ();
 	sound (self, CHAN_VOICE, "shambler/melee1.wav", 1, ATTN_NORM);
 	ai_charge (1);
@@ -252,7 +283,19 @@ CastLightning =
 	dir = self.enemy.origin + PLAYER_WEAPON_OFFSET - org;
 	dir = normalize (dir);
 
-	traceline (org, self.origin + dir*600, TRUE, self);
+          if (random () < 0.5)
+          {
+          self.message = strcat (" was shocked by ", self.owner.netname);
+          self.message = strcat (self.message, "'s Shambler.\n");
+          
+          }
+          else
+          {          
+          self.message = strcat (" inhales a lighting bolt from ", self.owner.netname);
+          self.message = strcat (self.message, "'s Shambler.\n");
+	
+          }
+          traceline (org, self.origin + dir*600, TRUE, self);
 	create_te_lightning (TE_LIGHTNING1, self, org, trace_endpos);
 	LightningDamage (org, trace_endpos, self, 10, string_null);
 };

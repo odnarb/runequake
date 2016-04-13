@@ -2439,14 +2439,21 @@ ClientObituary =
 	{
 		if (attacker.owner.classname == "player")
 		{
-			bprint (targ.netname);
+                              bprint (targ.netname);
+                              if (framecount & 1)
+                              {
+			
 			bprint (" was smashed by ");
 			bprint (attacker.owner.netname);
 			if (attacker.trigger_field.runevar)
 				bprint ("'s angry shambler\n");
 			else
 				bprint ("'s pet shambler\n");
-			add_frag (attacker.owner, 1);
+			}
+                              else
+                              bprint (attacker.message);          
+                              
+                              add_frag (attacker.owner, 1);
 			attacker.enemy_kills = attacker.enemy_kills + 1; // killstats
 			targ.killed = targ.killed + 1; // killstats
 		}
