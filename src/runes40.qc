@@ -306,7 +306,11 @@ ShamblerSizeOk =
                if (trace_fraction == 1 && trace_ent == world)
                return 1;
           }
-                    
+           WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
+           WriteByte (MSG_BROADCAST, TE_WIZSPIKE);
+           WriteCoord (MSG_BROADCAST, trace_endpos_x);
+           WriteCoord (MSG_BROADCAST, trace_endpos_y);
+           WriteCoord (MSG_BROADCAST, trace_endpos_z);
            centerprint (this, "Not enough room for your Shambler");
            sprint (this, trace_ent.classname);
            sprint (this, "\n");
