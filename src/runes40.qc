@@ -288,9 +288,9 @@ TraceCorners =
            
            WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
            WriteByte (MSG_BROADCAST, TE_SPIKE);
-           WriteCoord (MSG_BROADCAST, trace_side1_x);
-           WriteCoord (MSG_BROADCAST, trace_side1_y);
-           WriteCoord (MSG_BROADCAST, trace_side1_z);
+           WriteCoord (MSG_BROADCAST, side1_x);
+           WriteCoord (MSG_BROADCAST, side1_y);
+           WriteCoord (MSG_BROADCAST, side1_z);
            
            
            // top side center
@@ -300,9 +300,9 @@ TraceCorners =
            
            WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
            WriteByte (MSG_BROADCAST, TE_SPIKE);
-           WriteCoord (MSG_BROADCAST, trace_side2_x);
-           WriteCoord (MSG_BROADCAST, trace_side2_y);
-           WriteCoord (MSG_BROADCAST, trace_side2_z);
+           WriteCoord (MSG_BROADCAST, side2_x);
+           WriteCoord (MSG_BROADCAST, side2_y);
+           WriteCoord (MSG_BROADCAST, side2_z);
            
            // bottom side center
            side3_z = field.absmin_z;
