@@ -284,12 +284,12 @@ TraceCorners =
            // Back side center
            side1_z = field.absmin_z;
            side1_y = field.origin_y;
-           side1_x = field.absmin_x;
+           side1_x = field.origin_x;
            
            // top side center
            side2_z = field.absmax_z;
            side2_y = field.origin_y;
-           side2_x = field.absmax_x;
+           side2_x = field.origin_x;
            
            // bottom side center
            side3_z = field.absmin_z;
