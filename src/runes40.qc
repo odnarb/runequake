@@ -273,15 +273,13 @@ shambler_slave_retribution =
 	self = old_self;
 };
 
-// Cobalt - Test respawn areas for Shambler otherwise cancel the teleport
-float (entity this)
-ShamblerSizeOk =
+float (entity field)
+TraceCorners = 
 {
-          local entity testfield;
-          local vector corner1,corner2,corner3,corner4;
+ local vector corner1,corner2,corner3,corner4;
 
-           corner1 = this.absmin;
-	 corner2 = this.absmax;
+           corner1 = field.absmin;
+	 corner2 = field.absmax;
            
 	 corner2_z = corner1_z;
 	 
@@ -289,31 +287,57 @@ ShamblerSizeOk =
 	 corner3_x = corner2_x;
 	  
 	 corner4 = corner2;
-	 corner4_x = corner1_x;
-
-
-          testfield = spawn ();
-          testfield.classname = "testfield";
-          setorigin (testfield, this.origin + '0 0 14'); // Cobalt offset factor
-         
-          setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
-          traceline (testfield.absmin, testfield.absmax, 0, this);
-          if (trace_fraction == 1 && trace_ent == world)
+	 corner4_x = corner1_x;         
+          
+          
+  traceline (field.absmin, field.absmax, 0, field.aiment);
+  if (trace_fraction == 1 && trace_ent == world)
           {
-                    sprint (this, "Check 1 ok\n");
+                    
   
-               traceline (corner3, corner4, 0, this);     
+               traceline (corner3, corner4, 0, field.aiment);     
                if (trace_fraction == 1 && trace_ent == world)
                return 1;
-          }
-           WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
+          }          
+          
+          WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
            WriteByte (MSG_BROADCAST, TE_WIZSPIKE);
            WriteCoord (MSG_BROADCAST, trace_endpos_x);
            WriteCoord (MSG_BROADCAST, trace_endpos_y);
            WriteCoord (MSG_BROADCAST, trace_endpos_z);
+          
+          
+          return 0;
+          
+};
+// Cobalt - Test respawn areas for Shambler otherwise cancel the teleport
+float (entity this)
+ShamblerSizeOk =
+{
+          local entity testfield;
+
+          testfield = spawn ();
+          testfield.aiment = this;
+          testfield.classname = "testfield";
+          setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
+          setorigin (testfield, this.origin + '0 0 14'); // Cobalt try near player origin first
+         
+          if (TraceCorners (testfield)) return 1;
+          
+           makevectors (this.v_angle);
+           setorigin (testfield, this.origin + (v_forward * 48)); // Front of player
+           if (TraceCorners (testfield)) return 1;
+            setorigin (testfield, this.origin + (v_forward * -48)); // behind of player
+           if (TraceCorners (testfield)) return 1;
+            setorigin (testfield, this.origin + (v_right * 48)); // side of player
+           if (TraceCorners (testfield)) return 1;
+            setorigin (testfield, this.origin + (v_right * -48)); // side of player
+           if (TraceCorners (testfield)) return 1;
+          
+           
            centerprint (this, "Not enough room for your Shambler");
-           sprint (this, trace_ent.classname);
-           sprint (this, "\n");
+          // sprint (this, trace_ent.classname);
+          // sprint (this, "\n");
           return 0;          
 };
 
