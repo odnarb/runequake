@@ -325,7 +325,7 @@ ShamblerSizeOk =
            if (TraceCorners (testfield)) return testfield.origin;
         
            makevectors (this.v_angle);
-           while (!(TraceCorners (testfield)))
+           while ((!(TraceCorners (testfield))) else return testfield.origin)
            {
            setorigin (testfield, this.origin + (v_forward * 32) + '0 0 56'); // Front of player
           
@@ -335,7 +335,7 @@ ShamblerSizeOk =
           
             setorigin (testfield, this.origin + (v_right * -32) + '0 0 56'); // side of player
            
-           } else return testfield.origin;
+           } 
               
               setorigin (testfield, this.origin + '0 0 56'); // above player 
          
