@@ -286,10 +286,23 @@ TraceCorners =
            side1_y = field.origin_y;
            side1_x = field.origin_x;
            
+           WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
+           WriteByte (MSG_BROADCAST, TE_SPIKE);
+           WriteCoord (MSG_BROADCAST, trace_side1_x);
+           WriteCoord (MSG_BROADCAST, trace_side1_y);
+           WriteCoord (MSG_BROADCAST, trace_side1_z);
+           
+           
            // top side center
            side2_z = field.absmax_z;
            side2_y = field.origin_y;
            side2_x = field.origin_x;
+           
+           WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
+           WriteByte (MSG_BROADCAST, TE_SPIKE);
+           WriteCoord (MSG_BROADCAST, trace_side2_x);
+           WriteCoord (MSG_BROADCAST, trace_side2_y);
+           WriteCoord (MSG_BROADCAST, trace_side2_z);
            
            // bottom side center
            side3_z = field.absmin_z;
@@ -328,13 +341,13 @@ TraceCorners =
                }
                 
           }          
-          
+          /*
           WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
            WriteByte (MSG_BROADCAST, TE_WIZSPIKE);
            WriteCoord (MSG_BROADCAST, trace_endpos_x);
            WriteCoord (MSG_BROADCAST, trace_endpos_y);
            WriteCoord (MSG_BROADCAST, trace_endpos_z);
-          
+          */
           
           return 0;
           
