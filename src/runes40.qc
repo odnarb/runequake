@@ -322,23 +322,26 @@ ShamblerSizeOk =
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
           
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
-         
-          if (TraceCorners (testfield)) return testfield.origin;
-          setorigin (testfield, this.origin + '0 0 56'); // above player 
-         
-          if (TraceCorners (testfield)) return testfield.origin;
-          setorigin (testfield, this.origin - '0 0 88'); // below
            if (TraceCorners (testfield)) return testfield.origin;
+        
            makevectors (this.v_angle);
-           setorigin (testfield, this.origin + (v_forward * 32)); // Front of player
-           if (TraceCorners (testfield)) return testfield.origin;
-            setorigin (testfield, this.origin + (v_forward * -32)); // behind of player
-           if (TraceCorners (testfield)) return testfield.origin;
-            setorigin (testfield, this.origin + (v_right * 32)); // side of player
-           if (TraceCorners (testfield)) return testfield.origin;
-            setorigin (testfield, this.origin + (v_right * -32)); // side of player
-           if (TraceCorners (testfield)) return testfield.origin;
+           while (!(TraceCorners (testfield)))
+           {
+           setorigin (testfield, this.origin + (v_forward * 32) + '0 0 56'); // Front of player
           
+            setorigin (testfield, this.origin + (v_forward * -32) + '0 0 56'); // behind of player
+           
+            setorigin (testfield, this.origin + (v_right * 32) + '0 0 56'); // side of player
+          
+            setorigin (testfield, this.origin + (v_right * -32) + '0 0 56'); // side of player
+           
+           } else return testfield.origin;
+              
+              setorigin (testfield, this.origin + '0 0 56'); // above player 
+         
+              if (TraceCorners (testfield)) return testfield.origin;
+              setorigin (testfield, this.origin - '0 0 88'); // below
+              if (TraceCorners (testfield)) return testfield.origin;
            
            centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);
