@@ -294,7 +294,7 @@ ShamblerSizeOk =
 
           testfield = spawn ();
           testfield.classname = "testfield";
-          setorigin (testfield, this.origin + '0 0 12'); // Cobalt offset factor
+          setorigin (testfield, this.origin + '0 0 14'); // Cobalt offset factor
          
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
           traceline (testfield.absmin, testfield.absmax, 0, this);
