@@ -276,10 +276,31 @@ shambler_slave_retribution =
 float (entity field)
 TraceCorners = 
 {
- local vector corner1,corner2,corner3,corner4;
+ local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4;
 
            corner1 = field.absmin;
 	 corner2 = field.absmax;
+           
+           // Back side center
+           side1_z = field.absmin_z;
+           side1_y = field.origin_y;
+           side1_x = (field.absmax_x + field.absmin_x) / 2;
+           
+           // top side center
+           side2_z = field.absmax_z;
+           side2_y = field.origin_y;
+           side2_x = (field.absmax_x + field.absmin_x) / 2;
+           
+           // bottom side center
+           side3_z = field.absmin_z;
+           side3_y = field.origin_y;
+           side3_x = (field.absmax_x + field.absmin_x) / 2;
+           
+           // top side center
+           side3_z = field.absmax_z;
+           side3_x = field.origin_x;
+           side3_y = (field.absmax_y + field.absmin_y) / 2;
+           
            
 	 corner2_z = corner1_z;
 	 
@@ -293,11 +314,19 @@ TraceCorners =
   traceline (field.absmin, field.absmax, 0, field.aiment);
   if (trace_fraction == 1 && trace_ent == world)
           {
-                    
-  
                traceline (corner3, corner4, 0, field.aiment);     
                if (trace_fraction == 1 && trace_ent == world)
+               {
+                traceline (side1, side2, 0, field.aiment);     
+               if (trace_fraction == 1 && trace_ent == world)          
+               {
+                traceline (side3, side4, 0, field.aiment);     
+               if (trace_fraction == 1 && trace_ent == world)  
                return 1;
+               }     
+                         
+               }
+                
           }          
           
           WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
@@ -325,17 +354,15 @@ ShamblerSizeOk =
            if (TraceCorners (testfield)) return testfield.origin;
         
            makevectors (this.v_angle);
-           while ((!(TraceCorners (testfield))) else return testfield.origin)
-           {
-           setorigin (testfield, this.origin + (v_forward * 32) + '0 0 56'); // Front of player
-          
+           
+            setorigin (testfield, this.origin + (v_forward * 32) + '0 0 56'); // Front of player
+            if (TraceCorners (testfield)) return testfield.origin;
             setorigin (testfield, this.origin + (v_forward * -32) + '0 0 56'); // behind of player
-           
+            if (TraceCorners (testfield)) return testfield.origin;
             setorigin (testfield, this.origin + (v_right * 32) + '0 0 56'); // side of player
-          
+            if (TraceCorners (testfield)) return testfield.origin;
             setorigin (testfield, this.origin + (v_right * -32) + '0 0 56'); // side of player
-           
-           } 
+            if (TraceCorners (testfield)) return testfield.origin;
               
               setorigin (testfield, this.origin + '0 0 56'); // above player 
          
