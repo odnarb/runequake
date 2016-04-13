@@ -284,7 +284,7 @@ TraceCorners =
            // Back side center
            side1_z = field.absmin_z;
            side1_y = field.origin_y;
-           side1_x = field.origin_x;
+           side1_x = field.absmin_x;
            
            WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
            WriteByte (MSG_BROADCAST, TE_SPIKE);
@@ -296,7 +296,7 @@ TraceCorners =
            // top side center
            side2_z = field.absmax_z;
            side2_y = field.origin_y;
-           side2_x = field.origin_x;
+           side2_x = field.absmax_x;
            
            WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
            WriteByte (MSG_BROADCAST, TE_SPIKE);
@@ -366,6 +366,7 @@ ShamblerSizeOk =
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
            if (TraceCorners (testfield)) return testfield.origin;
         
+        /*
            makevectors (this.v_angle);
            
             setorigin (testfield, this.origin + (v_forward * 32) + '0 0 56'); // Front of player
@@ -382,7 +383,7 @@ ShamblerSizeOk =
               if (TraceCorners (testfield)) return testfield.origin;
               setorigin (testfield, this.origin - '0 0 88'); // below
               if (TraceCorners (testfield)) return testfield.origin;
-           
+          */ 
            centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);
           // sprint (this, "\n");
