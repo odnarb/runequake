@@ -373,7 +373,7 @@ Rune_ShamblerReloc =
 	self = self.runent;
 
           local vector place;	
-          place = ShamblerSizeOk (self.owner))
+          place = ShamblerSizeOk (self.owner);
           if (place)
           {
           spawn_tfog (self.origin);
