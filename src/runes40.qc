@@ -682,8 +682,19 @@ Weird_Think =
 			return;
 		if (self.runent.flags & FL_ONGROUND)
 		{
+                              local string ns;
+                              ns = "blob/land1.wav";
 			self.runent.flags = self.runent.flags - FL_ONGROUND;
-			sound (self.runent, CHAN_JUMP, "player/plyrjmp8.wav", 1, ATTN_NORM);
+                              
+                              if (self.runent.modelindex == modelindex_player)
+                              ns = "player/plyrjmp8.wav";
+                              else if (self.runent.classname == "shambler_slave")
+                              {
+                               if (framecount & 1)
+                               ns = "shambler/melee1.wav";
+                               else ns = "shambler/melee2.wav";
+                              }
+			sound (self.runent, CHAN_JUMP, ns, 1, ATTN_NORM);
 			self.runent.velocity_z = self.runent.velocity_z + 270;
 			self.attack_finished = time + sys_ticrate;
 		}
