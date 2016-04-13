@@ -294,14 +294,16 @@ ShamblerSizeOk =
 
           testfield = spawn ();
           testfield.classname = "testfield";
-          setorigin (testfield, this.origin + this.view_ofs); // Cobalt offset f
-          trace_ent = testfield;
+          setorigin (testfield, this.origin + '0 0 12'); // Cobalt offset factor
+         
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
           traceline (testfield.absmin, testfield.absmax, 0, this);
-          if (trace_fraction == 1 && trace_ent == testfield)
+          if (trace_fraction == 1 && trace_ent == world)
           {
+                    sprint (this, "Check 1 ok\n");
+  
                traceline (corner3, corner4, 0, this);     
-               if (trace_fraction == 1 && trace_ent == testfield)
+               if (trace_fraction == 1 && trace_ent == world)
                return 1;
           }
                     
