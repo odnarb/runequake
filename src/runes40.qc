@@ -311,7 +311,7 @@ TraceCorners =
           
 };
 // Cobalt - Test respawn areas for Shambler otherwise cancel the teleport
-float (entity this)
+vector (entity this)
 ShamblerSizeOk =
 {
           local entity testfield;
@@ -322,23 +322,23 @@ ShamblerSizeOk =
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
           setorigin (testfield, this.origin + '0 0 14'); // Cobalt try near player origin first
          
-          if (TraceCorners (testfield)) return 1;
+          if (TraceCorners (testfield)) return testfield.origin;
           
            makevectors (this.v_angle);
            setorigin (testfield, this.origin + (v_forward * 48)); // Front of player
-           if (TraceCorners (testfield)) return 1;
+           if (TraceCorners (testfield)) return testfield.origin;
             setorigin (testfield, this.origin + (v_forward * -48)); // behind of player
-           if (TraceCorners (testfield)) return 1;
+           if (TraceCorners (testfield)) return testfield.origin;
             setorigin (testfield, this.origin + (v_right * 48)); // side of player
-           if (TraceCorners (testfield)) return 1;
+           if (TraceCorners (testfield)) return testfield.origin;
             setorigin (testfield, this.origin + (v_right * -48)); // side of player
-           if (TraceCorners (testfield)) return 1;
+           if (TraceCorners (testfield)) return testfield.origin;
           
            
            centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);
           // sprint (this, "\n");
-          return 0;          
+          return VEC_ORIGIN;          
 };
 
 void (float riders, entity of_e)
@@ -372,11 +372,12 @@ Rune_ShamblerReloc =
 	old_self = self;
 	self = self.runent;
 
-	
-          if (ShamblerSizeOk (self.owner))
+          local vector place;	
+          place = ShamblerSizeOk (self.owner))
+          if (place)
           {
           spawn_tfog (self.origin);
-	setorigin (self, self.owner.origin);
+	setorigin (self, place);
           spawn_tfog (self.origin);
           }
           else
