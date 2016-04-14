@@ -1453,8 +1453,6 @@ Called every frame so impulse events can be handled as well as possible
 void ()
 W_WeaponFrame =
 {
-          
-          if (self.button3) bprint ("+Button3 !!\n");
 	// prevent accidental discharge when respawning
 	if (self.button1)
 	{

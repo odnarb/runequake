@@ -1697,7 +1697,6 @@ float	maybe_bprint_option_hack;
 .float	afk;
 entity	last_teleport;
 
-.float button3;
 .float items2; // Cobalt, Engine will show rune on hud
 .float gravity;// actually a system global from the Mission Pack builds of Quake
 float CD_START; // CD Music start track for map
