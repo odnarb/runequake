@@ -36,7 +36,7 @@ Athlete_Jump =
 	self.velocity_z = self.velocity_z + 540;
 };
 
-void (float mode)
+void ()
 Athlete_Enable =
 {
 if (vlen(self.velocity) && !self.pausetime)
