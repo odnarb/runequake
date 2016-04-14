@@ -55,7 +55,7 @@ Athlete_Run =
 		if (vlen(self.velocity) < 440) // Cobalt fix attempt for bug
 		self.velocity = self.velocity + self.velocity * 0.10; */
                     if (self.pausetime)
-                    if (vlen(self.velocity)
+                    if (vlen(self.velocity))
                     {          
                     if (self.flags & FL_ONGROUND)
                     {
