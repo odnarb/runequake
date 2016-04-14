@@ -75,8 +75,10 @@ Athlete_Run =
                     if (v < cap)
                     {
                     if (self.velocity_x)
+                    {
                     self.velocity = self.velocity * (cap / v);
-                      sprint (self, "_x Cap over v\n");
+                    sprint (self, "_x Cap over v\n");
+                    }
                     else
                     {
                     cap = ms * 1.25;
