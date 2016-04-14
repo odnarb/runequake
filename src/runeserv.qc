@@ -35,7 +35,7 @@ Rune_Think =
 	else if (self.runetype == RN_IMPACT)		self.th_runeuse = Rune_Impact;
 	-])
 	else if (self.runetype == RN_BERSERK)		self.th_runeuse = Berserk_Bleed;
-          else if (self.runetype == RN_ATHLETE)		Athlete_Run (1);
+          else if (self.runetype == RN_ATHLETE)		Athlete_Run ();
 	else if (self.runetype == RN_QUAD)		self.th_runeuse = quad_think;
 	else if (self.runetype == RN_JACK)		self.th_runeuse = jack_think;
 	else if (self.runetype == RN_BLIZZARD)		self.th_runeuse =Blizzard_Think;
