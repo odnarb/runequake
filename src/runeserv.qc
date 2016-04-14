@@ -93,6 +93,7 @@ Rune_Button =
 	else if (self.runetype == RN_ANTIPACK)		Rune_AntiPack ();
 	else if (self.runetype == RN_BETTY)		Rune_Betty ();
 	else if (self.runetype == RN_TORNADO)		Rune_Tornado ();
+          //else if (self.runetype == RN_ORB)                  ();
 };
 
 // This doesn't always tell the riders because it can be triggered both
