@@ -69,11 +69,14 @@ Athlete_Run =
                     {
                     if (v > ms)
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
-                    sprint (self, "velocity is: ");
-                    sprint (self, (ftos(v)));
-                    sprint (self, "cap is: ");
-                    sprint (self, (ftos(ms)));
-                    sprint (self, " ... Capping speed\n");
+                    local string msg;
+                    msg = "Velocity is: ";
+                    msg = strcat (msg, (ftos(v)));
+                    msg = strcat (msg, " - cap is: ");
+                    msg = strcat (msg, (ftos(cap)));
+                    msg = strcat (msg, " ... capping speed\n");
+ 
+                    sprint (self, msg);
                     }
                     else
                     {
