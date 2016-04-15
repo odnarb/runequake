@@ -1384,7 +1384,7 @@ Rune_Spawn =
 	rune.think = Rune_Move;
 	rune.runetime = time + 60 + random ()*60;
           if (cvar ("developer")) // Cobalt - for dev, point out the rune we are working on, makes it easier to find
-          if (cvar ("nomonsters") > 0 && rune.runetype == cvar ("nomonsters"))
+          if (TESTRUNE > 0 && (rune.runetype & TESTRUNE))
           rune.effects = EF_BRIGHTFIELD;          
 	// Set RN_JACK up to change models.
 	if (rune.runetype == RN_JACK && !temp1 & T1_RANDOM_RUNE_MODELS)
