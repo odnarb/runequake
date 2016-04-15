@@ -334,7 +334,7 @@ rjs_worldspawn =
 	sys_ticrate 	= frametime; // Cobalt - same as frametime cvar ("sys_ticrate");
 	if (!sys_ticrate) sys_ticrate = 0.1;
 
-          cvar_set_infokey (nomonsters, RN_ATHLETE);
+          cvar_set_infokey ("nomonsters", (ftos(RN_ATHLETE)));
 	scratch1	= cvar_infokey ("scratch1");
 	gamemode	= cvar_infokey (CVAR_C3);
 	options		= cvar_infokey (CVAR_C4);
