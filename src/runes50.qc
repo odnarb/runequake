@@ -69,9 +69,14 @@ Athlete_Run =
                     {
                     if (v > ms)
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
-                    sprint (self, "Capping speed\n");
+                    sprint (self, "velocity is: ")
+                    sprint (self, (ftos(v)));
+                    sprint (self, "cap is: ")
+                    sprint (self, (ftos(ms)));
+                    sprint (self, " ... Capping speed\n");
                     }
                     else
+                    {
                     if (v < cap)
                     {
                     if (self.velocity_x)
@@ -87,7 +92,7 @@ Athlete_Run =
                      sprint (self, "_x, _y  Cap over v\n");
                     }
                     }
-                   
+                    }
                     }
                     }
                     else 
