@@ -1696,7 +1696,7 @@ float	maybe_bprint_option_hack;
 .float	grenade_spam_time;
 .float	afk;
 entity	last_teleport;
-//float TESTRUNE; // Cobalt for dev to mark the rune we are testing for easy pickup
+float     TESTRUNE; // Cobalt for dev to mark the rune we are testing for easy pickup
 .float items2; // Cobalt, Engine will show rune on hud
 .float gravity;// actually a system global from the Mission Pack builds of Quake
 float CD_START; // CD Music start track for map
