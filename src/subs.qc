@@ -560,7 +560,7 @@ score = score + 1; // side at knee level
 void (float rt) 
 LoadBalance = 
 {
-        
+        return;
           // Cobalt  - load balance experiment
 if (PLAYERS > 1 && time > 10)
 {
