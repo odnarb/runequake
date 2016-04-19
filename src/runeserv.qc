@@ -1385,7 +1385,7 @@ Rune_Spawn =
 	rune.runetime = time + 60 + random ()*60;
           
           if (cvar ("developer")) // Cobalt - for dev, point out the rune we are working on, makes it easier to find
-          if (TESTRUNE > 0 && (rune.runetype & TESTRUNE))
+          if (TESTRUNE == rune.runetype)
           rune.effects = EF_BRIGHTFIELD;          
 	
           
