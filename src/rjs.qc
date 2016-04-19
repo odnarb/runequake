@@ -331,6 +331,7 @@ rjs_worldspawn =
 	local entity e;
 	local string s;
 
+          TESTRUNE = (RN_ATHLETE | RN_SHAMB);
 	sys_ticrate 	= frametime; // Cobalt - same as frametime cvar ("sys_ticrate");
 	if (!sys_ticrate) sys_ticrate = 0.1;
 

@@ -1383,12 +1383,12 @@ Rune_Spawn =
 	rune.touch = Rune_Touch;
 	rune.think = Rune_Move;
 	rune.runetime = time + 60 + random ()*60;
-          /*
+          
           if (cvar ("developer")) // Cobalt - for dev, point out the rune we are working on, makes it easier to find
           if (TESTRUNE > 0 && (rune.runetype & TESTRUNE))
           rune.effects = EF_BRIGHTFIELD;          
 	
-          */
+          
           // Set RN_JACK up to change models.
 	if (rune.runetype == RN_JACK && !temp1 & T1_RANDOM_RUNE_MODELS)
 		rune.nextthink = time + 2;
