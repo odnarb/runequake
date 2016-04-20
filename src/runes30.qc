@@ -676,11 +676,12 @@ Suck =
 	suckee = findradius (sucker.origin, dist); // find the victims
 	while (suckee)
 	{
-                    if (suckeee.th_die == barrel_explode) // Cobalt allow exploboxes to be effected by Grav well
+                    if (suckee.th_die == barrel_explode) // Cobalt allow exploboxes to be effected by Grav well
                     {
-                     suckeee.movetype == MOVETYPE_STEP;
-                     suckeee.solid == SOLID_BBOX;
-                     suckee.flags = suckee.flags - suckee.flags & FL_ONGROUND;                     
+                     suckee.movetype == MOVETYPE_BOUNCE;
+                     suckee.solid == SOLID_BBOX;
+                     suckee.velocity_z = vlen(suckee.size);
+                     suckee.effects = EF_BRIGHTFIELD;                     
                     }
 		if (suckee.health || !suckee.flags & FL_ONGROUND)
 		{
@@ -695,6 +696,7 @@ Suck =
 					suckdir		= normalize (suckdir);
 					suckforce	= suckdir * SUCK_FORCE * (dist - suckdist);
 					suckee.velocity	= suckee.velocity + suckforce;
+                                                  suckee.angles = vectoangles (suckee.velocity); // Cobalt experiment for looks
 				}
 			}
 		}
