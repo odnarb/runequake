@@ -31,7 +31,19 @@ Athlete_Jump =
 	// player jumping sound
 	sound (self, CHAN_JUMP, "player/plyrjmp8.wav", 1, ATTN_NORM);
           if (self.classname = "hologram")
+          {
+                    if (self.waterlevel > 2)
+                    {
+                    self.movetype == MOVETYPE_FLY;
+                    if (pointcontents (self.origin + '0 0 36') == CONTENT_EMPTY)
+                       self.velocity_z = -100;
+                     else self.velocity_z = 100;             
+                    }
+          else          
           self.velocity_z = self.velocity_z + 270;
+          
+          
+          }
           else
 	self.velocity_z = self.velocity_z + 540;
 };
