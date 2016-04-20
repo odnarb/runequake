@@ -722,7 +722,7 @@ Suck_Think =
 
 	// I used to set this to sys_ticrate but every time the rate changes
 	// SUCK_FORCE is either too weak or too strong.
-	self.nextthink = time + 0.1;
+	self.nextthink = time + (frametime * 2); // Cobalt, this should balance it out.
 
 	Suck (self);
 };
