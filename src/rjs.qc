@@ -332,7 +332,7 @@ rjs_worldspawn =
 	local string s;
 
          
-	sys_ticrate 	= frametime; // Cobalt - same as frametime cvar ("sys_ticrate");
+	
 	if (!sys_ticrate) sys_ticrate = 0.1;
 
           //cvar_set  ("nomonsters", ftos(RN_ATHLETE));

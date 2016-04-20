@@ -61,6 +61,7 @@ worldspawn =
 void ()
 StartFrame =
 {
+          sys_ticrate 	= frametime; // Cobalt - same as frametime cvar ("sys_ticrate");
           framecount = framecount + 1; // Cobalt count number of frames
 	check_teamplay ();
 	check_console_command ();
