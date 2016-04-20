@@ -676,8 +676,9 @@ Suck =
 	suckee = findradius (sucker.origin, dist); // find the victims
 	while (suckee)
 	{
-                    if (suckee.th_die == barrel_explode) // Cobalt allow exploboxes to be effected by Grav well
+                    if (suckee.th_die == barrel_explode && !suckee.effects) // Cobalt allow exploboxes to be effected by Grav well
                     {
+                     suckee.flags = suckee.flags - FL_ONGROUND;
                      suckee.movetype == MOVETYPE_FLYMISSILE;
                      suckee.solid == SOLID_SLIDEBOX;
                     if (!vlen(suckee.velocity))
