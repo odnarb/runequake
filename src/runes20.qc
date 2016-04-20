@@ -234,7 +234,8 @@ Holo_Think =
           self.angles = self.owner.angles;
 	self.angles_y = self.angles_y + self.runevar;
           self.modelindex = self.owner.modelindex; // Cobalt - fix for holo showing borked frame if owner picks up a cloaking rune or  a ring
-	self.frame = self.owner.frame;
+	self.effects = self.owner.effects; // Follow owners effects too
+          self.frame = self.owner.frame;
                    
 	self.nextthink = time;
 };
