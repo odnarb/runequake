@@ -680,7 +680,7 @@ Suck =
                     {
                      suckee.movetype == MOVETYPE_FLYMISSILE;
                      suckee.solid == SOLID_SLIDEBOX;
-                    if (!vlen(suckee.velocity)
+                    if (!vlen(suckee.velocity))
                               suckee.velocity_z = 175;
                      suckee.effects = EF_BRIGHTFIELD;                     
                     }
