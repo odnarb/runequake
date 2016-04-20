@@ -678,9 +678,10 @@ Suck =
 	{
                     if (suckee.th_die == barrel_explode) // Cobalt allow exploboxes to be effected by Grav well
                     {
-                     suckee.movetype == MOVETYPE_BOUNCE;
+                     suckee.movetype == MOVETYPE_FLYMISSILE;
                      suckee.solid == SOLID_SLIDEBOX;
-                    
+                    if (!vlen(suckee.velocity)
+                              suckee.velocity_z = 175;
                      suckee.effects = EF_BRIGHTFIELD;                     
                     }
 		if (suckee.health || !suckee.flags & FL_ONGROUND)
