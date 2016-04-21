@@ -96,6 +96,8 @@ Athlete_Run =
                     }
                     if (v > ms)
                     self.nextthink = self.nextthink - (frametime * 1.15);
+                   
+                    if (self.button2) Athlete_Jump ();
                     }
                     }
                     

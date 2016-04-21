@@ -1458,11 +1458,7 @@ PlayerJump =
           
 	if (self.flags & FL_WATERJUMP)
 		return;
-             if (self.runetype == RN_ATHLETE && self.pausetime)
-             {
-                       Athlete_Jump ();
-                       return;
-             }	
+           
           
           if (self.waterlevel >= 2)
 	{
@@ -1962,7 +1958,11 @@ PlayerPreThink =
              self.th_runeuse ();
 
 	if (self.button2)
-          PlayerJump ();
+          {
+            if (!self.pausetime)
+            PlayerJump ();
+          
+          }
           else
 		self.flags = self.flags | FL_JUMPRELEASED;
 
