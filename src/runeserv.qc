@@ -1226,6 +1226,8 @@ Rune_Touch =
           if (vlen (self.velocity) < 33)
           if (self.movetype == MOVETYPE_BOUNCE) // change movetype might be better fix
           self.movetype = MOVETYPE_TOSS;
+          
+          self.angles = vectoangles (self.velocity);
           // Cobalt - improve occurence of sound with a timer
           if (self.attack_finished < time)
           {
