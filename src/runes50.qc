@@ -67,6 +67,7 @@ Athlete_Run =
 		if (vlen(self.velocity) < 440) // Cobalt fix attempt for bug
 		self.velocity = self.velocity + self.velocity * 0.10; */
                     if (self.pausetime)
+                    {
                     if (vlen(self.velocity))
                     {          
                     if (self.flags & FL_ONGROUND)
@@ -81,34 +82,18 @@ Athlete_Run =
                     {
                     if (v > ms)
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
-                    local string msg,ft;
-                    
-                    msg = "Velocity is: ";
-                    ft = (ftos(v));
-                    msg = strcat (msg, ft);
-                    msg = strcat (msg, " - cap is: ");
-                    ft = (ftos(cap));
-                    msg = strcat (msg, ft);
-                    msg = strcat (msg, " ... capping speed\n");
-                     
-                    sprint (self, msg);
-                    }
-                    else
-                    {
-                    if (v < cap)
+                    else if (v < cap)
                     {
                     if (self.cl[CL_CMD_FORWARD])
-                    {
                     self.velocity = self.velocity * (cap / v);
-                    sprint (self, "_x Cap over v\n");
-                    }
                     else
                     {
                     cap = ms * 1.25;
                     if (self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
                     self.velocity = self.velocity * (cap / v);
-                     sprint (self, "_x, _y  Cap over v\n");
                     }
+                    }
+                    
                     }
                     }
                     }
