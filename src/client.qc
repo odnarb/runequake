@@ -2233,10 +2233,10 @@ PlayerPostThink =
           	if (self.velocity_x || self.velocity_y)
               {
               			
-	       if (self.flags & FL_JUMPRELEASED && !self.waterlevel && (self.runetype == RN_HASTE || (self.runetype == RN_ATHLETE && self.pausetime)))
+	       if (self.flags & FL_JUMPRELEASED && !self.waterlevel && self.runetype == RN_HASTE)
 		if (time > self.attack_finished && checkbottom (self)) // && !Blocked (self))
                               if (self.nextthink > (self.nextthink - (frametime * 1.15)))
-                              self.nextthink = self.nextthink - (frametime * 1.15);	
+                              	
 	       }
           
 };

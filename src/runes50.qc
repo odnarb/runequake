@@ -94,6 +94,8 @@ Athlete_Run =
                     }
                     
                     }
+                    if (v > ms)
+                    self.nextthink = self.nextthink - (frametime * 1.15);
                     }
                     }
                     
