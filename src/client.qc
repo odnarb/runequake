@@ -1952,7 +1952,7 @@ PlayerPreThink =
 	if (self.button2)
           {
            if (self.runetype == RN_ATHLETE && self.pausetime)
-           self.think = Athlete_Jump ();
+           self.think = Athlete_Jump;
 	 else PlayerJump ();
 	}
           
