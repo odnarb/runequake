@@ -1455,11 +1455,7 @@ PlayerJump =
 		self.flags = self.flags - self.flags & FL_JUMPRELEASED;
 		return;
 	}
-           if (self.runetype == RN_ATHLETE && self.pausetime)
-           {
-                     Athlete_Jump ();
-                     return;
-           }
+          
 	if (self.flags & FL_WATERJUMP)
 		return;
 
@@ -1954,8 +1950,13 @@ PlayerPreThink =
 	-])
 
 	if (self.button2)
-		PlayerJump ();
-	else
+          {
+           if (self.runetype == RN_ATHLETE && self.pausetime)
+           Athlete_Jump ()
+	 else PlayerJump ();
+	}
+          
+          else
 		self.flags = self.flags | FL_JUMPRELEASED;
 
 	if (self.runetype > 0)
