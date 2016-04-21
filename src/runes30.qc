@@ -681,6 +681,8 @@ Suck =
                      suckee.flags = suckee.flags - FL_ONGROUND;
                      suckee.movetype == MOVETYPE_FLYMISSILE;
                      suckee.solid == SOLID_SLIDEBOX;
+                     suckee.origin_z = suckee.origin_z + 12;
+                     setsize (suckee, suckee.mins, suckee.maxs);
                     if (!vlen(suckee.velocity))
                               suckee.velocity_z = 175;
                      suckee.effects = EF_BRIGHTFIELD;                     
