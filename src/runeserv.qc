@@ -1227,7 +1227,7 @@ Rune_Touch =
           if (self.movetype == MOVETYPE_BOUNCE) // change movetype might be better fix
           self.movetype = MOVETYPE_TOSS;
           
-          self.angles = vectoangles (self.velocity);
+          self.angles = self.dest;
           // Cobalt - improve occurence of sound with a timer
           if (self.attack_finished < time)
           {
@@ -1365,7 +1365,7 @@ Rune_Spawn =
 	rune.runevar = 0;		// |1 = dropper told, |2 = killer told
 	rune.runent = world;		// link for pack rat chain
 	rune.lip = 0;			// pack rat pickup time
-
+          rune.dest = rune.angles; // Cobalt, Save old angles in case of Grav Well effect
 	if (type == RN_LITHIUM_HOOK)
 		ix = -1;
 	else if (temp1 & T1_RANDOM_RUNE_MODELS)

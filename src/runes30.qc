@@ -679,10 +679,10 @@ Suck =
                     if (suckee.th_die == barrel_explode && !suckee.effects) // Cobalt allow exploboxes to be effected by Grav well
                     {
                      suckee.flags = suckee.flags - FL_ONGROUND;
-                     suckee.movetype == MOVETYPE_FLYMISSILE;
+                     suckee.movetype == MOVETYPE_TOSS;
                      suckee.solid == SOLID_SLIDEBOX;
                      suckee.origin_z = suckee.origin_z + 12;
-                     suckee.velocity = sucker.origin - suckee.origin *  (1 / (vlen(suckee.size)));
+                     suckee.velocity = (sucker.origin + suckee.size) - suckee.origin;
  
                      suckee.effects = EF_BRIGHTFIELD;                     
                     }
@@ -699,7 +699,8 @@ Suck =
 					suckdir		= normalize (suckdir);
 					suckforce	= suckdir * SUCK_FORCE * (dist - suckdist);
 					suckee.velocity	= suckee.velocity + suckforce;
-                                                  suckee.avelocity = vectoangles (suckee.velocity); // Cobalt experiment for looks
+                                                  if (framecount & 1)
+                                                  suckee.angles = vectoangles (suckee.velocity); // Cobalt experiment for looks
 				}
 			}
 		}
