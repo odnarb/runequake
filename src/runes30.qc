@@ -682,7 +682,7 @@ Suck =
                      suckee.movetype == MOVETYPE_TOSS;
                      suckee.solid == SOLID_SLIDEBOX;
                      suckee.origin_z = suckee.origin_z + 12;
-                     suckee.velocity = (sucker.origin + suckee.size) - suckee.origin;
+                     suckee.velocity = (sucker.origin - suckee.size) - suckee.origin;
  
                      suckee.effects = EF_BRIGHTFIELD;                     
                     }
