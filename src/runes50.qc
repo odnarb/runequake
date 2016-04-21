@@ -87,8 +87,8 @@ Athlete_Run =
                     self.velocity = self.velocity * (cap / v);
                     else
                     {
-                    cap = ms * 1.25;
-                    if (self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
+                    cap = ms * 1.05;
+                    if (self.cl[CL_CMD_SIDE])
                     self.velocity = self.velocity * (cap / v);
                     }
                     }

@@ -1455,7 +1455,7 @@ PlayerJump =
 		self.flags = self.flags - self.flags & FL_JUMPRELEASED;
 		return;
 	}
-           if (self.runetype == RN_ATHLETE && (vlen(self.velocity) > cvar("sv_maxspeed")))
+           if (self.runetype == RN_ATHLETE && self.pausetime)
            {
                      Athlete_Jump ();
                      return;
