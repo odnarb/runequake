@@ -699,8 +699,8 @@ Suck =
 					suckdir		= normalize (suckdir);
 					suckforce	= suckdir * SUCK_FORCE * (dist - suckdist);
 					suckee.velocity	= suckee.velocity + suckforce;
-                                                  if (framecount & 1)
-                                                  suckee.angles = vectoangles (suckee.velocity); // Cobalt experiment for looks
+                                                  if (random () < 0.5)
+                                                  suckee.angles = (1/3) * vectoangles (suckee.velocity); // Cobalt experiment for looks
 				}
 			}
 		}
