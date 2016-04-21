@@ -77,25 +77,25 @@ Athlete_Run =
                     ms = cvar("sv_maxspeed");
                     cap =  ms * 1.1;
                     v = vlen(self.velocity);
-                    if (self.velocity_x || self.velocity_y)
+                    if (self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
                     {
                     if (v > ms)
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
                     local string msg;
-                    /*
+                    
                     msg = "Velocity is: ";
                     msg = strcat (msg, (ftos(v)));
                     msg = strcat (msg, " - cap is: ");
                     msg = strcat (msg, (ftos(cap)));
                     msg = strcat (msg, " ... capping speed\n");
-                     */
+                     
                     sprint (self, msg);
                     }
                     else
                     {
                     if (v < cap)
                     {
-                    if (self.velocity_x)
+                    if (self.cl[CL_CMD_FORWARD])
                     {
                     self.velocity = self.velocity * (cap / v);
                     sprint (self, "_x Cap over v\n");
@@ -103,7 +103,7 @@ Athlete_Run =
                     else
                     {
                     cap = ms * 1.25;
-                    if (self.velocity_x || self.velocity_y)
+                    if (self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
                     self.velocity = self.velocity * (cap / v);
                      sprint (self, "_x, _y  Cap over v\n");
                     }
