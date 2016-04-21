@@ -67,7 +67,6 @@ Athlete_Run =
 		if (vlen(self.velocity) < 440) // Cobalt fix attempt for bug
 		self.velocity = self.velocity + self.velocity * 0.10; */
                     if (self.pausetime)
-                    {
                     if (vlen(self.velocity))
                     {          
                     if (self.flags & FL_ONGROUND)
@@ -80,7 +79,7 @@ Athlete_Run =
                     v = vlen(self.velocity);
                     if (self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
                     {
-                    if (v > ms)
+                    if (v > cap)
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
                     else if (v < cap)
                     {
@@ -97,7 +96,7 @@ Athlete_Run =
                     }
                     }
                     }
-                    }
+                    
                     else 
                     {
                      sound (self, CHAN_AUTO, "player/gasp1.wav", TRUE, ATTN_IDLE);
