@@ -1458,8 +1458,13 @@ PlayerJump =
           
 	if (self.flags & FL_WATERJUMP)
 		return;
-
-	if (self.waterlevel >= 2)
+             if (self.runetype == RN_ATHLETE && self.pausetime)
+             {
+                       Athlete_Jump ();
+                       return;
+             }	
+          
+          if (self.waterlevel >= 2)
 	{
 		IN_POQ([-
 			if (self.watertype == CONTENT_WATER)
@@ -1947,23 +1952,21 @@ PlayerPreThink =
 	IN_POQ([-
 		if (self.waterlevel == 2)
 			CheckWaterJump ();
+
 	-])
-
-	if (self.button2)
-          {
-           if (self.runetype == RN_ATHLETE && self.pausetime)
-           self.think = Athlete_Jump;
-	 else PlayerJump ();
-	}
           
-          else
-		self.flags = self.flags | FL_JUMPRELEASED;
-
-	if (self.runetype > 0)
+          if (self.runetype > 0)
 		Rune_Think ();
           else self.th_runeuse = world.th_runeuse;
            if (self.th_runeuse)
              self.th_runeuse ();
+
+	if (self.button2)
+          PlayerJump ();
+          else
+		self.flags = self.flags | FL_JUMPRELEASED;
+
+	
 
 	if (time > self.attack_finished && self.currentammo == 0)
 	{
