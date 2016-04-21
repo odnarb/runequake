@@ -1952,7 +1952,7 @@ PlayerPreThink =
 	if (self.button2)
           {
            if (self.runetype == RN_ATHLETE && self.pausetime)
-           Athlete_Jump ();
+           self.think = Athlete_Jump ();
 	 else PlayerJump ();
 	}
           
@@ -2232,7 +2232,8 @@ PlayerPostThink =
               			
 	       if (self.flags & FL_JUMPRELEASED && !self.waterlevel && (self.runetype == RN_HASTE || (self.runetype == RN_ATHLETE && self.pausetime)))
 		if (time > self.attack_finished && checkbottom (self)) // && !Blocked (self))
-              self.nextthink = self.nextthink - (frametime * 1.15);	
+                              if (self.nextthink > (self.nextthink - (frametime * 1.15)))
+                              self.nextthink = self.nextthink - (frametime * 1.15);	
 	       }
           
 };
