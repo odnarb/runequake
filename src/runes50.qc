@@ -19,6 +19,14 @@
 void ()
 Athlete_Jump =
 {
+          
+          bprint ("Athlete Jump\n");
+          float ptime;
+          
+          ptime = self.pausetime;
+          
+          if (ptime) self.pausetime = 0;
+          
 	if (self.flags & FL_WATERJUMP
 			|| self.waterlevel >= 2
 			|| !self.flags & FL_ONGROUND)
@@ -46,6 +54,8 @@ Athlete_Jump =
           }
           else
 	self.velocity_z = self.velocity_z + 540;
+
+          self.pausetime = ptime;
 };
 
 void ()
