@@ -20,7 +20,7 @@ void ()
 Athlete_Jump =
 {
           
-          bprint ("Athlete Jump\n");
+
           local float ptime;
           
           ptime = self.pausetime;
@@ -76,6 +76,7 @@ Athlete_Run =
                     local float vl;
                     local string q;
                     vl = vlen (self.velocity);
+                    vl = ceil (vl);
                     q = ftos (vl);
                     centerprint (self, q);
                     if (self.pausetime && !vlen(self.velocity))

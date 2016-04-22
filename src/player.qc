@@ -145,20 +145,19 @@ player_run = [$rockrun1, player_run]
                     local float cap, ms, v;
                     
                     ms = cvar("sv_maxspeed");
-                    cap =  ms * 1.1;
+                    cap =  ms * 1.2;
                     v = vlen(self.velocity);
-                    if (self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
+                    if (!self.cl[CL_CMD_FORWARD] && !self.cl[CL_CMD_SIDE])
                     {
-                    if (v > cap)
+                    if (v > ms)
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
                     else if (v < cap)
                     {
-                    if (self.cl[CL_CMD_FORWARD])
+                    if (self.cl[CL_CMD_FORWARD] && !self.cl[CL_CMD_SIDE])
                     self.velocity = self.velocity * (cap / v);
-                    else
+                    else if (self.cl[CL_CMD_SIDE])
                     {
-                    cap = ms * 1.05;
-                    if (self.cl[CL_CMD_SIDE])
+                              cap = ms * 1.1;
                     self.velocity = self.velocity * (cap / v);
                     }
                     }
