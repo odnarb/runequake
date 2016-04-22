@@ -71,6 +71,44 @@ sound (self, CHAN_AUTO, "player/gasp2.wav", TRUE, ATTN_IDLE);
 void ()
 Athlete_Run =
 {
+
+
+
+                    if (self.pausetime) // Cobalt try athlete rune here
+                    if (vlen(self.velocity))
+                    {          
+                    if (self.flags & FL_ONGROUND)
+                    {
+                    // Try new calculation sugguested by Number 6
+                    local float cap, ms, v;
+                    
+                    ms = cvar("sv_maxspeed");
+                    cap =  ms * 1.2;
+                    v = vlen(self.velocity);
+                    if (!self.cl[CL_CMD_FORWARD] && !self.cl[CL_CMD_SIDE])
+                    {
+                    if (v > ms)
+                    self.velocity = self.velocity * 0.95;// (ms / v); // cap it
+                    }
+                    else if (v < cap)
+                    {
+                    if (self.cl[CL_CMD_FORWARD] && !self.cl[CL_CMD_SIDE])
+                    self.velocity = self.velocity * (cap / v);
+                    else if (self.cl[CL_CMD_SIDE])
+                    {
+                              cap = ms * 1.1;
+                    self.velocity = self.velocity * (cap / v);
+                    }
+                    }
+                    
+                    
+                    if (v > ms)
+                    self.nextthink = time + (frametime * 1.175);
+                   
+                    
+                    }
+                    }
+
           
 
                     local float vl;
