@@ -74,8 +74,10 @@ Athlete_Run =
           
 
                     local float vl;
+                    local string q;
                     vl = vlen (self.velocity);
-                    centerprint (self, (ftos(vl)));
+                    q = ftos (vl);
+                    centerprint (self, q);
                     if (self.pausetime && !vlen(self.velocity))
                     {
                      sound (self, CHAN_AUTO, "player/gasp1.wav", TRUE, ATTN_IDLE);
