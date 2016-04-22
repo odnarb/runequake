@@ -134,6 +134,46 @@ player_stand = [$stand1, player_stand]
 void ()
 player_run = [$rockrun1, player_run]
 {
+          
+          
+                    if (self.pausetime) // Cobalt try athlete rune here
+                    if (vlen(self.velocity))
+                    {          
+                    if (self.flags & FL_ONGROUND)
+                    {
+                    // Try new calculation sugguested by Number 6
+                    local float cap, ms, v;
+                    
+                    ms = cvar("sv_maxspeed");
+                    cap =  ms * 1.1;
+                    v = vlen(self.velocity);
+                    if (self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
+                    {
+                    if (v > cap)
+                    self.velocity = self.velocity * 0.95;// (ms / v); // cap it
+                    else if (v < cap)
+                    {
+                    if (self.cl[CL_CMD_FORWARD])
+                    self.velocity = self.velocity * (cap / v);
+                    else
+                    {
+                    cap = ms * 1.05;
+                    if (self.cl[CL_CMD_SIDE])
+                    self.velocity = self.velocity * (cap / v);
+                    }
+                    }
+                    
+                    }
+                    if (v > ms)
+                    self.nextthink = time + (frametime * 1.175);
+                   
+                    
+                    }
+                    }
+          
+          
+          
+          
 	self.weaponframe = 0;
           // Cobalt use block function ax experiment for more realistic animation
 	//if (!self.velocity_x && !self.velocity_y)

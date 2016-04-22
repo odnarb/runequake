@@ -62,46 +62,10 @@ void ()
 Athlete_Run =
 {
           
-              /*
-	if ((self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE]) && self.flags & FL_ONGROUND)
-		if (vlen(self.velocity) < 440) // Cobalt fix attempt for bug
-		self.velocity = self.velocity + self.velocity * 0.10; */
-                    if (self.pausetime)
-                    if (vlen(self.velocity))
-                    {          
-                    if (self.flags & FL_ONGROUND)
-                    {
-                    // Try new calculation sugguested by Number 6
-                    local float cap, ms, v;
+
                     
-                    ms = cvar("sv_maxspeed");
-                    cap =  ms * 1.1;
-                    v = vlen(self.velocity);
-                    if (self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
-                    {
-                    if (v > cap)
-                    self.velocity = self.velocity * 0.95;// (ms / v); // cap it
-                    else if (v < cap)
-                    {
-                    if (self.cl[CL_CMD_FORWARD])
-                    self.velocity = self.velocity * (cap / v);
-                    else
-                    {
-                    cap = ms * 1.05;
-                    if (self.cl[CL_CMD_SIDE])
-                    self.velocity = self.velocity * (cap / v);
-                    }
-                    }
-                    
-                    }
-                    if (v > ms)
-                    self.nextthink = self.nextthink - (frametime * 1.15);
-                   
-                    if (self.button2) Athlete_Jump ();
-                    }
-                    }
-                    
-                    else 
+                    if (self.pausetime && self.button2) Athlete_Jump ();
+                    if (!vlen(self.velocity))
                     {
                      sound (self, CHAN_AUTO, "player/gasp1.wav", TRUE, ATTN_IDLE);
                      self.pausetime = 0;
