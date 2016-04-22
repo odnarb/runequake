@@ -164,8 +164,8 @@ player_run = [$rockrun1, player_run]
                     }
                     
                     }
-                    if (v > ms)
-                    self.nextthink = time + (frametime * 1.175);
+                    //if (v > ms)
+                    //self.nextthink = time + (frametime * 1.175);
                    
                     
                     }

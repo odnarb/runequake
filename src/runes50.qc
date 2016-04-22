@@ -65,7 +65,7 @@ Athlete_Run =
 
                     
                     if (self.pausetime && self.button2) Athlete_Jump ();
-                    if (!vlen(self.velocity))
+                    if (self.pausetime && !vlen(self.velocity))
                     {
                      sound (self, CHAN_AUTO, "player/gasp1.wav", TRUE, ATTN_IDLE);
                      self.pausetime = 0;
