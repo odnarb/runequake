@@ -21,7 +21,7 @@ Athlete_Jump =
 {
           
           bprint ("Athlete Jump\n");
-          float ptime;
+          local float ptime;
           
           ptime = self.pausetime;
           
