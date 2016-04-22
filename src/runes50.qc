@@ -73,8 +73,9 @@ Athlete_Run =
 {
           
 
-                    
-                    centerprint (self, (ftos(vlen(self.velocity))));
+                    local float vl;
+                    vl = vlen (self.velocity);
+                    centerprint (self, (ftos(vl)));
                     if (self.pausetime && !vlen(self.velocity))
                     {
                      sound (self, CHAN_AUTO, "player/gasp1.wav", TRUE, ATTN_IDLE);
