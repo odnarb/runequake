@@ -1506,8 +1506,10 @@ PlayerJump =
 		sound (self, CHAN_JUMP, "player/plyrjmp8.wav", 1, ATTN_NORM);
 
 	IN_POQ([-
-                  
+                  if (!self.pausetime)
 		self.velocity_z = self.velocity_z + 270;
+                    else
+	          self.velocity_z = self.velocity_z + 540;
 	-])
 };
 
@@ -1958,11 +1960,9 @@ PlayerPreThink =
              self.th_runeuse ();
 
 	if (self.button2)
-          {
-            if (!self.pausetime)
-            PlayerJump ();
+          PlayerJump ();
           
-          }
+          
           else
 		self.flags = self.flags | FL_JUMPRELEASED;
 
