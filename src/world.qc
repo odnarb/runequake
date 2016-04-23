@@ -62,7 +62,7 @@ worldspawn =
           
           
                     local string aut,ds;
-                    ds = world.message
+                    ds = world.message;
                     if (mapname == "start" || mapname == "e1m1"|| mapname == "e2m1" || mapname == "e2m2" || mapname == "e2m3" || mapname == "e2m4" || mapname == "e2m5" || mapname == "e2m6" || mapname == "e3m1" || mapname == "end")
                     aut = "John Romero";
                     else if (mapname == "dm3" || mapname == "dm1" || mapname == "e1m2" || mapname == "e1m3" || mapname == "e1m4" || mapname == "e1m5" || mapname == "e2m7" || mapname == "e3m5" || mapname == "e4m1")
