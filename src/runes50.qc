@@ -101,11 +101,6 @@ Athlete_Run =
                     }
                     }
                     
-                    
-                    if (v > ms)
-                    self.nextthink = time + (frametime * 1.175);
-                   
-                    
                     }
                     }
 
