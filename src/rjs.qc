@@ -1858,7 +1858,7 @@ player_init =
 			}
 		}
 	}
-          self_sprint (self, mtitle);
+          sprint (self, mtitle);
 	self_sprint (self, "\buse\b -zone 1024 \bif quake crashes\n");
 	spawn_player_bindings ();
 
