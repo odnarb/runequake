@@ -699,7 +699,7 @@ Suck =
 					suckdir		= normalize (suckdir);
 					suckforce	= suckdir * SUCK_FORCE * (dist - suckdist);
 					suckee.velocity	= suckee.velocity + suckforce;
-                                                  
+                                                  if (!(suckee.flags & FL_CLIENT))
                                                   suckee.angles = vectoangles (suckee.velocity); // Cobalt experiment for looks
 				}
 			}
