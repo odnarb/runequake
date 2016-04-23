@@ -503,7 +503,7 @@ local float score;
 local vector here;
 here = head.origin - '0 0 10';
 
-if (vlen(head.velocity) >= 28) return 0;
+if (vlen(head.velocity) >= 132) return 0;
 
 
 
