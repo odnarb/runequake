@@ -23,7 +23,7 @@ main =
 };
 
 entity	lastspawn;       
-
+string    mtitle;
 
 
 //=======================
@@ -125,7 +125,8 @@ StartFrame =
                     ds = strcat (ds, ". \b(by ");
                     ds = strcat (ds, aut); 
                     ds = strcat (ds, ")\b\n"); 
-                    world.message = ds;
+                    mtitle = ds;
+                    world.message = "";
           }
           
         
