@@ -2319,7 +2319,7 @@ ClientConnect =
 		}
 	}
 
-          if (PLAYERS < 1)
+          if (!mtitle)
           {
            
              local string aut,ds;
@@ -2334,15 +2334,17 @@ ClientConnect =
                     aut = "American McGee & Tim Willits";
                     else if (mapname == "e4m2" || mapname == "e4m3" || mapname == "e4m5" || mapname == "e4m6" || mapname == "e4m7" || mapname == "e4m8")
                     aut = "Sandy Petersen";  
-                    else return "Unknown map";
+                    if (aut)
+                    {
                     ds = strcat (ds, ". \b(by ");
                     ds = strcat (ds, aut); 
                     ds = strcat (ds, ")\b\n"); 
                     mtitle = ds;            
-                    
+                    }
+                    else mtitle = "Unknown\n";
                     
           }
-           sprint (self, mtitle);
+           bprint (mtitle);
 	// I wanted to change the "Foo entered the game" message
 	// depending on whether this is a new connection or a new
 	// level.  This function is called before DecodeLevelParms(),
