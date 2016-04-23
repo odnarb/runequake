@@ -64,6 +64,9 @@ void ()
 worldspawn =
 {
 
+          local string de;
+          de = SetMapAuthor ();
+          world.message = strcat (world.message, de); 
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
@@ -80,9 +83,7 @@ worldspawn =
 
            other = nextent (other);
 	}
-          local string de;
-          de = SetMapAuthor ();
-          world.message = strcat (world.message, de); 
+       
           
 };
 
