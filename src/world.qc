@@ -64,11 +64,7 @@ void ()
 worldspawn =
 {
 
-          local string de,dd;
-          de = SetMapAuthor ();
-          dd = world.message;
-          dd = strcat (dd, de); 
-          world.message = dd;
+        
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
@@ -78,6 +74,12 @@ worldspawn =
 	place_my_items ();
 	IN_POQ(InitSearchHunk();)
       
+            local string de,dd;
+          de = SetMapAuthor ();
+          dd = world.message;
+          dd = strcat (dd, de); 
+          world.message = dd;
+          
       other = nextent(world);
 	while (other != world)
 	{
