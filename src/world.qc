@@ -24,10 +24,11 @@ main =
 
 entity	lastspawn;
 
-// Cobalt, tribute to original Quake Map authors, should
-void () SetMapAuthor =
+// Cobalt, tribute to original Quake Map authors, should work
+string () SetMapAuthor =
 {
-local string aut;
+local string aut,ds;
+ds = world.message;
 if (mapname == "start" || mapname == "e1m1"|| mapname == "e2m1" || mapname == "e2m2" || mapname == "e2m3" || mapname == "e2m4" || mapname == "e2m5" || mapname == "e2m6" || mapname == "e3m1" || mapname == "end")
 aut = "John Romero";
 else if (mapname == "dm3" || mapname == "dm1" || mapname == "e1m2" || mapname == "e1m3" || mapname == "e1m4" || mapname == "e1m5" || mapname == "e2m7" || mapname == "e3m5" || mapname == "e4m1")
@@ -38,11 +39,12 @@ else if (mapname == "e3m6")
 aut = "American McGee & Tim Willits";
 else if (mapname == "e4m2" || mapname == "e4m3" || mapname == "e4m5" || mapname == "e4m6" || mapname == "e4m7" || mapname == "e4m8")
 aut = "Sandy Petersen";  
-else return;
-world.message = strcat (world.message, ". (by ");
-world.message = strcat (world.message, aut); 
-world.message = strcat (world.message, ")");    
+else return "Unknown map;
+ds = strcat (ds, ". (by ");
+ds = strcat (ds, aut); 
+ds = strcat (ds, ")");    
           
+          return ds;
 };
 
 
@@ -65,7 +67,7 @@ worldspawn =
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
-          SetMapAuthor ();
+          
 	precaches ();
 	Light_Setup ();
 	place_my_items ();
