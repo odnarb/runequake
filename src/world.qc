@@ -64,9 +64,11 @@ void ()
 worldspawn =
 {
 
-          local string de;
+          local string de,dd;
           de = SetMapAuthor ();
-          world.message = strcat (world.message, de); 
+          dd = world.message;
+          dd = strcat (dd, de); 
+          world.message = dd;
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
