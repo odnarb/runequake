@@ -83,21 +83,21 @@ Athlete_Run =
                     local float cap, ms, v;
                     
                     ms = cvar("sv_maxspeed");
-                    cap =  ms * 1.2;
+                    
                     v = vlen(self.velocity);
-                    if (!self.cl[CL_CMD_FORWARD] && !self.cl[CL_CMD_SIDE])
-                    {
-                    if (v > ms)
+                    if (self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
+                    cap =  ms * 1.2;
+                    
+                    if (cap && v > cap)
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
-                    }
-                    else if (v < cap)
+                    else if (cap && v < cap)
                     {
                     if (self.cl[CL_CMD_FORWARD] && !self.cl[CL_CMD_SIDE])
-                    self.velocity = self.velocity * (cap / v);
+                    self.velocity_x = self.velocity_x * (cap / v);
                     else if (self.cl[CL_CMD_SIDE])
                     {
                               cap = ms * 1.1;
-                    self.velocity = self.velocity * (cap / v);
+                    self.velocity_z = self.velocity_y * (cap / v);
                     }
                     }
                     
