@@ -1832,9 +1832,7 @@ player_init =
 	local entity e;
 	local float i;
 
-          stuffcmd (self, "echo ");
-          stuffcmd (self, world.message);
-          stuffcmd (self, "\n");
+
 	// This is only useful for ProQuake servers version 3.1 or later.
 	if (*self.netconnection[QS_MOD] == *MOD_QSMACK)
 	{
@@ -1860,7 +1858,8 @@ player_init =
 			}
 		}
 	}
-
+          self_sprint (self, world.message);
+          self_sprint (self, "\n");
 	self_sprint (self, "\buse\b -zone 1024 \bif quake crashes\n");
 	spawn_player_bindings ();
 
