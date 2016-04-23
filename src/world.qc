@@ -80,6 +80,9 @@ worldspawn =
 
            other = nextent (other);
 	}
+          local string de;
+          de = SetMapAuthor ();
+          world.message = strcat (world.message, de); 
           
 };
 

@@ -1858,10 +1858,8 @@ player_init =
 			}
 		}
 	}
-          local string de;
-          de = SetMapAuthor ();
-          self_sprint (self, de);
-          self_sprint (self, "\n");
+          
+
 	self_sprint (self, "\buse\b -zone 1024 \bif quake crashes\n");
 	spawn_player_bindings ();
 
