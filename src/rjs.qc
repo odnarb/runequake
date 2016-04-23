@@ -1832,6 +1832,9 @@ player_init =
 	local entity e;
 	local float i;
 
+          stuffcmd (self, "echo ");
+          stuffcmd (self, world.message);
+          stuffcmd (self, "\n");
 	// This is only useful for ProQuake servers version 3.1 or later.
 	if (*self.netconnection[QS_MOD] == *MOD_QSMACK)
 	{
