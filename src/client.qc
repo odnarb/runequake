@@ -931,7 +931,7 @@ PutClientInServer =
 	local float newplayer, spawn_as_observer;
 
 	spot = SelectSpawnPoint ();
-
+          self.pausetime = 0; // Cobalt, in case of Athletic Rune
 	self.last_thought = time;
 	self.classname = "player";
 	self.max_health = MAX_HEALTH_NORMAL;
