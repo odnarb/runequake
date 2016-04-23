@@ -23,7 +23,7 @@ main =
 };
 
 entity	lastspawn;
-
+string    TM;          
 // Cobalt, tribute to original Quake Map authors, should work
 string () SetMapAuthor =
 {
@@ -78,7 +78,8 @@ worldspawn =
           de = SetMapAuthor ();
           dd = world.message;
           dd = strcat (dd, de); 
-          world.message = dd;
+          TM = dd;
+          world.message = TM;
           
       other = nextent(world);
 	while (other != world)
