@@ -681,8 +681,8 @@ Suck =
                      suckee.flags = suckee.flags - FL_ONGROUND;
                      suckee.movetype == MOVETYPE_TOSS;
                      suckee.solid == SOLID_SLIDEBOX;
-                     suckee.origin_z = suckee.origin_z + 12;
-                     suckee.velocity = (sucker.origin - suckee.size) - suckee.origin;
+                     suckee.origin_z = suckee.origin_z + 4;
+                     suckee.velocity = vlen (suckee.size) * ((sucker.origin - suckee.size) - suckee.origin);
  
                      suckee.effects = EF_BRIGHTFIELD;                     
                     }
@@ -699,8 +699,8 @@ Suck =
 					suckdir		= normalize (suckdir);
 					suckforce	= suckdir * SUCK_FORCE * (dist - suckdist);
 					suckee.velocity	= suckee.velocity + suckforce;
-                                                  if (random () < 0.5)
-                                                  suckee.angles = (((random ()) + 1)/3) * vectoangles (suckee.velocity); // Cobalt experiment for looks
+                                                  
+                                                  suckee.angles = vectoangles (suckee.velocity); // Cobalt experiment for looks
 				}
 			}
 		}
