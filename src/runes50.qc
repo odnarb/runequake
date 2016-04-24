@@ -75,7 +75,7 @@ Athlete_Run =
 
 
                     if (self.pausetime) // Cobalt try athlete rune here
-                    if (vlen(self.velocity))
+                    if (vlen(self.velocity) && !self.waterlevel)
                     {          
                     if (self.flags & FL_ONGROUND)
                     {
