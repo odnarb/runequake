@@ -112,7 +112,8 @@ Glue_Touch =
           {
           self.angles = vectoangles (trace_plane_normal);
           self.flags = self.flags & FL_ONGROUND;
-          self.movetype = 0;          
+          self.movetype = 0;
+          return;          
           }
           if (other.model != world.model)
 	other.effects = other.effects | EF_FROZEN;
