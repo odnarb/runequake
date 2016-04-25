@@ -88,8 +88,7 @@ void()
 Glue_Touch =
 {
           
-          if (other.solid != world.solid)
-          {
+          
 	if (other.classname != "player" && !is_pet_e (other))
 		return;
 
@@ -107,15 +106,7 @@ Glue_Touch =
 
 	if (!self.runevar)
 		return;
-          }
-          else
-          {
-          self.angles = vectoangles (trace_plane_normal);
-          self.flags = self.flags & FL_ONGROUND;
-          self.movetype = 0;
-          return;          
-          }
-          if (other.model != world.model)
+          
 	other.effects = other.effects | EF_FROZEN;
 	maybe_update_trap_count (self.owner, RN_GLUE);
 
