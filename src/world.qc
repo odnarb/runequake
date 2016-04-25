@@ -46,7 +46,6 @@ worldspawn =
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
-          world.message = world.noise;
 	precaches ();
 	Light_Setup ();
 	place_my_items ();
@@ -61,10 +60,8 @@ worldspawn =
            other = nextent (other);
 	}
           
-
-            if (!mtitle)
           
-           
+/*           
              local string aut,ds;
                     ds = world.message;
                     if (mapname == "start" || mapname == "e1m1"|| mapname == "e2m1" || mapname == "e2m2" || mapname == "e2m3" || mapname == "e2m4" || mapname == "e2m5" || mapname == "e2m6" || mapname == "e3m1" || mapname == "end")
@@ -86,8 +83,7 @@ worldspawn =
                     }
                     else mtitle = "Unknown\n";
                     
-          world.message = mtitle;
-
+*/
           
                   
           
