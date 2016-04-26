@@ -125,7 +125,7 @@ StartFrame =
 
           }
           
-         if (framecount == 40) world.message = mtitle;
+
          
           
 };
