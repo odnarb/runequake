@@ -42,7 +42,7 @@ void ()
 worldspawn =
 {
 
-        
+        world.message = "By so and so";
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
