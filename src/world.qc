@@ -37,12 +37,32 @@ World Types:
 1: metal
 2: base
 */
+void () SetMapAuthor =
+{
+local string aut;
+if (mapname == "start" || mapname == "e1m1"|| mapname == "e2m1" || mapname == "e2m2" || mapname == "e2m3" || mapname == "e2m4" || mapname == "e2m5" || mapname == "e2m6" || mapname == "e3m1" || mapname == "end")
+aut = "John Romero";
+else if (mapname == "dm3" || mapname == "dm1" || mapname == "e1m2" || mapname == "e1m3" || mapname == "e1m4" || mapname == "e1m5" || mapname == "e2m7" || mapname == "e3m5" || mapname == "e4m1")
+aut = "Tim Willits";   
+else if (mapname == "dm6" || mapname == "dm5" || mapname == "dm4" || mapname == "dm2" || mapname == "e1m8" || mapname == "e1m6" || mapname == "e1m7" || mapname == "e3m2" || mapname == "e3m4" || mapname == "e3m7")
+aut = "American McGee"; 
+else if (mapname == "e3m6")
+aut = "American McGee & Tim Willits";
+else if (mapname == "e4m2" || mapname == "e4m3" || mapname == "e4m5" || mapname == "e4m6" || mapname == "e4m7" || mapname == "e4m8")
+aut = "Sandy Petersen";  
+else return;
+mtitle = strcat (mtitle, ". (by ");
+mtitle = strcat (mtitle, aut); 
+mtitle = strcat (mtitle, ")");    
+          
+};
+
 //=======================
 void ()
 worldspawn =
 {
-
-        world.message = "By so and so";
+          SetMapAuthor ();
+          world.message = mtitle;
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
@@ -61,31 +81,6 @@ worldspawn =
 	}
           
           
-/*           
-             local string aut,ds;
-                    ds = world.message;
-                    if (mapname == "start" || mapname == "e1m1"|| mapname == "e2m1" || mapname == "e2m2" || mapname == "e2m3" || mapname == "e2m4" || mapname == "e2m5" || mapname == "e2m6" || mapname == "e3m1" || mapname == "end")
-                    aut = "John Romero";
-                    else if (mapname == "dm3" || mapname == "dm1" || mapname == "e1m2" || mapname == "e1m3" || mapname == "e1m4" || mapname == "e1m5" || mapname == "e2m7" || mapname == "e3m5" || mapname == "e4m1")
-                    aut = "Tim Willits";   
-                    else if (mapname == "dm6" || mapname == "dm5" || mapname == "dm4" || mapname == "dm2" || mapname == "e1m8" || mapname == "e1m6" || mapname == "e1m7" || mapname == "e3m2" || mapname == "e3m4" || mapname == "e3m7")
-                    aut = "American McGee"; 
-                    else if (mapname == "e3m6")
-                    aut = "American McGee & Tim Willits";
-                    else if (mapname == "e4m2" || mapname == "e4m3" || mapname == "e4m5" || mapname == "e4m6" || mapname == "e4m7" || mapname == "e4m8")
-                    aut = "Sandy Petersen";  
-                    if (aut)
-                    {
-                    ds = strcat (ds, ". \b(by ");
-                    ds = strcat (ds, aut); 
-                    ds = strcat (ds, ")\b\n"); 
-                    mtitle = ds;            
-                    }
-                    else mtitle = "Unknown\n";
-                    
-*/
-          
-                  
           
 };
 
