@@ -62,7 +62,7 @@ void ()
 worldspawn =
 {
           SetMapAuthor ();
-          world.message = mtitle;
+          
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
@@ -125,7 +125,7 @@ StartFrame =
 
           }
           
-         
+         if (framecount == 1) world.message = mtitle;
          
           
 };
