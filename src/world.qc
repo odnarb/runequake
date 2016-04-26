@@ -51,9 +51,9 @@ aut = "American McGee & Tim Willits";
 else if (mapname == "e4m2" || mapname == "e4m3" || mapname == "e4m5" || mapname == "e4m6" || mapname == "e4m7" || mapname == "e4m8")
 aut = "Sandy Petersen";  
 else return;
-mtitle = strcat (mtitle, ". (by ");
+mtitle = strcat (world.message, " - by ");
 mtitle = strcat (mtitle, aut); 
-mtitle = strcat (mtitle, ")");    
+    
           
 };
 
