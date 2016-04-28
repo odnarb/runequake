@@ -810,7 +810,7 @@ Vamp_Heal =
 			|| vamp.health >= (vamp.max_health + MAX_OVER_HEALTH)
 			|| damage == 0
 			|| victim == vamp
-			|| victim.classname == "zombie_camper" || victim.solid == SOLID_BSP) // Cobalt dont vamp with Exploboxes etc
+			|| victim.classname == "zombie_camper") 
 		return;
 
 	wasdead = vamp.health <= 0;
