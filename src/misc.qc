@@ -102,7 +102,7 @@ respawn_barrel =
           self.angles         = self.dest;
 	sound (self, CHAN_VOICE, "items/itembk2.wav", 1, ATTN_NORM);
 
-	setorigin (self, self.origin);
+	setorigin (self, self.oldorigin);
 };
 
 void ()
@@ -155,6 +155,7 @@ misc_explobox =
 	self.movetype	= MOVETYPE_NONE;
 	self.mdl	= "maps/b_explob.bsp";
           self.dest = self.angles;
+          self.oldorigin = self.origin;
 	precache_model (self.mdl);
 	setmodel (self, self.mdl);
 	IN_QW([-
@@ -190,6 +191,7 @@ misc_explobox2 =
 	self.movetype	= MOVETYPE_NONE;
 	self.mdl	= "maps/b_exbox2.bsp";
           self.dest = self.angles;
+          self.oldorigin = self.origin;
 	precache_model (self.mdl);
 	setmodel (self, self.mdl);
 	IN_QW([-
