@@ -99,7 +99,7 @@ respawn_barrel =
 	self.takedamage	= DAMAGE_AIM;
 	self.solid	= SOLID_BBOX;
 	self.model	= self.mdl;
-
+          self.angles         = self.dest;
 	sound (self, CHAN_VOICE, "items/itembk2.wav", 1, ATTN_NORM);
 
 	setorigin (self, self.origin);
@@ -154,7 +154,7 @@ misc_explobox =
 	self.touch	= misc_touch;
 	self.movetype	= MOVETYPE_NONE;
 	self.mdl	= "maps/b_explob.bsp";
-
+          self.dest = self.angles;
 	precache_model (self.mdl);
 	setmodel (self, self.mdl);
 	IN_QW([-
@@ -189,7 +189,7 @@ misc_explobox2 =
 	self.touch	= misc_touch;
 	self.movetype	= MOVETYPE_NONE;
 	self.mdl	= "maps/b_exbox2.bsp";
-
+          self.dest = self.angles;
 	precache_model (self.mdl);
 	setmodel (self, self.mdl);
 	IN_QW([-

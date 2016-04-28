@@ -518,7 +518,7 @@ T_Damage =
 	// try to respawn in the same spot?  I've also got reports that
 	// this happens to targs with rune types other than vamp so I
 	// just prevent healing on teledeath entirely.
-	if (attacker.runetype == RN_VAMP && dtype != "teledeath" && targ.solid != SOLID_BSP) // Cobalt dont vamp with Exploboxes etc
+	if (attacker.runetype == RN_VAMP && dtype != "teledeath" && targ.th_die != barrel_explode) // Cobalt dont vamp with Exploboxes 
 		Vamp_Heal (attacker, targ, real_take);
 
 	// Vengeance Rune does equal damage back to the attacker, but
