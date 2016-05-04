@@ -625,6 +625,7 @@ ClientKill =
 
 	see_damage (self, self, self.health + self.armorvalue);
 	self.health = 0;
+          self.dmg_take = 500;
 	Killed (self, self, dt);
 
 	if (dt == "suicide")
