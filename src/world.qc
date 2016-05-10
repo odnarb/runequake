@@ -53,12 +53,19 @@ else return;
           
 };
 
+void () world_touch =
+{
+ bprint (other.classname); bprint ("\n");       
+          
+};
+
+
 //=======================
 void ()
 worldspawn =
 {
           SetMapAuthor ();
-          
+          world.touch = world_touch;
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
