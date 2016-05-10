@@ -1680,8 +1680,7 @@ CheckWaterJump =
 	normalize (v_forward);
 	end = start + v_forward * 24;
 	traceline (start, end, TRUE, self);
-          // Cobalt try this reinforcement
-          if (pointcontents (self.origin + ' 0 -18 64') != CONTENT_SOLID && pointcontents (self.origin + ' 0 18 64') != CONTENT_SOLID)
+
 	if (trace_fraction < 1)
 	{	// solid at waist
 
@@ -1702,7 +1701,11 @@ CheckWaterJump =
                               if (trace_fraction == 1) // clear other side
                               {
                               self.flags = self.flags | FL_WATERJUMP;
-                              self.velocity_z = (vlen(self.velocity * 1.05)); 
+                              local float vj;
+                              if (self.items & IT_SUIT) // Larger boost for suit
+                              vj = 1.1;
+                              else vj = 1.05;
+                              self.velocity_z = (vlen(self.velocity * vj)); 
 			//self.velocity_z = 225;
 			self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
 			self.teleport_time = time + 2;	// safety net
