@@ -1677,7 +1677,7 @@ CheckWaterJump =
 	traceline (start, end, TRUE, self);
 	if (trace_fraction < 1)
 	{	// solid at waist
-bprint (vtos(trace_plane_normal)); bprint ("\n");
+
 		start_z = start_z + self.maxs_z - 8;
 		end = start + v_forward * 24;
 		self.movedir = trace_plane_normal * -50;

@@ -59,8 +59,14 @@ void () world_touch =
  if (!(other.waterlevel))
           {
          //           bprint ("hits world ");
-         makevectors (other.velocity);
-          traceline (other.absmax, (v_forward * vlen(other.velocity) * vlen (other.size)), 1, other);
+         local vector s,e;
+           makevectors (other.velocity);
+	s = other.origin;
+	v_forward_z = 0;
+	normalize (v_forward);
+	e = s + v_forward * 24;
+	traceline (s, e, TRUE, other);
+        
           //local vector tempi;
           bprint (vtos(trace_plane_normal)); bprint ("\n");
           //tempi = vectoangles(trace_plane_normal);
@@ -75,7 +81,7 @@ void ()
 worldspawn =
 {
           SetMapAuthor ();
-          //world.touch = world_touch;
+          world.touch = world_touch;
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
