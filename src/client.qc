@@ -1686,19 +1686,18 @@ CheckWaterJump =
 
 		start_z = start_z + self.maxs_z - 8;
 		end = start + v_forward * 24;
-		self.movedir = trace_plane_normal * -50;
+		
 		traceline (start, end, TRUE, self);
 		if (trace_fraction == 1)
 		{	// open at eye level
                               local float safe;
                               start = end;
-                              end = end + v_right * 16;
-                              traceline (start, end, TRUE, self);
+                            
+                              traceline (start, end + v_right * 16, TRUE, self);
                               if (trace_fraction == 1) // clear this side
                               {
                                safe = safe + 1;
-                               end = end + v_right * -16;
-                              traceline (start, end, TRUE, self); 
+                              traceline (start, end + v_right * -16, TRUE, self); 
                               if (trace_fraction == 1) // clear other side
                               safe = safe + 1;
                               
@@ -1713,7 +1712,7 @@ CheckWaterJump =
                               vj = 1.1;
                               else vj = 1.05;
                               self.velocity_z = (vlen(self.velocity * vj)); 
-			//self.velocity_z = 225;
+			self.movedir = trace_plane_normal * -50;
 			self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
 			self.teleport_time = time + 2;	// safety net
                               }
