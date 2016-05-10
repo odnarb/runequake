@@ -1680,6 +1680,8 @@ CheckWaterJump =
 	normalize (v_forward);
 	end = start + v_forward * 24;
 	traceline (start, end, TRUE, self);
+          // Cobalt try this reinforcement
+          if (pointcontents (self.origin + ' 0 -18 64') != CONTENT_SOLID && pointcontents (self.origin + ' 0 18 64') != CONTENT_SOLID)
 	if (trace_fraction < 1)
 	{	// solid at waist
 
