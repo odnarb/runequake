@@ -55,7 +55,17 @@ else return;
 
 void () world_touch =
 {
- bprint (other.classname); bprint ("\n");       
+ 
+ if (other.touch == GrenadeTouch && (!(other.waterlevel)))
+          {
+                    bprint ("Grenade hits world ");
+          //makevectors (vectoangles(self.velocity));
+          //traceline (self.origin, v_forward * vlen(self.velocity), 1, self);
+          local vector tempi;
+          bprint (vtos(trace_plane_normal)); bprint ("\n");
+          tempi = vectoangles(trace_plane_normal);
+          other.angles_x = tempi_x - 90;
+          } 
           
 };
 
