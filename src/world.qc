@@ -58,11 +58,11 @@ void () world_touch =
  
  if (!(other.waterlevel))
           {
-                    bprint ("hits world ");
-          makevectors (vectoangles(other.velocity));
-          traceline (other.origin, (v_forward * vlen(self.velocity) * vlen (self.size)), 1, other);
-          local vector tempi;
-          bprint (vtos(trace_plane_normal)); bprint ("\n");
+         //           bprint ("hits world ");
+         // makevectors (vectoangles(other.velocity));
+          //traceline (other.origin, (v_forward * vlen(self.velocity) * vlen (self.size)), 1, other);
+          //local vector tempi;
+          bprint (vtos(other.velocity)); bprint ("\n");
           //tempi = vectoangles(trace_plane_normal);
           //other.angles_x = tempi_x - 90;
           } 
