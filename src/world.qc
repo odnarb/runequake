@@ -60,7 +60,7 @@ void () world_touch =
           {
          //           bprint ("hits world ");
          local vector s,e;
-           makevectors (other.velocity);
+           makevectors (other.velocity * -1);
 	s = other.origin;
 	v_forward_z = 0;
 	normalize (v_forward);
