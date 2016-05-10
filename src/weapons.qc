@@ -697,11 +697,11 @@ GrenadeTouch =
           // Cobalt make grenade match angles of floors it comes to rest on or react to walls it hits
           if (other.solid == world.solid && (!(self.waterlevel)))
           {
-                    bprint ("Grenade hits world\n");
-          makevectors (vectoangles(self.velocity));
-          traceline (self.origin, v_forward * vlen(self.velocity), 0, self);
+                    bprint ("Grenade hits world ");
+          //makevectors (vectoangles(self.velocity));
+          //traceline (self.origin, v_forward * vlen(self.velocity), 1, self);
           local vector tempi;
-          bprint (vtos(trace_plane_normal));
+          bprint (vtos(trace_plane_normal)); bprint ("\n");
           tempi = vectoangles(trace_plane_normal);
           self.angles_x = tempi_x - 90;
           }
