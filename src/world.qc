@@ -75,7 +75,7 @@ void ()
 worldspawn =
 {
           SetMapAuthor ();
-          world.touch = world_touch;
+          //world.touch = world_touch;
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
