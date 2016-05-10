@@ -1690,15 +1690,22 @@ CheckWaterJump =
 		traceline (start, end, TRUE, self);
 		if (trace_fraction == 1)
 		{	// open at eye level
-          
+                              local float safe;
                               start = end;
                               end = end + v_right * 16;
                               traceline (start, end, TRUE, self);
                               if (trace_fraction == 1) // clear this side
                               {
+                               safe = safe + 1;
                                end = end + v_right * -16;
                               traceline (start, end, TRUE, self); 
                               if (trace_fraction == 1) // clear other side
+                              safe = safe + 1;
+                              
+                              
+                              }
+			
+                              if (safe == 2)
                               {
                               self.flags = self.flags | FL_WATERJUMP;
                               local float vj;
@@ -1711,8 +1718,7 @@ CheckWaterJump =
 			self.teleport_time = time + 2;	// safety net
                               }
                               
-                              }
-			
+                              
 		}
 	}
 };
