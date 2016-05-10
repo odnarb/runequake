@@ -695,7 +695,7 @@ GrenadeTouch =
 	if (other == self.owner)
 		return;		// don't explode on owner
           // Cobalt make grenade match angles of floors it comes to rest on or react to walls it hits
-          if (other.movetype == MOVETYPE_PUSH && (!(self.waterlevel))
+          if (other.movetype == MOVETYPE_PUSH && (!(self.waterlevel)))
           {
           makevectors (vectoangles(self.velocity));
           traceline (self.origin, v_forward * vlen(self.velocity), 0, self);
