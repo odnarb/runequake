@@ -1691,10 +1691,25 @@ CheckWaterJump =
 		traceline (start, end, TRUE, self);
 		if (trace_fraction == 1)
 		{	// open at eye level
-			self.flags = self.flags | FL_WATERJUMP;
-			self.velocity_z = 225;
+          
+                              start = end;
+                              end = end + v_right * 16;
+                              traceline (start, end, TRUE, self);
+                              if (trace_fraction == 1) // clear this side
+                              {
+                               end = end + v_right * -16;
+                              traceline (start, end, TRUE, self); 
+                              if (trace_fraction == 1) // clear other side
+                              {
+                              self.flags = self.flags | FL_WATERJUMP;
+                              self.velocity_z = (vlen(self.velocity * 1.05)); 
+			//self.velocity_z = 225;
 			self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
 			self.teleport_time = time + 2;	// safety net
+                              }
+                              
+                              }
+			
 		}
 	}
 };
