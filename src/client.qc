@@ -1670,8 +1670,10 @@ WaterMove =
 void ()
 CheckWaterJump =
 {
-	local vector start, end;
-
+	
+          if (self.cl[CL_CMD_FORWARD] <= 0) return;
+          
+          local vector start, end;
 	// check for a jump-out-of-water
 	makevectors (self.angles);
 	start = self.origin;
