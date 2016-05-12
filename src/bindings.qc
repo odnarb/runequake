@@ -1445,42 +1445,7 @@ void ()
 console_commands =
 {
 
-          if (temp1 & T1_RUNE_CHEAT)
-          {
-          self_sprint (self, "                 “ıÓÂ-√ËÂ·Ù-…ÌıÏÛÂÛùûü\n");
-	self_sprint (self, "ãããããããããããããããã\n");
-          self_sprint (self, "IMPULSE            RUNE            IMPULSE            RUNE\n");
-          self_sprint (self, "ãããããããããããããããã\n");
-          self_sprint (self, "101                Strength        102                Regen  \n");
-          self_sprint (self, "103                Resist          104                Haste  \n");
-          self_sprint (self, "105                Enviro          106                Fly\n");
-          self_sprint (self, "107                Berserk         108                Recall\n");
-          self_sprint (self, "109                Zap             110                Cloak\n");
-          self_sprint (self, "111                Bomb            112                Dspots\n");
-          self_sprint (self, "113                Holo            114                Orb\n");
-          self_sprint (self, "115                Blink           116                Camo\n");
-          self_sprint (self, "117                Jump            118                Ammo\n");
-          self_sprint (self, "119                Vamp            120                Shield\n");
-          self_sprint (self, "121                Health          122                Radio\n");
-          self_sprint (self, "123                Switch          124                Freeze\n");
-          self_sprint (self, "125                Suck            126                Twalk\n");
-          self_sprint (self, "127                Impact          128                Veng\n");
-          self_sprint (self, "129                Shub            130                Repel\n");
-          self_sprint (self, "131                Phase           132                Shamb\n");
-          self_sprint (self, "133                Dual            134                Weird\n");
-          self_sprint (self, "135                Pheonix         136                Cloud\n");
-          self_sprint (self, "137                Firewalk        138                Hook\n");
-          self_sprint (self, "139                Athlete         140                Lumber\n");
-          self_sprint (self, "141                Zombie          142                Pierce\n");
-          self_sprint (self, "143                Selfpres        144                Monk\n");
-          self_sprint (self, "145                Torch           146                Packrat\n");
-          self_sprint (self, "147                Armor           148                Quad\n");
-          self_sprint (self, "149                Jack            150                Glue\n");
-          self_sprint (self, "151                Blizzard        152                Thor\n");
-          self_sprint (self, "153                Sniper          154                Antipack\n");
-          self_sprint (self, "155                Deflect         156                Betty\n");
-          self_sprint (self, "157                Tornado         158                Requiem\n");
-          }
+
           
           
 	self_sprint (self, "\nRune Quake v");
@@ -1520,7 +1485,42 @@ console_commands =
 void ()
 commands =
 {
-	//                      1234567890123456789012345678901234567\n
+          if (temp1 & T1_RUNE_CHEAT)
+          {
+          self_sprint (self, "                 “ıÓÂ-√ËÂ·Ù-…ÌıÏÛÂÛùûü\n");
+	self_sprint (self, "ãããããããããããããããã\n");
+          self_sprint (self, "IMPULSE            RUNE            IMPULSE            RUNE\n");
+          self_sprint (self, "ãããããããããããããããã\n");
+          self_sprint (self, "101                Strength        102                Regen  \n");
+          self_sprint (self, "103                Resist          104                Haste  \n");
+          self_sprint (self, "105                Enviro          106                Fly\n");
+          self_sprint (self, "107                Berserk         108                Recall\n");
+          self_sprint (self, "109                Zap             110                Cloak\n");
+          self_sprint (self, "111                Bomb            112                Dspots\n");
+          self_sprint (self, "113                Holo            114                Orb\n");
+          self_sprint (self, "115                Blink           116                Camo\n");
+          self_sprint (self, "117                Jump            118                Ammo\n");
+          self_sprint (self, "119                Vamp            120                Shield\n");
+          self_sprint (self, "121                Health          122                Radio\n");
+          self_sprint (self, "123                Switch          124                Freeze\n");
+          self_sprint (self, "125                Suck            126                Twalk\n");
+          self_sprint (self, "127                Impact          128                Veng\n");
+          self_sprint (self, "129                Shub            130                Repel\n");
+          self_sprint (self, "131                Phase           132                Shamb\n");
+          self_sprint (self, "133                Dual            134                Weird\n");
+          self_sprint (self, "135                Pheonix         136                Cloud\n");
+          self_sprint (self, "137                Firewalk        138                Hook\n");
+          self_sprint (self, "139                Athlete         140                Lumber\n");
+          self_sprint (self, "141                Zombie          142                Pierce\n");
+          self_sprint (self, "143                Selfpres        144                Monk\n");
+          self_sprint (self, "145                Torch           146                Packrat\n");
+          self_sprint (self, "147                Armor           148                Quad\n");
+          self_sprint (self, "149                Jack            150                Glue\n");
+          self_sprint (self, "151                Blizzard        152                Thor\n");
+          self_sprint (self, "153                Sniper          154                Antipack\n");
+          self_sprint (self, "155                Deflect         156                Betty\n");
+          self_sprint (self, "157                Tornado         158                Requiem\n\n");
+          }
 	self_sprint (self, "\n        \b\.important commands\.\b\n\n");
 	self_sprint (self, "\brune-delete\b   delete your rune\n");
 	self_sprint (self, "\brune-tell\b     rune description\n");
