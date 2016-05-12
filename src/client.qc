@@ -1654,16 +1654,11 @@ WaterMove =
 		}
 	}
 
-	IN_POQ([-
-          
-          if (self.flags & FL_WATERJUMP) // New fix for sticking in a corner out of water by Zop
-	{
-		if (self.mangle == self.origin) self.flags = self.flags - FL_WATERJUMP;
-		self.mangle = self.origin;
-	}
-	else
-		self.velocity = self.velocity - 0.8 * self.waterlevel * frametime * self.velocity;
-		
+          IN_POQ([-
+		if (!self.flags & FL_WATERJUMP)
+			self.velocity = self.velocity - 0.8 * self.waterlevel * frametime * self.velocity;
+		else if (self.velocity_z == 0)
+			self.flags = self.flags - self.flags & FL_WATERJUMP;
 	-])
 };
 
