@@ -1445,7 +1445,7 @@ void ()
 console_commands =
 {
 
-          if (cvar ("temp1") & T1_RUNE_CHEAT)
+          if (temp1 & T1_RUNE_CHEAT)
           {
           self_sprint (self, "                 Òυξε-Γθεατ-Ινπυμσεσ\n");
 	self_sprint (self, "‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹\n");
