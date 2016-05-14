@@ -1489,24 +1489,24 @@ commands =
           {
           self_sprint (self, "                 “ıÓÂ-√ËÂ·Ù-…ÌıÏÛÂÛùûü\n");
 	self_sprint (self, "ãããããããããã");
-          self_sprint (self, "ãããããããããã\n");
-          self_sprint (self, "\b101\b Strength    \b102\b Regen  \b103\b Resist      \b104\b Haste\n");
-          self_sprint (self, "\b105\b Enviro      \b106\b Fly    \b107\b Berserk     \b108\b Recall\n");
-          self_sprint (self, "\b109\b Zap         \b110\b Cloak  \b111\b Bomb        \b112\b Dspots\n");
-          self_sprint (self, "\b113\b Holo        \b114\b Orb    \b115\b Blink       \b116\b Camo\n");
-          self_sprint (self, "\b117\b Jump        \b118\b Ammo   \b119\b Vamp        \b120\b Shield\n");
-          self_sprint (self, "\b121\b Health\b    \b122\b Radio  \b123\b Switch      \b124\b Freeze\n");
-          self_sprint (self, "\b125\b Suck\b      \b126\b Twalk  \b127\b Impact      \b128\b Veng\n");
-          self_sprint (self, "\b129\b Shub        \b130\b Repel  \b131\b Phase       \b132\b Shamb\n");
-          self_sprint (self, "\b133\b Dual        \b134\b Weird  \b135\b Pheonix     \b136\b Cloud\n");
-          self_sprint (self, "\b137\b Firewalk    \b138\b Hook   \b139\b Athlete     \b140\b Lumber\n");
-          self_sprint (self, "\b141\b Zombie      \b142\b Pierce \b143\b Selfpres    \b144\b Monk\n");
-          self_sprint (self, "\b145\b Torch       \b146\b Pkrat  \b147\b Armor       \b148\b Quad\n");
-          self_sprint (self, "\b149\b Jack        \b150\b Glue   \b151\b Blizzard    \b152\b Thor\n");
-          self_sprint (self, "\b153\b Sniper      \b154\b Antipck\b155\b Deflect     \b156\b Betty\n");
-          self_sprint (self, "\b157\b Tornado     \b158\b Requiem\n");
-          self_sprint (self, "ãããããããããã");
-          self_sprint (self, "ãããããããããã\n");
+          self_sprint (self, "ããããããããããããã\n");
+          self_sprint (self, "ã\b101\b Strength    \b102\b Regen  \b103\b Resist      \b104\b Hasteã\n");
+          self_sprint (self, "ã\b105\b Enviro      \b106\b Fly    \b107\b Berserk     \b108\b Recallã\n");
+          self_sprint (self, "ã\b109\b Zap         \b110\b Cloak  \b111\b Bomb        \b112\b Dspotsã\n");
+          self_sprint (self, "ã\b113\b Holo        \b114\b Orb    \b115\b Blink       \b116\b Camoã\n");
+          self_sprint (self, "ã\b117\b Jump        \b118\b Ammo   \b119\b Vamp        \b120\b Shieldã\n");
+          self_sprint (self, "ã\b121\b Health      \b122\b Radio  \b123\b Switch      \b124\b Freezeã\n");
+          self_sprint (self, "ã\b125\b Suck        \b126\b Twalk  \b127\b Impact      \b128\b Vengã\n");
+          self_sprint (self, "ã\b129\b Shub        \b130\b Repel  \b131\b Phase       \b132\b Shambã\n");
+          self_sprint (self, "ã\b133\b Dual        \b134\b Weird  \b135\b Pheonix     \b136\b Cloudã\n");
+          self_sprint (self, "ã\b137\b Firewalk    \b138\b Hook   \b139\b Athlete     \b140\b Lumberã\n");
+          self_sprint (self, "ã\b141\b Zombie      \b142\b Pierce \b143\b Selfpres    \b144\b Monkã\n");
+          self_sprint (self, "ã\b145\b Torch       \b146\b Pkrat  \b147\b Armor       \b148\b Quadã\n");
+          self_sprint (self, "ã\b149\b Jack        \b150\b Glue   \b151\b Blizzard    \b152\b Thorã\n");
+          self_sprint (self, "ã\b153\b Sniper      \b154\b Antipck\b155\b Deflect     \b156\b Bettyã\n");
+          self_sprint (self, "ã\b157\b Tornado     \b158\b Requiem                                 ã\n");
+          self_sprint (self, "ãããããããããããã");
+          self_sprint (self, "ããããããããããã\n");
           }
 	self_sprint (self, "\n        \b\.important commands\.\b\n\n");
 	self_sprint (self, "\brune-delete\b   delete your rune\n");
