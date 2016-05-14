@@ -714,7 +714,7 @@ Suck =
 					suckdir		= normalize (suckdir);
 					suckforce	= suckdir * SUCK_FORCE * (dist - suckdist);
 					suckee.velocity	= suckee.velocity + suckforce;
-                                                  if (suckee.classname == "grenade" || suckee.classname = "spike" || suckee.classname == "missile")
+                                                  if (suckee.classname == "grenade" || suckee.classname == "spike" || suckee.classname == "missile")
                                                   suckee.avelocity = vectoangles (suckee.velocity) * 0.5;
                                                   if (!(suckee.flags & FL_CLIENT))
                                                   suckee.angles = vectoangles (suckee.velocity); // Cobalt experiment for looks
