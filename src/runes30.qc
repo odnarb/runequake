@@ -723,7 +723,10 @@ Suck_Think =
 
 	if (self.owner.runetype == RN_SUCK)
 		self.runetime = time + 20;
-
+        
+                    
+          if (framecount & 1) self.effects = EF_FROZEN; // Cobalt add frozen effect to mark it as vanishing soon
+           else self.effects = 0;
 	// I used to set this to sys_ticrate but every time the rate changes
 	// SUCK_FORCE is either too weak or too strong.
 	self.nextthink = time + (frametime * 2); // Cobalt, this should balance it out.
@@ -760,12 +763,13 @@ Suck_Spawn =
 	suck = spawn ();
 	suck.movetype = MOVETYPE_FLY;
 	suck.solid = SOLID_TRIGGER;
+          
 	suck.owner = self;
 	setorigin (suck, self.origin + '0 0 40');
 	setsize (suck, VEC_ORIGIN, VEC_ORIGIN);
 	setmodel (suck, "progs/s_light.spr");
 	suck.classname = "sucker";
-          suck.effects = EF_FROZEN;
+          
 	sound (suck, CHAN_WEAPON, "buttons/switch04.wav", 1, ATTN_NORM);
 
 	suck.nextthink = time;
