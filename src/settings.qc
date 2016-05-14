@@ -638,7 +638,7 @@ float RN_REQUIEM_RECHARGE	= 0.5;
 
 // red, green, blue, scale
 
-string	CSHIFT_BLIND		= "v_cshift 256 256 256 200\n";
+string	CSHIFT_BLIND		= "v_cshift 0 0 0 165\n";
 string	CSHIFT_CLOAK		= "v_cshift   0   0   0  75\n";
 string	CSHIFT_FREEZE		= "v_cshift  50  50 256 100\n";
 string	CSHIFT_NONE		= "v_cshift   0   0   0   0\n";
