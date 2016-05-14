@@ -694,10 +694,11 @@ Suck =
                     }
 		if (pull || !suckee.flags & FL_ONGROUND && sucker != suckee)
 		{
-                              pull = isfriend2 (sucker.owner, suckee);
-                      if (suckee.classname == "spikeball" || suckee.classname == "glue" && !pull)
+                         if (isfriend2 (sucker.owner, suckee))
+                         pull = 0;
+                      if (suckee.classname == "spikeball" || suckee.classname == "glue")
                           pull = 2;                                
-                              if (pull)
+                              if (pull && suckee != sucker.owner)
 			{
                              
 				if (suckee.classname != "player")
@@ -709,6 +710,8 @@ Suck =
 					suckdir		= normalize (suckdir);
 					suckforce	= suckdir * SUCK_FORCE * (dist - suckdist);
 					suckee.velocity	= suckee.velocity + suckforce;
+                                                  if (suckee.classname == "grenade" || suckee.classname = "spike" || suckee.classname == "missile")
+                                                  suckee.avelocity = vectoangles (suckee.velocity) * 0.5;
                                                   if (!(suckee.flags & FL_CLIENT))
                                                   suckee.angles = vectoangles (suckee.velocity); // Cobalt experiment for looks
 				}

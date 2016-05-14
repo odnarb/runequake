@@ -295,6 +295,7 @@ kick_suicider =
 		return 1;
 	}
 
+          if (!cvar ("developer")
 	if (!self.aqflags & AQ_ADMIN)
 	{
 		sprint (self, "You will be kicked if you suicide again within a minute\n");
