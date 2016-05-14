@@ -723,10 +723,8 @@ Suck_Think =
 
 	if (self.owner.runetype == RN_SUCK)
 		self.runetime = time + 20;
-        
-                    
-          if (framecount & 1) self.effects = EF_FROZEN; // Cobalt add frozen effect to mark it as vanishing soon
-           else self.effects = 0;
+          else self.effects = EF_FROZEN; // Cobalt add frozen effect to mark it as vanishing soon
+
 	// I used to set this to sys_ticrate but every time the rate changes
 	// SUCK_FORCE is either too weak or too strong.
 	self.nextthink = time + (frametime * 2); // Cobalt, this should balance it out.
