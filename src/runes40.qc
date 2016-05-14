@@ -610,16 +610,15 @@ float WEIRD_COFFEE	= 5;
 float WEIRD_STICKY	= 6;
 float WEIRD_SHOOTPHOB	= 7;
 float WEIRD_TWIRLY	= 8;
-float WEIRD_VERTIGO	= 9;
-float WEIRD_BLIND	= 10;
-
+float WEIRD_BLIND	= 9;
+float WEIRD_VERTIGO	= 10;
 // I've disabled blindness entirely.  What I don't like about it is that
 // if you're hit with multiple weirdnesses and one of them is blindness,
 // you can't really appreciate how weird you are.
 //
 // Twirly head is disabled in QW because punchangle does not exist.
 
-float WEIRD_MAX_POQ	= 8;
+float WEIRD_MAX_POQ	= 9;
 float WEIRD_MAX_QW	= 7;
 
 void ()
