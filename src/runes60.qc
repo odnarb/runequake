@@ -39,7 +39,7 @@ Glue_Think =
           if (!self.velocity && self.touch != world.th_die)
           {
           self.angles = self.dest;
-	self.enemy = self;
+	self.movetype	= MOVETYPE_NONE;
           }
           if (self.velocity != VEC_ORIGIN)
 		self.nextthink	= time + sys_ticrate;
@@ -115,7 +115,6 @@ Glue_Touch =
 	maybe_update_trap_count (self.owner, RN_GLUE);
    
 	self.solid	= SOLID_NOT;
-	self.movetype	= MOVETYPE_NONE;
 	self.touch	= world.th_die;
 	self.think	= Glue_Stuck;
 	self.nextthink	= time;
