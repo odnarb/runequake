@@ -37,8 +37,11 @@ Glue_Think =
 		return;
 	}
           if (!self.velocity && self.touch != world.th_die)
+          {
           self.angles = self.dest;
-	if (self.velocity != VEC_ORIGIN)
+	self.enemy = self;
+          }
+          if (self.velocity != VEC_ORIGIN)
 		self.nextthink	= time + sys_ticrate;
 	else
 	{
