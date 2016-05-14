@@ -1504,8 +1504,8 @@ commands =
           self_sprint (self, "‹ \b145\b Torch       \b146\b Pkrat   \b147\b Armor       \b148\b Quad   ‹\n");
           self_sprint (self, "‹ \b149\b Jack        \b150\b Glue    \b151\b Blizzard    \b152\b Thor   ‹\n");
           self_sprint (self, "‹ \b153\b Sniper      \b154\b Antipck \b155\b Deflect     \b156\b Betty  ‹\n");
-          self_sprint (self, "‹ \b157\b Tornado     \b158\b Requiem                                    ‹\n");
-          self_sprint (self, "‹‹‹‹‹‹‹‹‹‹‹‹");
+          self_sprint (self, "‹ \b157\b Tornado     \b158\b Requiem                            ‹\n");
+          self_sprint (self, "‹‹‹‹‹‹‹‹‹‹‹‹‹");
           self_sprint (self, "‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹\n");
           }
 	self_sprint (self, "\n        \b\.important commands\.\b\n\n");
