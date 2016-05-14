@@ -1491,8 +1491,8 @@ commands =
 	self_sprint (self, "‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹\n");
           self_sprint (self, "IMPULSE            RUNE            IMPULSE            RUNE\n");
           self_sprint (self, "‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹\n");
-          self_sprint (self, "101                Strength        102                Regen  \n");
-          self_sprint (self, "103                Resist          104                Haste  \n");
+          self_sprint (self, "101 Strength        102 Regen  \n");
+          self_sprint (self, "103 Resist          104 Haste  \n");
           self_sprint (self, "105                Enviro          106                Fly\n");
           self_sprint (self, "107                Berserk         108                Recall\n");
           self_sprint (self, "109                Zap             110                Cloak\n");
