@@ -1366,7 +1366,9 @@ Rune_Spawn =
 	rune.runevar = 0;		// |1 = dropper told, |2 = killer told
 	rune.runent = world;		// link for pack rat chain
 	rune.lip = 0;			// pack rat pickup time
-          rune.dest = rune.angles; // Cobalt, Save old angles in case of Grav Well effect
+           if (rune.runetype == RN_ZAP)
+          rune.angles_z = 180;
+          rune.dest = rune.angles; // Cobalt, Save old angles in case of Grav Well effect / Zap rune
 	if (type == RN_LITHIUM_HOOK)
 		ix = -1;
 	else if (temp1 & T1_RANDOM_RUNE_MODELS)
@@ -1388,8 +1390,7 @@ Rune_Spawn =
 	rune.runetime = time + 60 + random ()*60;
           
          // if (cvar ("developer")) // Cobalt - for dev, point out the rune we are working on, makes it easier to find
-          if (rune.runetype == RN_ZAP)
-          rune.angles_z = 180;	
+         	
           
           // Set RN_JACK up to change models.
 	if (rune.runetype == RN_JACK && !temp1 & T1_RANDOM_RUNE_MODELS)
