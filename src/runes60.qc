@@ -88,7 +88,8 @@ void()
 Glue_Touch =
 {
           
-          
+           if (other == world && !self.velocity)
+          self.angles = self.dest;
 	if (other.classname != "player" && !is_pet_e (other))
 		return;
 
@@ -106,8 +107,7 @@ Glue_Touch =
 
 	if (!self.runevar)
 		return;
-          if (other == world && !self.velocity)
-          self.angles = self.dest;
+         
 	other.effects = other.effects | EF_FROZEN;
 	maybe_update_trap_count (self.owner, RN_GLUE);
 
