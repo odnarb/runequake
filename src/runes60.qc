@@ -174,7 +174,7 @@ Rune_Glue =
 	makevectors (self.v_angle);
 
 	glue.velocity		= v_forward * (600 + random() * 100) + v_up * 200 + v_right * (random() * 100 - random() * 100);
-	glue.avelocity		= '0 600 0';
+	glue.avelocity		= vectoangles (glue.velocity + (crandom () * '0 600 0'));
 
 	setmodel (glue, "progs/tarbaby.mdl");
 	setsize (glue, '-16 -16 -24', '16 16 24');

@@ -686,7 +686,7 @@ Suck =
  
                      suckee.effects = EF_BRIGHTFIELD;                     
                     }
-		if (suckee.health || !suckee.flags & FL_ONGROUND)
+		if (suckee.health || !suckee.flags & FL_ONGROUND || suckee.classname == "spikeball")
 		{
 			if (suckee.solid != SOLID_BSP && !isfriend2 (sucker.owner, suckee) && sucker != suckee)
 			{
