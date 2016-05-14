@@ -765,7 +765,7 @@ Suck_Spawn =
 	setsize (suck, VEC_ORIGIN, VEC_ORIGIN);
 	setmodel (suck, "progs/s_light.spr");
 	suck.classname = "sucker";
-
+          suck.effects = EF_FROZEN;
 	sound (suck, CHAN_WEAPON, "buttons/switch04.wav", 1, ATTN_NORM);
 
 	suck.nextthink = time;
