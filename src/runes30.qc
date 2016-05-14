@@ -696,7 +696,7 @@ Suck =
                      pull = 1;
                      suckee.effects = EF_BRIGHTFIELD;                     
                     }
-		if (pull || !suckee.flags & FL_ONGROUND && sucker != suckee)
+		if (pull || (!suckee.flags & FL_ONGROUND) && sucker != suckee)
 		{
                         
                       if (suckee.classname == "spikeball" || suckee.classname == "glue")
