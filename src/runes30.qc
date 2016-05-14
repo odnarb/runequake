@@ -680,7 +680,7 @@ Suck =
                     if (suckee.movetype > 0 && suckee.movetype != MOVETYPE_PUSH && suckee.movetype != MOVETYPE_NOCLIP)
                     pull = 1;                 
                     
-                    if ((suckee.flags & FL_CLIENT) && suckee.health)
+                    if ((suckee.flags & FL_CLIENT) && suckee.health > 0)
                     {
                       if (sucker.owner != suckee)
                            pull = 1;
@@ -702,7 +702,7 @@ Suck =
                           pull = 2;
                       else if (isfriend2 (sucker.owner, suckee))
                          pull = 0;                                
-                              if (pull && suckee != sucker.owner)
+                              if (pull)
 			{
                              
 				if (suckee.classname != "player")
