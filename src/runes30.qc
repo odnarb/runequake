@@ -678,10 +678,7 @@ Suck =
 	{
                     local float pull;
                     if (suckee.movetype > 0 && suckee.movetype != MOVETYPE_PUSH && suckee.movetype != MOVETYPE_NOCLIP)
-                    pull = 1;
-                              
-                      
-                 
+                    pull = 1;                 
                     
                     if ((suckee.flags & FL_CLIENT) && suckee.health)
                            pull = 1; 
@@ -695,15 +692,14 @@ Suck =
                      pull = 1;
                      suckee.effects = EF_BRIGHTFIELD;                     
                     }
-		if (pull || !suckee.flags & FL_ONGROUND)
+		if (pull || !suckee.flags & FL_ONGROUND && sucker != suckee)
 		{
-                             if (suckee.classname == "spikeball" || suckee.classname == "glue")
-                             {
-                             bprint(suckee.classname);
-                             bprint ("\n");
-                             }
-                              if (suckee.solid != SOLID_BSP && !isfriend2 (sucker.owner, suckee) && sucker != suckee)
+                              pull = isfriend2 (sucker.owner, suckee);
+                      if (suckee.classname == "spikeball" || suckee.classname == "glue" && !pull)
+                          pull = 2;                                
+                              if (pull)
 			{
+                             
 				if (suckee.classname != "player")
 					suckee.flags = suckee.flags - suckee.flags & FL_ONGROUND;
 				if (!environmental (suckee))
