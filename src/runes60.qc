@@ -36,7 +36,8 @@ Glue_Think =
 		remove (self);
 		return;
 	}
-
+          if (!self.velocity && self.touch != world.th_die)
+          self.angles = self.dest;
 	if (self.velocity != VEC_ORIGIN)
 		self.nextthink	= time + sys_ticrate;
 	else
@@ -88,8 +89,7 @@ void()
 Glue_Touch =
 {
           
-           if (other == world && !self.velocity)
-          self.angles = self.dest;
+          
 	if (other.classname != "player" && !is_pet_e (other))
 		return;
 
@@ -110,10 +110,10 @@ Glue_Touch =
          
 	other.effects = other.effects | EF_FROZEN;
 	maybe_update_trap_count (self.owner, RN_GLUE);
-
+   
 	self.solid	= SOLID_NOT;
 	self.movetype	= MOVETYPE_NONE;
-	self.touch	= SUB_Null;
+	self.touch	= world.th_die;
 	self.think	= Glue_Stuck;
 	self.nextthink	= time;
 	self.runent	= other;
