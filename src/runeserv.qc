@@ -1206,13 +1206,8 @@ Rune_Touch =
           {
         //  self.flags = self.flags - self.flags & FL_ONGROUND;
          //setsize (self, self.mins, self.maxs);          
-         if (self.runetype == RN_ZAP)
-         {
-           self.effects = EF_BRIGHTLIGHT;
-           sound (self, CHAN_AUTO, "weapons/lstart.wav", 0.5, ATTN_NORM);
-           remove (self);
-           return;           
-         }
+         
+         
           if (random () < 0.5)
           self.movetype = MOVETYPE_FLY;
           else
@@ -1392,10 +1387,9 @@ Rune_Spawn =
 	rune.think = Rune_Move;
 	rune.runetime = time + 60 + random ()*60;
           
-          if (cvar ("developer")) // Cobalt - for dev, point out the rune we are working on, makes it easier to find
+         // if (cvar ("developer")) // Cobalt - for dev, point out the rune we are working on, makes it easier to find
           if (rune.runetype == RN_ZAP)
-          rune.effects = EF_BRIGHTFIELD;          
-	
+          rune.angles_z = 180;	
           
           // Set RN_JACK up to change models.
 	if (rune.runetype == RN_JACK && !temp1 & T1_RANDOM_RUNE_MODELS)
