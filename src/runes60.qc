@@ -106,7 +106,8 @@ Glue_Touch =
 
 	if (!self.runevar)
 		return;
-          
+          if (other == world && !self.velocity)
+          self.angles = self.dest;
 	other.effects = other.effects | EF_FROZEN;
 	maybe_update_trap_count (self.owner, RN_GLUE);
 
@@ -172,9 +173,9 @@ Rune_Glue =
 	glue.classname		= "glue";
 
 	makevectors (self.v_angle);
-
+          glue.dest = glue.angles; // Save old angles
 	glue.velocity		= v_forward * (600 + random() * 100) + v_up * 200 + v_right * (random() * 100 - random() * 100);
-	glue.avelocity		= vectoangles (glue.velocity + (crandom () * '0 600 0'));
+	glue.avelocity		= vectoangles (glue.velocity + (crandom () * self.angles));
 
 	setmodel (glue, "progs/tarbaby.mdl");
 	setsize (glue, '-16 -16 -24', '16 16 24');
