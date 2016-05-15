@@ -618,7 +618,7 @@ float WEIRD_VERTIGO	= 10;
 //
 // Twirly head is disabled in QW because punchangle does not exist.
 
-float WEIRD_MAX_POQ	= 9;
+float WEIRD_MAX_POQ	= 10;
 float WEIRD_MAX_QW	= 7;
 
 void ()
@@ -716,7 +716,10 @@ Weird_Think =
 	else if (self.runevar == WEIRD_TWIRLY)
 	{
 		IN_POQ([-
+                              if (framecount & 1)
 			self.runent.punchangle_z = self.runent.punchangle_z - 5;
+                              else
+                              self.runent.dmg_take = vlen (self.runent.velocity) * 1.5;
 		-])
 		return;
 	}
@@ -749,7 +752,15 @@ Weird_Think =
 		if (self.attack_finished > time)
 			return;
 		self.attack_finished = time + 0.5;
-		stuffcmd (self.runent, "fov 160\n");
+                    if (framecount & 1)
+                     self.runent.dmg_take = vlen (self.runent.velocity) * 1.5;
+                    else
+                    {
+                    self.runent.punchangle_x = crandom ()*2;
+		self.runent.punchangle_y = crandom ()*2;
+
+                    }
+
 	}
 	else if (self.runevar == WEIRD_BLIND)
 	{
