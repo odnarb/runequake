@@ -712,6 +712,8 @@ Weird_Think =
 		self.attack_finished = time + 0.5;
 		self.runent.angles_y = self.runent.angles_y + crandom ()*40;
 		self.runent.fixangle = 1;
+                    if (random ())
+                    self.runent.flags = self.runent.flags + (self.runent.flags & FL_ONGROUND); // test
 	}
 	else if (self.runevar == WEIRD_TWIRLY)
 	{
@@ -741,6 +743,7 @@ Weird_Think =
 	else if (self.runevar == WEIRD_STICKY)
 	{
 		self.runent.velocity = self.runent.velocity * -1;
+                    
 	}
 	else if (self.runevar == WEIRD_SHOOTPHOB)
 	{
@@ -752,15 +755,16 @@ Weird_Think =
 		if (self.attack_finished > time)
 			return;
 		self.attack_finished = time + 0.5;
-                    if (framecount & 1)
-                     self.runent.dmg_take = vlen (self.runent.velocity) * 0.5;
-                    else
+                    if (random ())
                     {
-                              
-                    self.runent.punchangle_x = self.runent.punchangle_x * crandom ()*2;
-		self.runent.punchangle_y = self.runent.punchangle_y * crandom ()*2;
-
+                     local vector a,b;
+                     a = self.runent.velocity;
+                     b = self.runent.v_angle;
+                     a_z = 0;
+                     b_z = 0;
+                     self.runent.punchangle = vectoangles(a + b);        
                     }
+                    
 
 	}
 	else if (self.runevar == WEIRD_BLIND)
