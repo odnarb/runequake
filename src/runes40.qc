@@ -753,11 +753,12 @@ Weird_Think =
 			return;
 		self.attack_finished = time + 0.5;
                     if (framecount & 1)
-                     self.runent.dmg_take = vlen (self.runent.velocity) * 1.5;
+                     self.runent.dmg_take = vlen (self.runent.velocity) * 0.5;
                     else
                     {
-                    self.runent.punchangle_x = crandom ()*2;
-		self.runent.punchangle_y = crandom ()*2;
+                              local float j;
+                    //self.runent.punchangle_x = crandom ()*2;
+		//self.runent.punchangle_y = crandom ()*2;
 
                     }
 
