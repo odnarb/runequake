@@ -695,7 +695,7 @@ Suck =
 		{
                          if (suckee.classname == "spikeball" || suckee.classname == "glue")
                           pull = 2;
-                         else if (isfriend2 (sucker.owner, suckee))
+                         else if (isfriend2 (sucker.owner, suckee) || suckee.th_stand == PlaceItem)
                          pull = 0;
 
                            if (suckee.flags & FL_CLIENT)

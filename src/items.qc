@@ -190,7 +190,8 @@ void ()
 StartItem =
 {
 	self.nextthink	= time + 0.2; // items start after other solids
-	self.think	= PlaceItem;
+	self.think = self.th_stand = PlaceItem; // Cobalt, reinforcement to mark map items
+        
 };
 
 /*
