@@ -757,8 +757,8 @@ Weird_Think =
                     else
                     {
                               
-                    //self.runent.punchangle_x = crandom ()*2;
-		self.runent.punchangle_y = crandom ()*2;
+                    self.runent.punchangle_x = self.runent.punchangle_x * crandom ()*2;
+		self.runent.punchangle_y = self.runent.punchangle_y * crandom ()*2;
 
                     }
 
