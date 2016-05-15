@@ -1489,24 +1489,24 @@ commands =
           {
           self_sprint (self, "                 “ıÓÂ-√ËÂ·Ù-…ÌıÏÛÂÛùûü\n");
 	self_sprint (self, "ãããããããããã");
-          self_sprint (self, "ããããããããããããããããã\n");
-          self_sprint (self, "ã \b101\b Strength    \b102\b Regen   \b103\b Resist      \b104\b Haste  ã\n");
-          self_sprint (self, "ã \b105\b Enviro      \b106\b Fly     \b107\b Berserk     \b108\b Recall ã\n");
-          self_sprint (self, "ã \b109\b Zap         \b110\b Cloak   \b111\b Bomb        \b112\b Dspots ã\n");
-          self_sprint (self, "ã \b113\b Holo        \b114\b Orb     \b115\b Blink       \b116\b Camo   ã\n");
-          self_sprint (self, "ã \b117\b Jump        \b118\b Ammo    \b119\b Vamp        \b120\b Shield ã\n");
-          self_sprint (self, "ã \b121\b Health      \b122\b Radio   \b123\b Switch      \b124\b Freeze ã\n");
-          self_sprint (self, "ã \b125\b Suck        \b126\b Twalk   \b127\b Impact      \b128\b Veng   ã\n");
-          self_sprint (self, "ã \b129\b Shub        \b130\b Repel   \b131\b Phase       \b132\b Shamb  ã\n");
-          self_sprint (self, "ã \b133\b Dual        \b134\b Weird   \b135\b Pheonix     \b136\b Cloud  ã\n");
-          self_sprint (self, "ã \b137\b Firewalk    \b138\b Hook    \b139\b Athlete     \b140\b Lumber ã\n");
-          self_sprint (self, "ã \b141\b Zombie      \b142\b Pierce  \b143\b Selfpres    \b144\b Monk   ã\n");
-          self_sprint (self, "ã \b145\b Torch       \b146\b Pkrat   \b147\b Armor       \b148\b Quad   ã\n");
-          self_sprint (self, "ã \b149\b Jack        \b150\b Glue    \b151\b Blizzard    \b152\b Thor   ã\n");
-          self_sprint (self, "ã \b153\b Sniper      \b154\b Antipck \b155\b Deflect     \b156\b Betty  ã\n");
-          self_sprint (self, "ã \b157\b Tornado     \b158\b Requiem                            ã\n");
+          self_sprint (self, "ãããããããããããããããããã\n");
+          self_sprint (self, "ã \b103\b Ammo       \b154\b Antipk    \b147\b Armor      \b139\b Athlete ã\n");          
+          self_sprint (self, "ã \b103\b Berserk    \b156\b Betty     \b154\b Blizzard   \b147\b Blink   ã\n");
+          self_sprint (self, "ã \b113\b Bomb        \b116\b Camo     \b110\b Cloak      \b136\b Cloud   ã\n");
+          self_sprint (self, "ã \b155\b Deflect     \b133\b Dual     \b112\b Dspots     \b105\b Enviro  ã\n");
+          self_sprint (self, "ã \b137\b Firewalk    \b124\b Freeze   \b106\b Fly        \b150\b Glue    ã\n"); 
+          self_sprint (self, "ã \b125\b Gravity     \b104\b Haste    \b121\b Health     \b113\b Holo    ã\n");
+          self_sprint (self, "ã \b138\b Hook\b      \b127\b Impact   \b149\b Jack       \b117\b Jump    ã\n");
+          self_sprint (self, "ã \b140\b Lumber      \b144\b Monk\b   \b114\b Orb        \b146\b Packrat ã\n"); 
+          self_sprint (self, "ã \b131\b Phase       \b135\b Pheonix  \b142\b Pierce     \b148\b Quad    ã\n");          
+          self_sprint (self, "ã \b122\b Radio       \b108\b Recall   \b102\b Regen      \b130\b Repel   ã\n");            
+          self_sprint (self, "ã \b158\b Requiem     \b103\b Resist   \b132\b Shambler   \b143\b Selfpresã\n");           
+          self_sprint (self, "ã \b120\b Shield      \b129\b Shub     \b153\b Sniper     \b101\b Strengthã\n"); 
+          self_sprint (self, "ã \b123\b Switch      \b152\b Thor     \b126\b Teleport   \b157\b Tornado ã\n");                   
+          self_sprint (self, "ã \bTorch\b 145       \b119\b Vamp     \b128\b Veng       \b134\b Weird   ã\n");
+          self_sprint (self, "ã \b109\b Zap         \b141\b Zombie                                      ã\n");           
           self_sprint (self, "ããããããããããããã");
-          self_sprint (self, "ããããããããããããããã\n");
+          self_sprint (self, "ãããããããããããããããã\n");
           }
 	self_sprint (self, "\n        \b\.important commands\.\b\n\n");
 	self_sprint (self, "\brune-delete\b   delete your rune\n");
