@@ -97,7 +97,7 @@ Athlete_Run =
                     else if (self.cl[CL_CMD_SIDE])
                     {
                               cap = ms * 1.05;
-                    self.velocity_z = self.velocity_y * (cap / v);
+                    self.velocity_y = self.velocity_y * (cap / v);
                     }
                     }
                     
