@@ -684,6 +684,7 @@ Suck =
                     {
                       if (sucker.owner != suckee)
                            pull = 1;
+                       else pull = 0;
 
                     }                          
                     if (suckee.th_die == barrel_explode && !suckee.effects) // Cobalt allow exploboxes to be effected by Grav well
