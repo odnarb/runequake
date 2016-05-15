@@ -611,7 +611,7 @@ float WEIRD_STICKY	= 6;
 float WEIRD_SHOOTPHOB	= 7;
 float WEIRD_TWIRLY	= 8;
 float WEIRD_BLIND	= 9;
-float WEIRD_VERTIGO	= 10;
+float WEIRD_SHAKES	= 10;
 // I've disabled blindness entirely.  What I don't like about it is that
 // if you're hit with multiple weirdnesses and one of them is blindness,
 // you can't really appreciate how weird you are.
@@ -667,9 +667,17 @@ Weird_Think =
 	if (self.runent.health < 1 || self.runetime < time || intermission_running)
 	{
 		self.runent.effects = self.runent.effects - self.runent.effects & EF_WEIRD;
-		if (self.runevar == WEIRD_SHROOMS) stuffcmd (self.runent, "v_idlescale 0\n"); else
-		//if (self.runevar == WEIRD_VERTIGO) stuffcmd (self.runent, "fov 90\n"); else
-		if (self.runevar == WEIRD_BLIND) stuffcmd (self.runent, CSHIFT_NONE); else
+		if (self.runevar == WEIRD_SHROOMS) 
+                    stuffcmd (self.runent, "v_idlescale 0\n");
+                                        
+                    
+		if (self.runevar == WEIRD_SHAKES)
+                    {  
+                    stuffcmd (self.runent, "v_idlescale 0\n");
+		stuffcmd (self.runent, "v_irollcycle 0\n");
+                    stuffcmd (self.runent, "v_iyawcycle  0\n");
+                    }
+                    else if (self.runevar == WEIRD_BLIND) stuffcmd (self.runent, CSHIFT_NONE); else
 		IN_POQ([-
 			if (self.runevar == WEIRD_TWIRLY)
 				self.runent.punchangle = VEC_ORIGIN;
@@ -721,7 +729,7 @@ Weird_Think =
                               if (framecount & 1)
 			self.runent.punchangle_z = self.runent.punchangle_z - 5;
                               else
-                              self.runent.dmg_take = vlen (self.runent.velocity) * 1.5;
+                              self.runent.dmg_take = vlen(self.runent.velocity) * 1.5;
 		-])
 		return;
 	}
@@ -750,22 +758,15 @@ Weird_Think =
 		self.runent.effects = self.runent.effects | EF_WEIRD;
 		self.runent.attack_finished = time + 0.5;
 	}
-	else if (self.runevar == WEIRD_VERTIGO)
+	else if (self.runevar == WEIRD_SHAKES)
 	{
 		if (self.attack_finished > time)
 			return;
 		self.attack_finished = time + 0.5;
-                    if (random ())
-                    {
-                     local vector a,b;
-                     a = self.runent.velocity;
-                     b = self.runent.v_angle;
-                     a_z = 0;
-                     b_z = 0;
-                     self.runent.punchangle_z = self.runent.punchangle_z - 5;
-                     //self.runent.punchangle = vectoangles(a + b);        
-                    }
-                    
+ 
+                    stuffcmd (self.runent, "v_idlescale 10\n");
+                    stuffcmd (self.runent, "v_irollcycle 50\n");
+                    stuffcmd (self.runent, "v_iyawcycle 10\n");
 
 	}
 	else if (self.runevar == WEIRD_BLIND)
@@ -879,10 +880,10 @@ Weird_Touch =
 		 self_desc = "shootphobia";
 		other_desc = "HOW DO I SHOOT?!";
 	}
-	else if (self.runevar == WEIRD_VERTIGO)
+	else if (self.runevar == WEIRD_SHAKES)
 	{
-		 self_desc = "vertigo";
-		other_desc = "VERTIGO!";
+		 self_desc = "the shakes";
+		other_desc = "BAD CASE OF THE SHAKES!";
 	}
 	else if (self.runevar == WEIRD_BLIND)
 	{
