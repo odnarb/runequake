@@ -1367,7 +1367,7 @@ Rune_Spawn =
 	rune.runent = world;		// link for pack rat chain
 	rune.lip = 0;			// pack rat pickup time
            if (rune.runetype == RN_ZAP)
-          rune.angles_z = 180;
+          rune.angles_z = 360;
           rune.dest = rune.angles; // Cobalt, Save old angles in case of Grav Well effect / Zap rune
 	if (type == RN_LITHIUM_HOOK)
 		ix = -1;
