@@ -86,7 +86,7 @@ Athlete_Run =
                     
                     v = vlen(self.velocity);
                     if (self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
-                    cap =  ms * 1.2;
+                    cap =  ms * 1.1;
                     
                     if (cap && v > cap)
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
@@ -96,7 +96,7 @@ Athlete_Run =
                     self.velocity_x = self.velocity_x * (cap / v);
                     else if (self.cl[CL_CMD_SIDE])
                     {
-                              cap = ms * 1.1;
+                              cap = ms * 1.05;
                     self.velocity_z = self.velocity_y * (cap / v);
                     }
                     }
