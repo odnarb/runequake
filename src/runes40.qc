@@ -674,8 +674,8 @@ Weird_Think =
 		if (self.runevar == WEIRD_SHAKES)
                     {  
                     stuffcmd (self.runent, "v_idlescale 0\n");
-		stuffcmd (self.runent, "v_irollcycle 0\n");
-                    stuffcmd (self.runent, "v_iyawcycle  0\n");
+		stuffcmd (self.runent, "v_iroll_cycle 0\n");
+                    stuffcmd (self.runent, "v_iyaw_cycle  0\n");
                     }
                     else if (self.runevar == WEIRD_BLIND) stuffcmd (self.runent, CSHIFT_NONE); else
 		IN_POQ([-
@@ -765,8 +765,8 @@ Weird_Think =
 		self.attack_finished = time + 0.5;
  
                     stuffcmd (self.runent, "v_idlescale 10\n");
-                    stuffcmd (self.runent, "v_irollcycle 50\n");
-                    stuffcmd (self.runent, "v_iyawcycle 10\n");
+                    stuffcmd (self.runent, "v_iroll_cycle 50\n");
+                    stuffcmd (self.runent, "v_iyaw_cycle 10\n");
 
 	}
 	else if (self.runevar == WEIRD_BLIND)
