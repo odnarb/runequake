@@ -756,9 +756,9 @@ Weird_Think =
                      self.runent.dmg_take = vlen (self.runent.velocity) * 0.5;
                     else
                     {
-                              local float j;
+                              
                     //self.runent.punchangle_x = crandom ()*2;
-		//self.runent.punchangle_y = crandom ()*2;
+		self.runent.punchangle_y = crandom ()*2;
 
                     }
 
