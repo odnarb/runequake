@@ -691,7 +691,7 @@ Suck =
                      pull = 1;
                      suckee.effects = EF_BRIGHTFIELD;                     
                     }
-		if (sucker != suckee && pull)
+		if (sucker != suckee && pull && suckee.solid != SOLID_BSP)
 		{
                          if (suckee.classname == "spikeball" || suckee.classname == "glue")
                           pull = 2;
@@ -717,8 +717,8 @@ Suck =
 					suckforce	= suckdir * SUCK_FORCE * (dist - suckdist);
 					suckee.velocity	= suckee.velocity + suckforce;
                                                   if (suckee.classname == "grenade" || suckee.classname == "spike" || suckee.classname == "missile")
-                                                  suckee.avelocity = vectoangles (suckee.velocity) * 0.5;
-                                                  if (!(suckee.flags & FL_CLIENT))
+                                                  suckee.avelocity = vectoangles (suckee.velocity) * -0.66;
+                                                  if (!(suckee.flags & FL_CLIENT) && vlen(suckee.velocity)
                                                   suckee.angles = vectoangles (suckee.velocity); // Cobalt experiment for looks
 				}
 			}
