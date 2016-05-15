@@ -680,13 +680,7 @@ Suck =
                     if (suckee.movetype > 0 && suckee.movetype != MOVETYPE_PUSH && suckee.movetype != MOVETYPE_NOCLIP)
                     pull = 1;                 
                     
-                    if ((suckee.flags & FL_CLIENT) && suckee.health > 0)
-                    {
-                      if (sucker.owner != suckee)
-                           pull = 1;
-                       else pull = 0;
-
-                    }                          
+                                             
                     if (suckee.th_die == barrel_explode && !suckee.effects) // Cobalt allow exploboxes to be effected by Grav well
                     {
                      suckee.flags = suckee.flags - FL_ONGROUND;
@@ -699,10 +693,17 @@ Suck =
                     }
 		if (sucker != suckee && pull)
 		{
-                      if (suckee.classname == "spikeball" || suckee.classname == "glue")
+                         if (suckee.classname == "spikeball" || suckee.classname == "glue")
                           pull = 2;
-                      else if (isfriend2 (sucker.owner, suckee))
-                         pull = 0;                                
+                         else if (isfriend2 (sucker.owner, suckee))
+                         pull = 0;
+
+                           if (suckee.flags & FL_CLIENT)
+                           {
+                           if (suckee.health < 1 || sucker.owner == suckee)
+                           pull = 0;
+                           }
+                   
                               if (pull)
 			{
                              
