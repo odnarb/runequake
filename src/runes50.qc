@@ -96,7 +96,7 @@ Athlete_Run =
                     self.velocity_x = self.velocity_x * (cap / v);
                     else if (self.cl[CL_CMD_SIDE])
                     {
-                              cap = ms * 1.05;
+                              cap = ms * 1.075;
                     self.velocity_y = self.velocity_y * (cap / v);
                     }
                     }
@@ -105,13 +105,14 @@ Athlete_Run =
                     }
 
           
-
+                    /*  Debug code
                     local float vl;
                     local string q;
                     vl = vlen (self.velocity);
                     vl = ceil (vl);
                     q = ftos (vl);
                     centerprint (self, q);
+                    */
                     if (self.pausetime && !vlen(self.velocity))
                     {
                      sound (self, CHAN_AUTO, "player/gasp1.wav", TRUE, ATTN_IDLE);
