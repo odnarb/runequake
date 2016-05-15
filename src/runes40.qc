@@ -838,7 +838,7 @@ Weird_Touch =
 	{
 		if (self.runevar == WEIRD_SHROOMS
 				|| self.runevar == WEIRD_TWIRLY
-				|| self.runevar == WEIRD_VERTIGO
+				|| self.runevar == WEIRD_SHAKES
 				|| self.runevar == WEIRD_BLIND
 				|| self.runevar == WEIRD_DRUNK)
 		self.runevar = WEIRD_JUMPING;
