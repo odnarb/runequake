@@ -552,6 +552,8 @@ score = score + 1; // side at knee level
 	 val = strcat (val, "^7");
 	LogMsg2 (head, val);
 	*/
+          if (self.pausetime && self.runetype == RN_ATHLETE)
+              self.pausetime = 0;
 	return 1;
 	}
         return FALSE;    // Entity is not in blocked.
