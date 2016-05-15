@@ -668,7 +668,7 @@ Weird_Think =
 	{
 		self.runent.effects = self.runent.effects - self.runent.effects & EF_WEIRD;
 		if (self.runevar == WEIRD_SHROOMS) stuffcmd (self.runent, "v_idlescale 0\n"); else
-		if (self.runevar == WEIRD_VERTIGO) stuffcmd (self.runent, "fov 90\n"); else
+		//if (self.runevar == WEIRD_VERTIGO) stuffcmd (self.runent, "fov 90\n"); else
 		if (self.runevar == WEIRD_BLIND) stuffcmd (self.runent, CSHIFT_NONE); else
 		IN_POQ([-
 			if (self.runevar == WEIRD_TWIRLY)
@@ -762,7 +762,8 @@ Weird_Think =
                      b = self.runent.v_angle;
                      a_z = 0;
                      b_z = 0;
-                     self.runent.punchangle = vectoangles(a + b);        
+                     self.runent.punchangle_z = self.runent.punchangle_z - 5;
+                     //self.runent.punchangle = vectoangles(a + b);        
                     }
                     
 
