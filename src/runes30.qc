@@ -718,7 +718,7 @@ Suck =
 					suckee.velocity	= suckee.velocity + suckforce;
                                                   if (suckee.classname == "grenade" || suckee.classname == "spike" || suckee.classname == "missile")
                                                   suckee.avelocity = vectoangles (suckee.velocity) * -0.66;
-                                                  if (!(suckee.flags & FL_CLIENT) && vlen(suckee.velocity)
+                                                  if (!(suckee.flags & FL_CLIENT) && vlen(suckee.velocity))
                                                   suckee.angles = vectoangles (suckee.velocity); // Cobalt experiment for looks
 				}
 			}
