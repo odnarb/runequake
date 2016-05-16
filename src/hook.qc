@@ -238,7 +238,7 @@ HookTouch =
 			|| other.aqstate & AQS_SPAWN_PROTECT)
 	{
                     self.movetype = MOVETYPE_BOUNCE;
-	          self.velocity = self.velocity *(100 / (vlen (normalize(vlen(self.origin - (self.owner.origin + '0 0 16')))));
+	          self.velocity = self.velocity *(100 / (vlen (normalize(self.origin - (self.owner.origin + '0 0 16')))));
                     if (other.armorvalue)
 		sound (self, CHAN_AUTO, "weapons/bounce.wav", 1, ATTN_NORM);
                     else 
