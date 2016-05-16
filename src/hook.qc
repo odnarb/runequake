@@ -239,7 +239,7 @@ HookTouch =
 	{
                     self.movetype = MOVETYPE_TOSS;
                     local vector clc;
-	          clc = self.origin - (self.owner.origin + PLAYER_WEAPON_OFFSET);
+	          clc = self.origin - (self.owner.origin + PLAYER_WEAPON_OFFSET) * 1.5;
                     self.velocity_x = self.velocity_x / clc_x;
                     self.velocity_y = self.velocity_y / clc_y;
                     self.velocity_z = self.velocity_z / clc_z;
