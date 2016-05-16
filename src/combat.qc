@@ -709,8 +709,12 @@ T_RadiusDamage =
 	if (attn == RADIUS_150)
 		dist = 10000;
 	else
+          {
 		dist = damage+40;
-	head = findradius (inflictor.origin, dist);
+	if ((attacker.items & IT_QUAD) || (inflictor.items & IT_QUAD))  // Cobalt slightly larger blast radius for Quad?
+            dist = dist * 1.5;
+          }
+          head = findradius (inflictor.origin, dist);
 
 	while (head)
 	{
