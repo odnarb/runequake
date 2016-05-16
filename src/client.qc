@@ -1387,8 +1387,11 @@ PlayerDeathThink =
 	// observers.
 	if (AUTO_CORPSE_OBSERVER > 0)
 	{
+                    local float add;
+                    if (self.runetype == RN_PHOENIX)
+                       add = 300; // Cobalt - add 5 minutes if we have pheonix       
 		if (!self.aflag)
-			self.aflag = time + AUTO_CORPSE_OBSERVER;
+			self.aflag = time + AUTO_CORPSE_OBSERVER + add;
 		else if (time <= self.aflag)
 			SUB_Null ();
 		else
@@ -1397,7 +1400,7 @@ PlayerDeathThink =
 				return;
 			// She couldn't become an observer, don't try
 			// again immediately.
-			self.aflag = time + AUTO_CORPSE_OBSERVER;
+			self.aflag = time + AUTO_CORPSE_OBSERVER + add;
 		}
 	}
 
