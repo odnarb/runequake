@@ -238,10 +238,12 @@ HookTouch =
 			|| other.aqstate & AQS_SPAWN_PROTECT)
 	{
                     self.movetype = MOVETYPE_BOUNCE;
-	          self.velocity = self.velocity *(100 / (vlen (normalize(self.owner.origin - self.origin))));
+	          self.velocity = self.velocity *(100 / (vlen (normalize(vlen(self.origin - (self.owner.origin + '0 0 16')))));
                     if (other.armorvalue)
 		sound (self, CHAN_AUTO, "weapons/bounce.wav", 1, ATTN_NORM);
-		//DropHook ();
+                    else 
+                    sound (self, CHAN_AUTO, "zombie/z_fall", 1, ATTN_NORM);
+		self.touch = world.th_pain;
 		return;
 	}
 
