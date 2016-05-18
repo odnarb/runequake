@@ -97,9 +97,9 @@ Athlete_Run =
                     self.velocity = self.velocity * 0.95;// (ms / v); // cap it
                     else if (cap && v < cap)
                     {
-                    if (self.cl[CL_CMD_FORWARD] && !self.cl[CL_CMD_SIDE])
+                    if (self.cl[CL_CMD_FORWARD] > 0 && !self.cl[CL_CMD_SIDE])
                     self.velocity_x = self.velocity_x * (cap / v);
-                    else if (self.cl[CL_CMD_SIDE])
+                    else if (self.cl[CL_CMD_SIDE] || self.cl[CL_CMD_FORWARD] < 0)
                     {
                               cap = ms * 1.075;
                     self.velocity_y = self.velocity_y * (cap / v);
