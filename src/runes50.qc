@@ -90,7 +90,7 @@ Athlete_Run =
                     ms = cvar("sv_maxspeed");
                     
                     v = vlen(self.velocity);
-                    if (self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
+                    if (self.cl[CL_CMD_FORWARD] > 0 || self.cl[CL_CMD_SIDE])
                     cap =  ms * 1.1;
                     
                     if (cap && v > cap)
