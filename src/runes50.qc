@@ -102,11 +102,12 @@ Athlete_Run =
                     }
                     else if (cap && v < cap)
                     {
-                    if (self.velocity_x > 0 && self.velocity_y == 0)
+                    if (self.cl[CL_CMD_FORWARD] > 0 && self.velocity_y == 0)
                     self.velocity_x = self.velocity_x * (cap / v);
                     else if (self.velocity_y && self.velocity_x && self.cl[CL_CMD_FORWARD] > 0)
                     {
                               cap = ms * 1.075;
+                    self.velocity_x = self.velocity_x * (cap / v);
                     self.velocity_y = self.velocity_y * (cap / v);
                     }
                     else 
