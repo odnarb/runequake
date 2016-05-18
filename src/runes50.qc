@@ -66,6 +66,11 @@ if (vlen(self.velocity) && !self.pausetime)
 self.pausetime = 1;         
 sound (self, CHAN_AUTO, "player/gasp2.wav", TRUE, ATTN_IDLE);
 }
+    else if (self.pausetime)
+          {
+           sound (self, CHAN_AUTO, "player/gasp1.wav", TRUE, ATTN_IDLE);
+           self.pausetime = 0;
+          }
 };
 
 void ()
