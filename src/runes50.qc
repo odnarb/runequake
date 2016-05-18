@@ -82,7 +82,7 @@ Athlete_Run =
                     if (self.pausetime) // Cobalt try athlete rune here
                     if (vlen(self.velocity) && !self.waterlevel)
                     {          
-                    if (self.flags & FL_ONGROUND)
+                    if ((self.flags & FL_ONGROUND) && self.cl[CL_CMD_FORWARD] > 0 || self.cl[CL_CMD_SIDE])
                     {
                     // Try new calculation sugguested by Number 6
                     local float cap, ms, v;
@@ -90,20 +90,27 @@ Athlete_Run =
                     ms = cvar("sv_maxspeed");
                     
                     v = vlen(self.velocity);
-                    if (self.cl[CL_CMD_FORWARD] > 0 || self.cl[CL_CMD_SIDE])
+                    if (self.velocity_x > 0 || self.velocity_y)
                     cap =  ms * 1.1;
                     
                     if (cap && v > cap)
-                    self.velocity = self.velocity * 0.95;// (ms / v); // cap it
+                    {
+                    if (self.velocity_x)
+                    self.velocity_x = self.velocity_x * 0.95;// (ms / v); // cap it
+                    if (self.velocity_y)
+                    self.velocity_y = self.velocity_y * 0.95;// (ms / v); // cap it
+                    }
                     else if (cap && v < cap)
                     {
-                    if (self.cl[CL_CMD_FORWARD] > 0 && !self.cl[CL_CMD_SIDE])
+                    if (self.velocity_x > 0 && self.velocity_y == 0)
                     self.velocity_x = self.velocity_x * (cap / v);
-                    else if (self.cl[CL_CMD_SIDE] || self.cl[CL_CMD_FORWARD] < 0)
+                    else if (self.velocity_y > 0 || self.velocity_x > 0)
                     {
                               cap = ms * 1.075;
                     self.velocity_y = self.velocity_y * (cap / v);
                     }
+                    else if (self.self.velocity_y < 0)
+                    self.velocity_y = self.velocity_y * 0.95;// (ms / v); // cap it
                     }
                     
                     }
