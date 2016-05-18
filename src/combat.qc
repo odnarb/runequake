@@ -602,8 +602,12 @@ T_Damage =
 			targ.owner.runevar = targ.owner.runevar - 1;
 
 		if (targ.classname == "player")
+                    {
 			stuffcmd (targ, CSHIFT_NONE);
-
+                              stuffcmd (self.targ, "v_idlescale 0\n"); // Cobalt restore these in case of shakes effect
+                              stuffcmd (self.targ, "v_iroll_cycle 0\n");
+                              stuffcmd (self.targ, "v_iyaw_cycle 0\n");
+                    }
 		if (targ.runetype != 0)
 		{
 			//RUNE SERV: Radioactive types irradiate when killed
