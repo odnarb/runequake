@@ -82,7 +82,7 @@ Athlete_Run =
                     if (self.pausetime) // Cobalt try athlete rune here
                     if (vlen(self.velocity) && !self.waterlevel)
                     {          
-                    if ((self.flags & FL_ONGROUND) && self.cl[CL_CMD_FORWARD] > 0 || self.cl[CL_CMD_SIDE])
+                    if ((self.flags & FL_ONGROUND) && self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
                     {
                     // Try new calculation sugguested by Number 6
                     local float cap, ms, v;
@@ -109,8 +109,13 @@ Athlete_Run =
                               cap = ms * 1.075;
                     self.velocity_y = self.velocity_y * (cap / v);
                     }
-                    else if (self.velocity_y < 0)
+                    else 
+                    {
+                    if (self.velocity_y != 0)
                     self.velocity_y = self.velocity_y * 0.95;// (ms / v); // cap it
+                    if (self.velocity_x != 0)
+                    self.velocity_x = self.velocity_x * 0.95;// (ms / v); // cap it
+                    }
                     }
                     
                     }
