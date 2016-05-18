@@ -716,7 +716,9 @@ T_RadiusDamage =
           {
 		dist = damage+40;
 	if ((attacker.items & IT_QUAD) || (inflictor.items & IT_QUAD))  // Cobalt slightly larger blast radius for Quad?
-            dist = dist * 1.5;
+            dist = dist * 1.33;
+            else if (attacker.runetype == RN_STRENGTH)
+                      dist = dist * 1.15;
           }
           head = findradius (inflictor.origin, dist);
 
