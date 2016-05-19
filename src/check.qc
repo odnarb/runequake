@@ -29,18 +29,19 @@ local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4,start,end;
 	 corner3_x = corner2_x;
 	 corner4 = corner2;
 	 corner4_x = corner1_x;  
-           traceline (corner3, corner3, 0, field.aiment)
+           traceline (corner3, corner4, 0, field.aiment)
            if (trace_fraction == 1 && trace_ent == ref) // X scan completed, start on plus type scan           
            {
             start = end = field.origin;
             start_x = corner1_x;
             end_x = corner2_x;            
-           traceline(start,end,0,field.aiment)
+           traceline(start, end, 0, field.aiment)
            if (trace_fraction == 1 && trace_ent == ref) // Xpart of plus scan completed, start on y part
            {
            start = end = field.origin;
             start_y = corner1_y;
             end_y = corner2_y;  
+               traceline(start, end, 0, field.aiment)
               if (trace_fraction == 1 && trace_ent == ref) // entire scan completed ok
               return 1;
             
