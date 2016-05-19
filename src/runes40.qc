@@ -295,19 +295,19 @@ ShamblerSizeOk =
            makevectors (this.v_angle);
            
             setorigin (testfield, this.absmin + (v_forward * 16) + '0 0 56'); // Front of player
-            if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
+            if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
             setorigin (testfield, this.absmin + (v_forward * -16) + '0 0 56'); // behind of player
-            if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
+            if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
             setorigin (testfield, this.absmin + (v_right * 16) + '0 0 56'); // side of player
-            if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
+            if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
             setorigin (testfield, this.absmin + (v_right * -16) + '0 0 56'); // side of player
-            if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
+            if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
               
               setorigin (testfield, this.origin + '0 0 56'); // above player 
          
-              if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
+              if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
               setorigin (testfield, this.origin - '0 0 88'); // below
-              if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
+              if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
           
              centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);
