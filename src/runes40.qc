@@ -305,9 +305,9 @@ ShamblerSizeOk =
               
               setorigin (testfield, this.origin + '0 0 56'); // above player 
          
-              if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
+              if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
               setorigin (testfield, this.origin - '0 0 88'); // below
-              if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
+              if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
           
              centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);
