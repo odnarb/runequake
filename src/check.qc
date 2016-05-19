@@ -60,7 +60,7 @@ local vector cornerx1,cornerx2,cornerx3,cornerx4,side1,side2,side3,side4,start,e
 	 cornerx3_x = cornerx2_x;
            
            // upper rt corner is x4
-	 cornerx4 = corner2;
+	 cornerx4 = cornerx2;
 	 cornerx4_x = cornerx1_x; 
            
            local entity ref;
