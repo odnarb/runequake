@@ -1,3 +1,38 @@
+
+
+
+void (vector org, float perm,float eff) SpawnTempDebugMarker =
+{
+	
+if (!(cvar ("developer"))) return;
+local entity st;
+
+st = spawn ();
+
+//dprint ("Spawning marker for Edict No. ");
+		//dprint (ftos(num_for_edict(self)));
+		//dprint ("\n");
+st.classname = "TEMP_DEBUG_MARKER";
+st.effects = eff;
+st.origin = org;
+setorigin (st, org);
+st.solid = SOLID_NOT;
+st.movetype = MOVETYPE_NONE;
+//st.mdl = self.mdl;
+setmodel (st, "progs/s_bubble.spr");
+setsize (st, '0 0 0', '0 0 0');
+if (perm == -1) 
+{
+st.classname = "PERM_DEBUG_MARKER";	
+return;
+}
+
+st.think = SUB_Remove;
+st.nextthink = time + perm;
+
+};
+
+
 //==========================================================================
 //  check.qc -- by Patrick Martin               Last updated:  9-8-1997
 //--------------------------------------------------------------------------
@@ -22,29 +57,38 @@ local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4,start,end;
 
            trace_ent = ref;
            traceline (corner1, corner2, 0, field.aiment); // Check min and max, 1st part of "X" pattern
-           if (trace_fraction == 1 && trace_ent == ref) // Setup scan on opposite corners, complete the X pattern
+           if (trace_ent == ref) // Setup scan on opposite corners, complete the X pattern
            {
+           SpawnTempDebugMarker (corner1, 0.5, 0);
+           SpawnTempDebugMarker corner2, 0.5, 0);
            corner2_z = corner1_z;
 	 corner3 = corner1;
 	 corner3_x = corner2_x;
 	 corner4 = corner2;
 	 corner4_x = corner1_x;  
            traceline (corner3, corner4, 0, field.aiment);
-           if (trace_fraction == 1 && trace_ent == ref) // X scan completed, start on plus type scan           
+           if (trace_ent == ref) // X scan completed, start on plus type scan           
            {
+            SpawnTempDebugMarker (corner3, 0.5, 0);
+            SpawnTempDebugMarker (corner4, 0.5, 0);
             start = end = field.origin;
             start_x = corner1_x;
             end_x = corner2_x;            
            traceline(start, end, 0, field.aiment);
-           if (trace_fraction == 1 && trace_ent == ref) // Xpart of plus scan completed, start on y part
+           if (trace_ent == ref) // Xpart of plus scan completed, start on y part
            {
+            SpawnTempDebugMarker (start, 0.5, 0);
+            SpawnTempDebugMarker (end, 0.5, 0);
            start = end = field.origin;
             start_y = corner1_y;
             end_y = corner2_y;  
                traceline(start, end, 0, field.aiment);
-              if (trace_fraction == 1 && trace_ent == ref) // entire scan completed ok
+              if (trace_ent == ref) // entire scan completed ok
+              {
+              SpawnTempDebugMarker (start, 0.5, 0);
+            SpawnTempDebugMarker (end, 0.5, 0);
               return 1;
-            
+              }
             
            }
                      
