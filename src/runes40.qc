@@ -273,88 +273,7 @@ shambler_slave_retribution =
 	self = old_self;
 };
 
-float (entity field)
-TraceCorners = 
-{
- local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4;
 
-           corner1 = field.absmin;
-	 corner2 = field.absmax;
-           local entity ref;
-           ref = find (world, classname, "info_player_deathmatch");
-           
-           // Back side center
-           side1_z = field.absmin_z;
-           side1_y = field.origin_y;
-           side1_x = field.absmin_x;
-           
-           WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
-           WriteByte (MSG_BROADCAST, TE_SPIKE);
-           WriteCoord (MSG_BROADCAST, side1_x);
-           WriteCoord (MSG_BROADCAST, side1_y);
-           WriteCoord (MSG_BROADCAST, side1_z);
-           
-           
-           // top side center
-           side2_z = field.absmax_z;
-           side2_y = field.origin_y;
-           side2_x = field.absmax_x;
-           
-           WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
-           WriteByte (MSG_BROADCAST, TE_SPIKE);
-           WriteCoord (MSG_BROADCAST, side2_x);
-           WriteCoord (MSG_BROADCAST, side2_y);
-           WriteCoord (MSG_BROADCAST, side2_z);
-           
-           // bottom side center
-           side3_z = field.absmin_z;
-           side3_y = field.absmax_y;
-           side3_x = field.origin_x;
-           
-           // top side center
-           side3_z = field.absmax_z;
-           side3_x = field.origin_x;
-           side3_y = field.absmin_y;
-           
-           
-	 corner2_z = corner1_z;
-	 
-	 corner3 = corner1;
-	 corner3_x = corner2_x;
-	  
-	 corner4 = corner2;
-	 corner4_x = corner1_x;         
-          
-   trace_ent = ref;
-  traceline (field.absmin, field.absmax, 0, field.aiment);
-  if (trace_fraction == 1 && trace_ent == ref)
-          {
-                  
-               traceline (corner3, corner4, 0, field.aiment);     
-               if (trace_fraction == 1 && trace_ent == ref)
-               {
-                traceline (side1, side2, 0, field.aiment);     
-               if (trace_fraction == 1 && trace_ent == ref)          
-               {
-                traceline (side3, side4, 0, field.aiment);     
-               if (trace_fraction == 1 && trace_ent == ref)  
-               return 1;
-               }     
-                         
-               }
-                
-          }          
-          /*
-          WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
-           WriteByte (MSG_BROADCAST, TE_WIZSPIKE);
-           WriteCoord (MSG_BROADCAST, trace_endpos_x);
-           WriteCoord (MSG_BROADCAST, trace_endpos_y);
-           WriteCoord (MSG_BROADCAST, trace_endpos_z);
-          */
-          
-          return 0;
-          
-};
 // Cobalt - Test respawn areas for Shambler otherwise cancel the teleport
 vector (entity this)
 ShamblerSizeOk =
@@ -364,31 +283,31 @@ ShamblerSizeOk =
           testfield = spawn ();
           testfield.aiment = this;
           testfield.classname = "testfield";
-          testfield.solid = SOLID_TRIGGER;
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
           
          
           
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
-           if (TraceCorners (testfield)) return testfield.origin;
+           
+           if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
         
         
            makevectors (this.v_angle);
            
             setorigin (testfield, this.absmin + (v_forward * 16) + '0 0 56'); // Front of player
-            if (TraceCorners (testfield)) return testfield.origin;
+            if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
             setorigin (testfield, this.absmin + (v_forward * -16) + '0 0 56'); // behind of player
-            if (TraceCorners (testfield)) return testfield.origin;
+            if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
             setorigin (testfield, this.absmin + (v_right * 16) + '0 0 56'); // side of player
-            if (TraceCorners (testfield)) return testfield.origin;
+            if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
             setorigin (testfield, this.absmin + (v_right * -16) + '0 0 56'); // side of player
-            if (TraceCorners (testfield)) return testfield.origin;
+            if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
               
               setorigin (testfield, this.origin + '0 0 56'); // above player 
          
-              if (TraceCorners (testfield)) return testfield.origin;
+              if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
               setorigin (testfield, this.origin - '0 0 88'); // below
-              if (TraceCorners (testfield)) return testfield.origin;
+              if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
           
              centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);
