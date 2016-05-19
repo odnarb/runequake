@@ -280,7 +280,7 @@ TraceCorners =
 
            corner1 = field.absmin;
 	 corner2 = field.absmax;
-            bprint ftos(field.watertype);
+            bprint (ftos(field.watertype));
           bprint ("\n");
            // Back side center
            side1_z = field.absmin_z;
