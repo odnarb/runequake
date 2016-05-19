@@ -26,7 +26,7 @@ local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4,start,end;
            {
            corner2_z = corner1_z;
 	 corner3 = corner1;
-	 corner3_x = corner2_x
+	 corner3_x = corner2_x;
 	 corner4 = corner2;
 	 corner4_x = corner1_x;  
            traceline (corner3, corner3, 0, field.aiment)
