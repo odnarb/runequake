@@ -366,16 +366,16 @@ ShamblerSizeOk =
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
            if (TraceCorners (testfield)) return testfield.origin;
         
-        /*
+        
            makevectors (this.v_angle);
            
-            setorigin (testfield, this.origin + (v_forward * 32) + '0 0 56'); // Front of player
+            setorigin (testfield, this.absmin + (v_forward * 16) + '0 0 56'); // Front of player
             if (TraceCorners (testfield)) return testfield.origin;
-            setorigin (testfield, this.origin + (v_forward * -32) + '0 0 56'); // behind of player
+            setorigin (testfield, this.absmin + (v_forward * -16) + '0 0 56'); // behind of player
             if (TraceCorners (testfield)) return testfield.origin;
-            setorigin (testfield, this.origin + (v_right * 32) + '0 0 56'); // side of player
+            setorigin (testfield, this.absmin + (v_right * 16) + '0 0 56'); // side of player
             if (TraceCorners (testfield)) return testfield.origin;
-            setorigin (testfield, this.origin + (v_right * -32) + '0 0 56'); // side of player
+            setorigin (testfield, this.absmin + (v_right * -16) + '0 0 56'); // side of player
             if (TraceCorners (testfield)) return testfield.origin;
               
               setorigin (testfield, this.origin + '0 0 56'); // above player 
@@ -383,8 +383,8 @@ ShamblerSizeOk =
               if (TraceCorners (testfield)) return testfield.origin;
               setorigin (testfield, this.origin - '0 0 88'); // below
               if (TraceCorners (testfield)) return testfield.origin;
-          */ 
-           centerprint (this, "Not enough room for your Shambler");
+          
+             centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);
           // sprint (this, "\n");
           return VEC_ORIGIN;          
@@ -414,6 +414,9 @@ Rune_ShamblerReloc =
 		return;
 	}
 
+           local vector place;	
+          place = ShamblerSizeOk (self);
+          
 	// Stop burning when recalled in water or acid.
 	if (self.runent.owner.waterlevel > 1 && self.runent.owner.watertype != CONTENT_LAVA)
 		self.runent.aqstate = self.runent.aqstate - self.runent.aqstate & AQS_BURNING;
@@ -421,8 +424,7 @@ Rune_ShamblerReloc =
 	old_self = self;
 	self = self.runent;
 
-          local vector place;	
-          place = ShamblerSizeOk (self.owner);
+         
           if (place)
           {
           spawn_tfog (self.origin);
