@@ -273,7 +273,6 @@ shambler_slave_retribution =
 	self = old_self;
 };
 
-
 // Cobalt - Test respawn areas for Shambler otherwise cancel the teleport
 vector (entity this)
 ShamblerSizeOk =
@@ -283,31 +282,31 @@ ShamblerSizeOk =
           testfield = spawn ();
           testfield.aiment = this;
           testfield.classname = "testfield";
+          testfield.solid = SOLID_TRIGGER;
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
           
          
           
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
-           
-           if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
+           if (TraceCorners (testfield)) return testfield.origin;
         
         
            makevectors (this.v_angle);
            
-            setorigin (testfield, this.origin + (v_forward * 16) + '0 0 56'); // Front of player
-            if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
-            setorigin (testfield, this.origin + (v_forward * -16) + '0 0 56'); // behind of player
-            if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
-            setorigin (testfield, this.origin + (v_right * 16) + '0 0 56'); // side of player
-            if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
-            setorigin (testfield, this.origin + (v_right * -16) + '0 0 56'); // side of player
-            if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
+            setorigin (testfield, this.absmin + (v_forward * 16) + '0 0 56'); // Front of player
+            if (TraceCheck4 (testfield)) return testfield.origin;
+            setorigin (testfield, this.absmin + (v_forward * -16) + '0 0 56'); // behind of player
+            if (TraceCheck4 (testfield)) return testfield.origin;
+            setorigin (testfield, this.absmin + (v_right * 16) + '0 0 56'); // side of player
+            if (TTraceCheck4 (testfield)) return testfield.origin;
+            setorigin (testfield, this.absmin + (v_right * -16) + '0 0 56'); // side of player
+            if (TraceCheck4 (testfield)) return testfield.origin;
               
               setorigin (testfield, this.origin + '0 0 56'); // above player 
          
-              if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
+              if (TraceCheck4 (testfield)) return testfield.origin;
               setorigin (testfield, this.origin - '0 0 88'); // below
-              if (!PM_InWall (testfield,testfield.origin)) return testfield.origin;
+              if (TraceCheck4 (testfield)) return testfield.origin;
           
              centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);

@@ -6,96 +6,80 @@
 //==========================================================================
 
 //-------------------------------------------------------- New Code --------
-//  This checks for obstacles such as solid entities or walls inside
-//  the bbox and along its borders.  If an obstacle is met, FALSE is
-//  returned.
+//  Modified by Cobalt: This performs a "+" shaped set of tracelines and
+// an "X" shaped set of tracelines, in an attempt to determine if the entities bounding 
+//box is not inside a solid.
 //--------------------------------------------------------------------------
-float(entity head, vector spot) PM_TraceCheck =
+float(entity field) TraceCheck4 =
 {
-        local   vector  p1, p2;
 
-// Check for obstacles inside the bbox.
-// Order:  1)--- to +++    2)+-- to -++    3)++- to --+    4)-+- to +-+
-        p1 = spot + self.mins;
-        p2 = spot + self.maxs;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
+local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4,start,end;
 
-        p1_x = spot_x + self.maxs_x;
-        p2_x = spot_x + self.mins_x;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
+           corner1 = field.absmin;
+	 corner2 = field.absmax;
+           local entity ref;
+           ref = find (world, classname, "info_player_deathmatch"); // Dummy ent so trace_ent dont start off as world
 
-        p1_y = spot_y + self.maxs_y;
-        p2_y = spot_y + self.mins_y;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
+           trace_ent = ref;
+           traceline (corner1, corner2, 0, field.aiment); // Check min and max, 1st part of "X" pattern
+           if (trace_fraction == 1 && trace_ent == ref) // Setup scan on opposite corners, complete the X pattern
+           {
+           corner2_z = corner1_z;
+	 corner3 = corner1;
+	 corner3_x = corner2_x
+	 corner4 = corner2;
+	 corner4_x = corner1_x;  
+           traceline (corner3, corner3, 0, field.aiment)
+           if (trace_fraction == 1 && trace_ent == ref) // X scan completed, start on plus type scan           
+           {
+            start = end = field.origin;
+            start_x = corner1_x;
+            end_x = corner2_x;            
+           traceline(start,end,0,field.aiment)
+           if (trace_fraction == 1 && trace_ent == ref) // Xpart of plus scan completed, start on y part
+           {
+           start = end = field.origin;
+            start_y = corner1_y;
+            end_y = corner2_y;  
+              if (trace_fraction == 1 && trace_ent == ref) // entire scan completed ok
+              return 1;
+            
+            
+           }
+                     
+           }
+                     
+                     
+           }
+           // Back side center
+           side1_z = field.absmin_z;
+           side1_y = field.origin_y;
+           side1_x = field.absmin_x;
+           
+           
+           
+           
+           // top side center
+           side2_z = field.absmax_z;
+           side2_y = field.origin_y;
+           side2_x = field.absmax_x;
+           
+           
+           
+           // bottom side center
+           side3_z = field.absmin_z;
+           side3_y = field.absmax_y;
+           side3_x = field.origin_x;
+           
+           // top side center
+           side3_z = field.absmax_z;
+           side3_x = field.origin_x;
+           side3_y = field.absmin_y;
+          
+          
+          return 0;
 
-        p1_x = spot_x + self.mins_x;
-        p2_x = spot_x + self.maxs_x;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
 
-// Check for obstacles along the bbox boundaries.
-// Order:  1)+++ to ++-    2)+-+ to +--    3)--+ to ---    4)-++ to -+-
-//         5)--- to +--    6)+-- to ++-    7)++- to -+-    8)-+- to ---
-//         9)+++ to -++   10)-++ to --+   11)--+ to -+-   12)-+- to +++
-        p1 = p2 = spot + self.maxs;
-        p2_z = spot_z + self.mins_z;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
-
-        p1_x = p2_x = spot_x + self.mins_x;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
-
-        p1_y = p2_y = spot_y + self.mins_x;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
-
-        p1_x = p2_x = spot_x + self.maxs_x;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
-
-        p1 = p2 = spot + self.mins;
-        p2_x = spot_x + self.maxs_x;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
-
-        p1 = p2;
-        p2_y = spot_y + self.maxs_y;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
-
-        p1 = p2;
-        p2_x = spot_x + self.mins_x;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
-
-        p1 = p2;
-        p2_y = spot_y + self.mins_y;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
-
-        p1 = p2 = spot + self.maxs;
-        p2_x = spot_x + self.mins_x;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
-
-        p1 = p2;
-        p2_y = spot_y + self.mins_y;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
-
-        p1 = p2;
-        p2_x = spot_x + self.maxs_x;
-        traceline (p1, p2, FALSE, head);
-        if (trace_fraction < 1)  return FALSE;
-
-        p1 = p2;
-        p2_y = spot_y + self.maxs_y;
-        traceline (p1, p2, FALSE, head);
-        return (trace_fraction == 1);
 };
 
 //-------------------------------------------------------- New Code --------
