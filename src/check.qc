@@ -1,7 +1,7 @@
 
 
 
-void (vector org, float perm,float eff) SpawnTempDebugMarker =
+void (vector org, float perm,float spr) SpawnTempDebugMarker =
 {
 	
 if (!(cvar ("developer"))) return;
@@ -13,13 +13,15 @@ st = spawn ();
 		//dprint (ftos(num_for_edict(self)));
 		//dprint ("\n");
 st.classname = "TEMP_DEBUG_MARKER";
-st.effects = eff;
+
 st.origin = org;
 setorigin (st, org);
 st.solid = SOLID_NOT;
 st.movetype = MOVETYPE_NONE;
-//st.mdl = self.mdl;
+if (!spr)
 setmodel (st, "progs/s_bubble.spr");
+else
+setmodel (st, "progs/s_light.spr");
 setsize (st, '0 0 0', '0 0 0');
 if (perm == -1) 
 {
@@ -50,8 +52,7 @@ float(entity field) TraceCheck4 =
 
 local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4,start,end;
 
-           corner1 = field.absmin * -0.95;
-	 corner2 = field.absmax * 0.95;
+
            local entity ref;
            ref = find (world, classname, "info_player_deathmatch"); // Dummy ent so trace_ent dont start off as world
 
@@ -96,6 +97,7 @@ local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4,start,end;
                      
                      
            }
+            SpawnTempDebugMarker (trace_endpos, 0.5, 1);
            bprint (trace_ent.classname);
            bprint ("\n");
            // Back side center
