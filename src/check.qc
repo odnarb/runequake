@@ -96,6 +96,8 @@ local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4,start,end;
                      
                      
            }
+           bprint (trace_ent.classname);
+           bprint ("\n");
            // Back side center
            side1_z = field.absmin_z;
            side1_y = field.origin_y;
