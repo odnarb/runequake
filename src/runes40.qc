@@ -289,19 +289,19 @@ ShamblerSizeOk =
           
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
            
-           if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
+           if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
         
         
            makevectors (this.v_angle);
            
             setorigin (testfield, this.absmin + (v_forward * 16) + '0 0 56'); // Front of player
-            if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
+            if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
             setorigin (testfield, this.absmin + (v_forward * -16) + '0 0 56'); // behind of player
-            if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
+            if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
             setorigin (testfield, this.absmin + (v_right * 16) + '0 0 56'); // side of player
-            if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
+            if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
             setorigin (testfield, this.absmin + (v_right * -16) + '0 0 56'); // side of player
-            if (PM_InEmpty (testfield) && !PM_InWall (testfield)) return testfield.origin;
+            if (PM_InEmpty (testfield,testfield.origin) && !PM_InWall (testfield,testfield.origin)) return testfield.origin;
               
               setorigin (testfield, this.origin + '0 0 56'); // above player 
          
