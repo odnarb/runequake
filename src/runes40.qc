@@ -336,7 +336,7 @@ TraceCorners =
                {
                 traceline (side3, side4, 0, field.aiment);     
                if (trace_fraction == 1 && trace_ent == world)  
-               return 1;
+               return 0;
                }     
                          
                }
@@ -350,7 +350,7 @@ TraceCorners =
            WriteCoord (MSG_BROADCAST, trace_endpos_z);
           */
           
-          return 0;
+          return 1;
           
 };
 // Cobalt - Test respawn areas for Shambler otherwise cancel the teleport
