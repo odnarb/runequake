@@ -50,41 +50,46 @@ st.nextthink = time + perm;
 float(entity field) TraceCheck4 =
 {
 
-local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4,start,end;
+local vector cornerx1,cornerx2,cornerx3,cornerx4,side1,side2,side3,side4,start,end;
 
-           corner2 = field.absmin;
-           corner1 = field.absmax;
+           cornerx1 = field.absmin;
+           cornerx2 = field.absmax;
+           
+           // lower left corner is x3
+	 cornerx3 = cornerx1;
+	 cornerx3_x = cornerx2_x;
+           
+           // upper rt corner is x4
+	 cornerx4 = corner2;
+	 cornerx4_x = cornerx1_x; 
+           
            local entity ref;
            ref = find (world, classname, "info_player_deathmatch"); // Dummy ent so trace_ent dont start off as world
 
            trace_ent = ref;
-           traceline (corner1, corner2, 0, field.aiment); // Check min and max, 1st part of "X" pattern
+           traceline (cornerx1, cornerx2, 0, field.enemy); // Check min and max, 1st part of "X" pattern
            if (trace_ent == ref) // Setup scan on opposite corners, complete the X pattern
            {
-           SpawnTempDebugMarker (corner1, 0.5, 0);
-           SpawnTempDebugMarker (corner2, 0.5, 0);
-           corner2_z = corner1_z;
-	 corner3 = corner1;
-	 corner3_x = corner2_x;
-	 corner4 = corner2;
-	 corner4_x = corner1_x;  
-           traceline (corner3, corner4, 0, field.aiment);
+           SpawnTempDebugMarker (cornerx1, 0.5, 0);
+           SpawnTempDebugMarker (cornerx2, 0.5, 0);
+            
+           traceline (cornerx3, cornerx4, 0, field.enemy);
            if (trace_ent == ref) // X scan completed, start on plus type scan           
            {
-            SpawnTempDebugMarker (corner3, 0.5, 0);
-            SpawnTempDebugMarker (corner4, 0.5, 0);
+            SpawnTempDebugMarker (cornerx3, 0.5, 0);
+            SpawnTempDebugMarker (cornerx4, 0.5, 0);
             start = end = field.origin;
-            start_x = corner1_x;
-            end_x = corner2_x;            
-           traceline(start, end, 0, field.aiment);
+            start_x = cornerx1_x;
+            end_x = cornerx2_x;            
+           traceline(start, end, 0, field.enemy);
            if (trace_ent == ref) // Xpart of plus scan completed, start on y part
            {
             SpawnTempDebugMarker (start, 0.5, 0);
             SpawnTempDebugMarker (end, 0.5, 0);
            start = end = field.origin;
-            start_y = corner1_y;
-            end_y = corner2_y;  
-               traceline(start, end, 0, field.aiment);
+            start_y = cornerx1_y;
+            end_y = cornerx2_y;  
+               traceline(start, end, 0, field.enemy);
               if (trace_ent == ref) // entire scan completed ok
               {
               SpawnTempDebugMarker (start, 0.5, 0);

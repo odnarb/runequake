@@ -280,9 +280,8 @@ ShamblerSizeOk =
           local entity testfield;
 
           testfield = spawn ();
-          testfield.aiment = this;
+          testfield.enemy = this;
           testfield.classname = "testfield";
-          testfield.solid = SOLID_TRIGGER;
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
           
          
@@ -293,13 +292,13 @@ ShamblerSizeOk =
         
            makevectors (this.v_angle);
            
-            setorigin (testfield, this.absmin + (v_forward * 16) + '0 0 56'); // Front of player
+            setorigin (testfield, this.origin + (v_forward * 16) + '0 0 56'); // Front of player
             if (TraceCheck4 (testfield)) return testfield.origin;
-            setorigin (testfield, this.absmin + (v_forward * -16) + '0 0 56'); // behind of player
+            setorigin (testfield, this.origin + (v_forward * -16) + '0 0 56'); // behind of player
             if (TraceCheck4 (testfield)) return testfield.origin;
-            setorigin (testfield, this.absmin + (v_right * 16) + '0 0 56'); // side of player
+            setorigin (testfield, this.origin + (v_right * 16) + '0 0 56'); // side of player
             if (TraceCheck4 (testfield)) return testfield.origin;
-            setorigin (testfield, this.absmin + (v_right * -16) + '0 0 56'); // side of player
+            setorigin (testfield, this.origin + (v_right * -16) + '0 0 56'); // side of player
             if (TraceCheck4 (testfield)) return testfield.origin;
               
               setorigin (testfield, this.origin + '0 0 56'); // above player 
