@@ -280,8 +280,9 @@ TraceCorners =
 
            corner1 = field.absmin;
 	 corner2 = field.absmax;
-            bprint (ftos(field.watertype));
-          bprint ("\n");
+           local entity ref;
+           ref = find (world, classname, "info_player_deathmatch");
+           
            // Back side center
            side1_z = field.absmin_z;
            side1_y = field.origin_y;
@@ -324,19 +325,20 @@ TraceCorners =
 	 corner4 = corner2;
 	 corner4_x = corner1_x;         
           
-          
+   trace_ent = ref;
   traceline (field.absmin, field.absmax, 0, field.aiment);
-  if (trace_fraction == 1 && trace_ent == world)
+  if (trace_fraction == 1 && trace_ent == ref)
           {
+                  
                traceline (corner3, corner4, 0, field.aiment);     
-               if (trace_fraction == 1 && trace_ent == world)
+               if (trace_fraction == 1 && trace_ent == ref)
                {
                 traceline (side1, side2, 0, field.aiment);     
-               if (trace_fraction == 1 && trace_ent == world)          
+               if (trace_fraction == 1 && trace_ent == ref)          
                {
                 traceline (side3, side4, 0, field.aiment);     
-               if (trace_fraction == 1 && trace_ent == world)  
-               return 0;
+               if (trace_fraction == 1 && trace_ent == ref)  
+               return 1;
                }     
                          
                }
@@ -350,7 +352,7 @@ TraceCorners =
            WriteCoord (MSG_BROADCAST, trace_endpos_z);
           */
           
-          return 1;
+          return 0;
           
 };
 // Cobalt - Test respawn areas for Shambler otherwise cancel the teleport
