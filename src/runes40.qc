@@ -280,7 +280,8 @@ TraceCorners =
 
            corner1 = field.absmin;
 	 corner2 = field.absmax;
-           
+            bprint ftos(field.watertype);
+          bprint ("\n");
            // Back side center
            side1_z = field.absmin_z;
            side1_y = field.origin_y;
@@ -361,7 +362,10 @@ ShamblerSizeOk =
           testfield = spawn ();
           testfield.aiment = this;
           testfield.classname = "testfield";
+          testfield.solid = SOLID_TRIGGER;
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
+          
+         
           
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
            if (TraceCorners (testfield)) return testfield.origin;
