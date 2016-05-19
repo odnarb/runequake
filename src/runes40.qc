@@ -288,7 +288,7 @@ ShamblerSizeOk =
          
           
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
-           if (TraceCorners (testfield)) return testfield.origin;
+           if (TraceCheck4 (testfield)) return testfield.origin;
         
         
            makevectors (this.v_angle);
