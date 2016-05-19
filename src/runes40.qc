@@ -298,7 +298,7 @@ ShamblerSizeOk =
             setorigin (testfield, this.absmin + (v_forward * -16) + '0 0 56'); // behind of player
             if (TraceCheck4 (testfield)) return testfield.origin;
             setorigin (testfield, this.absmin + (v_right * 16) + '0 0 56'); // side of player
-            if (TTraceCheck4 (testfield)) return testfield.origin;
+            if (TraceCheck4 (testfield)) return testfield.origin;
             setorigin (testfield, this.absmin + (v_right * -16) + '0 0 56'); // side of player
             if (TraceCheck4 (testfield)) return testfield.origin;
               
