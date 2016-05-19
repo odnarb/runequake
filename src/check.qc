@@ -60,7 +60,7 @@ local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4,start,end;
            if (trace_ent == ref) // Setup scan on opposite corners, complete the X pattern
            {
            SpawnTempDebugMarker (corner1, 0.5, 0);
-           SpawnTempDebugMarker corner2, 0.5, 0);
+           SpawnTempDebugMarker (corner2, 0.5, 0);
            corner2_z = corner1_z;
 	 corner3 = corner1;
 	 corner3_x = corner2_x;
