@@ -52,8 +52,8 @@ float(entity field) TraceCheck4 =
 
 local vector corner1,corner2,corner3,corner4,side1,side2,side3,side4,start,end;
 
-           corner1 = field.absmin;
-           corner2 = field.absmax;
+           corner2 = field.absmin;
+           corner1 = field.absmax;
            local entity ref;
            ref = find (world, classname, "info_player_deathmatch"); // Dummy ent so trace_ent dont start off as world
 
