@@ -63,28 +63,24 @@ local vector cornerx1,cornerx2,cornerx3,cornerx4,side1,side2,side3,side4,start,e
 	 cornerx4 = cornerx2;
 	 cornerx4_x = cornerx1_x; 
            
-           SpawnTempDebugMarker (cornerx1, 0.5, 0);
-           SpawnTempDebugMarker (cornerx2, 0.5, 0);
-            SpawnTempDebugMarker (cornerx3, 0.5, 0);
-            SpawnTempDebugMarker (cornerx4, 0.5, 0);
            local entity ref;
            ref = find (world, classname, "info_player_deathmatch"); // Dummy ent so trace_ent dont start off as world
 
            trace_ent = ref;
            traceline (cornerx1, cornerx2, 0, field.enemy); // Check min and max, 1st part of "X" pattern
-           if (trace_ent == ref) // Setup scan on opposite corners, complete the X pattern
+           if (trace_fraction == 1) // Setup scan on opposite corners, complete the X pattern
            {
            
             
            traceline (cornerx3, cornerx4, 0, field.enemy);
-           if (trace_ent == ref) // X scan completed, start on plus type scan           
+           if (trace_fraction == 1) // X scan completed, start on plus type scan           
            {
            
             start = end = field.origin;
             start_x = cornerx1_x;
             end_x = cornerx2_x;            
            traceline(start, end, 0, field.enemy);
-           if (trace_ent == ref) // Xpart of plus scan completed, start on y part
+           if (trace_fraction == 1) // Xpart of plus scan completed, start on y part
            {
             SpawnTempDebugMarker (start, 0.5, 0);
             SpawnTempDebugMarker (end, 0.5, 0);
@@ -92,7 +88,7 @@ local vector cornerx1,cornerx2,cornerx3,cornerx4,side1,side2,side3,side4,start,e
             start_y = cornerx1_y;
             end_y = cornerx2_y;  
                traceline(start, end, 0, field.enemy);
-              if (trace_ent == ref) // entire scan completed ok
+              if (trace_fraction == 1) // entire scan completed ok
               {
               SpawnTempDebugMarker (start, 0.5, 0);
             SpawnTempDebugMarker (end, 0.5, 0);
