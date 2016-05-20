@@ -63,6 +63,10 @@ local vector cornerx1,cornerx2,cornerx3,cornerx4,side1,side2,side3,side4,start,e
 	 cornerx4 = cornerx2;
 	 cornerx4_x = cornerx1_x; 
            
+           SpawnTempDebugMarker (cornerx1, 0.5, 0);
+           SpawnTempDebugMarker (cornerx2, 0.5, 0);
+            SpawnTempDebugMarker (cornerx3, 0.5, 0);
+            SpawnTempDebugMarker (cornerx4, 0.5, 0);
            local entity ref;
            ref = find (world, classname, "info_player_deathmatch"); // Dummy ent so trace_ent dont start off as world
 
@@ -70,14 +74,12 @@ local vector cornerx1,cornerx2,cornerx3,cornerx4,side1,side2,side3,side4,start,e
            traceline (cornerx1, cornerx2, 0, field.enemy); // Check min and max, 1st part of "X" pattern
            if (trace_ent == ref) // Setup scan on opposite corners, complete the X pattern
            {
-           SpawnTempDebugMarker (cornerx1, 0.5, 0);
-           SpawnTempDebugMarker (cornerx2, 0.5, 0);
+           
             
            traceline (cornerx3, cornerx4, 0, field.enemy);
            if (trace_ent == ref) // X scan completed, start on plus type scan           
            {
-            SpawnTempDebugMarker (cornerx3, 0.5, 0);
-            SpawnTempDebugMarker (cornerx4, 0.5, 0);
+           
             start = end = field.origin;
             start_x = cornerx1_x;
             end_x = cornerx2_x;            
@@ -103,7 +105,7 @@ local vector cornerx1,cornerx2,cornerx3,cornerx4,side1,side2,side3,side4,start,e
                      
                      
            }
-            SpawnTempDebugMarker (trace_endpos, 0.5, 1);
+           // SpawnTempDebugMarker (trace_endpos, 0.5, 1);
            bprint (trace_ent.classname);
            bprint ("\n");
            // Back side center
