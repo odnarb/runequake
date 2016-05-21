@@ -295,45 +295,90 @@ ShamblerSizeOk =
         
         
            makevectors (this.v_angle);
+           local float mv;
            
-            setorigin (testfield, this.origin + (v_forward * 16) + '0 0 56'); // Front of player
+           while (mv < 25)
+           {
+                     mv = mv + 1;
+            setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); // Front of player
             if (TraceCheck6 (testfield))
-                       {
-                     bprint ("Front of player\n");
+            {
+              bprint ("Front of player\n");
                      return testfield.origin;
-                     }
-            setorigin (testfield, this.origin + (v_forward * -16) + '0 0 56'); // behind of player
+             
+            }
+           }
+                       
+            mv = 0;        
+                     
+             while (mv > -25)
+           {
+                     mv = mv - 1;
+            setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); 
             if (TraceCheck6 (testfield))
-                       {
-                     bprint ("Behind Player\n");
+            {
+              bprint ("Behind player\n");
                      return testfield.origin;
-                     }
-            setorigin (testfield, this.origin + (v_right * 16) + '0 0 56'); // side of player
+             
+            }
+           }
+        
+
+            mv = 0;        
+                     
+             while (mv < 25)
+           {
+                     mv = mv + 1;
+            setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (TraceCheck6 (testfield))
-                       {
-                     bprint ("Player side\n");
-                     return testfield.origin;
-                     }
-            setorigin (testfield, this.origin + (v_right * -16) + '0 0 56'); // side of player
+            {
+              bprint ("Player side\n");
+               return testfield.origin;
+             
+            }
+           }
+           
+              mv = 0;        
+                     
+             while (mv > -25)
+           {
+                     mv = mv - 1;
+            setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (TraceCheck6 (testfield))
-                       {
-                     bprint ("Player side2\n");
-                     return testfield.origin;
-                     }
-              
-              setorigin (testfield, this.origin + '0 0 56'); // above player 
-         
-              if (TraceCheck6 (testfield))
-                         {
-                     bprint ("Above player\n");
-                     return testfield.origin;
-                     }
-              setorigin (testfield, this.origin - '0 0 88'); // below
-              if (TraceCheck6 (testfield)) 
-                         {
-                     bprint ("Below Player\n");
-                     return testfield.origin;
-                     }
+            {
+              bprint ("Player side2\n");
+               return testfield.origin;
+             
+            }
+           }
+
+                 mv = 0;        
+                     
+             while (mv < 57)
+           {
+                     mv = mv + 1;
+            setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
+            if (TraceCheck6 (testfield))
+            {
+              bprint ("Above Player\n");
+               return testfield.origin;
+             
+            }
+           }
+           
+                 mv = 0; 
+                 while (mv > -57)
+           {
+                     mv = mv - 1;
+            setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
+            if (TraceCheck6 (testfield))
+            {
+              bprint ("Below Player\n");
+               return testfield.origin;
+             
+            }
+           }
+
           
              centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);
