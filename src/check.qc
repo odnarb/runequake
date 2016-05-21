@@ -140,31 +140,7 @@ local vector cornermn,cornermx,cornermn1,cornermx1,start,end;
            // SpawnTempDebugMarker (trace_endpos, 0.5, 1);
            bprint (trace_ent.classname);
            bprint ("\n");
-           // Back side center
-           side1_z = field.absmin_z;
-           side1_y = field.origin_y;
-           side1_x = field.absmin_x;
-           
-           
-           
-           
-           // top side center
-           side2_z = field.absmax_z;
-           side2_y = field.origin_y;
-           side2_x = field.absmax_x;
-           
-           
-           
-           // bottom side center
-           side3_z = field.absmin_z;
-           side3_y = field.absmax_y;
-           side3_x = field.origin_x;
-           
-           // top side center
-           side3_z = field.absmax_z;
-           side3_x = field.origin_x;
-           side3_y = field.absmin_y;
-          
+
           
           return 0;
 
