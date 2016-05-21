@@ -297,9 +297,9 @@ ShamblerSizeOk =
            makevectors (this.v_angle);
            local float mv;
            
-           while (mv < 25)
+           while (mv < 60)
            {
-                     mv = mv + 1;
+                     mv = mv + 4;
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); // Front of player
             if (TraceCheck6 (testfield))
             {
@@ -311,9 +311,9 @@ ShamblerSizeOk =
                        
             mv = 0;        
                      
-             while (mv > -25)
+             while (mv > -60)
            {
-                     mv = mv - 1;
+                     mv = mv - 4;
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); 
             if (TraceCheck6 (testfield))
             {
@@ -326,9 +326,9 @@ ShamblerSizeOk =
 
             mv = 0;        
                      
-             while (mv < 25)
+             while (mv < 60)
            {
-                     mv = mv + 1;
+                     mv = mv + 4;
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (TraceCheck6 (testfield))
             {
@@ -340,9 +340,9 @@ ShamblerSizeOk =
            
               mv = 0;        
                      
-             while (mv > -25)
+             while (mv > -60)
            {
-                     mv = mv - 1;
+                     mv = mv - 4;
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (TraceCheck6 (testfield))
             {
@@ -354,9 +354,9 @@ ShamblerSizeOk =
 
                  mv = 0;        
                      
-             while (mv < 57)
+             while (mv < 64)
            {
-                     mv = mv + 1;
+                     mv = mv + 4;
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
             if (TraceCheck6 (testfield))
             {
@@ -367,9 +367,9 @@ ShamblerSizeOk =
            }
            
                  mv = 0; 
-                 while (mv > -57)
+                 while (mv > -64)
            {
-                     mv = mv - 1;
+                     mv = mv - 4;
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
             if (TraceCheck6 (testfield))
             {
