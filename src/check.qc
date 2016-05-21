@@ -70,14 +70,14 @@ local vector cornermn,cornermx,cornermn1,cornermx1,start,end;
            traceline (cornermn, cornermx, 0, field.enemy); // Check min and max, 1st part of "X" pattern
            if (trace_fraction == 1) // Setup scan on opposite corners, complete the X pattern
            {
-            SpawnTempDebugMarker (mn, 0.5, 0);
-            SpawnTempDebugMarker (mx, 0.5, 0);
+            SpawnTempDebugMarker (cornermn, 0.5, 0);
+            SpawnTempDebugMarker (cornermx, 0.5, 0);
             
            traceline (cornermn1, cornermx1, 0, field.enemy);
            if (trace_fraction == 1) // X scan completed, start on plus type scan           
            {
-            SpawnTempDebugMarker (mn1, 0.5, 0);
-            SpawnTempDebugMarker (mx1, 0.5, 0);
+            SpawnTempDebugMarker (cornermn1, 0.5, 0);
+            SpawnTempDebugMarker (cornermx1, 0.5, 0);
             start = end = field.origin;
             start_x = cornermx_x;
             end_x = cornermn_x;            
