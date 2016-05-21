@@ -49,6 +49,8 @@ st.nextthink = time + perm;
 //--------------------------------------------------------------------------
 float(entity field) TraceCheck6 =
 {
+if (pointcontents (field.origin) == CONTENT_SOLID)
+          return 0;
 
 local vector cornermn,cornermx,cornermn1,cornermx1,start,end;
 
