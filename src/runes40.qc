@@ -296,8 +296,8 @@ ShamblerSizeOk =
         
            makevectors (this.v_angle);
            local float mv;
-           mv = 24;
-           while (mv < 65)
+           mv = 32;
+           while (mv < 97)
            {
                      mv = mv + 4;
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); // Front of player
@@ -309,9 +309,9 @@ ShamblerSizeOk =
             }
            }
                        
-            mv = -24;        
+            mv = -32;        
                      
-             while (mv > -65)
+             while (mv > -97)
            {
                      mv = mv - 4;
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); 
@@ -324,9 +324,9 @@ ShamblerSizeOk =
            }
         
 
-            mv = 24;        
+            mv = 32;        
                      
-             while (mv < 65)
+             while (mv < 97)
            {
                      mv = mv + 4;
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
@@ -338,9 +338,9 @@ ShamblerSizeOk =
             }
            }
            
-              mv = -24;        
+              mv = -32;        
                      
-             while (mv > -65)
+             while (mv > -97)
            {
                      mv = mv - 4;
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
