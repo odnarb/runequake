@@ -43,14 +43,14 @@ st.nextthink = time + perm;
 //==========================================================================
 
 //-------------------------------------------------------- New Code --------
-//  Modified by Cobalt: This performs a "+" shaped set of tracelines and
-// an "X" shaped set of tracelines, in an attempt to determine if the entities bounding 
-//box is not inside a solid.
+//  Modified by Cobalt: This performs a "+" shaped set of tracelines on the bounding box sides and
+//  an "x" shaped set of tracelines on its 4 corners , and also another "x" pattern on the sides
+//  in an attempt to determine if the entities bounding box is not inside a solid.
 //--------------------------------------------------------------------------
-float(entity field) TraceCheck4 =
+float(entity field) TraceCheck6 =
 {
 
-local vector cornermn,cornermx,cornermn1,cornermx1,side1,side2,side3,side4,start,end;
+local vector cornermn,cornermx,cornermn1,cornermx1,start,end;
 
            cornermn = field.absmin;
            cornermx = field.absmax;
@@ -70,12 +70,14 @@ local vector cornermn,cornermx,cornermn1,cornermx1,side1,side2,side3,side4,start
            traceline (cornermn, cornermx, 0, field.enemy); // Check min and max, 1st part of "X" pattern
            if (trace_fraction == 1) // Setup scan on opposite corners, complete the X pattern
            {
-           
+            SpawnTempDebugMarker (mn, 0.5, 0);
+            SpawnTempDebugMarker (mx, 0.5, 0);
             
            traceline (cornermn1, cornermx1, 0, field.enemy);
            if (trace_fraction == 1) // X scan completed, start on plus type scan           
            {
-           
+            SpawnTempDebugMarker (mn1, 0.5, 0);
+            SpawnTempDebugMarker (mx1, 0.5, 0);
             start = end = field.origin;
             start_x = cornermx_x;
             end_x = cornermn_x;            
@@ -88,11 +90,45 @@ local vector cornermn,cornermx,cornermn1,cornermx1,side1,side2,side3,side4,start
             start_y = cornermn_y;
             end_y = cornermx_y;  
                traceline(start, end, 0, field.enemy);
-              if (trace_fraction == 1) // entire scan completed ok
+              if (trace_fraction == 1) // entire plus scan completed ok, start on plus shaped sides scan
               {
-              SpawnTempDebugMarker (start, 0.5, 0);
-            SpawnTempDebugMarker (end, 0.5, 0);
-              return 1;
+                  SpawnTempDebugMarker (start, 0.5, 0);
+                  SpawnTempDebugMarker (end, 0.5, 0);
+            start_z = cornermn_z;
+            start_x = field.origin_x;
+            start_y = cornermn_y;
+            
+            end_z = cornermx_z;
+            end_x = field.origin_x;
+            end_y = cornermx_y;         
+            
+            
+                        
+             traceline(start, end, 0, field.enemy);
+            if (trace_fraction == 1) // back side to front side ok, do side to side check
+            {
+                  SpawnTempDebugMarker (start, 0.5, 0);
+                  SpawnTempDebugMarker (end, 0.5, 0);
+                  
+                   start_z = cornermn_z;
+                   start_y = field.origin_y;
+                   start_x = cornermn_x;
+            
+                  end_z = cornermx_z;
+                  end_y = field.origin_y;
+                  end_x = cornermx_x;
+                   traceline(start, end, 0, field.enemy);
+              if (trace_fraction == 1) // entire 6 segments of scan completed
+              {
+               SpawnTempDebugMarker (start, 0.5, 0);
+                  SpawnTempDebugMarker (end, 0.5, 0);          
+                  return 1;
+              }
+                  
+                  
+            }
+            
+            
               }
             
            }
