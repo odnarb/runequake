@@ -278,7 +278,7 @@ vector (entity this)
 ShamblerSizeOk =
 {
           local entity testfield;
-
+          
           testfield = spawn ();
           testfield.enemy = this;
           testfield.classname = "testfield";
@@ -287,25 +287,53 @@ ShamblerSizeOk =
          
           
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
-           if (TraceCheck6 (testfield)) return testfield.origin;
+           if (TraceCheck6 (testfield)) 
+                     {
+                     bprint ("Player origin\n");
+                     return testfield.origin;
+                     }
         
         
            makevectors (this.v_angle);
            
             setorigin (testfield, this.origin + (v_forward * 16) + '0 0 56'); // Front of player
-            if (TraceCheck6 (testfield)) return testfield.origin;
+            if (TraceCheck6 (testfield))
+                       {
+                     bprint ("Front of player\n");
+                     return testfield.origin;
+                     }
             setorigin (testfield, this.origin + (v_forward * -16) + '0 0 56'); // behind of player
-            if (TraceCheck6 (testfield)) return testfield.origin;
+            if (TraceCheck6 (testfield))
+                       {
+                     bprint ("Behind Player\n");
+                     return testfield.origin;
+                     }
             setorigin (testfield, this.origin + (v_right * 16) + '0 0 56'); // side of player
-            if (TraceCheck6 (testfield)) return testfield.origin;
+            if (TraceCheck6 (testfield))
+                       {
+                     bprint ("Player side\n");
+                     return testfield.origin;
+                     }
             setorigin (testfield, this.origin + (v_right * -16) + '0 0 56'); // side of player
-            if (TraceCheck6 (testfield)) return testfield.origin;
+            if (TraceCheck6 (testfield))
+                       {
+                     bprint ("Player side2\n");
+                     return testfield.origin;
+                     }
               
               setorigin (testfield, this.origin + '0 0 56'); // above player 
          
-              if (TraceCheck6 (testfield)) return testfield.origin;
+              if (TraceCheck6 (testfield))
+                         {
+                     bprint ("Above player\n");
+                     return testfield.origin;
+                     }
               setorigin (testfield, this.origin - '0 0 88'); // below
-              if (TraceCheck6 (testfield)) return testfield.origin;
+              if (TraceCheck6 (testfield)) 
+                         {
+                     bprint ("Below Player\n");
+                     return testfield.origin;
+                     }
           
              centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);
