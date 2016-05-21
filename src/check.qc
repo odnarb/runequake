@@ -120,11 +120,22 @@ local vector cornermn,cornermx,cornermn1,cornermx1,start,end;
                   end_y = field.origin_y;
                   end_x = cornermx_x;
                    traceline(start, end, 0, field.enemy);
-              if (trace_fraction == 1) // entire 6 segments of scan completed
+              if (trace_fraction == 1) // entire 6 segments of scan completed do one more from max top to max bottom
               {
                SpawnTempDebugMarker (start, 0.5, 0);
-                  SpawnTempDebugMarker (end, 0.5, 0);          
-                  return 1;
+                  SpawnTempDebugMarker (end, 0.5, 0);
+                 start = end = field.origin;
+                 start_z = cornermx_z;
+                 end_z = cornermn_z;
+                 traceline(start, end, 0, field.enemy);
+                    if (trace_fraction == 1)
+                    {
+                    
+                      SpawnTempDebugMarker (start, 0.5, 0);
+                      SpawnTempDebugMarker (end, 0.5, 0);
+                    return 1;
+                  
+                    }
               }
                   
                   
