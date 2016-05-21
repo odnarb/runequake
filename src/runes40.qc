@@ -293,7 +293,7 @@ ShamblerSizeOk =
                      return testfield.origin;
                      }
         
-        
+          setsize (testfield, VEC_HULL2_MIN * 1.05, VEC_HULL2_MAX * 1.05); // Try 5% larger just in case
            makevectors (this.v_angle);
            local float mv;
            mv = 16;
