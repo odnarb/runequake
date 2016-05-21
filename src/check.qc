@@ -50,43 +50,43 @@ st.nextthink = time + perm;
 float(entity field) TraceCheck4 =
 {
 
-local vector cornerx1,cornerx2,cornerx3,cornerx4,side1,side2,side3,side4,start,end;
+local vector cornermn,cornermx,cornermn1,cornermx1,side1,side2,side3,side4,start,end;
 
-           cornerx1 = field.absmin;
-           cornerx2 = field.absmax;
+           cornermn = field.absmin;
+           cornermx = field.absmax;
            
-           // lower left corner is x3
-	 cornerx3 = cornerx1;
-	 cornerx3_x = cornerx2_x;
+           // lower left corner is mn1
+	 cornermn1 = cornermn;
+	 cornermn1_x = cornermx_x;
            
-           // upper rt corner is x4
-	 cornerx4 = cornerx2;
-	 cornerx4_x = cornerx1_x; 
+           // upper rt corner is mx1
+	 cornermx1 = cornermx;
+	 cornermx1_x = cornermn_x; 
            
            local entity ref;
            ref = find (world, classname, "info_player_deathmatch"); // Dummy ent so trace_ent dont start off as world
 
            trace_ent = ref;
-           traceline (cornerx1, cornerx2, 0, field.enemy); // Check min and max, 1st part of "X" pattern
+           traceline (cornermn, cornermx, 0, field.enemy); // Check min and max, 1st part of "X" pattern
            if (trace_fraction == 1) // Setup scan on opposite corners, complete the X pattern
            {
            
             
-           traceline (cornerx3, cornerx4, 0, field.enemy);
+           traceline (cornermn1, cornermx1, 0, field.enemy);
            if (trace_fraction == 1) // X scan completed, start on plus type scan           
            {
            
             start = end = field.origin;
-            start_x = cornerx1_x;
-            end_x = cornerx2_x;            
+            start_x = cornermx_x;
+            end_x = cornermn_x;            
            traceline(start, end, 0, field.enemy);
            if (trace_fraction == 1) // Xpart of plus scan completed, start on y part
            {
             SpawnTempDebugMarker (start, 0.5, 0);
             SpawnTempDebugMarker (end, 0.5, 0);
            start = end = field.origin;
-            start_y = cornerx1_y;
-            end_y = cornerx2_y;  
+            start_y = cornermn_y;
+            end_y = cornermx_y;  
                traceline(start, end, 0, field.enemy);
               if (trace_fraction == 1) // entire scan completed ok
               {
