@@ -1384,7 +1384,7 @@ Rune_Spawn =
 	rune.cnt = ix;
 	rune.mdl = Rune_Model (rune.cnt);
 	setmodel (rune, rune.mdl);
-
+          rune.pausetime = 0; // Sound level
 	rune.touch = Rune_Touch;
 	rune.think = Rune_Move;
 	rune.runetime = time + 60 + random ()*60;
