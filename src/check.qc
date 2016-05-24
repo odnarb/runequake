@@ -44,7 +44,7 @@ st.nextthink = time + perm;
 
 //-------------------------------------------------------- New Code --------
 //  Modified by Cobalt: This performs a "+" shaped set of tracelines on the bounding box sides and
-//  an "x" shaped set of tracelines on its 4 corners , and also another "x" pattern on the sides
+//  a "x" shaped set of tracelines on its 4 corners , and also another "x" pattern on the sides
 //  in an attempt to determine if the entities bounding box is not inside a solid.
 //--------------------------------------------------------------------------
 float(entity field) TraceCheck6 =

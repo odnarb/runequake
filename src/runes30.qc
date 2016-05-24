@@ -720,6 +720,8 @@ Suck =
                                                   suckee.avelocity = vectoangles (suckee.velocity) * -0.66;
                                                   if (!(suckee.flags & FL_CLIENT) && !checkbottom(suckee))
                                                   suckee.angles = vectoangles (suckee.velocity); // Cobalt experiment for looks
+                                                   if (suckee.touch == Rune_Touch) // Its a rune
+                                                   suckee.pausetime = 0; // Cobalt - reset its sound level
 				}
 			}
 		}
