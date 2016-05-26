@@ -54,6 +54,7 @@ precaches =
 	// enforcer/
 	precache_sound ("enforcer/sight2.wav");		// (ice/blizzard) placed
 	precache_sound ("enforcer/sight3.wav");		// sonar activated
+          precache_sound ("enforcer/enfstop.wav");          // Bfg Zap noise
 
 	// fish/
 	precache_sound ("fish/bite.wav");		// ice trap (activated/deactivated)

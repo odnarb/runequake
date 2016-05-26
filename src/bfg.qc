@@ -23,8 +23,12 @@ BFG_Lightning =
 
 	org = self.origin + PLAYER_WEAPON_OFFSET;
 	traceline (org, targ.origin, 1, self);
+          
 	create_te_lightning (TE_LIGHTNING2, self, org, trace_endpos);
+          sound (targ, CHAN_AUTO, "enforcer/enfstop.wav", 1, ATTN_NORM);
 	T_Damage (targ, self, self.owner, BFG_ZAP_DAMAGE, "bfgzap");
+         
+          
 };
 
 void ()
@@ -60,7 +64,9 @@ BFG_Zap =
 				if (CanDamage (head, self))
 				{
 					head.last_bfg_zap = time;
+                                                  self.effects = EF_DIMLIGHT;
 					BFG_Lightning (head);
+                                                  self.effects = EF_BRIGHTLIGHT;
 				}
 			}
 		}
