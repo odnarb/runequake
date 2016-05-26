@@ -64,9 +64,9 @@ BFG_Zap =
 				if (CanDamage (head, self))
 				{
 					head.last_bfg_zap = time;
-                                                  self.effects = 2;
+                                                  self.effects = 0;
 					BFG_Lightning (head);
-                                                  self.effects = EF_BRIGHTLIGHT;
+                                                  self.effects = EF_DIMLIGHT;
 				}
 			}
 		}
