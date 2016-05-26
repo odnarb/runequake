@@ -42,6 +42,13 @@ BFG_Zap =
 		BecomeExplosion ();
 		return;
 	}
+          if (self.last_bfg_zap < time)
+          {
+          self.effects = EF_MUZZLEFLASH;
+          if (self.last_bfg_zap == time + 0.1)
+          sound (world, CHAN_AUTO, "ambience/thunder1.wav", 0.5, ATTN_NONE);
+          }
+          else self.effects = EF_BRIGHTLIGHT;
 
 	i = 1;
 	if (self.owner.runetype == RN_ZAP)
@@ -64,9 +71,9 @@ BFG_Zap =
 				if (CanDamage (head, self))
 				{
 					head.last_bfg_zap = time;
-                                                  self.effects = 0;
+                                                  self.last_bfg_zap = time + 0.2;                                         
 					BFG_Lightning (head);
-                                                  self.effects = EF_DIMLIGHT;
+                                                  
 				}
 			}
 		}
@@ -139,7 +146,7 @@ BFG_Warmup =
 	bigkick_e (self.owner);
 	self.owner.effects = self.owner.effects - (self.owner.effects & EF_BRIGHTLIGHT);
 
-	self.effects = self.effects | EF_DIMLIGHT;
+	self.effects = self.effects | EF_BRIGHTLIGHT;
 
 	// Don't make launch sound while cloaked.
 	if (self.owner.runetype != RN_CLOAK)

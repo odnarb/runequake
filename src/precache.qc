@@ -224,4 +224,8 @@ precaches =
 
 	// settings.qc
 	precache_sound (SOUND_RUNE_PICKUP);		// you got a rune
+          // For bfg discharge
+          precache_sound ("ambience/thunder1.wav");
+          
+          
 };
