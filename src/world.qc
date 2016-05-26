@@ -99,17 +99,7 @@ worldspawn =
            other = nextent (other);
 	}
           
-          if (cvar ("developer"))
-          {
-           local float cv,x;
-           x = 64;
-           cv = cvar ("temp1");
-           x = x + cv;
-           cvar_set ("temp1", (ftos(x)));
-           x = 128;
-           cvar_set ("scratch1", (ftos(x)));           
-                    
-          }
+         
 };
 
 void ()
