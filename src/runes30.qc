@@ -318,6 +318,31 @@ Rune_Switch =
 	self.items	= self.items - self.items & (IT_SUPERHEALTH | IT_KEY1 | IT_KEY2) + self_shealth;
 	switch.items	= switch.items - switch.items & (IT_SUPERHEALTH | IT_KEY1 | IT_KEY2) + switch_shealth;
 
+          // Switch bombs if any
+          if (switch.sticky || self.sticky)
+          {
+           local entity bm;
+           bm = find(world, classname, "bomb");
+		
+	while (bm)
+	{
+           if (bm.enemy == switch)
+           {                     
+           bm.enemy = self;
+           bm.aflag = 1;
+           }
+           else if (bm.enemy == self && !bm.aflag)
+           {
+           bm.enemy = switch;      
+           }
+          
+          }
+           
+                    
+                   
+          }
+          
+         
 	// Start up health rotters.  This is a no-op if
 	// she doesn't need one or if she already has
 	// one.

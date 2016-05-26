@@ -965,6 +965,7 @@ PutClientInServer =
 	self.head_chain = world;
 	self.movetarget = world;
 
+          self.sticky = world.sticky; // Reset possible old stuck bomb to null
 	// Prevent damage when you join the game as an observer
 	// in lava or slime.
 	self.waterlevel = 0;

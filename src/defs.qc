@@ -302,7 +302,7 @@ entity runespawn;
 
 // vars for 'special' things that different runes do.
 .entity runent;
-
+.entity sticky;
 // For players, various functions based on rune.  For observers, time at
 // which to tell ridee of new rider.  For weapons, time at which it will
 // be charged in DM_WEAPONS_STAY mode.
