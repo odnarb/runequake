@@ -139,7 +139,7 @@ BFG_Warmup =
 	bigkick_e (self.owner);
 	self.owner.effects = self.owner.effects - (self.owner.effects & EF_BRIGHTLIGHT);
 
-	self.effects = self.effects | EF_BRIGHTLIGHT;
+	self.effects = self.effects | EF_DIMLIGHT;
 
 	// Don't make launch sound while cloaked.
 	if (self.owner.runetype != RN_CLOAK)
@@ -168,7 +168,7 @@ W_BFG =
 {
 	local entity missile;
 
-	self.effects = self.effects | EF_DIMLIGHT;
+	self.effects = self.effects | EF_MUZZLEFLASH;
 
 	missile			= spawn ();
 	missile.owner		= self;
