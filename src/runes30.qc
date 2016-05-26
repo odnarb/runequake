@@ -319,8 +319,7 @@ Rune_Switch =
 	switch.items	= switch.items - switch.items & (IT_SUPERHEALTH | IT_KEY1 | IT_KEY2) + switch_shealth;
 
           // Switch bombs if any
-          if (switch.sticky || self.sticky)
-          {
+          
            local entity bm;
            bm = find(world, classname, "bomb");
 		
@@ -340,7 +339,7 @@ Rune_Switch =
            
                     
                    
-          }
+          
           
          
 	// Start up health rotters.  This is a no-op if
