@@ -71,7 +71,7 @@ BFG_Zap =
 				if (CanDamage (head, self))
 				{
 					head.last_bfg_zap = time;
-                                                  self.last_bfg_zap = time + 0.2;                                         
+                                                  self.last_bfg_zap = time + (1/3);                                         
 					BFG_Lightning (head);
                                                   
 				}
