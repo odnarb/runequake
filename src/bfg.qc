@@ -42,10 +42,10 @@ BFG_Zap =
 		BecomeExplosion ();
 		return;
 	}
-          if (self.last_bfg_zap < time)
+          if (self.last_bfg_zap > time)
           {
           self.effects = 2;
-          if (self.last_bfg_zap == time + 0.1)
+          if (self.last_bfg_zap == time + 0.2)
           sound (world, CHAN_AUTO, "ambience/thunder1.wav", 0.5, ATTN_NONE);
           }
           else self.effects = EF_BRIGHTLIGHT;
