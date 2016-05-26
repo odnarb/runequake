@@ -64,9 +64,9 @@ BFG_Zap =
 				if (CanDamage (head, self))
 				{
 					head.last_bfg_zap = time;
-                                                  self.effects = EF_DIMLIGHT;
+                                                  self.effects = EF_MUZZLEFLASH | EF_BRIGHTLIGHT;
 					BFG_Lightning (head);
-                                                  self.effects = EF_BRIGHTLIGHT;
+                                                  self.effects = EF_DIMLIGHT;
 				}
 			}
 		}
@@ -168,7 +168,7 @@ W_BFG =
 {
 	local entity missile;
 
-	self.effects = self.effects | EF_BRIGHTLIGHT;
+	self.effects = self.effects | EF_DIMLIGHT;
 
 	missile			= spawn ();
 	missile.owner		= self;
