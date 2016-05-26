@@ -67,7 +67,7 @@ bomb_arm =
 		T_Damage (other, self, self.owner, 30, "bombhit");
 		self.runevar = 1;
 		self.enemy = other;
-                    other.sticky = self;
+                   
 		// v_angle is used to keep the bomb pointing in the
 		// right direction.  It stores the difference between
 		// the bomb's angles and the target's angles, then this
