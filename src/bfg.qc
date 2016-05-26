@@ -45,7 +45,7 @@ BFG_Zap =
           if (self.last_bfg_zap > time)
           {
           self.effects = 2;
-          if (self.last_bfg_zap == time + 0.2)
+          if (self.last_bfg_zap == time + 0.25)
           sound (world, CHAN_AUTO, "ambience/thunder1.wav", 0.5, ATTN_NONE);
           }
           else self.effects = EF_BRIGHTLIGHT;
@@ -71,7 +71,7 @@ BFG_Zap =
 				if (CanDamage (head, self))
 				{
 					head.last_bfg_zap = time;
-                                                  self.last_bfg_zap = time + (1/3);                                         
+                                                  self.last_bfg_zap = time + (0.5);                                         
 					BFG_Lightning (head);
                                                   
 				}
