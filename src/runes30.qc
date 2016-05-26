@@ -334,7 +334,7 @@ Rune_Switch =
            {
            bm.enemy = switch;      
            }
-          
+           bm = find (bm, classname, "bomb");
           }
            
                     
