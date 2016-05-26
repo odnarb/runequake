@@ -64,7 +64,7 @@ BFG_Zap =
 				if (CanDamage (head, self))
 				{
 					head.last_bfg_zap = time;
-                                                  self.effects = EF_MUZZLEFLASH;
+                                                  self.effects = 2;
 					BFG_Lightning (head);
                                                   self.effects = EF_BRIGHTLIGHT;
 				}
