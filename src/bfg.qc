@@ -44,7 +44,7 @@ BFG_Zap =
 	}
           if (self.last_bfg_zap < time)
           {
-          self.effects = EF_MUZZLEFLASH;
+          self.effects = 2;
           if (self.last_bfg_zap == time + 0.1)
           sound (world, CHAN_AUTO, "ambience/thunder1.wav", 0.5, ATTN_NONE);
           }
