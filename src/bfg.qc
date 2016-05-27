@@ -102,13 +102,15 @@ BFG_Touch =
 
 	self.origin = self.origin - 8*normalize (self.velocity);
 
+          local float c;
+          c = vlen (self.avelocity);
           WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
     WriteByte (MSG_BROADCAST, TE_EXPLOSION2);
     WriteCoord (MSG_BROADCAST, self.origin_x);
     WriteCoord (MSG_BROADCAST, self.origin_y);
     WriteCoord (MSG_BROADCAST, self.origin_z);
     WriteByte (MSG_BROADCAST, 225);
-    WriteByte (MSG_BROADCAST, vlen (self.avelocity));  
+    WriteByte (MSG_BROADCAST, c);  
           remove (self);
 	//create_te_explosion (self.origin, 1);
 };
