@@ -108,7 +108,7 @@ BFG_Touch =
     WriteCoord (MSG_BROADCAST, self.origin_y);
     WriteCoord (MSG_BROADCAST, self.origin_z);
     WriteByte (MSG_BROADCAST, 225);
-    WriteByte (MSG_BROADCAST, 8);  
+    WriteByte (MSG_BROADCAST, 18);  
           remove (self);
 	//create_te_explosion (self.origin, 1);
 };
