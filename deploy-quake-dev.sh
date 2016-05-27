@@ -4,6 +4,7 @@ cd /home/ubuntu/quake/runequake-dev
 rm src/map-auto.qc
 git checkout src/*.qc
 git pull
+cat /home/ubuntu/rq_rcon.conf | xargs -I '{}' sed -i 's/{rcon_password}/{}/g' autoexec.cfg
 cd src
 cat /home/ubuntu/rq_passcode.conf | xargs -I '{}' sed -i 's/{admin_passcode}/{}/g' settings.qc
 make
