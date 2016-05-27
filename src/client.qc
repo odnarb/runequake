@@ -1390,7 +1390,7 @@ PlayerDeathThink =
 	{
                     local float add;
                     if (self.runetype == RN_PHOENIX)
-                       add = 300; // Cobalt - add 5 minutes if we have pheonix       
+                       add = 300; // Cobalt - add 5 minutes if we have phoenix       
 		if (!self.aflag)
 			self.aflag = time + AUTO_CORPSE_OBSERVER + add;
 		else if (time <= self.aflag)

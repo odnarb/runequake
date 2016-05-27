@@ -1459,7 +1459,12 @@ powerup_touch =
 
 		if (POWERUP_PICKUP_WARN & ITEM_QUAD)
 			tell = 1;
+                       
 		other.super_time = -1;
+                    // Add Quad remaining time if Phoenix
+                    if (other.runetype == RN_PHOENIX && other.super_damage_finished)
+                    other.super_damage_finished = other.super_damage_finished + 30;          
+                    else
 		other.super_damage_finished = time + 30;
 		other.super_sound = time + 1;
 	}
