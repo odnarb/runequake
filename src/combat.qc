@@ -182,7 +182,7 @@ T_Damage =
 	if (attacker.super_damage_finished >= time || attacker.owner.super_damage_finished >= time)
           {      
 		damage = damage * 4;
-                    if (targ == attacker && attacker.runetype == RN_SNIPER) // Cobalt, fix for sniper rune inflicting 4x dmg
+                    if (dtype == "dspotdrop" || (targ == attacker && attacker.runetype == RN_SNIPER)) // Cobalt, fix for sniper rune inflicting 4x dmg
                     damage = damage / 4;
           }
 	if (attacker.runetype)
