@@ -9,7 +9,6 @@ src/map-auto.qc
 iplog.dat
 banlog.dat
 config.cfg
-autoexec.cfg
 *.bak
 *.log
 src/*.log
