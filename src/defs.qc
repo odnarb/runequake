@@ -1672,6 +1672,7 @@ string	timeset_gold = "\5\{0}":"\1\0":"\1\5":"\2\0":"\2\5":"\3\0";
 .float	mate_kills;
 .float	killed;
 
+.float    snkills; // Track sniper rune kills
 // net functions
 .entity cl;
 .entity	netconnection;

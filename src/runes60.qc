@@ -370,7 +370,19 @@ Sniper_Touch =
 		T_Damage (other, self, self.owner, SURE_KILL_DAMAGE, "sniped");
 
 		if (other.classname == "player")
-			self.owner.runevar = self.owner.runevar + 25;
+                    {
+                              if (other.health < 1)
+                              {
+                              self.owner.snkills =  self.owner.snkills + 1;     
+			self.lip = vlen(self.dest - other.origin);
+                              if (self.lip >= 1800)
+                              self.owner.frags =  self.owner.frags + 2;
+                              if (self.lip >= 1000)
+                              self.owner.frags =  self.owner.frags + 1;          
+                              
+                              }
+                              self.owner.runevar = self.owner.runevar + 25;
+                    }
 	}
 	else
 		create_te_spike (TE_SUPERSPIKE, self.origin);
@@ -378,6 +390,38 @@ Sniper_Touch =
 	remove (self);
 };
 
+void () Snipe_AAim =
+{
+
+   if (!self.enemy)
+   {
+             local entity this;
+	 this = findradius (self.origin, 250);
+
+	
+	while (this)
+	{
+		if (this.classname == "player" && this != self.owner)
+	          self.enemy = this;	
+		
+		this = this.chain;
+	}
+   }
+   else
+   {
+             local vector adj;
+          adj = self.enemy.origin - self.origin;
+          adj		= normalize (adj);
+          self.velocity	= self.velocity + adj;
+             
+             }
+
+
+          
+self.nextthink = time + 0.25 - (0.025 * self.owner.snkills);   
+
+self.angles = vectoangles (self.velocity);
+};
 void ()
 Rune_Sniper =
 {
@@ -394,13 +438,43 @@ Rune_Sniper =
 	launch_spike (self.origin + PLAYER_WEAPON_OFFSET, v_forward);
 
 	newmis.touch = Sniper_Touch;
+          if (self.snkills)
+          {
+           newmis.think = Snipe_AAim;
+           newms.nextthink = time + frametime;
+           local vector f, p1, p2, org;
+	org = self.origin + '0 0 15';
+	makevectors (self.v_angle);
 
+	p1 = org;
+	p2 = org + v_forward*1000;
+
+	f = p2 - p1;
+	normalize (f);
+	f_x = 0 - f_y;
+	f_y = f_x;
+	f_z = 0;
+	f = f*16;
+
+	traceline (p1, p2, FALSE, self);
+          if (trace_ent.classname == "player")
+	newmis.enemy = trace_ent;
+          }
 	//setmodel (newmis, "progs/s_spike.mdl");
 	setmodel (newmis, "progs/laser.mdl");
 	setsize (newmis, VEC_ORIGIN, VEC_ORIGIN);
-
+          newmis.dest = newmis.origin;  // Save original starting origin
 	smallkick ();
 	self.runetime = time + 0.1;
+          
+          
+
+	
+          
+          
+          
+          
+          
 };
 
 void (entity e, float dist, float is_next)
