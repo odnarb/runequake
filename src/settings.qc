@@ -117,9 +117,9 @@ string START_LEVEL_EXEC		= "startlevel.cfg";
 //     SPLASH_4 = "Let's be careful out there\n";
 
 string SPLASH_1 = "Welcome to the Community RuneQuake Server!\nςρ®σεςφερυαε®γονλ\n\n";
-string SPLASH_2 = "Join us in voice chat & support! http://appear.in/qcc\n";
-string SPLASH_3 = "Admins are Cobalt, Gunm4n and Sgt. PieFace\n";
-string SPLASH_4 = "Admin support SergeantPieFace@gmail.com\n";
+string SPLASH_2 = "Join us in voice chat & support\n  Via Discord http://tinyurl.com/z2ljy5y\n\n";
+string SPLASH_3 = "Admins are Cobalt, Gunm4n and Sgt.PieFace\n";
+string SPLASH_4 = "== Admin support ==\n SergeantPieFace@gmail.com\n";
 
 // This is the amount of water you can be standing in and still safely
 // use your lightning gun.  Standard Quake uses 1 (just your feet), but
