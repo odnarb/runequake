@@ -111,10 +111,10 @@ string START_LEVEL_EXEC		= "startlevel.cfg";
 //
 //
 // Eg:
-//     SPLASH_1 = "Welcome to Mojo World!\n\n";
-//     SPLASH_2 = "http://quake.mojo.com\n\n";
-//     SPLASH_3 = "Server admin is quake@mojo.com\n\n";
-//     SPLASH_4 = "Let's be careful out there\n";
+//      SPLASH_1 = "Welcome to Mojo World!\n\n";
+//      SPLASH_2 = "http://quake.mojo.com\n\n";
+//      SPLASH_3 = "Server admin is quake@mojo.com\n\n";
+//      SPLASH_4 = "Let's be careful out there\n";
 
 string SPLASH_1 = "Welcome to the Community RuneQuake Server!\nςρ®σεςφερυαε®γονλ\n\n";
 string SPLASH_2 = "Join us in voice chat & support Via\n Discord http://tinyurl.com/z2ljy5y\n\n";
