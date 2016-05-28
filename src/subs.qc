@@ -580,10 +580,13 @@ if (PLAYERS > 1 && time > 10)
           localcmd ("sys_ticrate ");
           localcmd ((ftos(bal)));
           localcmd ("\n");
+          if (cvar ("developer"))
+          {
           bprint ("Server Framerate set to ");
           bal = 1 / bal;
           bprint (ftos(ceil(bal)));
           bprint (" FPS\n");
+          }
 
 }
 else if (cvar ("sys_ticrate") != 0.0375)
