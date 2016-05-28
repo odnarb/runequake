@@ -91,7 +91,8 @@ aq_menu_print_n =
 				"\2 to start playing\n\n"
 				"\bRune Quake\b\n"
 				"Version ", version, "\n\n",
-				SPLASH_FILL, SPLASH_DEV1, SPLASH_DEV2, SPLASH_FILL);
+				//SPLASH_FILL, SPLASH_DEV1, SPLASH_DEV2, SPLASH_FILL);
+                                        SPLASH_1, SPLASH_2, SPLASH_3, SPLASH_4);
 		} else {
 			centerprint7 (self,
 				"Type \1 for the menu,\n"
