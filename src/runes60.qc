@@ -397,7 +397,7 @@ self.effects = 2;
    if (!self.enemy)
    {
              local entity this;
-	 this = findradius (self.origin, 250);
+	 this = findradius (self.origin, 500);
 
 	
 	while (this)
@@ -433,7 +433,7 @@ Rune_Sniper =
 	if (!W_CheckNoAmmo ())
 		return;
 
-	T_Damage (self, self, self, (25 + (random () * self.runevar)), "sniped");
+	//T_Damage (self, self, self, (25 + (random () * self.runevar)), "sniped");
 	sound (self, CHAN_WEAPON, "weapons/ric3.wav", 1, ATTN_NORM);
 
 	makevectors (self.v_angle);
