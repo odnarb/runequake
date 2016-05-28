@@ -441,7 +441,7 @@ Rune_Sniper =
           if (self.snkills)
           {
            newmis.think = Snipe_AAim;
-           newms.nextthink = time + frametime;
+           newmis.nextthink = time + frametime;
            local vector f, p1, p2, org;
 	org = self.origin + '0 0 15';
 	makevectors (self.v_angle);
