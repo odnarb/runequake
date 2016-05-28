@@ -393,6 +393,7 @@ Sniper_Touch =
 void () Snipe_AAim =
 {
 
+self.effects = 2;
    if (!self.enemy)
    {
              local entity this;
@@ -413,6 +414,7 @@ void () Snipe_AAim =
           adj = self.enemy.origin - self.origin;
           adj		= normalize (adj);
           self.velocity	= self.velocity + adj;
+          self.enemy.effects = 2;
              
              }
 
