@@ -412,7 +412,7 @@ self.effects = 2;
    {
              local vector adj;
           adj = self.enemy.origin - self.origin;
-          adj		= normalize (adj);
+        //  adj		= normalize (adj);
           self.velocity	= self.velocity + adj;
           self.enemy.effects = 2;
              
