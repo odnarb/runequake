@@ -481,6 +481,7 @@ Rune_Sniper =
           newmis.dmg = 500;
           if (self.velocity == VEC_ORIGIN)
           newmis.dmg = 1000;
+          player_shot1 ();
 	smallkick ();
 	self.runetime = time + 0.1;
           
