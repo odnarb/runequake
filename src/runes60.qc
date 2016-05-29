@@ -416,7 +416,11 @@ self.effects = 2;
              local vector adj;
           adj = self.enemy.origin - self.origin;
         //  adj		= normalize (adj);
-          self.velocity	= self.dest1 + adj;
+          self.velocity	= self.velocity + adj;
+          if (vlen (self.velocity) > vlen (self.dest))
+          self.velocity	= normalize (self.velocity);
+          if (vlen (self.velocity) < vlen (self.dest))
+            self.think = SUB_Remove;
           self.enemy.effects = 2;
              self.angles = vectoangles (self.velocity);
              }
@@ -427,8 +431,7 @@ if (adj_x <= 0)
 adj_x = frametime;          
 self.nextthink = time + adj_x;   
 
-if (self.flags & FL_ONGROUND)
-self.think = SUB_Remove;
+
 
 
 };
