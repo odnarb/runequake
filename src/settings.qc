@@ -118,9 +118,9 @@ string START_LEVEL_EXEC		= "startlevel.cfg";
 
 string SPLASH_1 = "Welcome to....\n The Community RuneQuake Server!\nŸòñ®óåòöåñõáëå®ãïíŸ\n\n";
 string SPLASH_2 = "Join us in voice chat & support Via\nDiscord http://tiny.cc/runequake\n\n";
-string SPLASH_3 = "---==ÁÄÍÉÎÓ==---\n€ƒ…ÃÏÂÁÌÔ…ƒ‚\n…gunmn…\nSgt-PieFace\n\n";
-string SPLASH_4 = "---==ÁÄÍÉÎ…ÓÕĞĞÏÒÔ==---\n SergeantPieFace@gmail.com";
-
+string SPLASH_3 = "---==Áäíéîó==---\n€ƒ…ÃÏÂÁÌÔ…ƒ‚\n…gunmn…\nSgt-PieFace\n\n";
+string SPLASH_4 = "---==ÁäíéîœÓõğğïòô==---\nSergeantPieFace@gmail.com";
+//?‚
 // This is the amount of water you can be standing in and still safely
 // use your lightning gun.  Standard Quake uses 1 (just your feet), but
 // I prefer 2 (your waist).  0 means not in water, and 3 means in up to
