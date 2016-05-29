@@ -118,7 +118,7 @@ string START_LEVEL_EXEC		= "startlevel.cfg";
 
 string SPLASH_1 = "Welcome to....\n The Community RuneQuake Server!\nςρ®σεςφερυαλε®γον\n\n";
 string SPLASH_2 = "Join us in voice chat & support Via\nDiscord http://tiny.cc/runequake\n\n";
-string SPLASH_3 = "ADMINS\n?????????\n\n";
+string SPLASH_3 = "ADMINS\n??????\n\n";
 string SPLASH_4 = "== Admin support ==\n SergeantPieFace@gmail.com\n";
 
 // This is the amount of water you can be standing in and still safely
