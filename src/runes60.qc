@@ -393,6 +393,8 @@ Sniper_Touch =
 void () Snipe_AAim =
 {
 
+
+
 self.effects = 2;
    if (!self.enemy)
    {
@@ -424,6 +426,9 @@ adj_x = (0.25 / 2) - (0.025 * self.owner.snkills);
 if (adj_x <= 0)
 adj_x = frametime;          
 self.nextthink = time + adj_x;   
+
+if (self.flags & FL_ONGROUND)
+self.think = SUB_Remove;
 
 
 };
