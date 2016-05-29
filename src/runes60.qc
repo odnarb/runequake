@@ -403,6 +403,7 @@ self.effects = 2;
 	while (this)
 	{
 		if (this.classname == "player" && this != self.owner)
+                    if (visible (this))
 	          self.enemy = this;	
 		
 		this = this.chain;
@@ -415,16 +416,16 @@ self.effects = 2;
         //  adj		= normalize (adj);
           self.velocity	= self.dest1 + adj;
           self.enemy.effects = 2;
-             
+             self.angles = vectoangles (self.velocity);
              }
 
 
 adj_x = (0.25 / 2) - (0.025 * self.owner.snkills);
 if (adj_x <= 0)
-adj_x = 0;          
+adj_x = frametime;          
 self.nextthink = time + adj_x;   
 
-self.angles = vectoangles (self.velocity);
+
 };
 void ()
 Rune_Sniper =
