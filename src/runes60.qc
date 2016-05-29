@@ -367,6 +367,7 @@ Sniper_Touch =
 
 	if (other.takedamage)
 	{
+                    self.lip = vlen(self.dest - other.origin);
 		T_Damage (other, self, self.owner, SURE_KILL_DAMAGE, "sniped");
 
 		if (other.classname == "player")
@@ -374,10 +375,10 @@ Sniper_Touch =
                               if (other.health < 1)
                               {
                               self.owner.snkills =  self.owner.snkills + 1;     
-			self.lip = vlen(self.dest - other.origin);
+			
                               if (self.lip >= 1800)
                               self.owner.frags =  self.owner.frags + 2;
-                              if (self.lip >= 1000)
+                              else if (self.lip >= 1000)
                               self.owner.frags =  self.owner.frags + 1;          
                               
                               }
