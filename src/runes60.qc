@@ -413,14 +413,16 @@ self.effects = 2;
              local vector adj;
           adj = self.enemy.origin - self.origin;
         //  adj		= normalize (adj);
-          self.velocity	= self.velocity + adj;
+          self.velocity	= self.dest1 + adj;
           self.enemy.effects = 2;
              
              }
 
 
-          
-self.nextthink = time + 0.25 - (0.025 * self.owner.snkills);   
+adj_x = (0.25 / 2) - (0.025 * self.owner.snkills);
+if (adj_x <= 0)
+adj_x = 0;          
+self.nextthink = time + adj_x;   
 
 self.angles = vectoangles (self.velocity);
 };
@@ -466,6 +468,7 @@ Rune_Sniper =
 	setmodel (newmis, "progs/laser.mdl");
 	setsize (newmis, VEC_ORIGIN, VEC_ORIGIN);
           newmis.dest = newmis.origin;  // Save original starting origin
+          newmis.dest1 = newmis.velocity;
 	smallkick ();
 	self.runetime = time + 0.1;
           
