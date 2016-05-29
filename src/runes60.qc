@@ -397,7 +397,7 @@ self.effects = 2;
    if (!self.enemy)
    {
              local entity this;
-	 this = findradius (self.origin, 500);
+	 this = findradius (self.origin, self.dmg);
 
 	
 	while (this)
@@ -468,7 +468,10 @@ Rune_Sniper =
 	setmodel (newmis, "progs/laser.mdl");
 	setsize (newmis, VEC_ORIGIN, VEC_ORIGIN);
           newmis.dest = newmis.origin;  // Save original starting origin
-          newmis.dest1 = newmis.velocity;
+          newmis.dest1 = newmis.velocity; // save initial vel
+          newmis.dmg = 500;
+          if (self.velocity == VEC_ORIGIN)
+          newmis.dmg = 1000;
 	smallkick ();
 	self.runetime = time + 0.1;
           
