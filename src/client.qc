@@ -2775,8 +2775,16 @@ ClientObituary =
 		}
 		else if (dt == "sniped")
 		{
+                              if (framecount & 1)
+                              {
 			s1 = " couldn't escape ";
 			s2 = "'s scope\n";
+                              }
+                              else
+                              {
+                              s1 = " was picked off by";
+			s2 = "'s sniper round\n";          
+                              }
 		}
 		else if (dt == "betty")
 		{

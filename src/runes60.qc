@@ -485,7 +485,7 @@ Rune_Sniper =
           player_shot1 ();
 	smallkick ();
 	self.runetime = time + 0.1;
-          
+          self.classname == "sniper round";
           
 
 	
