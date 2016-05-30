@@ -1619,9 +1619,9 @@ BackpackTouch =
           }
           else
           cr = "Backpack had:\n";
-          cr = strcat (cr, "\b");
+          
           sprint (other, cr);
-           
+          sprint (other,"\b");
 	if (self.items)
 		if ((other.items & self.items) == 0)
 		{
