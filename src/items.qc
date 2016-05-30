@@ -1657,8 +1657,6 @@ BackpackTouch =
                     cr = strcat (cr, ", ");			
 		acount = 1;
                     cq = (ftos(self.ammo_shells));
-                    cq = strcat ("\b", cq);
-                    cq = strcat (cq, "\b");
                     cr = strcat (cr, cq);	
                     cr = strcat (cr, " shells");
 		
