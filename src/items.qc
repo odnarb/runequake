@@ -1656,7 +1656,7 @@ BackpackTouch =
 		if (acount)
                     cr = strcat (cr, ", ");			
 		acount = 1;
-                    cr = strcat (cr, (ftos(self.ammo_shells));	
+                    cr = strcat (cr, (ftos(self.ammo_shells)));	
                     cr = strcat (cr, " shells");
 		
 	}
@@ -1665,14 +1665,14 @@ BackpackTouch =
 		if (acount)
 	          cr = strcat (cr, ", ");
 		acount = 1;
-                    cr = strcat (cr, (ftos(self.ammo_nails));	
+                    cr = strcat (cr, (ftos(self.ammo_nails)));	
                     cr = strcat (cr, " nails");
 	}
 	if (self.ammo_rockets)
 	{
 		if (acount)
 		cr = strcat (cr, ", ");
-                    cr = strcat (cr, (ftos(self.ammo_rockets));
+                    cr = strcat (cr, (ftos(self.ammo_rockets)));
                     cr = strcat (cr, " rockets");
 		acount = 1;
 	}
@@ -1681,7 +1681,7 @@ BackpackTouch =
 		if (acount)
 		cr = strcat (cr, ", ");
 		acount = 1;
-                    cr = strcat (cr, (ftos(self.ammo_cells));
+                    cr = strcat (cr, (ftos(self.ammo_cells)));
                     cr = strcat (cr, " cells");
 	}
           cr = strcat (cr, "\b\n");
