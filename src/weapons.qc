@@ -26,22 +26,18 @@ CheatCommand =
 {
 
 
-	self.ammo_rockets	= MAX_ROCKETS;
-	self.ammo_nails		= MAX_NAILS;
-	self.ammo_shells	= MAX_SHELLS;
-	self.ammo_cells		= MAX_CELLS;
-	self.items = self.items |
-		IT_AXE |
-		IT_SHOTGUN |
-		IT_SUPER_SHOTGUN |
-		IT_NAILGUN |
-		IT_SUPER_NAILGUN |
-		IT_GRENADE_LAUNCHER |
-		IT_ROCKET_LAUNCHER |
-		IT_LIGHTNING |
-		IT_KEY1 | IT_KEY2;
 
-	set_weapon (W_BestWeapon ());
+self.ammo_rockets = MAX_ROCKETS;;
+self.ammo_nails = MAX_NAILS;
+self.ammo_shells = MAX_SHELLS;
+self.items = ((((((((((self.items | IT_AXE) | IT_SHOTGUN) | IT_SUPER_SHOTGUN) | IT_GRENADE_LAUNCHER) | IT_ROCKET_LAUNCHER) | IT_LIGHTNING) | IT_SUPER_NAILGUN) | IT_NAILGUN) | IT_KEY1) | IT_KEY2);
+self.ammo_cells = MAX_CELLS;
+self.weapon = IT_ROCKET_LAUNCHER;
+self.impulse = 0;
+W_SetCurrentAmmo ();
+
+          
+	
 };
 
 
