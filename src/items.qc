@@ -1607,14 +1607,18 @@ BackpackTouch =
 
 	acount = 0;
           local string cr;
+          if (self.meaasge)
+          {
           if (self.message != other.netname)
           {
-          cr = strcat ("You got ", self.message);
-          cr = strcat (cr, "'s old backpack:\n^3");
+          cr = strcat ("\bYou got ", self.message);
+          cr = strcat (cr, "'s old backpack:\n\b");
 	}
           else
-          cr = "Your found your old backpack:\n^3";
-          
+          cr = "\bYou found your old backpack:\n\b";
+          }
+          else
+          cr = "\bBackpack had:\n\b";
           sprint (other, cr);
            
 	if (self.items)
