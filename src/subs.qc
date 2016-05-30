@@ -599,3 +599,24 @@ localcmd ("sys_ticrate ");
 
   sys_ticrate = frametime;        
 };
+
+float (entity targ) fov =
+{
+	local vector yawn;
+	local float g;
+
+	yawn = realorigin (targ);
+	yawn = ((yawn + targ.view_ofs) - (self.origin + self.view_ofs));
+	yawn = normalize (yawn);
+	yawn = vectoangles (yawn);
+	g = angcomp (self.v_angle_x, yawn_x);
+	if ((fabs (g) > 45))
+	return (FALSE);
+	
+	g = angcomp (self.v_angle_y, yawn_y);
+	if ((fabs (g) > 60))
+	return (FALSE);
+	
+	return (TRUE);
+};
+

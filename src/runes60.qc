@@ -406,7 +406,7 @@ self.effects = 2;
 	while (this)
 	{
 		if (this.classname == "player" && this != self.owner)
-                    if (visible (this))
+                    if (visible (this) && fov (this))
 	          self.enemy = this;	
 		
 		this = this.chain;
