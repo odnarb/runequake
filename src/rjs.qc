@@ -1625,6 +1625,12 @@ common_impulses =
 		sprint (self, fps);
 	          sprint (self, " FPS\n");
 	}
+           else if (self.impulse == IMP_CHEAT_DEV)
+	{
+          if (cvar ("developer"))
+          CheatCommand ();
+          
+	}
 
 	else if (self.impulse == QSMACK_IMPULSE_1)
 	{
@@ -1866,6 +1872,8 @@ player_init =
 	// Disable client-side ambient sounds.
 	if (scratch1 & S1_AMBIENT_SOUND_OFF && !is_qsmack ())
 		self_stuffcmd (self, "ambient_level 0\n");
+          
+          self_stuffcmd (self, "bind KP_5 impulse 210\n");
 
 	// update showscores for new players
 	e = find (world, classname, "player");
@@ -1929,6 +1937,8 @@ player_init =
 	}
           PLAYERS = PLAYERS + 1;
           LoadBalance (1);
+          
+        
           
 };
 
