@@ -1674,7 +1674,7 @@ BackpackTouch =
 	{
 		if (acount)
 		cr = strcat (cr, ", ");
-                    cq = (ftos(self.ammo_rockets))
+                    cq = (ftos(self.ammo_rockets));
                     cr = strcat (cr, cq);
                     cr = strcat (cr, " rockets");
 		acount = 1;
