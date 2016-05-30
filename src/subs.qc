@@ -600,6 +600,11 @@ localcmd ("sys_ticrate ");
   sys_ticrate = frametime;        
 };
 
+vector (entity ent) realorigin =
+{
+	return (((ent.absmin + ent.absmax) * 0.5));
+};
+
 float (entity targ) fov =
 {
 	local vector yawn;
