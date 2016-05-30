@@ -32,7 +32,7 @@ self.items = ((((((((((self.items | IT_AXE) | IT_SHOTGUN) | IT_SUPER_SHOTGUN) | 
 self.ammo_cells = MAX_CELLS;
 self.weapon = IT_ROCKET_LAUNCHER;
 self.impulse = 0;
-W_SetCurrentAmmo ();
+W_SetCurrentAmmo (0);
 
 };
 
