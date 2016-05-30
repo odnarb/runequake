@@ -1607,7 +1607,7 @@ BackpackTouch =
 
 	acount = 0;
           local string cr;
-          if (self.meaasge)
+          if (self.message)
           {
           if (self.message != other.netname)
           {
