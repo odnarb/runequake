@@ -1611,14 +1611,15 @@ BackpackTouch =
           {
           if (self.message != other.netname)
           {
-          cr = strcat ("\bYou got ", self.message);
-          cr = strcat (cr, "'s old backpack:\n\b");
+          cr = strcat ("You got ", self.message);
+          cr = strcat (cr, "'s old backpack:\n");
 	}
           else
-          cr = "\bYou found your old backpack:\n\b";
+          cr = "You found your old backpack:\n";
           }
           else
-          cr = "\bBackpack had:\n\b";
+          cr = "Backpack had:\n";
+          cr = strcat (cr, "\b");
           sprint (other, cr);
            
 	if (self.items)
@@ -1682,7 +1683,7 @@ BackpackTouch =
 		sprint (other, " cells");
 	}
 
-	sprint (other, "^7\n");
+	sprint (other, "\b\n");
 
 	// backpack touch sound
 	item_sound (other, CHAN_ITEM, "weapons/lock4.wav", 1, ATTN_NORM);
