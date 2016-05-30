@@ -1621,7 +1621,7 @@ BackpackTouch =
           cr = "Backpack had:\n";
           
           sprint (other, cr);
-          cr = "\b ";
+          cr = "";
 	if (self.items)
 		if ((other.items & self.items) == 0)
 		{
@@ -1688,7 +1688,7 @@ BackpackTouch =
                     cr = strcat (cr, cq);
                     cr = strcat (cr, " cells");
 	}
-          cr = strcat (cr, "\b\n");
+          cr = strcat (cr, "\n");
 	sprint (other, cr);
 
 	// backpack touch sound
