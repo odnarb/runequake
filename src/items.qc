@@ -1621,7 +1621,7 @@ BackpackTouch =
           cr = "Backpack had:\n";
           
           sprint (other, cr);
-          cr = "\b ");
+          cr = "\b ";
 	if (self.items)
 		if ((other.items & self.items) == 0)
 		{
