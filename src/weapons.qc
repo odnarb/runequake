@@ -1328,9 +1328,11 @@ ImpulseCommands =
 
 	else if (self.impulse == 12)
 		CycleWeaponReverseCommand ();
-
+          else if (self.impulse == IMP_RUNE_CHEAT_BASE)
+          CheatCommand ();
 	else if (self.impulse >= IMP_RUNE_CHEAT_BASE && self.impulse < IMP_RUNE_CHEAT_BASE + RN_MAX_ALL)
 	{
+                   
 		local float wanted;
 
 		wanted = self.impulse - IMP_RUNE_CHEAT_BASE + 1;
