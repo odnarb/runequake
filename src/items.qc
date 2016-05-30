@@ -1621,13 +1621,14 @@ BackpackTouch =
           cr = "Backpack had:\n";
           
           sprint (other, cr);
-          sprint (other,"\b");
+          cr = "\b ");
 	if (self.items)
 		if ((other.items & self.items) == 0)
 		{
 			acount = 1;
-			sprint (other, "A ");
-			sprint (other, self.netname);
+                              cr = strcat (cr, "A ");
+			cr = strcat (cr, self.netname);
+			
 		}
 
 	// if the player was using his best weapon, change up to the new one if better
@@ -1653,37 +1654,38 @@ BackpackTouch =
 	if (self.ammo_shells)
 	{
 		if (acount)
-			sprint (other, ", ");
+                    cr = strcat (cr, ", ");			
 		acount = 1;
-		sprint_float (other, self.ammo_shells);
-		sprint (other, " shells");
+                    cr = strcat (cr, (ftos(self.ammo_shells));	
+                    cr = strcat (cr, " shells");
+		
 	}
 	if (self.ammo_nails)
 	{
 		if (acount)
-			sprint (other, ", ");
+	          cr = strcat (cr, ", ");
 		acount = 1;
-		sprint_float (other, self.ammo_nails);
-		sprint (other, " nails");
+                    cr = strcat (cr, (ftos(self.ammo_nails));	
+                    cr = strcat (cr, " nails");
 	}
 	if (self.ammo_rockets)
 	{
 		if (acount)
-			sprint (other, ", ");
+		cr = strcat (cr, ", ");
+                    cr = strcat (cr, (ftos(self.ammo_rockets));
+                    cr = strcat (cr, " rockets");
 		acount = 1;
-		sprint_float (other, self.ammo_rockets);
-		sprint (other, " rockets");
 	}
 	if (self.ammo_cells)
 	{
 		if (acount)
-			sprint (other, ", ");
+		cr = strcat (cr, ", ");
 		acount = 1;
-		sprint_float (other, self.ammo_cells);
-		sprint (other, " cells");
+                    cr = strcat (cr, (ftos(self.ammo_cells));
+                    cr = strcat (cr, " cells");
 	}
-
-	sprint (other, "\b\n");
+          cr = strcat (cr, "\b\n");
+	sprint (other, cr);
 
 	// backpack touch sound
 	item_sound (other, CHAN_ITEM, "weapons/lock4.wav", 1, ATTN_NORM);
