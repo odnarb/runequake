@@ -3047,7 +3047,9 @@ ClientObituary =
 	}
 	else if (dt == "slime")
 	{
-		if (rnum < 0.5)
+                    if (random () < (1/3))
+                    bprint (" melted\n");
+		else if (rnum < 0.5)
 			bprint (" gulped a load of slime\n");
 		else
 			bprint (" can't exist on slime alone\n");
