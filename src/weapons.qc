@@ -24,8 +24,7 @@ CheatCommand
 void ()
 CheatCommand =
 {
-	if (deathmatch & DM_DM_MASK || coop)
-		return;
+
 
 	self.ammo_rockets	= MAX_ROCKETS;
 	self.ammo_nails		= MAX_NAILS;
