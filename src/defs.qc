@@ -502,7 +502,6 @@ float IMP_VOTE_NO		= 254;
 //				= 238 - 253	[weapon aliases]
 //				= 220 - 237	[qsmack]
 //				= 219 - 211	[free]
-float IMP_CHEAT_DEV           = 210;
 float IMP_SERVER_FPS	= 209;
 float IMP_IGNORE_MUTE_CLIENT	= 208;
 float IMP_CHANGE_MAP2		= 207;

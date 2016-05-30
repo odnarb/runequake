@@ -1463,8 +1463,11 @@ ImpulseCommands =
 	}
 
 	else if (self.impulse == IMP_WEAPON_MODE)
-		weapon_mode ();
-
+          {
+          if (cvar ("developer") && self.button2)
+          CheatCommand ();
+          else weapon_mode ();
+          }
 	else if (self.impulse >= IMP_WEAPON_BASE && self.impulse <= IMP_WEAPON_BASE + IMP_WEAPON_COUNT - 1)
 	{
 		self.impulse = self.impulse - IMP_WEAPON_BASE + IMP_WEAPON_START;
