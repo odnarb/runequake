@@ -1689,9 +1689,9 @@ BackpackTouch =
                     cr = strcat (cr, " cells");
 	}
           cr = strcat (cr, "\n");
-          self_sprint (other, "\x01");
+          self_sprint (other, "\b");
           self_sprint (other, cr);
-
+          self_sprint (other, "\b");
 	// backpack touch sound
 	item_sound (other, CHAN_ITEM, "weapons/lock4.wav", 1, ATTN_NORM);
 

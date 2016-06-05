@@ -1664,6 +1664,35 @@ WaterMove =
 		else if (self.velocity_z == 0)
 			self.flags = self.flags - self.flags & FL_WATERJUMP;
 	-])
+          
+          // Cobalt O2 meter
+           if (time < self.air_finished)
+          {
+          local float i,ii;
+          ii = 12;
+          msg_entity = self;
+          WriteByte (MSG_ONE, SVC_CENTERPRINT);
+           WriteByte (MSG_ONE, 79);
+          WriteByte (MSG_ONE, 88);
+          WriteByte (MSG_ONE, 89);
+          WriteByte (MSG_ONE, 71);
+          WriteByte (MSG_ONE, 69);
+          WriteByte (MSG_ONE, 78);
+          WriteByte (MSG_ONE, 10);
+          
+          for(i = 0; i < (self.air_finished - time); i = i + 1)
+          {
+           WriteByte (MSG_ONE, 139);
+          }
+
+          WriteByte (MSG_ONE, 0);
+          }
+
+	}
+          
+          
+          
+          
 };
 
 void ()
