@@ -1671,8 +1671,8 @@ WaterMove =
 	{
            if (time < self.air_finished)
           {
-          local float i,ii;
-          ii = 12;
+          local float i;
+      
           msg_entity = self;
           WriteByte (MSG_ONE, 26);
            WriteByte (MSG_ONE, 79);
@@ -1683,7 +1683,7 @@ WaterMove =
           WriteByte (MSG_ONE, 78);
           WriteByte (MSG_ONE, 10);
           
-          for(i = 0; i < (self.air_finished - time); i = i + 1)
+          for(i = 0; i < ((self.air_finished - time) - 1); i = i + 1)
           {
            WriteByte (MSG_ONE, 139);
           }
