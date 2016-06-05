@@ -1676,10 +1676,10 @@ WaterMove =
           msg_entity = self;
           
           WriteByte (MSG_ONE, 26);
-          WriteByte (MSG_ONE, 12);
-          WriteByte (MSG_ONE, 12);
-          WriteByte (MSG_ONE, 12);
-          WriteByte (MSG_ONE, 12);
+          WriteByte (MSG_ONE, 13);
+          WriteByte (MSG_ONE, 13);
+          WriteByte (MSG_ONE, 13);
+          WriteByte (MSG_ONE, 13);
            WriteByte (MSG_ONE, 79);
           WriteByte (MSG_ONE, 88);
           WriteByte (MSG_ONE, 89);
