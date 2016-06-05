@@ -1671,7 +1671,7 @@ WaterMove =
           local float i,ii;
           ii = 12;
           msg_entity = self;
-          WriteByte (MSG_ONE, SVC_CENTERPRINT);
+          WriteByte (MSG_ONE, 26);
            WriteByte (MSG_ONE, 79);
           WriteByte (MSG_ONE, 88);
           WriteByte (MSG_ONE, 89);
