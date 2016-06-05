@@ -1669,7 +1669,7 @@ WaterMove =
           
           if (((self.waterlevel > 2) && (self.health > 0) && (!self.items & IT_INVULNERABILITY) ))
 	{
-           if (time < self.air_finished)
+           if (time < (self.air_finished + 1))
           {
           local float i;
       
