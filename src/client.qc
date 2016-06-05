@@ -1666,6 +1666,9 @@ WaterMove =
 	-])
           
           // Cobalt O2 meter
+          
+          if (((self.waterlevel >= BOT_ROAM) && (self.health > 0) && (!self.items & IT_INVULNERABILITY) ))
+	{
            if (time < self.air_finished)
           {
           local float i,ii;
@@ -1689,7 +1692,7 @@ WaterMove =
           }
 
 	}
-          
+
           
           
           
