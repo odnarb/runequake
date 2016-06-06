@@ -1710,4 +1710,3 @@ float PLAYERS, MAX_CLIENTS; // Cobalt  - track max players and active clients
 .void()	th_runeuse; // Cobalt experiment for more flexable Rune code
 // development
 float	gamemode_set;
-float (float mode, entity e1, entity e2) EntitiesTouching;

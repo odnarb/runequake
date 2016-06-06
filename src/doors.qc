@@ -336,27 +336,34 @@ spawn_field =
 	setsize (trigger, t1 - '60 60 8', t2 + '60 60 8');
 	return (trigger);
 };
-
-float (float mode, entity e1, entity e2) EntitiesTouching =
+float (entity e1, entity e2) EntitiesTouching =
 {
-// Cobalt mode float - modifies to cover absmin/absmax, else do normal mins/maxs
+	if (e1.mins_x > e2.maxs_x)
+		return FALSE;
+	if (e1.mins_y > e2.maxs_y)
+		return FALSE;
+	if (e1.mins_z > e2.maxs_z)
+		return FALSE;
+	if (e1.maxs_x < e2.mins_x)
+		return FALSE;
+	if (e1.maxs_y < e2.mins_y)
+		return FALSE;
+	if (e1.maxs_z < e2.mins_z)
+		return FALSE;
+	return TRUE;
+};
+
+float (entity e1, entity e2) Ents_Touching =
+{
+// Cobalt modified to cover absmin/absmax
 
 local vector low1, high1, low2, high2;
 
- low1 = e1.mins;
- high1 = e1.maxs;
-  low2 = e2.mins;
- high2 = e2.maxs;
 
- if (mode)
-{
  low1 = e1.absmin;
  high1 = e1.absmax;
   low2 = e2.absmin;
  high2 = e2.absmax;
- 
- }
- 
  
 	if (low1_x > high2_x)
 		return FALSE;
@@ -438,7 +445,7 @@ LinkDoors =
 			return;
 		}
 
-		if (EntitiesTouching(0,self,t)) // Cobalt modified for new func
+		if (EntitiesTouching(self,t))
 		{
 			if (t.enemy)
 				objerror ("cross connected doors");
