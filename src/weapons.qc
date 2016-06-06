@@ -117,7 +117,7 @@ W_FireAxe =
 		    
 		   
 		    }
-		    if (self.cl[CL_CMD_SIDE] && !EntitiesTouching(1,self,trace_ent))
+		    if (self.velocity_x && !EntitiesTouching(1,self,trace_ent))
 		    {
 		     mes = strcat (mes," slicing wound..");
 		     sound (trace_ent, CHAN_AUTO, "blob/hit1.wav", 1, ATTN_IDLE);
