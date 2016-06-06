@@ -51,7 +51,7 @@ W_FireAxe
 void ()
 W_FireAxe =
 {
-	local vector org, source;
+	local vector org, source, def;
 	local float dam, reach;
 	local string dtype, mes;
  
