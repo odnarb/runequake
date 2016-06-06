@@ -79,7 +79,7 @@ W_FireAxe =
           	if (trace_ent.takedamage)
 	{
 	     if (dam == AXE_DAMAGE_NORMAL)
-	      dam = random (4) + 10 + self.health / 20;
+	      dam = (random () * 4) + 10 + self.health / 20;
 	     
 		
 		// Cobalt ignore buttons etc
