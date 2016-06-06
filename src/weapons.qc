@@ -42,7 +42,7 @@ crandom =
 {
 	return 2 * (random () - 0.5);
 };
-
+float(vector veca, vector vecb) crossproduct;
 /*
 ================
 W_FireAxe
@@ -144,16 +144,7 @@ W_FireAxe =
 	}  
             
             
-	if (trace_ent.takedamage)
-	{
-		SpawnBlood (org, VEC_ORIGIN, IN_POQ(20, 1));
-		T_Damage (trace_ent, self, self, damage, dtype);
-	}
-	else
-	{
-		sound (self, CHAN_BODY, "player/axhit2.wav", 1, ATTN_NORM);
-		create_te_gunshot (org, 1);
-	}
+	
 };
 
 //============================================================================
