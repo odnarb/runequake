@@ -109,7 +109,7 @@ W_FireAxe =
                           reach = crossproduct(def,v_forward);
 		if (reach > 0.35)
 	       {
-		 mes = strcat (mes," hit from behind...");
+		// mes = strcat (mes," hit from behind...");
 		 dam =  dam * 2.5;
 	      if (trace_ent.velocity == '0 0 0' && self.velocity == '0 0 0')
 	           dam = dam *  3;
@@ -120,17 +120,17 @@ W_FireAxe =
 		    }
 		    if (self.velocity_x != 0 && (!(Ents_Touching (self,trace_ent))))
 		    {
-		     mes = strcat (mes," slicing wound..");
+		  //   mes = strcat (mes," slicing wound..");
 		     sound (trace_ent, CHAN_AUTO, "blob/hit1.wav", 1, ATTN_IDLE);
 		    
 		    dam = dam + 15;
 		    }
 		    dam = floor (dam);
 		   
-		    mes = strcat (mes," You did >> ^5");
-		    mes = strcat (mes, (ftos(dam)));
-		    mes = strcat (mes, " ^7pts of damage.\n");
-	          sprint (self,mes);	    
+		  //  mes = strcat (mes," You did >> ^5");
+		  //  mes = strcat (mes, (ftos(dam)));
+		   // mes = strcat (mes, " ^7pts of damage.\n");
+	         // sprint (self,mes);	    
                }
 		 else
 		 dam = trace_ent.health / 2;
