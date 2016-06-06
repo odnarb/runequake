@@ -106,7 +106,8 @@ W_FireAxe =
 	            dam = dam + (random () * 5) + (random () * 10);
 		     self.attack_finished = self.attack_finished + 0.25; // add a delay to recover from more effort
 		      }
-		if (crossproduct(def,v_forward) > 0.35)
+                          reach = crossproduct(def,v_forward);
+		if (reach > 0.35)
 	       {
 		 mes = strcat (mes," hit from behind...");
 		 dam =  dam * 2.5;
