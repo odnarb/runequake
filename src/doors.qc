@@ -353,38 +353,6 @@ float (entity e1, entity e2) EntitiesTouching =
 	return TRUE;
 };
 
-float (entity e1, entity e2) Ents_Touching =
-{
-// Cobalt modified to cover absmin/absmax
-
-local vector low1, high1, low2, high2;
-
-
- low1 = e1.absmin;
- high1 = e1.absmax;
-  low2 = e2.absmin;
- high2 = e2.absmax;
- 
-	if (low1_x > high2_x)
-		return FALSE;
-
-	if (low1_y > high2_y)
-		return FALSE;
-
-	if (low1_z > high2_z)
-		return FALSE;
-
-	if (high1_x < e2.mins_x)
-		return FALSE;
-
-	if (high1_y < e2.mins_y)
-		return FALSE;
-
-	if (high1_z < e2.mins_z)
-		return FALSE;
-
-	return TRUE;
-};
 
 /*
 =============
