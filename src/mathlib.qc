@@ -394,6 +394,15 @@ float(float minimum, float val, float maximum) mathlib_bound =
 	return val;
 };
 
+// PRIME
+float(vector veca, vector vecb) crossproduct =
+{
+	local float result;
+
+	result = (veca_x * vecb_y) - (vecb_x * veca_y);
+	return result;
+};
+
 /*
 -----------------------------------------
 randomvec

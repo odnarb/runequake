@@ -52,9 +52,9 @@ void ()
 W_FireAxe =
 {
 	local vector org, source;
-	local float damage, reach;
-	local string dtype;
-
+	local float dam, reach;
+	local string dtype, mes;
+ 
 	if (self.runetype == RN_LUMBER)
 	{
 		reach	= AXE_REACH_LUMBER;
@@ -76,7 +76,74 @@ W_FireAxe =
 		return;
 
 	org = trace_endpos - v_forward * 4;
+          	if (trace_ent.takedamage)
+	{
+	     
+	      dam = random (4) + 10 + self.health / 20;
+	     
+		
+		// Cobalt ignore buttons etc
+		if (trace_ent.solid != SOLID_BSP)
+		{
+		SpawnBlood (org, VEC_ORIGIN, IN_POQ(20, 1));
 
+	
+
+                if (trace_ent.flags & FL_MONSTER) // PRIME , Cobalt detection for behind an enemy
+                makevectors(trace_ent.angles);
+                else
+		makevectors(trace_ent.v_angle);
+		
+             	def = v_right;
+		makevectors(self.v_angle);
+		
+		// Cobalt - extra damage for overhanded axe blow
+		     if ((self.frame == 133 || self.frame == 134) && self.waterlevel < 3)
+		     
+		     {
+		     sound (self, CHAN_WEAPON, "player/gasp1.wav", 0.5, ATTN_STATIC);
+		     mes = " Overhanded blow...";
+	            dam = dam + random (5) + random (10);
+		     self.attack_finished = self.attack_finished + 0.25; // add a delay to recover from more effort
+		      }
+		if (crossproduct(def,v_forward) > 0.35)
+	       {
+		 mes = strcat (mes," hit from behind...");
+		 dam =  dam * 2.5;
+	      if (trace_ent.velocity == self.velocity == '0 0 0')
+	           dam = dam *  3;
+	           else
+	           dam = (dam + ((vlen(self.velocity)) / 75)) * 2.5;
+		    
+		   
+		    }
+		    if (self.movement_x && !EntitiesTouching(1,self,trace_ent))
+		    {
+		     mes = strcat (mes," slicing wound..");
+		     sound (trace_ent, CHAN_AUTO, "blob/hit1.wav", 1, ATTN_IDLE);
+		    
+		    dam = dam + 15;
+		    }
+		    dam = floor (dam);
+		   
+		    mes = strcat (mes," You did >> ^5");
+		    mes = strcat (mes, (ftos(dam)));
+		    mes = strcat (mes, " ^7pts of damage.\n");
+	          sprint (self,mes);	    
+               }
+		 else
+		 dam = trace_ent.health / 2;
+		 
+		T_Damage (trace_ent, self, self, dam, dtype);
+		
+	}
+	else
+	{
+	create_te_gunshot (org, 1);
+	sound (self, CHAN_WEAPON, "player/axhit2.wav", 1, ATTN_NORM);
+	}  
+            
+            
 	if (trace_ent.takedamage)
 	{
 		SpawnBlood (org, VEC_ORIGIN, IN_POQ(20, 1));
