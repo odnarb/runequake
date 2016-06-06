@@ -103,7 +103,7 @@ W_FireAxe =
 		     {
 		     sound (self, CHAN_WEAPON, "player/gasp1.wav", 0.5, ATTN_STATIC);
 		     mes = " Overhanded blow...";
-	            dam = dam + (random () * 5) + (random () * 10)
+	            dam = dam + (random () * 5) + (random () * 10);
 		     self.attack_finished = self.attack_finished + 0.25; // add a delay to recover from more effort
 		      }
 		if (crossproduct(def,v_forward) > 0.35)
