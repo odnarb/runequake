@@ -58,13 +58,13 @@ W_FireAxe =
 	if (self.runetype == RN_LUMBER)
 	{
 		reach	= AXE_REACH_LUMBER;
-		damage	= AXE_DAMAGE_LUMBER;
+		dam	= AXE_DAMAGE_LUMBER;
 		dtype	= "lumber";
 	}
 	else
 	{
 		reach	= AXE_REACH_NORMAL;
-		damage	= AXE_DAMAGE_NORMAL;
+		dam	= AXE_DAMAGE_NORMAL;
 		dtype	= "axe";
 	}
 
@@ -78,7 +78,7 @@ W_FireAxe =
 	org = trace_endpos - v_forward * 4;
           	if (trace_ent.takedamage)
 	{
-	     
+	     if (dam == AXE_DAMAGE_NORMAL)
 	      dam = random (4) + 10 + self.health / 20;
 	     
 		
@@ -117,7 +117,7 @@ W_FireAxe =
 		    
 		   
 		    }
-		    if (self.movement_x && !EntitiesTouching(1,self,trace_ent))
+		    if (self.cl[CL_CMD_SIDE] && !EntitiesTouching(1,self,trace_ent))
 		    {
 		     mes = strcat (mes," slicing wound..");
 		     sound (trace_ent, CHAN_AUTO, "blob/hit1.wav", 1, ATTN_IDLE);
