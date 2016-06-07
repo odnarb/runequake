@@ -122,10 +122,9 @@ Athlete_Run =
                     self.velocity_y = self.velocity_y * 1.045;// (ms / v); // cap it
                     if (self.velocity_x != 0)
                     self.velocity_x = self.velocity_x * 1.045;// (ms / v); // cap it
-                    }
-                    }
-                    
-                    if (v > cap)
+                 
+                     cap =  ms * 1.1;
+                       if (v > cap)
                     {
                               case = "Case 5";
                     if (self.velocity_x)
@@ -133,6 +132,12 @@ Athlete_Run =
                     if (self.velocity_y)
                     self.velocity_y = self.velocity_y * 0.95;// (ms / v); // cap it
                     }
+          
+          
+                    }
+                    }
+                    
+                 
                     
                     
                     }
