@@ -131,15 +131,15 @@ Athlete_Run =
           
                      // Debug code
                     local float vl;
-                    local string q;
+                    local string q,qq;
                     vl = vlen (self.velocity);
                     vl = ceil (vl);
                     q = ftos (vl);
                     q = strcat (" ", q);
                     q = strcat (case, q);
-                    vl = ftos (self.cl[CL_CMD_FORWARD]);
+                    qq = ftos (self.cl[CL_CMD_FORWARD]);
                     q = strcat (q, " ");
-                    q = strcat (q, vl);
+                    q = strcat (q, qq);
                     centerprint (self, q);
                    
                     if (self.pausetime && !vlen(self.velocity))
