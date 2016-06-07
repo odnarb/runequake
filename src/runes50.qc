@@ -112,7 +112,7 @@ Athlete_Run =
                               cap = ms * 1.075;
                               if (self.velocity_x)
                     self.velocity_x = self.velocity_x * (cap / v);
-                    if (self.velocity_Y)
+                    if (self.velocity_y)
                     self.velocity_y = self.velocity_y * (cap / v);
                     }
                     else 
