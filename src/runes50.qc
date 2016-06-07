@@ -105,7 +105,13 @@ Athlete_Run =
                     {
                                case = "Case 2";
                     if (self.cl[CL_CMD_FORWARD] > 0 && self.velocity)
-                    self.velocity = self.velocity * (cap / v);
+                    {
+                              if (self.velocity_x)
+                      self.velocity_x = self.velocity_x * (cap / v);
+                    if (self.velocity_y)
+                    self.velocity_y = self.velocity_y * (cap / v);
+                    
+                    }
                     else if (self.velocity_y && self.velocity_x && self.cl[CL_CMD_FORWARD] < 0)
                     {
                                case = "Case 3";
