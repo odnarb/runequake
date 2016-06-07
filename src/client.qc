@@ -1684,7 +1684,7 @@ WaterMove =
           WriteByte (MSG_ONE, 78);
           WriteByte (MSG_ONE, 10);
           ii = self.air_finished - time;
-          if (ii > 3)
+          if (ii > 4)
           ch = 11;
           else
           ch = 139;
