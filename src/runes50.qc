@@ -117,9 +117,9 @@ Athlete_Run =
                     {
                                case = "Case 4";
                     if (self.velocity_y != 0)
-                    self.velocity_y = self.velocity_y * 0.95;// (ms / v); // cap it
+                    self.velocity_y = self.velocity_y * 1.025;// (ms / v); // cap it
                     if (self.velocity_x != 0)
-                    self.velocity_x = self.velocity_x * 0.95;// (ms / v); // cap it
+                    self.velocity_x = self.velocity_x * 1.025;// (ms / v); // cap it
                     }
                     }
                     
