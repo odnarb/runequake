@@ -110,16 +110,18 @@ Athlete_Run =
                     {
                                case = "Case 3";
                               cap = ms * 1.075;
+                              if (self.velocity_x)
                     self.velocity_x = self.velocity_x * (cap / v);
+                    if (self.velocity_Y)
                     self.velocity_y = self.velocity_y * (cap / v);
                     }
                     else 
                     {
                                case = "Case 4";
                     if (self.velocity_y != 0)
-                    self.velocity_y = self.velocity_y * 1.025;// (ms / v); // cap it
+                    self.velocity_y = self.velocity_y * 1.045;// (ms / v); // cap it
                     if (self.velocity_x != 0)
-                    self.velocity_x = self.velocity_x * 1.025;// (ms / v); // cap it
+                    self.velocity_x = self.velocity_x * 1.045;// (ms / v); // cap it
                     }
                     }
                     
