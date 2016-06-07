@@ -104,15 +104,9 @@ Athlete_Run =
                     else if (v < cap)
                     {
                                case = "Case 2";
-                    if (self.cl[CL_CMD_FORWARD] > 0 && self.velocity != '0 0 0')
-                    {
-                              if (self.velocity_x)
-                      self.velocity_x = self.velocity_x * (cap / v);
-                    if (self.velocity_y)
-                    self.velocity_y = self.velocity_y * (cap / v);
-                    
-                    }
-                    else if (self.velocity_y && self.velocity_x && self.cl[CL_CMD_FORWARD] < 0)
+                    if (self.cl[CL_CMD_FORWARD] > 0 && self.velocity_y == 0)
+                    self.velocity_x = self.velocity_x * (cap / v);
+                    else if (self.velocity_y && self.velocity_x && self.cl[CL_CMD_FORWARD] > 0)
                     {
                                case = "Case 3";
                               cap = ms * 1.075;
@@ -130,7 +124,17 @@ Athlete_Run =
                     self.velocity_x = self.velocity_x * 1.045;// (ms / v); // cap it
                     }
                     }
-                    //self.velocity = normalize (self.velocity);
+                    
+                    if (v > cap)
+                    {
+                              case = "Case 5";
+                    if (self.velocity_x)
+                    self.velocity_x = self.velocity_x * 0.95;// (ms / v); // cap it
+                    if (self.velocity_y)
+                    self.velocity_y = self.velocity_y * 0.95;// (ms / v); // cap it
+                    }
+                    
+                    
                     }
                     }
 
