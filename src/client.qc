@@ -1674,9 +1674,11 @@ WaterMove =
           local float i;
       
           msg_entity = self;
-          self_centerprint (msg_entity, "\n\n\n\n");
           WriteByte (MSG_ONE, 26);
-
+          WriteByte (MSG_ONE, 10);
+          WriteByte (MSG_ONE, 10);
+          WriteByte (MSG_ONE, 10);
+          WriteByte (MSG_ONE, 10);
           
           WriteByte (MSG_ONE, 79);
           WriteByte (MSG_ONE, 88);
@@ -1690,7 +1692,7 @@ WaterMove =
           {
            WriteByte (MSG_ONE, 139);
           }
-
+          WriteByte (MSG_ONE, 10);
           WriteByte (MSG_ONE, 0);
           }
 
