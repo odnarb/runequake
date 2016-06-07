@@ -133,6 +133,8 @@ Athlete_Run =
                     vl = vlen (self.velocity);
                     vl = ceil (vl);
                     q = ftos (vl);
+                    q = strcat (" ", q);
+                    q = strcat (case, q);
                     centerprint (self, q);
                    
                     if (self.pausetime && !vlen(self.velocity))
