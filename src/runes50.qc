@@ -137,6 +137,9 @@ Athlete_Run =
                     q = ftos (vl);
                     q = strcat (" ", q);
                     q = strcat (case, q);
+                    vl = ftos (self.cl[CL_CMD_FORWARD]);
+                    q = strcat (q, " ");
+                    q = strcat (q, vl);
                     centerprint (self, q);
                    
                     if (self.pausetime && !vlen(self.velocity))
