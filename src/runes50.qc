@@ -124,7 +124,7 @@ Athlete_Run =
                     self.velocity_x = self.velocity_x * 1.045;// (ms / v); // cap it
                     }
                     }
-                    
+                    normalize (self.velocity);
                     }
                     }
 
