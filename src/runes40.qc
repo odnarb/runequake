@@ -410,8 +410,8 @@ Rune_ShamblerReloc =
 		return;
 	}
 
-           local vector place;	
-          place = ShamblerSizeOk (self);
+          // local vector place;	
+        //  place = ShamblerSizeOk (self);
           
 	// Stop burning when recalled in water or acid.
 	if (self.runent.owner.waterlevel > 1 && self.runent.owner.watertype != CONTENT_LAVA)
