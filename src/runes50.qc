@@ -143,7 +143,7 @@ Athlete_Run =
                     }
                     }
 
-          
+          /*
                      // Debug code
                     local float vl;
                     local string q,qq;
@@ -156,7 +156,7 @@ Athlete_Run =
                     q = strcat (q, " ");
                     q = strcat (q, qq);
                     centerprint (self, q);
-                   
+            */       
                     if (self.pausetime && !vlen(self.velocity))
                     {
                      sound (self, CHAN_AUTO, "player/gasp1.wav", TRUE, ATTN_IDLE);

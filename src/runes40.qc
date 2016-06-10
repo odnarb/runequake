@@ -419,8 +419,10 @@ Rune_ShamblerReloc =
 
 	old_self = self;
 	self = self.runent;
-
-         
+          spawn_tfog (self.origin);
+	setorigin (self, self.owner.origin);
+	spawn_tfog (self.origin);
+         /*
           if (place)
           {
           spawn_tfog (self.origin);
@@ -435,7 +437,7 @@ Rune_ShamblerReloc =
 		return;          
                     
           }
-	
+	*/
 	self.angles = self.pos1 = self.owner.angles;
 	self.fixangle = 1;
 
