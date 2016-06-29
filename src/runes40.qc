@@ -287,14 +287,11 @@ ShamblerSizeOk =
          
           
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
-           dh_shambler_test (testfield);
-                     
+           if (dh_shambler_test (testfield))
+           {      
                      bprint ("Player origin\n");
                      return testfield.origin;
-                     
-        
-         return;
-         /*
+           }     
          
            makevectors (this.v_angle);
            local float mv;
@@ -303,7 +300,7 @@ ShamblerSizeOk =
            {
                      mv = mv + 4;
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); // Front of player
-            if (!dh_shambler_test (testfield))
+            if (dh_shambler_test (testfield))
             {
               bprint ("Front of player\n");
                      return testfield.origin;
@@ -317,7 +314,7 @@ ShamblerSizeOk =
            {
                      mv = mv - 4;
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); 
-            if (!dh_shambler_test (testfield))
+            if (dh_shambler_test (testfield))
             {
               bprint ("Behind player\n");
                      return testfield.origin;
@@ -332,7 +329,7 @@ ShamblerSizeOk =
            {
                      mv = mv + 4;
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
-            if (!dh_shambler_test (testfield))
+            if (dh_shambler_test (testfield))
             {
               bprint ("Player side\n");
                return testfield.origin;
@@ -346,7 +343,7 @@ ShamblerSizeOk =
            {
                      mv = mv - 4;
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
-            if (!dh_shambler_test (testfield))
+            if (dh_shambler_test (testfield))
             {
               bprint ("Player side2\n");
                return testfield.origin;
@@ -360,7 +357,7 @@ ShamblerSizeOk =
            {
                      mv = mv + 4;
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
-            if (!dh_shambler_test (testfield))
+            if (dh_shambler_test (testfield))
             {
               bprint ("Above Player\n");
                return testfield.origin;
@@ -373,7 +370,7 @@ ShamblerSizeOk =
            {
                      mv = mv - 4;
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
-            if (!dh_shambler_test (testfield))
+            if (dh_shambler_test (testfield))
             {
               bprint ("Below Player\n");
                return testfield.origin;
@@ -385,7 +382,7 @@ ShamblerSizeOk =
              centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);
           // sprint (this, "\n");
-          return VEC_ORIGIN; */          
+          return VEC_ORIGIN;      
 };
 
 void (float riders, entity of_e)

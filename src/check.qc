@@ -54,7 +54,7 @@ float(entity dh_player) dh_shambler_test =
 	local vector dhmin,dhmax;
 	local float i,d,za;
 
-	d=0;  // set this to 1 for debug bubbles, or 0 for off
+	d=1;  // set this to 1 for debug bubbles, or 0 for off
 	      // note that on my system, not all the bubbles spawned at once
 	      // some showed after the first set vanished, but this does
 	      // not seem to hinder detection
