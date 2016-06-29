@@ -42,6 +42,107 @@ st.nextthink = time + perm;
 //  location is inside the various contents found in Quake.
 //==========================================================================
 
+float(entity dh_player) dh_shambler_test =
+{
+    // this traceline logic uses the player's absmin/absmax as a box to test all 6 sides of a cubic region
+    // this can be adapted later to a shambler's size based on the player's position
+    // dhmin/dhmax will be the 2 vector points that the traceline will cover through interations
+
+    local vector dhmin,dhmax;
+    local float i;
+
+    // test logic is 6 x "square plane" "line radar" sweeps (6 sides of a cubic region)
+    // 1 : "back"   (min_x, min_y, min_z) to (max_x, min_y, min_z) where both Y values increment from min_y to max_y
+    // 2 : "top"    (min_x, min_y, min_z) to (max_x, min_y, min_z) where both Z values increment from min_z to max_z
+    // 3 : "front"  (min_x, min_y, max_z) to (max_x, min_y, max_z) where both Y values increment from min_y to max_y
+    // 4 : "bottom" (min_x, max_y, min_z) to (max_x, max_y, min_z) where both Z values increment from min_z to max_z
+    // 5 : "left"   (min_x, min_y, min_z) to (min_x, min_y, max_z) where both Y values increment from min_y to max_y
+    // 6 : "right"  (max_x, min_y, min_z) to (max_x, min_y, max_z) where both Z values increment from min_y to max_y
+
+    i=4;  // set incremental resolution scale value
+
+    // 1 : "back"
+    dhmin_x = dh_player.absmin_x;
+    dhmin_y = dh_player.absmin_y;
+    dhmin_z = dh_player.absmin_z;
+    dhmax_x = dh_player.absmax_x;
+    dhmax_y = dh_player.absmin_y;
+    dhmax_z = dh_player.absmin_z;
+    while (dhmin_y < dhmax_y ) {
+	traceline (dhmin, dhmax, 0, dh_player.enemy);
+	if (trace_fraction == 1) return 1;
+	dhmin_y = dhmin_y + i;
+    }
+
+    // 2 : "top"
+    dhmin_x = dh_player.absmin_x;
+    dhmin_y = dh_player.absmin_y;
+    dhmin_z = dh_player.absmin_z;
+    dhmax_x = dh_player.absmax_x;
+    dhmax_y = dh_player.absmin_y;
+    dhmax_z = dh_player.absmin_z;
+    while (dhmin_z < dhmax_z ) {
+	traceline (dhmin, dhmax, 0, dh_player.enemy);
+	if (trace_fraction == 1) return 1;
+	dhmin_z = dhmin_z + i;
+    }
+
+    // 3 : "front"
+    dhmin_x = dh_player.absmin_x;
+    dhmin_y = dh_player.absmin_y;
+    dhmin_z = dh_player.absmax_z;
+    dhmax_x = dh_player.absmax_x;
+    dhmax_y = dh_player.absmin_y;
+    dhmax_z = dh_player.absmax_z;
+    while (dhmin_y < dhmax_y ) {
+	traceline (dhmin, dhmax, 0, dh_player.enemy);
+	if (trace_fraction == 1) return 1;
+	dhmin_y = dhmin_y + i;
+    }
+
+    // 4 : "bottom"
+    dhmin_x = dh_player.absmin_x;
+    dhmin_y = dh_player.absmax_y;
+    dhmin_z = dh_player.absmin_z;
+    dhmax_x = dh_player.absmax_x;
+    dhmax_y = dh_player.absmax_y;
+    dhmax_z = dh_player.absmin_z;
+    while (dhmin_z < dhmax_z ) {
+	traceline (dhmin, dhmax, 0, dh_player.enemy);
+	if (trace_fraction == 1) return 1;
+	dhmin_z = dhmin_z + i;
+    }
+
+    // 5 : "left"
+    dhmin_x = dh_player.absmin_x;
+    dhmin_y = dh_player.absmin_y;
+    dhmin_z = dh_player.absmin_z;
+    dhmax_x = dh_player.absmin_x;
+    dhmax_y = dh_player.absmin_y;
+    dhmax_z = dh_player.absmax_z;
+    while (dhmin_y < dhmax_y ) {
+	traceline (dhmin, dhmax, 0, dh_player.enemy);
+	if (trace_fraction == 1) return 1;
+	dhmin_y = dhmin_y + i;
+    }
+
+    // 6 : "right"
+    dhmin_x = dh_player.absmax_x;
+    dhmin_y = dh_player.absmin_y;
+    dhmin_z = dh_player.absmin_z;
+    dhmax_x = dh_player.absmax_x;
+    dhmax_y = dh_player.absmin_y;
+    dhmax_z = dh_player.absmax_z;
+    while (dhmin_z < dhmax_z ) {
+	traceline (dhmin, dhmax, 0, dh_player.enemy);
+	if (trace_fraction == 1) return 1;
+	dhmin_z = dhmin_z + i;
+    }
+
+    return 0;
+};
+
+
 //-------------------------------------------------------- New Code --------
 //  Modified by Cobalt: This performs a "+" shaped set of tracelines on the bounding box sides and
 //  a "x" shaped set of tracelines on its 4 corners , and also another "x" pattern on the sides
