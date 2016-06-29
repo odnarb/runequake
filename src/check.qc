@@ -66,12 +66,13 @@ void (entity dh_player) dh_shambler_test =
     
     dhmax_y = dh_player.absmax_y;
 
-    while (dhmin_z < dhmax_z ) {
+    while (dhmin_z < dh_player.absmax_z ) {
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
           SpawnTempDebugMarker (dhmin,8,0);
           SpawnTempDebugMarker (dhmax,8,0);
 //	if (trace_fraction == 1) return 1;
-	dhmin_z = dhmin_z + i;
+	dhmin_z = dh_max_z = dhmin_z + i;
+        
     }
     return;
     // 2 : "top"
