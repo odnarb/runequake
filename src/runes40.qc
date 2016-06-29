@@ -293,7 +293,9 @@ ShamblerSizeOk =
                      return testfield.origin;
                      
         
-         return 0;
+         return;
+         /*
+         
            makevectors (this.v_angle);
            local float mv;
            mv = 32;
@@ -383,7 +385,7 @@ ShamblerSizeOk =
              centerprint (this, "Not enough room for your Shambler");
           // sprint (this, trace_ent.classname);
           // sprint (this, "\n");
-          return VEC_ORIGIN;          
+          return VEC_ORIGIN; */          
 };
 
 void (float riders, entity of_e)
