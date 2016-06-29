@@ -62,12 +62,10 @@ void (entity dh_player) dh_shambler_test =
     i=4;  // set incremental resolution scale value
 
     // 1 : "back"
-    dhmin_x = dh_player.absmin_x;
-    dhmin_y = dh_player.absmin_y;
-    dhmin_z = dh_player.absmin_z;
-    dhmax_x = dh_player.absmax_x;
-    dhmax_y = dh_player.absmin_y;
-    dhmax_z = dh_player.absmin_z;
+    dhmin = dhmax = dh_player.absmin;
+    
+    dhmax_y = dh_player.absmax_y;
+
     while (dhmin_y < dhmax_y ) {
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
           SpawnTempDebugMarker (dhmin,8,0);
