@@ -83,6 +83,7 @@ float(entity dh_player) dh_shambler_test =
     dhmax_z = dh_player.absmin_z;
     while (dhmin_z < dhmax_z ) {
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
+          te_lightning2 (dhmin, dhmax);
 	if (trace_fraction == 1) return 1;
 	dhmin_z = dhmin_z + i;
     }
@@ -96,6 +97,7 @@ float(entity dh_player) dh_shambler_test =
     dhmax_z = dh_player.absmax_z;
     while (dhmin_y < dhmax_y ) {
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
+          te_lightning2 (dhmin, dhmax);
 	if (trace_fraction == 1) return 1;
 	dhmin_y = dhmin_y + i;
     }
@@ -109,6 +111,7 @@ float(entity dh_player) dh_shambler_test =
     dhmax_z = dh_player.absmin_z;
     while (dhmin_z < dhmax_z ) {
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
+          te_lightning2 (dhmin, dhmax);
 	if (trace_fraction == 1) return 1;
 	dhmin_z = dhmin_z + i;
     }
@@ -122,6 +125,7 @@ float(entity dh_player) dh_shambler_test =
     dhmax_z = dh_player.absmax_z;
     while (dhmin_y < dhmax_y ) {
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
+          te_lightning2 (dhmin, dhmax);
 	if (trace_fraction == 1) return 1;
 	dhmin_y = dhmin_y + i;
     }
@@ -135,6 +139,7 @@ float(entity dh_player) dh_shambler_test =
     dhmax_z = dh_player.absmax_z;
     while (dhmin_z < dhmax_z ) {
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
+          te_lightning2 (dhmin, dhmax);
 	if (trace_fraction == 1) return 1;
 	dhmin_z = dhmin_z + i;
     }
