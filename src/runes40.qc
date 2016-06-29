@@ -410,8 +410,8 @@ Rune_ShamblerReloc =
 		return;
 	}
 
-          // local vector place;	
-        //  place = ShamblerSizeOk (self);
+          local vector place;	
+          place = ShamblerSizeOk (self);
           
 	// Stop burning when recalled in water or acid.
 	if (self.runent.owner.waterlevel > 1 && self.runent.owner.watertype != CONTENT_LAVA)
@@ -422,7 +422,7 @@ Rune_ShamblerReloc =
           spawn_tfog (self.origin);
 	setorigin (self, self.owner.origin);
 	spawn_tfog (self.origin);
-         /*
+         
           if (place)
           {
           spawn_tfog (self.origin);
@@ -437,7 +437,7 @@ Rune_ShamblerReloc =
 		return;          
                     
           }
-	*/
+	
 	self.angles = self.pos1 = self.owner.angles;
 	self.fixangle = 1;
 
