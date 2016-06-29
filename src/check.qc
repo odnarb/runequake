@@ -41,117 +41,138 @@ st.nextthink = time + perm;
 //  This file contains code that determines whether an entity or a
 //  location is inside the various contents found in Quake.
 //==========================================================================
-
-void (entity dh_player) dh_shambler_test =
+float(entity dh_player) dh_shambler_test =
 {
-    // this traceline logic uses the player's absmin/absmax as a box to test all 6 sides of a cubic region
-    // this can be adapted later to a shambler's size based on the player's position
-    // dhmin/dhmax will be the 2 vector points that the traceline will cover through interations
+	// pass this function an entity with absmin/absmax being the box you want to test to see if it's safe to spawn a shambler
+	// returns:
+	//	1(true)  if safe   to spawn shambler because no obstacles were found
+	//	0(false) if unsafe to spawn shambler because obstacles found
 
-    local vector dhmin,dhmax;
-    local float i;
+	// this can be adapted later to a shambler's size based on the player's position
+	// dhmin/dhmax will be the 2 vector points that the traceline will cover through interations
 
-    // test logic is 6 x "square plane" "line radar" sweeps (6 sides of a cubic region)
-    // 1 : "back"   (min_x, min_y, min_z) to (max_x, min_y, min_z) where both Y values increment from min_y to max_y
-    // 2 : "top"    (min_x, min_y, min_z) to (max_x, min_y, min_z) where both Z values increment from min_z to max_z
-    // 3 : "front"  (min_x, min_y, max_z) to (max_x, min_y, max_z) where both Y values increment from min_y to max_y
-    // 4 : "bottom" (min_x, max_y, min_z) to (max_x, max_y, min_z) where both Z values increment from min_z to max_z
-    // 5 : "left"   (min_x, min_y, min_z) to (min_x, min_y, max_z) where both Y values increment from min_y to max_y
-    // 6 : "right"  (max_x, min_y, min_z) to (max_x, min_y, max_z) where both Z values increment from min_y to max_y
+	local vector dhmin,dhmax;
+	local float i,d,za;
 
-    i=4;  // set incremental resolution scale value
+	d=0;  // set this to 1 for debug bubbles, or 0 for off
+	      // note that on my system, not all the bubbles spawned at once
+	      // some showed after the first set vanished, but this does
+	      // not seem to hinder detection
 
-    // 1 : "back"
-    dhmin = dhmax = dh_player.absmin;
-    
-    dhmax_y = dh_player.absmax_y;
+	// test logic is 6 x "square plane" "line radar" sweeps (6 sides of a cubic region)
+	// names of faces are correct when player aiming angle is (0 0 0)
+	// 1 : "bottom" (min_x, min_y, min_z) to (max_x, min_y, min_z) where both Y values increment from min_y to max_y
+	// 2 : "right"  (min_x, min_y, min_z) to (max_x, min_y, min_z) where both Z values increment from min_z to max_z
+	// 3 : "top"    (min_x, min_y, max_z) to (max_x, min_y, max_z) where both Y values increment from min_y to max_y
+	// 4 : "left"   (min_x, max_y, min_z) to (max_x, max_y, min_z) where both Z values increment from min_z to max_z
+	// 5 : "back"   (min_x, min_y, min_z) to (min_x, max_y, min_z) where both Z values increment from min_z to max_z
+	// 6 : "front"  (max_x, min_y, min_z) to (max_x, max_y, min_z) where both Z values increment from min_z to max_z
 
-    while (dhmin_z < dh_player.absmax_z ) {
-	traceline (dhmin, dhmax, 0, dh_player.enemy);
-          SpawnTempDebugMarker (dhmin,8,0);
-          SpawnTempDebugMarker (dhmax,8,0);
-//	if (trace_fraction == 1) return 1;
-	dhmin_z = dhmax_z = dhmin_z + i;
-        
-    }
-    return;
-    // 2 : "top"
-    dhmin_x = dh_player.absmin_x;
-    dhmin_y = dh_player.absmin_y;
-    dhmin_z = dh_player.absmin_z;
-    dhmax_x = dh_player.absmax_x;
-    dhmax_y = dh_player.absmin_y;
-    dhmax_z = dh_player.absmin_z;
-    while (dhmin_z < dhmax_z ) {
-	traceline (dhmin, dhmax, 0, dh_player.enemy);
-          SpawnTempDebugMarker (dhmin,8,0);
-          SpawnTempDebugMarker (dhmax,8,0);
-	//if (trace_fraction == 1) return 1;
-	dhmin_z = dhmin_z + i;
-    }
+	// first of all, we should increase the Z values slightly so that our test doesn't bomb out impacting the floor
+	// note that we should remove this adjustment if the existing shambler code already accounts for it
+	za=4;  // add this value to both absmin_z and absmax_z
+	dh_player.absmin_z = dh_player.absmin_z + za;
+	dh_player.absmax_z = dh_player.absmax_z + za;
 
-    // 3 : "front"
-    dhmin_x = dh_player.absmin_x;
-    dhmin_y = dh_player.absmin_y;
-    dhmin_z = dh_player.absmax_z;
-    dhmax_x = dh_player.absmax_x;
-    dhmax_y = dh_player.absmin_y;
-    dhmax_z = dh_player.absmax_z;
-    while (dhmin_y < dhmax_y ) {
-	traceline (dhmin, dhmax, 0, dh_player.enemy);
-          SpawnTempDebugMarker (dhmin,8,0);
-          SpawnTempDebugMarker (dhmax,8,0);
-	//if (trace_fraction == 1) return 1;
-	dhmin_y = dhmin_y + i;
-    }
+	i=4;  // set incremental resolution scale value of our trace lines to this number of units
 
-    // 4 : "bottom"
-    dhmin_x = dh_player.absmin_x;
-    dhmin_y = dh_player.absmax_y;
-    dhmin_z = dh_player.absmin_z;
-    dhmax_x = dh_player.absmax_x;
-    dhmax_y = dh_player.absmax_y;
-    dhmax_z = dh_player.absmin_z;
-    while (dhmin_z < dhmax_z ) {
-	traceline (dhmin, dhmax, 0, dh_player.enemy);
-          SpawnTempDebugMarker (dhmin,8,0);
-          SpawnTempDebugMarker (dhmax,8,0);
-	//if (trace_fraction == 1) return 1;
-	dhmin_z = dhmin_z + i;
-    }
+	// 1 : "bottom"
+	dhmin_x = dh_player.absmin_x;
+	dhmin_y = dh_player.absmin_y;
+	dhmin_z = dh_player.absmin_z;
+	dhmax_x = dh_player.absmax_x;
+	dhmax_y = dh_player.absmin_y;
+	dhmax_z = dh_player.absmin_z;
+	while (dhmin_y < dh_player.absmax_y ) {
+		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
+		traceline (dhmin, dhmax, 0, dh_player.enemy);
+		if (trace_fraction < 1) return 0;
+		dhmin_y = dhmin_y + i;
+		dhmax_y = dhmax_y + i;
+	}
 
-    // 5 : "left"
-    dhmin_x = dh_player.absmin_x;
-    dhmin_y = dh_player.absmin_y;
-    dhmin_z = dh_player.absmin_z;
-    dhmax_x = dh_player.absmin_x;
-    dhmax_y = dh_player.absmin_y;
-    dhmax_z = dh_player.absmax_z;
-    while (dhmin_y < dhmax_y ) {
-	traceline (dhmin, dhmax, 0, dh_player.enemy);
-          SpawnTempDebugMarker (dhmin,8,0);
-          SpawnTempDebugMarker (dhmax,8,0);
-	//if (trace_fraction == 1) return 1;
-	dhmin_y = dhmin_y + i;
-    }
+	// 2 : "right"
+	dhmin_x = dh_player.absmin_x;
+	dhmin_y = dh_player.absmin_y;
+	dhmin_z = dh_player.absmin_z;
+	dhmax_x = dh_player.absmax_x;
+	dhmax_y = dh_player.absmin_y;
+	dhmax_z = dh_player.absmin_z;
+	while (dhmin_z < dh_player.absmax_z ) {
+		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
+		traceline (dhmin, dhmax, 0, dh_player.enemy);
+		if (trace_fraction < 1) return 0;
+		dhmin_z = dhmin_z + i;
+		dhmax_z = dhmax_z + i;
+	}
 
-    // 6 : "right"
-    dhmin_x = dh_player.absmax_x;
-    dhmin_y = dh_player.absmin_y;
-    dhmin_z = dh_player.absmin_z;
-    dhmax_x = dh_player.absmax_x;
-    dhmax_y = dh_player.absmin_y;
-    dhmax_z = dh_player.absmax_z;
-    while (dhmin_z < dhmax_z ) {
-	traceline (dhmin, dhmax, 0, dh_player.enemy);
-          SpawnTempDebugMarker (dhmin,8,0);
-          SpawnTempDebugMarker (dhmax,8,0);
-	//if (trace_fraction == 1) return 1;
-	dhmin_z = dhmin_z + i;
-    }
+	// 3 : "top"
+	dhmin_x = dh_player.absmin_x;
+	dhmin_y = dh_player.absmin_y;
+	dhmin_z = dh_player.absmax_z;
+	dhmax_x = dh_player.absmax_x;
+	dhmax_y = dh_player.absmin_y;
+	dhmax_z = dh_player.absmax_z;
+	while (dhmin_y < dh_player.absmax_y ) {
+		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
+		traceline (dhmin, dhmax, 0, dh_player.enemy);
+		if (trace_fraction < 1) return 0;
+		dhmin_y = dhmin_y + i;
+		dhmax_y = dhmax_y + i;
+	}
 
-//    return 0;
+	// 4 : "left"
+	dhmin_x = dh_player.absmin_x;
+	dhmin_y = dh_player.absmax_y;
+	dhmin_z = dh_player.absmin_z;
+	dhmax_x = dh_player.absmax_x;
+	dhmax_y = dh_player.absmax_y;
+	dhmax_z = dh_player.absmin_z;
+	while (dhmin_z < dh_player.absmax_z ) {
+		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
+		traceline (dhmin, dhmax, 0, dh_player.enemy);
+		if (trace_fraction < 1) return 0;
+		dhmin_z = dhmin_z + i;
+		dhmax_z = dhmax_z + i;
+	}
+
+	// To avoid hitting a debug bubble drawing the last 2 sides and then returning, shift the original vectors slightly to compensate :)
+	// this is not needed if we are not drawing bubbles :)
+	if (d) { dh_player.absmin_z = dh_player.absmin_z + 4; dh_player.absmax_z = dh_player.absmax_z + 4; }
+
+	// 5 : "back"
+	dhmin_x = dh_player.absmin_x;
+	dhmin_y = dh_player.absmin_y;
+	dhmin_z = dh_player.absmin_z;
+	dhmax_x = dh_player.absmin_x;
+	dhmax_y = dh_player.absmax_y;
+	dhmax_z = dh_player.absmin_z;
+	while (dhmin_z < dh_player.absmax_z ) {
+		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
+		traceline (dhmin, dhmax, 0, dh_player.enemy);
+		if (trace_fraction < 1) return 0;
+		dhmin_z = dhmin_z + i;
+		dhmax_z = dhmax_z + i;
+	}
+
+	// 6 : "front"
+	dhmin_x = dh_player.absmax_x;
+	dhmin_y = dh_player.absmin_y;
+	dhmin_z = dh_player.absmin_z;
+	dhmax_x = dh_player.absmax_x;
+	dhmax_y = dh_player.absmax_y;
+	dhmax_z = dh_player.absmin_z;
+	while (dhmin_z < dh_player.absmax_z ) {
+		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
+		traceline (dhmin, dhmax, 0, dh_player.enemy);
+		if (trace_fraction < 1) return 0;
+		dhmin_z = dhmin_z + i;
+		dhmax_z = dhmax_z + i;
+	}
+
+	return 1;
 };
+
 
 
 //-------------------------------------------------------- New Code --------
