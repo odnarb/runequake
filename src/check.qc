@@ -71,7 +71,7 @@ void (entity dh_player) dh_shambler_test =
           SpawnTempDebugMarker (dhmin,8,0);
           SpawnTempDebugMarker (dhmax,8,0);
 //	if (trace_fraction == 1) return 1;
-	dhmin_z = dh_max_z = dhmin_z + i;
+	dhmin_z = dhmax_z = dhmin_z + i;
         
     }
     return;
