@@ -44,7 +44,7 @@ st.nextthink = time + perm;
 float(entity dh_player) dh_shambler_test =
 {
           
-          return 0;
+        
 	// pass this function an entity with absmin/absmax being the box you want to test to see if it's safe to spawn a shambler
 	// returns:
 	//	1(true)  if safe   to spawn shambler because no obstacles were found
@@ -92,7 +92,7 @@ float(entity dh_player) dh_shambler_test =
 		dhmin_y = dhmin_y + i;
 		dhmax_y = dhmax_y + i;
 	}
-
+          return 1;
 	// 2 : "right"
 	dhmin_x = dh_player.absmin_x;
 	dhmin_y = dh_player.absmin_y;
