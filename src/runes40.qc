@@ -287,11 +287,11 @@ ShamblerSizeOk =
          
           
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
-           if (!dh_shambler_test (testfield))
-                     {
+           dh_shambler_test (testfield))
+                     
                      bprint ("Player origin\n");
                      return testfield.origin;
-                     }
+                     
         
          return 0;
            makevectors (this.v_angle);

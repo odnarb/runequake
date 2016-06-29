@@ -42,7 +42,7 @@ st.nextthink = time + perm;
 //  location is inside the various contents found in Quake.
 //==========================================================================
 
-float(entity dh_player) dh_shambler_test =
+void (entity dh_player) dh_shambler_test =
 {
     // this traceline logic uses the player's absmin/absmax as a box to test all 6 sides of a cubic region
     // this can be adapted later to a shambler's size based on the player's position
@@ -72,10 +72,10 @@ float(entity dh_player) dh_shambler_test =
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
           SpawnTempDebugMarker (dhmin,8,0);
           SpawnTempDebugMarker (dhmax,8,0);
-	if (trace_fraction == 1) return 1;
+//	if (trace_fraction == 1) return 1;
 	dhmin_y = dhmin_y + i;
     }
-
+    return;
     // 2 : "top"
     dhmin_x = dh_player.absmin_x;
     dhmin_y = dh_player.absmin_y;
@@ -87,7 +87,7 @@ float(entity dh_player) dh_shambler_test =
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
           SpawnTempDebugMarker (dhmin,8,0);
           SpawnTempDebugMarker (dhmax,8,0);
-	if (trace_fraction == 1) return 1;
+	//if (trace_fraction == 1) return 1;
 	dhmin_z = dhmin_z + i;
     }
 
@@ -102,7 +102,7 @@ float(entity dh_player) dh_shambler_test =
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
           SpawnTempDebugMarker (dhmin,8,0);
           SpawnTempDebugMarker (dhmax,8,0);
-	if (trace_fraction == 1) return 1;
+	//if (trace_fraction == 1) return 1;
 	dhmin_y = dhmin_y + i;
     }
 
@@ -117,7 +117,7 @@ float(entity dh_player) dh_shambler_test =
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
           SpawnTempDebugMarker (dhmin,8,0);
           SpawnTempDebugMarker (dhmax,8,0);
-	if (trace_fraction == 1) return 1;
+	//if (trace_fraction == 1) return 1;
 	dhmin_z = dhmin_z + i;
     }
 
@@ -132,7 +132,7 @@ float(entity dh_player) dh_shambler_test =
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
           SpawnTempDebugMarker (dhmin,8,0);
           SpawnTempDebugMarker (dhmax,8,0);
-	if (trace_fraction == 1) return 1;
+	//if (trace_fraction == 1) return 1;
 	dhmin_y = dhmin_y + i;
     }
 
@@ -147,11 +147,11 @@ float(entity dh_player) dh_shambler_test =
 	traceline (dhmin, dhmax, 0, dh_player.enemy);
           SpawnTempDebugMarker (dhmin,8,0);
           SpawnTempDebugMarker (dhmax,8,0);
-	if (trace_fraction == 1) return 1;
+	//if (trace_fraction == 1) return 1;
 	dhmin_z = dhmin_z + i;
     }
 
-    return 0;
+//    return 0;
 };
 
 
