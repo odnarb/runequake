@@ -88,6 +88,8 @@ float(entity dh_player) dh_shambler_test =
 	while (dhmin_y < dh_player.absmax_y ) {
 		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
 		traceline (dhmin, dhmax, 0, dh_player.enemy);
+                    bprint (ftos(trace_fraction);
+                    bprint ("\n");
 		if (trace_fraction < 1) return 0;
 		dhmin_y = dhmin_y + i;
 		dhmax_y = dhmax_y + i;
