@@ -410,7 +410,7 @@ Rune_ShamblerReloc =
 	}
 
           local vector place;	
-          place = ShamblerSizeOk (self);
+          place = ShamblerSizeOk (self.runent.owner);
           
 	// Stop burning when recalled in water or acid.
 	if (self.runent.owner.waterlevel > 1 && self.runent.owner.watertype != CONTENT_LAVA)
@@ -422,7 +422,7 @@ Rune_ShamblerReloc =
 	setorigin (self, self.owner.origin);
 	spawn_tfog (self.origin);
          
-          if (place)
+          if (place != '0 0 0')
           {
           spawn_tfog (self.origin);
 	setorigin (self, place);
