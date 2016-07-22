@@ -1669,21 +1669,42 @@ WaterMove =
           if (!(self.aqflags & AQ_QUIET))
           if (self.watertype != -5 && self.waterlevel > 2 && self.health > 0 && (!(self.items & IT_INVULNERABILITY)))
 	{
-           if ((self.air_finished - 1) > time)
+           local float ar;
+           if (!(self.items & IT_SUIT))
+                    ar = self.air_finished;
+                    else
+                    ar = self.radsuit_finished;
+                    
+           if ((ar - 1) > time)
           {
           local float i,ii,ch;
       
-          msg_entity = self;
+             msg_entity = self;
           WriteByte (MSG_ONE, 26);
-           
+         if (!(self.items & IT_SUIT))
+         {
+          
           WriteByte (MSG_ONE, 79);
           WriteByte (MSG_ONE, 88);
           WriteByte (MSG_ONE, 89);
           WriteByte (MSG_ONE, 71);
           WriteByte (MSG_ONE, 69);
           WriteByte (MSG_ONE, 78);
-          WriteByte (MSG_ONE, 10);
-          ii = self.air_finished - time;
+          
+         }
+         else
+         {
+          WriteByte (MSG_ONE, 194);
+          WriteByte (MSG_ONE, 201);
+          WriteByte (MSG_ONE, 207);
+          WriteByte (MSG_ONE, 211);
+          WriteByte (MSG_ONE, 213);
+          WriteByte (MSG_ONE, 201);
+          WriteByte (MSG_ONE, 212);
+         }
+         WriteByte (MSG_ONE, 10);
+         
+          ii = ar - time;
           if (ii > 4)
           ch = 11;
           else
