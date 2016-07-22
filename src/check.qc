@@ -85,6 +85,7 @@ float(entity dh_player) dh_shambler_test =
 	dhmax_x = dh_player.absmax_x;
 	dhmax_y = dh_player.absmin_y;
 	dhmax_z = dh_player.absmin_z;
+          bprint ("Bottom\n");
 	while (dhmin_y < dh_player.absmax_y ) {
 		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
 		traceline (dhmin, dhmax, 0, dh_player.enemy);
@@ -94,7 +95,7 @@ float(entity dh_player) dh_shambler_test =
 		dhmin_y = dhmin_y + i;
 		dhmax_y = dhmax_y + i;
 	}
-          return 1;
+         
 	// 2 : "right"
 	dhmin_x = dh_player.absmin_x;
 	dhmin_y = dh_player.absmin_y;
@@ -102,6 +103,7 @@ float(entity dh_player) dh_shambler_test =
 	dhmax_x = dh_player.absmax_x;
 	dhmax_y = dh_player.absmin_y;
 	dhmax_z = dh_player.absmin_z;
+          bprint ("Right\n");
 	while (dhmin_z < dh_player.absmax_z ) {
 		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
 		traceline (dhmin, dhmax, 0, dh_player.enemy);
@@ -117,6 +119,7 @@ float(entity dh_player) dh_shambler_test =
 	dhmax_x = dh_player.absmax_x;
 	dhmax_y = dh_player.absmin_y;
 	dhmax_z = dh_player.absmax_z;
+          bprint ("Top\n");
 	while (dhmin_y < dh_player.absmax_y ) {
 		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
 		traceline (dhmin, dhmax, 0, dh_player.enemy);
@@ -132,6 +135,7 @@ float(entity dh_player) dh_shambler_test =
 	dhmax_x = dh_player.absmax_x;
 	dhmax_y = dh_player.absmax_y;
 	dhmax_z = dh_player.absmin_z;
+          bprint ("Left\n");
 	while (dhmin_z < dh_player.absmax_z ) {
 		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
 		traceline (dhmin, dhmax, 0, dh_player.enemy);
@@ -151,6 +155,7 @@ float(entity dh_player) dh_shambler_test =
 	dhmax_x = dh_player.absmin_x;
 	dhmax_y = dh_player.absmax_y;
 	dhmax_z = dh_player.absmin_z;
+          bprint ("Back\n");
 	while (dhmin_z < dh_player.absmax_z ) {
 		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
 		traceline (dhmin, dhmax, 0, dh_player.enemy);
@@ -166,6 +171,7 @@ float(entity dh_player) dh_shambler_test =
 	dhmax_x = dh_player.absmax_x;
 	dhmax_y = dh_player.absmax_y;
 	dhmax_z = dh_player.absmin_z;
+          bprint ("Front\n");
 	while (dhmin_z < dh_player.absmax_z ) {
 		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
 		traceline (dhmin, dhmax, 0, dh_player.enemy);
