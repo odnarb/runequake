@@ -1491,7 +1491,7 @@ commands =
 	self_sprint (self, "‹‹‹‹‹‹‹‹‹‹");
           self_sprint (self, "‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹\n");
           self_sprint (self, "‹ \b118\b Ammo       \b154\b Antipk   \b147\b Armor      \b139\b Athlete  ‹\n");          
-          self_sprint (self, "‹ \b107\b Berserk    \b156\b Betty    \b154\b Blizzard   \b147\b Blink    ‹\n");
+          self_sprint (self, "‹ \b107\b Berserk    \b156\b Betty    \b151\b Blizzard   \b147\b Blink    ‹\n");
           self_sprint (self, "‹ \b113\b Bomb       \b116\b Camo     \b110\b Cloak      \b136\b Cloud    ‹\n");
           self_sprint (self, "‹ \b155\b Deflect    \b133\b Dual     \b112\b Dspots     \b105\b Enviro   ‹\n");
           self_sprint (self, "‹ \b137\b Firewalk   \b124\b Freeze   \b106\b Fly        \b150\b Glue     ‹\n"); 
