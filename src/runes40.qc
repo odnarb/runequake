@@ -437,6 +437,7 @@ Rune_ShamblerReloc =
                     
           }
 	
+          self = old_self;
 	self.angles = self.pos1 = self.owner.angles;
 	self.fixangle = 1;
 
