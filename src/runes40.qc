@@ -280,7 +280,7 @@ ShamblerSizeOk =
           local entity testfield;
           
           testfield = spawn ();
-          testfield.enemy = this;
+          testfield.groundentity = this;
           testfield.classname = "testfield";
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
           
