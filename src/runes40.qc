@@ -1158,10 +1158,17 @@ Wall_Check =
 
 	if (pointcontents (neworg) != CONTENT_EMPTY)
 		return;
-          self.effects = EF_FROZEN | 2;
+          muzzleflash ();
+          self.effects = EF_FROZEN;
 	HookOff ();
 	HookOff_by_targ ();
 
 	setorigin (self, neworg);
-          self.effects = (self.effects - EF_FROZEN) + 2;
+          muzzleflash ();
+          if (self.waterlevel > 2)
+          {
+          DeathBubbles (3);
+          sound (self, CHAN_AUTO, "fish/death.wav", 1, ATTN_NORM);
+          }
+          else sound (self, CHAN_AUTO, "ambience/fl_hum1.wav", 1, ATTN_NORM);
 };
