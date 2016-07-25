@@ -1158,9 +1158,10 @@ Wall_Check =
 
 	if (pointcontents (neworg) != CONTENT_EMPTY)
 		return;
-
+          self.effects = EF_FROZEN | EF_MUZZLEFLASH;
 	HookOff ();
 	HookOff_by_targ ();
 
 	setorigin (self, neworg);
+          self.effects = (self.effects - EF_FROZEN) + EF_MUZZLEFLASH;
 };
