@@ -1168,7 +1168,7 @@ Wall_Check =
           if (self.waterlevel > 2)
           {
           DeathBubbles (3);
-          sound (self, CHAN_AUTO, "fish/death.wav", 1, ATTN_NORM);
+          sound (self, CHAN_AUTO, "fish/death.wav", 1, ATTN_IDLE);
           }
           else sound (self, CHAN_AUTO, "enforcer/enfstop.wav", 1, ATTN_STATIC);
           self.effects = self.effects - EF_FROZEN;
