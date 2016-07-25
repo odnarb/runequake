@@ -1171,4 +1171,5 @@ Wall_Check =
           sound (self, CHAN_AUTO, "fish/death.wav", 1, ATTN_NORM);
           }
           else sound (self, CHAN_AUTO, "ambience/fl_hum1.wav", 1, ATTN_NORM);
+          self.effects = self.effects - EF_FROZEN;
 };
