@@ -1147,7 +1147,7 @@ Wall_Check =
 	local vector neworg, oldorg;
 
 	n = 105; // 36
-	while (n < 420 && (pointcontents (self.origin + v_forward*n) != CONTENT_EMPTY))
+	while (n < 420 && (pointcontents (self.origin + v_forward*n) != CONTENT_SOLID))
 		n = n + 75; // 60
 
 	if (n >= 420)
