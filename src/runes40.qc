@@ -1156,7 +1156,7 @@ Wall_Check =
 	neworg = self.origin + v_forward* (n + 45);
 	oldorg = self.origin;
 
-	if (pointcontents (neworg) != CONTENT_EMPTY)
+	if (pointcontents (neworg) == CONTENT_SOLID) // Cobalt allow phase into liquids too
 		return;
           muzzleflash ();
           self.effects = self.effects | EF_FROZEN;
