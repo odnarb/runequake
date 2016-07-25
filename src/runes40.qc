@@ -1159,7 +1159,7 @@ Wall_Check =
 	if (pointcontents (neworg) != CONTENT_EMPTY)
 		return;
           muzzleflash ();
-          self.effects = EF_FROZEN;
+          self.effects = self.effects | EF_FROZEN;
 	HookOff ();
 	HookOff_by_targ ();
 
@@ -1170,6 +1170,6 @@ Wall_Check =
           DeathBubbles (3);
           sound (self, CHAN_AUTO, "fish/death.wav", 1, ATTN_NORM);
           }
-          else sound (self, CHAN_AUTO, "ambience/fl_hum1.wav", 1, ATTN_NORM);
+          else sound (self, CHAN_AUTO, "enforcer/enfstop.wav", 1, ATTN_STATIC);
           self.effects = self.effects - EF_FROZEN;
 };
