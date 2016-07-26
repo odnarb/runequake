@@ -446,7 +446,7 @@ T_Damage =
 			}
 		}
                     
-               if (attacker == world && targ.waterlevel > 2 && targ.air_finished < time) // Simplified QIP Armor drown fix
+               if (dtype == "gas" || attacker == world && targ.waterlevel > 2 && targ.air_finished < time) // Simplified QIP Armor drown fix
 	     save = 0;
                     
 		if (save >= targ.armorvalue)
