@@ -1162,7 +1162,7 @@ Wall_Check =
           self.effects = self.effects | EF_FROZEN;
 	HookOff ();
 	HookOff_by_targ ();
-          self.punchangle = neworg * 0.5;
+          //self.punchangle = neworg * 0.5;
 	setorigin (self, neworg);
           muzzleflash ();
           if (self.waterlevel > 2)
