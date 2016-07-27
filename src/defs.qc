@@ -158,9 +158,9 @@ IN_QW([-
 .vector	angles;
 .vector	avelocity;
 
-IN_POQ([-
+
 .vector	punchangle;	// temp angle adjust from damage or recoil
--])
+
 
 .string	classname;	// spawn function
 .string	model;
