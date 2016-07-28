@@ -298,7 +298,7 @@ ShamblerSizeOk =
            mv = 32;
            while (mv < 97)
            {
-                     mv = mv + 4;
+                     mv = mv + 8;
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); // Front of player
             if (dh_shambler_test (testfield))
             {
@@ -312,7 +312,7 @@ ShamblerSizeOk =
                      
              while (mv > -97)
            {
-                     mv = mv - 4;
+                     mv = mv - 8;
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); 
             if (dh_shambler_test (testfield))
             {
@@ -327,7 +327,7 @@ ShamblerSizeOk =
                      
              while (mv < 97)
            {
-                     mv = mv + 4;
+                     mv = mv + 8;
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (dh_shambler_test (testfield))
             {
@@ -341,7 +341,7 @@ ShamblerSizeOk =
                      
              while (mv > -97)
            {
-                     mv = mv - 4;
+                     mv = mv - 8;
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (dh_shambler_test (testfield))
             {
@@ -355,7 +355,7 @@ ShamblerSizeOk =
                      
              while (mv < 65)
            {
-                     mv = mv + 4;
+                     mv = mv + 8;
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
             if (dh_shambler_test (testfield))
             {
@@ -368,7 +368,7 @@ ShamblerSizeOk =
                  mv = 0; 
                  while (mv > -65)
            {
-                     mv = mv - 4;
+                     mv = mv - 8;
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
             if (dh_shambler_test (testfield))
             {
