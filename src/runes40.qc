@@ -1159,7 +1159,11 @@ Wall_Check =
 	if (pointcontents (neworg) == CONTENT_SOLID) // Cobalt allow phase into liquids too
 		return;
           muzzleflash ();
-          self.effects = self.effects | EF_FROZEN;
+          local entity img;
+          img = self;
+          img.effects = EF_FROZEN;
+          img.think = SUB_Remove;
+          img.think = time + (frametime * 30);
 	HookOff ();
 	HookOff_by_targ ();
           //self.punchangle = neworg * 0.5;
@@ -1171,5 +1175,5 @@ Wall_Check =
           sound (self, CHAN_AUTO, "fish/death.wav", 1, ATTN_IDLE);
           }
           else sound (self, CHAN_AUTO, "enforcer/enfstop.wav", 1, ATTN_STATIC);
-          self.effects = self.effects - EF_FROZEN;
+          
 };
