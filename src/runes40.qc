@@ -1160,6 +1160,7 @@ Wall_Check =
 		return;
           muzzleflash ();
           local entity img;
+          img = spawn ();
           img = self;
           img.effects = EF_FROZEN;
           img.think = SUB_Remove;
