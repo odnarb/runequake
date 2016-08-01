@@ -2717,7 +2717,12 @@ ClientObituary =
 			else if (dt == "gmissile")
 				bprint (" decided to use his rocket as a suppository\n");
 			else if (dt == "bfgblast")
+                              {
+                                        if (framecount & 1)
 				bprint (" was too close to his own BFG\n");
+                                        else 
+                                        bprint (" was spaghettified with his BFG\n");     
+                              }
 			else if (dt == "grenade" || dt == "gasbomb")
 				bprint (" tries to put the pin back in\n");
 			else if (dt == "lavagun")
@@ -2980,7 +2985,10 @@ ClientObituary =
 		}
 		else if (dt == "bfgtouch")
 		{
+                              if (framecount & 1)
 			s1 = " made a connection with ";
+                              else
+                              s1 = " was spaghettified after being hit with ";      
 			s2 = "'s BFG\n";
 		}
 		else if (dt == "bfgblast")
