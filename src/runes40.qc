@@ -299,30 +299,34 @@ ShamblerSizeOk =
            
            if (dr == 1)
            {
+                      bprint ("Testing Front of player\n");
            mv = 32;
            while (mv < 97)
            {
+                     bprint ("Testing Front of player\n");
                      mv = mv + 8;
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); // Front of player
             if (dh_shambler_test (testfield))
             {
-              bprint ("Front of player\n");
+              bprint ("Front of player selected \n");
                      return testfield.origin;
              
             }
            }
            }
             else if (dr == 2)      
-            {                      
+            {                     
+            bprint ("Testing Behind player\n");  
             mv = -32;        
                      
              while (mv > -97)
            {
                      mv = mv - 8;
+
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); 
             if (dh_shambler_test (testfield))
             {
-              bprint ("Behind player\n");
+              bprint ("Behind player selected \n");
                      return testfield.origin;
              
             }
@@ -330,6 +334,7 @@ ShamblerSizeOk =
             }       
            else if (dr == 3)
            {
+                      bprint ("Testing side of player\n");
             mv = 32;        
                      
              while (mv < 97)
@@ -338,7 +343,7 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (dh_shambler_test (testfield))
             {
-              bprint ("Player side\n");
+              bprint ("Player side selected \n");
                return testfield.origin;
              
             }
@@ -346,6 +351,7 @@ ShamblerSizeOk =
            }
            else if (dr == 4)
            {
+                      bprint ("Testing side2 of player\n");
               mv = -32;        
                      
              while (mv > -97)
@@ -354,7 +360,7 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (dh_shambler_test (testfield))
             {
-              bprint ("Player side2\n");
+              bprint ("Player side2 selected\n");
                return testfield.origin;
              
             }
@@ -366,18 +372,19 @@ ShamblerSizeOk =
                      
              while (mv < 65)
            {
+                      bprint ("Testing Above player\n");
                      mv = mv + 8;
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
             if (dh_shambler_test (testfield))
             {
-              bprint ("Above Player\n");
+              bprint ("Above Player selected \n");
                return testfield.origin;
              
             }
            }
            }
            else if (dr == 6)
-           {
+           {  bprint ("Testing Below player\n");
                  mv = 0; 
                  while (mv > -65)
            {
@@ -385,7 +392,7 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
             if (dh_shambler_test (testfield))
             {
-              bprint ("Below Player\n");
+              bprint ("Below Player selected\n");
                return testfield.origin;
              
             }
@@ -435,7 +442,7 @@ Rune_ShamblerReloc =
 	//setorigin (self, self.owner.origin);
 	//spawn_tfog (self.origin);
          
-          if (place != '0 0 0')
+          if (place)
           {
           spawn_tfog (self.origin);
 	setorigin (self, place);
