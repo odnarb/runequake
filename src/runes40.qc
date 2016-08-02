@@ -504,7 +504,9 @@ Rune_ShamblerThink =
 		}
 		self = old_self;
 	}
-
+ 
+          
+          self.runent.dest = ShamblerSizeOk (self.runent.owner);
           
 	self.nextthink = time + 1;
 };

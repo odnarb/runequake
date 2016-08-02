@@ -460,8 +460,7 @@ ai_walk =
 
 	movetogoal (dist);
           // For easier Shambler respawn calcs
-          if (self.model == "progs/shambler.mdl")
-          self.dest = ShamblerSizeOk (self.owner);
+          
           
 };
 
