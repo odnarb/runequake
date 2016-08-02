@@ -1207,7 +1207,7 @@ Wall_Check =
 	img.angles = self.angles;
 	img.colormap = self.colormap;
           if (self.velocity)
-          img.velocity = self.velocity * 0.33;
+          img.velocity = self.velocity * 0.2;
           
 	HookOff ();
 	HookOff_by_targ ();
