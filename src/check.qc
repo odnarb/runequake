@@ -179,7 +179,7 @@ float(entity dh_player) dh_shambler_test =
 		dhmin_z = dhmin_z + i;
 		dhmax_z = dhmax_z + i;
 	}
-          bprint ("Location clear\n");
+         
 	return 1;
 };
 
