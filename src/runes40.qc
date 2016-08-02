@@ -530,7 +530,7 @@ Rune_ShamblerThink =
           self.runent.dest = ShamblerSizeOk (self.runent.owner, self.count);
           if (self.count == 6)
           self.count = 0;
-	self.nextthink = time + (1/12);
+	self.nextthink = time + frametime;
 };
 
 void ()
