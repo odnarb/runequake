@@ -1189,7 +1189,7 @@ Wall_Check =
    
           img.effects = self.effects | EF_FROZEN;
           img.think = SUB_Remove;
-          img.nextthink = time + (frametime * (n/15));
+          img.nextthink = time + (frametime * (n/5));
           
               
                    
