@@ -1186,10 +1186,27 @@ Wall_Check =
           muzzleflash ();
           local entity img;
           img = spawn ();
-          img = self;
-          img.effects = EF_FROZEN;
+   
+          img.effects = self.effects | EF_FROZEN;
           img.think = SUB_Remove;
-          img.think = time + (frametime * 30);
+          img.nextthink = time + (frametime * 30000);
+          
+          if (self.flags & FL_ONGROUND)
+	img.movetype = MOVETYPE_TOSS;
+          else
+          img.movetype = 0;     
+          img.flags = FL_NOTARGET;
+	img.solid = SOLID_TRIGGER; // Cobalt, just testing, No longer non solid
+          img.owner = self;
+          img.frame = self.frame
+	img.classname = "image";
+	setmodel (img, self.model);
+          setsize (img, VEC_HULL_MIN, VEC_HULL_MAX); // Cobalt - make it player size so it wont fall into the floor
+	setorigin (img, self.origin);
+	img.angles = self.angles;
+	img.colormap = self.colormap;
+
+          
 	HookOff ();
 	HookOff_by_targ ();
           //self.punchangle = neworg * 0.5;
