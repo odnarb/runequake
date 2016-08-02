@@ -1189,13 +1189,10 @@ Wall_Check =
    
           img.effects = self.effects | EF_FROZEN;
           img.think = SUB_Remove;
-          img.nextthink = time + (frametime * 33);
+          img.nextthink = time + (frametime * (n/15));
           
-          if (self.flags & FL_ONGROUND)
-	img.movetype = MOVETYPE_TOSS;
-          else
-          img.movetype = 0;     
-          img.movetype = MOVETYPE_NOCLIP;          
+              
+                   
           img.flags = FL_NOTARGET;
 	img.solid = SOLID_TRIGGER; // Cobalt, just testing, No longer non solid
           img.owner = self;
@@ -1207,8 +1204,12 @@ Wall_Check =
 	img.angles = self.angles;
 	img.colormap = self.colormap;
           if (self.velocity)
+          {
+          img.movetype = MOVETYPE_NOCLIP; 
           img.velocity = self.velocity * 0.2;
-          
+          }
+
+
 	HookOff ();
 	HookOff_by_targ ();
           //self.punchangle = neworg * 0.5;
