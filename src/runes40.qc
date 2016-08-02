@@ -537,7 +537,7 @@ delayed_shambler_spawn =
 void ()
 Rune_ShamblerSpawn =
 {
-          return;
+         
 	local entity sham;
 	local entity temp;
 	local entity shamctrl;
