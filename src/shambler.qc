@@ -252,14 +252,40 @@ void () sham_swingr9	= [$swingr9,	sham_run1]
 		self.think = sham_swingl1;
 };
 
+void () sham_pounce =
+{
+SuperDamageSound ();
+makevectors (self.angles); 
+self.movetype = MOVETYPE_TOSS;
+self.velocity = v_forward * 600;
+self.movetype = MOVETYPE_STEP;     
+
+   if (random () < 0.5)
+          {
+          self.message = strcat (" got pounced on ", self.owner.netname);
+           self.message = strcat (self.message, "'s Shambler.\n");
+          }
+          else
+          {
+          self.message = strcat (" bumped into ", self.owner.netname);
+           self.message = strcat (self.message, "'s Shambler.\n");
+          }
+  
+};
 void ()
 sham_melee =
 {
-	local float chance;
-
-	if (self.effects & EF_FROZEN)
+          
+          if (self.effects & EF_FROZEN)
 		return;
-
+          local float rg;
+          rg = floor (vlen (self.enemy.origin - self.origin));
+          
+          if (rg < 256 && rg > 64)
+          sham_pounce ();
+          else
+          {
+	local float chance;
 	chance = random ();
 	if (chance > 0.6 || self.health == self.max_health)
 		sham_smash1 ();
@@ -267,6 +293,7 @@ sham_melee =
 		sham_swingr1 ();
 	else
 		sham_swingl1 ();
+          }
 };
 
 //============================================================================
@@ -430,12 +457,31 @@ monster_shambler =
 	monster_shambler_1 (1);
 };
 
+void () sham_touch =
+{
+if (other == world) return;
+
+if (other.health > 0)
+{
+if (other.flags & FL_CLIENT)
+{
+other.air_finished = -2;
+sound (self, CHAN_AUTO, "zombie/z_miss.wav", 1, ATTN_NORM);
+}
+local float vdmg;
+vdmg = (vlen(self.velocity)) / (vlen(self.size));
+T_Damage (other, self, self, vdmg, string_null);
+}
+
+}
+};
+
 // 1 is normal, 2 is helper
 void (float type)
 monster_shambler_1 =
 {
 	self.solid	= SOLID_SLIDEBOX;
-	self.touch	= misc_touch;
+	self.touch	= sham_touch;
 	self.movetype	= MOVETYPE_STEP;
 
 	setmodel (self, "progs/shambler.mdl");
