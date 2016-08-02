@@ -473,8 +473,8 @@ vdmg = (vlen(self.velocity)) / (vlen(self.size));
 T_Damage (other, self, self, vdmg, string_null);
 }
 
-}
 };
+
 
 // 1 is normal, 2 is helper
 void (float type)
