@@ -289,7 +289,7 @@ ShamblerSizeOk =
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
            if (dh_shambler_test (testfield))
            {      
-                     bprint ("Player origin\n");
+                     centerprint (this,"Player origin\n");
                      return testfield.origin;
            }     
           else
@@ -299,7 +299,7 @@ ShamblerSizeOk =
            
            if (dr == 1)
            {
-                      bprint ("Testing Front of player\n");
+                    //  bprint ("Testing Front of player\n");
            mv = 32;
            while (mv < 97)
            {
@@ -308,7 +308,7 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); // Front of player
             if (dh_shambler_test (testfield))
             {
-              bprint ("Front of player selected \n");
+              centerprint (this, "Front of player selected \n");
                      return testfield.origin;
              
             }
@@ -316,7 +316,7 @@ ShamblerSizeOk =
            }
             else if (dr == 2)      
             {                     
-            bprint ("Testing Behind player\n");  
+           // bprint ("Testing Behind player\n");  
             mv = -32;        
                      
              while (mv > -97)
@@ -326,7 +326,7 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); 
             if (dh_shambler_test (testfield))
             {
-              bprint ("Behind player selected \n");
+              centerprint (this,"Behind player selected\n");
                      return testfield.origin;
              
             }
@@ -334,7 +334,7 @@ ShamblerSizeOk =
             }       
            else if (dr == 3)
            {
-                      bprint ("Testing side of player\n");
+                  //    bprint ("Testing side of player\n");
             mv = 32;        
                      
              while (mv < 97)
@@ -343,7 +343,7 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (dh_shambler_test (testfield))
             {
-              bprint ("Player side selected \n");
+              centerprint (this,"Player side selected \n");
                return testfield.origin;
              
             }
@@ -351,7 +351,7 @@ ShamblerSizeOk =
            }
            else if (dr == 4)
            {
-                      bprint ("Testing side2 of player\n");
+                    //  bprint ("Testing side2 of player\n");
               mv = -32;        
                      
              while (mv > -97)
@@ -360,7 +360,7 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (dh_shambler_test (testfield))
             {
-              bprint ("Player side2 selected\n");
+              centerprint (this, "Player side2 selected\n");
                return testfield.origin;
              
             }
@@ -372,19 +372,19 @@ ShamblerSizeOk =
                      
              while (mv < 65)
            {
-                      bprint ("Testing Above player\n");
+                  //    bprint ("Testing Above player\n");
                      mv = mv + 8;
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
             if (dh_shambler_test (testfield))
             {
-              bprint ("Above Player selected \n");
+              centerprint (this, "Above Player selected \n");
                return testfield.origin;
              
             }
            }
            }
            else if (dr == 6)
-           {  bprint ("Testing Below player\n");
+           { // bprint ("Testing Below player\n");
                  mv = 0; 
                  while (mv > -65)
            {
@@ -392,7 +392,7 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
             if (dh_shambler_test (testfield))
             {
-              bprint ("Below Player selected\n");
+              centerprint (this, "Below Player selected\n");
                return testfield.origin;
              
             }
