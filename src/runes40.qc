@@ -379,7 +379,7 @@ ShamblerSizeOk =
            }
 
           
-             centerprint (this, "Not enough room for your Shambler");
+            
           // sprint (this, trace_ent.classname);
           // sprint (this, "\n");
           return VEC_ORIGIN;      
@@ -410,7 +410,7 @@ Rune_ShamblerReloc =
 	}
 
           local vector place;	
-          place = ShamblerSizeOk (self.runent.owner);
+          place = self.runent.dest;
           
 	// Stop burning when recalled in water or acid.
 	if (self.runent.owner.waterlevel > 1 && self.runent.owner.watertype != CONTENT_LAVA)
@@ -418,9 +418,9 @@ Rune_ShamblerReloc =
 
 	old_self = self;
 	self = self.runent;
-          spawn_tfog (self.origin);
-	setorigin (self, self.owner.origin);
-	spawn_tfog (self.origin);
+          //spawn_tfog (self.origin);
+	//setorigin (self, self.owner.origin);
+	//spawn_tfog (self.origin);
          
           if (place != '0 0 0')
           {
@@ -430,7 +430,7 @@ Rune_ShamblerReloc =
           }
           else
           {
-         
+          centerprint (self.owner, "Not enough room for your Shambler");
                     self_sound (self.owner,"shambler/sidle.wav");   
                self = old_self;                    
 		return;          
@@ -505,6 +505,7 @@ Rune_ShamblerThink =
 		self = old_self;
 	}
 
+          
 	self.nextthink = time + 1;
 };
 

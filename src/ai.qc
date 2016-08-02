@@ -458,6 +458,10 @@ ai_walk =
 		return;
 
 	movetogoal (dist);
+          // For easier Shambler respawn calcs
+          if (self.th_walk == sham_walk1)
+          self.dest = ShamblerSizeOk (self.owner);
+          
 };
 
 /*
