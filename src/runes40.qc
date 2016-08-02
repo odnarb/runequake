@@ -274,7 +274,7 @@ shambler_slave_retribution =
 };
 
 // Cobalt - Test respawn areas for Shambler otherwise cancel the teleport
-vector (entity this float dr)
+vector (entity this, float dr)
 ShamblerSizeOk =
 {
           local entity testfield;
