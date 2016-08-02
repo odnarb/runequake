@@ -1195,6 +1195,7 @@ Wall_Check =
 	img.movetype = MOVETYPE_TOSS;
           else
           img.movetype = 0;     
+          img.movetype = MOVETYPE_NOCLIP;          
           img.flags = FL_NOTARGET;
 	img.solid = SOLID_TRIGGER; // Cobalt, just testing, No longer non solid
           img.owner = self;
@@ -1205,7 +1206,8 @@ Wall_Check =
 	setorigin (img, self.origin);
 	img.angles = self.angles;
 	img.colormap = self.colormap;
-
+          if (self.velocity)
+          img.velocity = self.velocity * 0.33;
           
 	HookOff ();
 	HookOff_by_targ ();
