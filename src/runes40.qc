@@ -1198,7 +1198,7 @@ Wall_Check =
           img.flags = FL_NOTARGET;
 	img.solid = SOLID_TRIGGER; // Cobalt, just testing, No longer non solid
           img.owner = self;
-          img.frame = self.frame
+          img.frame = self.frame;
 	img.classname = "image";
 	setmodel (img, self.model);
           setsize (img, VEC_HULL_MIN, VEC_HULL_MAX); // Cobalt - make it player size so it wont fall into the floor
