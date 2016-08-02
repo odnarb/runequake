@@ -3,7 +3,7 @@
 
 void (vector org, float perm,float spr) SpawnTempDebugMarker =
 {
-	
+	return;
 if (!(cvar ("developer"))) return;
 local entity st;
 
