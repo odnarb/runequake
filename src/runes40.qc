@@ -274,7 +274,7 @@ shambler_slave_retribution =
 };
 
 // Cobalt - Test respawn areas for Shambler otherwise cancel the teleport
-vector (entity this)
+vector (entity this float dr)
 ShamblerSizeOk =
 {
           local entity testfield;
@@ -292,9 +292,13 @@ ShamblerSizeOk =
                      bprint ("Player origin\n");
                      return testfield.origin;
            }     
-         
+          else
+          {
            makevectors (this.v_angle);
            local float mv;
+           
+           if (dr == 1)
+           {
            mv = 32;
            while (mv < 97)
            {
@@ -307,7 +311,9 @@ ShamblerSizeOk =
              
             }
            }
-                       
+           }
+            else if (dr == 2)      
+            {                      
             mv = -32;        
                      
              while (mv > -97)
@@ -321,8 +327,9 @@ ShamblerSizeOk =
              
             }
            }
-        
-
+            }       
+           else if (dr == 3)
+           {
             mv = 32;        
                      
              while (mv < 97)
@@ -336,7 +343,9 @@ ShamblerSizeOk =
              
             }
            }
-           
+           }
+           else if (dr == 4)
+           {
               mv = -32;        
                      
              while (mv > -97)
@@ -350,7 +359,9 @@ ShamblerSizeOk =
              
             }
            }
-
+           }
+           else if (dr == 5)
+           {
                  mv = 0;        
                      
              while (mv < 65)
@@ -364,7 +375,9 @@ ShamblerSizeOk =
              
             }
            }
-           
+           }
+           else if (dr == 6)
+           {
                  mv = 0; 
                  while (mv > -65)
            {
@@ -377,8 +390,8 @@ ShamblerSizeOk =
              
             }
            }
-
-          
+           }
+          }
             
           // sprint (this, trace_ent.classname);
           // sprint (this, "\n");
@@ -505,10 +518,12 @@ Rune_ShamblerThink =
 		self = old_self;
 	}
  
+          self.count = self.count + 1;
           
-          self.runent.dest = ShamblerSizeOk (self.runent.owner);
-          
-	self.nextthink = time + 1;
+          self.runent.dest = ShamblerSizeOk (self.runent.owner, self.count);
+          if (self.count == 6)
+          self.count = 0;
+	self.nextthink = time + (1/12);
 };
 
 void ()

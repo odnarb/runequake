@@ -441,7 +441,6 @@ ai_painforward =
 	walkmove (self.ideal_yaw, dist);
 };
 
-vector (entity this) ShamblerSizeOk;
 /*
 =============
 ai_walk
