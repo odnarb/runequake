@@ -1189,7 +1189,7 @@ Wall_Check =
    
           img.effects = self.effects | EF_FROZEN;
           img.think = SUB_Remove;
-          img.nextthink = time + (frametime * 30000);
+          img.nextthink = time + (frametime * 33);
           
           if (self.flags & FL_ONGROUND)
 	img.movetype = MOVETYPE_TOSS;
