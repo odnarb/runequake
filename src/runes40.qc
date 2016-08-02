@@ -296,7 +296,7 @@ ShamblerSizeOk =
           {
            makevectors (this.v_angle);
            local float mv,sp;
-           sp = 2;
+           sp = 3;
            if (dr == 1)
            {
                     //  bprint ("Testing Front of player\n");
@@ -530,7 +530,7 @@ Rune_ShamblerThink =
           self.runent.dest = ShamblerSizeOk (self.runent.owner, self.count);
           if (self.count == 6)
           self.count = 0;
-	self.nextthink = time + frametime;
+	self.nextthink = self.runent.owner.nextthink;
 };
 
 void ()
