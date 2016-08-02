@@ -303,7 +303,7 @@ ShamblerSizeOk =
            mv = 32;
            while (mv < 97)
            {
-                     bprint ("Testing Front of player\n");
+                     
                      mv = mv + 8;
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); // Front of player
             if (dh_shambler_test (testfield))
@@ -457,7 +457,7 @@ Rune_ShamblerReloc =
                     
           }
 	
-          self = old_self;
+         
 	self.angles = self.pos1 = self.owner.angles;
 	self.fixangle = 1;
 
