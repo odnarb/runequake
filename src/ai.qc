@@ -441,7 +441,7 @@ ai_painforward =
 	walkmove (self.ideal_yaw, dist);
 };
 
-void ()ShamblerSizeOk (entity this);
+void (entity this) ShamblerSizeOk;
 /*
 =============
 ai_walk
