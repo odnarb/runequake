@@ -584,6 +584,8 @@ Turn and close until within an angle to launch a melee attack
 void ()
 ai_run_melee =
 {
+          if (self.model == "progs/shambler.mdl")
+          self.movetype = MOVETYPE_STEP; 
 	self.ideal_yaw = enemy_yaw;
 	ChangeYaw ();
 

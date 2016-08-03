@@ -258,7 +258,7 @@ SuperDamageSound ();
 makevectors (self.angles); 
 self.movetype = MOVETYPE_TOSS;
 self.velocity = v_forward * 600;
-self.movetype = MOVETYPE_STEP;     
+    
 
    if (random () < 0.5)
           {
@@ -279,12 +279,13 @@ sham_melee =
           if (self.effects & EF_FROZEN)
 		return;
           local float rg;
-          rg = floor (vlen (self.enemy.origin - self.origin));
+          rg = floor (vlen (self.origin - self.enemy.origin));
           
           if (rg < 256 && rg > 64)
           sham_pounce ();
           else
           {
+          
 	local float chance;
 	chance = random ();
 	if (chance > 0.6 || self.health == self.max_health)

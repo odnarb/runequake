@@ -296,7 +296,7 @@ ShamblerSizeOk =
           {
            makevectors (this.v_angle);
            local float mv,sp;
-           sp = 3;
+           sp = 4;
            if (dr == 6)
            {
                     //  bprint ("Testing Front of player\n");
