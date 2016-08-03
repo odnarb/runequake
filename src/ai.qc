@@ -331,12 +331,13 @@ FindTarget =
 	else
 	{
 		client = checkclient ();
+                    if (client.classname == "hologram")
+                    client.effects = client.effects | 2;
 		if (!client)
 			return FALSE;	// current check entity isn't in PVS
 	}
 
-          if (client.classname == "hologram")
-                    client.effects = client.effects | 2;
+          
 	if (client == self.enemy)
 		return FALSE;
 
