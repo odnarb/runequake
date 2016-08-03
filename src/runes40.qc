@@ -473,6 +473,13 @@ Rune_ShamblerReloc =
 void ()
 Rune_ShamblerThink =
 {
+          
+            self.count = self.count + 1;
+          
+          self.runent.dest = ShamblerSizeOk (self.runent.owner, self.count);
+          if (self.count == 6)
+          self.count = 0;
+          
 	// Angry shambler for dead player.
 	if (self.runevar)
 	{
@@ -491,7 +498,7 @@ Rune_ShamblerThink =
 		// that you can't use the owner's runent &c anymore
 		// because she could have respawned already.
 
-		self.nextthink = time + 1;
+		self.nextthink = time + frametime;
 		return;
 	}
 
@@ -525,12 +532,8 @@ Rune_ShamblerThink =
 		self = old_self;
 	}
  
-          self.count = self.count + 1;
-          
-          self.runent.dest = ShamblerSizeOk (self.runent.owner, self.count);
-          if (self.count == 6)
-          self.count = 0;
-	self.nextthink = self.runent.owner.nextthink;
+        
+	self.nextthink = self.owner.nextthink;
 };
 
 void ()

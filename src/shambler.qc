@@ -459,7 +459,7 @@ monster_shambler =
 
 void () sham_touch =
 {
-if (other == world) return;
+if (other == world || checkbottom (self)) return;
 
 if (other.health > 0)
 {
