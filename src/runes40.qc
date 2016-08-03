@@ -297,7 +297,7 @@ ShamblerSizeOk =
            makevectors (this.v_angle);
            local float mv,sp;
            sp = 3;
-           if (dr == 1)
+           if (dr == 6)
            {
                     //  bprint ("Testing Front of player\n");
            mv = 32;
@@ -314,7 +314,7 @@ ShamblerSizeOk =
             }
            }
            }
-            else if (dr == 2)      
+            else if (dr == 5)      
             {                     
            // bprint ("Testing Behind player\n");  
             mv = -32;        
@@ -332,7 +332,7 @@ ShamblerSizeOk =
             }
            }
             }       
-           else if (dr == 3)
+           else if (dr == 4)
            {
                   //    bprint ("Testing side of player\n");
             mv = 32;        
@@ -349,7 +349,7 @@ ShamblerSizeOk =
             }
            }
            }
-           else if (dr == 4)
+           else if (dr == 3)
            {
                     //  bprint ("Testing side2 of player\n");
               mv = -32;        
@@ -366,7 +366,7 @@ ShamblerSizeOk =
             }
            }
            }
-           else if (dr == 5)
+           else if (dr == 2)
            {
                  mv = 0;        
                      
@@ -383,7 +383,7 @@ ShamblerSizeOk =
             }
            }
            }
-           else if (dr == 6)
+           else if (dr == 1)
            { // bprint ("Testing Below player\n");
                  mv = 0; 
                  while (mv > -65)
