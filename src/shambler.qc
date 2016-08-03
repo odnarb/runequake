@@ -279,10 +279,13 @@ sham_melee =
           if (self.effects & EF_FROZEN)
 		return;
           local float rg;
-          rg = floor (vlen (self.origin - self.enemy.origin));
+          rg = range (self.enemy);
           
-          if (rg < 256 && rg > 64)
+          if (rg < 256 && rg > 128)
+          {
+          create_te_spike (TE_WIZSPIKE, self.origin);
           sham_pounce ();
+          }
           else
           {
           
