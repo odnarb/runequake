@@ -276,7 +276,7 @@ Rune_Holo =
 	hologram.think = Holo_Think;
 	hologram.nextthink = time;
 	sound (hologram, CHAN_BODY, "misc/basekey.wav", 1, ATTN_NORM);
-
+          hologram.flags = FL_CLIENT;
 	hologram.runetime = time + 30 + (random () * 45); // Sgt Pieface & Cobalt  - make Holos last longer randomly
 	hologram.runevar = crandom ()*360;
 };
