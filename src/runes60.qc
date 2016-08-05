@@ -376,11 +376,16 @@ Sniper_Touch =
                               {
                               self.owner.snkills =  self.owner.snkills + 1;     
 			
-                              if (self.lip >= 1800)
+                              if (self.lip >= 1700)
+							  {
                               self.owner.frags =  self.owner.frags + 2;
-                              else if (self.lip >= 1000)
+                              centerprint (self.owner, "EXTREMELY LONG RANGE SNIPE !! BONUS + 2 frags, NICE!!\n");
+							  }
+							  else if (self.lip >= 1000)
+							  {
                               self.owner.frags =  self.owner.frags + 1;          
-                              
+                              centerprint (self.owner, "LONG RANGE SNIPE SHOT, BONUS + 1 frags\n");
+							  }
                               }
                               self.owner.runevar = self.owner.runevar + 25;
                     }
