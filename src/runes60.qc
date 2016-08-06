@@ -399,7 +399,7 @@ Sniper_Touch =
 void () Snipe_AAim =
 {
 
-if (self.owner.runetime < time && (self.owner.weaponmodel != self.weaponmodel))
+if (self.owner.runetime < time && (self.owner.weaponmodel != self.weaponmodel) || self.think == SUB_Remove)
 self.owner.weaponmodel = self.weaponmodel;
 
 if (self.owner.snkills < 1)
@@ -495,7 +495,7 @@ Rune_Sniper =
           if (self.velocity == VEC_ORIGIN)
           newmis.dmg = 1000;
           player_shot1 ();
-	smallkick ();
+	self.punchangle_x = -4;
 	self.runetime = time + (7.5 / (self.health / 2));
           self.classname == "sniper round";
           
