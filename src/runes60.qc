@@ -421,7 +421,9 @@ self.effects = 2;
    {
              local vector adj;
           adj = self.enemy.origin - self.origin;
-        //  adj		= normalize (adj);
+          adj = (((self.enemy.absmin + self.enemy.absmax) * 0.5) - self.origin);
+
+     
           self.velocity	= self.velocity + adj;
           if (vlen (self.velocity) > vlen (self.dest))
           self.velocity	= normalize (self.velocity);
@@ -454,8 +456,8 @@ Rune_Sniper =
 	sound (self, CHAN_WEAPON, "weapons/ric3.wav", 1, ATTN_NORM);
 
 	makevectors (self.v_angle);
-	launch_spike (self.origin + PLAYER_WEAPON_OFFSET, v_forward);
-
+	launch_spike (self.origin + self.view_ofs + v_up * -13 + v_right * 6 + v_forward * 1, v_forward);
+          
 	newmis.touch = Sniper_Touch;
           if (self.snkills)
           {
@@ -468,12 +470,6 @@ Rune_Sniper =
 	p1 = org;
 	p2 = org + v_forward*1000;
 
-	f = p2 - p1;
-	normalize (f);
-	f_x = 0 - f_y;
-	f_y = f_x;
-	f_z = 0;
-	f = f*16;
 
 	traceline (p1, p2, FALSE, self);
           if (trace_ent.classname == "player")
