@@ -433,8 +433,10 @@ self.effects = 2;
              self.angles = vectoangles (self.velocity);
              }
 
+if (self.owner.runetime < time)
+self.owner.weaponmodel = self.weaponmodel;
 
-adj_x = (0.25 / 2) - (0.025 * self.owner.snkills);
+          adj_x = (0.25 / 2) - (0.025 * self.owner.snkills);
 if (adj_x <= 0)
 adj_x = frametime;          
 self.nextthink = time + adj_x;   
@@ -453,11 +455,13 @@ Rune_Sniper =
 		return;
 
 	//T_Damage (self, self, self, (25 + (random () * self.runevar)), "sniped");
-	sound (self, CHAN_WEAPON, "weapons/ric3.wav", 1, ATTN_NORM);
-
-	makevectors (self.v_angle);
-	launch_spike (self.origin + self.view_ofs + v_up * -13 + v_right * 6 + v_forward * 1, v_forward);
+	
+          sound (self, CHAN_WEAPON, "weapons/ric3.wav", 1, ATTN_NORM);
           
+	makevectors (self.v_angle);
+	launch_spike (self.origin + self.view_ofs + (v_up * -13) + (v_forward * 1), v_forward);
+          newmis.weaponmodel = self.weaponmodel;
+          self.weaponmodel = "progs/bolt2.mdl";
 	newmis.touch = Sniper_Touch;
           if (self.snkills)
           {
@@ -485,7 +489,7 @@ Rune_Sniper =
           newmis.dmg = 1000;
           player_shot1 ();
 	smallkick ();
-	self.runetime = time + 0.1;
+	self.runetime = time + (7.5 / (self.health / 2));
           self.classname == "sniper round";
           
 
