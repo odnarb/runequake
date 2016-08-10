@@ -150,7 +150,7 @@ misc_explobox =
 {
 	local float oldz;
 
-	self.solid	= SOLID_BBOX;
+	self.solid	= SOLID_BSP; // Cobalt, was BBOX for some reason?
 	self.touch	= misc_touch;
 	self.movetype	= MOVETYPE_NONE;
 	self.mdl	= "maps/b_explob.bsp";
@@ -186,7 +186,7 @@ misc_explobox2 =
 {
 	local float oldz;
 
-	self.solid	= SOLID_BBOX;
+	self.solid	= SOLID_BSP; // Cobalt, was BBOX for some reason?
 	self.touch	= misc_touch;
 	self.movetype	= MOVETYPE_NONE;
 	self.mdl	= "maps/b_exbox2.bsp";
@@ -198,7 +198,7 @@ misc_explobox2 =
 		setsize (self, VEC_ORIGIN, '32 32 32');
 	-])
 
-	self.health	= self.max_health = 20;
+	self.health	= self.max_health = 15; // Cobalt smaller box, less health
 	self.th_die	= barrel_explode;
 	self.takedamage	= DAMAGE_AIM;
 
