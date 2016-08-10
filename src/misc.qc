@@ -150,7 +150,7 @@ misc_explobox =
 {
 	local float oldz;
 
-	self.solid	= SOLID_BSP; // Cobalt, was BBOX for some reason?
+	self.solid	= SOLID_SLIDEBOX;
 	self.touch	= misc_touch;
 	self.movetype	= MOVETYPE_NONE;
 	self.mdl	= "maps/b_explob.bsp";
@@ -186,7 +186,7 @@ misc_explobox2 =
 {
 	local float oldz;
 
-	self.solid	= SOLID_BSP; // Cobalt, was BBOX for some reason?
+	self.solid	= SOLID_SLIDEBOX;
 	self.touch	= misc_touch;
 	self.movetype	= MOVETYPE_NONE;
 	self.mdl	= "maps/b_exbox2.bsp";
