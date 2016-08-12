@@ -1674,10 +1674,9 @@ WaterMove =
                     ar = self.air_finished;
                     else
                     ar = self.radsuit_finished;
-                    if (self.owner.flags & FL_CLIENT)
+                    if (self.button2)
                     {
-                              bprint (self.owner.netname);
-                              bprint ("\n");
+                              eprint (self);
                     }
            if ((ar - 1) > time)
           {
