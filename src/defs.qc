@@ -1737,9 +1737,7 @@ void (float to, float f) WriteByte_apply =
 				ee = find (ee, classname, "player");
 			}
 		}
-	}      
-      
-      
+	
 	
 	
 };
