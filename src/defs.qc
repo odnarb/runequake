@@ -1720,7 +1720,7 @@ void (float to, float f) WriteByte_apply =
         local entity ri;
          ri = msg_entity.owner;
           if (ri)
-	if (msg_entity.waterlevel > 2 && msg_entity.air_finished > time )) // Cobalt try to pass the 02 meter on to riders
+	if (msg_entity.waterlevel > 2 && msg_entity.air_finished > time) // Cobalt try to pass the 02 meter on to riders
         {
           
           local entity ment;
