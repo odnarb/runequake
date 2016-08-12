@@ -1718,14 +1718,14 @@ void (float to, float f) WriteByte_apply =
         WriteByte (to, f);
         
         local entity ri;
-         ri = ridee_e (msg_entity)
+         ri = msg_entity.owner;
           if (ri)
 	if (msg_entity.waterlevel > 2 && msg_entity.air_finished > time )) // Cobalt try to pass the 02 meter on to riders
         {
           
           local entity ment;
           ment = msg_entity;
-	msg_entity = msg_entity.owner;
+	msg_entity = ri;
 	WriteByte (to, f);
           msg_entity = ment;
         }
