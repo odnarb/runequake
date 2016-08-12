@@ -1676,7 +1676,7 @@ WaterMove =
                     ar = self.radsuit_finished;
                     if (self.owner.flags & FL_CLIENT)
                     {
-                              bprint (self.owner.netname)
+                              bprint (self.owner.netname);
                               bprint ("\n");
                     }
            if ((ar - 1) > time)
