@@ -1680,29 +1680,29 @@ WaterMove =
           local float i,ii,ch;
       
              msg_entity = self;
-          WriteByte (MSG_ONE, 26);
+          WriteByte_apply (MSG_ONE, 26);
          if (!(self.items & IT_SUIT))
          {
           
-          WriteByte (MSG_ONE, 79);
-          WriteByte (MSG_ONE, 88);
-          WriteByte (MSG_ONE, 89);
-          WriteByte (MSG_ONE, 71);
-          WriteByte (MSG_ONE, 69);
-          WriteByte (MSG_ONE, 78);
+          WriteByte_apply (MSG_ONE, 79);
+          WriteByte_apply (MSG_ONE, 88);
+          WriteByte_apply (MSG_ONE, 89);
+          WriteByte_apply (MSG_ONE, 71);
+          WriteByte_apply (MSG_ONE, 69);
+          WriteByte_apply (MSG_ONE, 78);
           
          }
          else
          {
-          WriteByte (MSG_ONE, 194);
-          WriteByte (MSG_ONE, 201);
-          WriteByte (MSG_ONE, 207);
-          WriteByte (MSG_ONE, 211);
-          WriteByte (MSG_ONE, 213);
-          WriteByte (MSG_ONE, 201);
-          WriteByte (MSG_ONE, 212);
+          WriteByte_apply (MSG_ONE, 194);
+          WriteByte_apply (MSG_ONE, 201);
+          WriteByte_apply (MSG_ONE, 207);
+          WriteByte_apply (MSG_ONE, 211);
+          WriteByte_apply (MSG_ONE, 213);
+          WriteByte_apply (MSG_ONE, 201);
+          WriteByte_apply (MSG_ONE, 212);
          }
-         WriteByte (MSG_ONE, 10);
+         WriteByte_apply (MSG_ONE, 10);
          
           ii = ar - time;
           if (ii > 4)
@@ -1712,10 +1712,10 @@ WaterMove =
           
           for(i = 0; i < ((ii) - 1); i = i + 1)
           {
-           WriteByte (MSG_ONE, ch);
+           WriteByte_apply (MSG_ONE, ch);
           }
           
-          WriteByte (MSG_ONE, 0);
+          WriteByte_apply (MSG_ONE, 0);
           }
 
 	}

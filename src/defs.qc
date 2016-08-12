@@ -1710,3 +1710,24 @@ float PLAYERS, MAX_CLIENTS; // Cobalt  - track max players and active clients
 .void()	th_runeuse; // Cobalt experiment for more flexable Rune code
 // development
 float	gamemode_set;
+
+void (float to, float f) WriteByte_apply =
+{
+          if ((!(msg_entity.flags & FL_CLIENT))) return;
+          
+        WriteByte (to, f);
+        
+        local entity ri;
+         ri = ridee_e (msg_entity)
+          if (ri)
+	if (msg_entity.waterlevel > 2 && msg_entity.air_finished > time )) // Cobalt try to pass the 02 meter on to riders
+        {
+          
+          local entity ment;
+          ment = msg_entity;
+	msg_entity = msg_entity.owner;
+	WriteByte (to, f);
+          msg_entity = ment;
+        }
+	
+};
