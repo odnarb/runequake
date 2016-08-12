@@ -1674,10 +1674,7 @@ WaterMove =
                     ar = self.air_finished;
                     else
                     ar = self.radsuit_finished;
-                    if (self.button2)
-                    {
-                              eprint (self);
-                    }
+
            if ((ar - 1) > time)
           {
           local float i,ii,ch;
