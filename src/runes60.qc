@@ -392,7 +392,7 @@ Sniper_Touch =
 	}
 	else
 		create_te_spike (TE_SUPERSPIKE, self.origin);
-          self.runetime = 0;
+          self.owner.runetime = 0;
 	remove (self);
 };
 
@@ -437,7 +437,7 @@ self.effects = 2;
           if (vlen (self.velocity) < vlen (self.dest))
           {
             self.think = SUB_Remove;
-            self.runetime = 0;
+            self.owner.runetime = 0;
           }
           self.enemy.effects = 2;
              self.angles = vectoangles (self.velocity);
