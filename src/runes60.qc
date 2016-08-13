@@ -392,7 +392,7 @@ Sniper_Touch =
 	}
 	else
 		create_te_spike (TE_SUPERSPIKE, self.origin);
-
+          self.runetime = 0;
 	remove (self);
 };
 
@@ -435,7 +435,10 @@ self.effects = 2;
           if (vlen (self.velocity) > vlen (self.dest))
           self.velocity	= normalize (self.velocity);
           if (vlen (self.velocity) < vlen (self.dest))
+          {
             self.think = SUB_Remove;
+            self.runetime = 0;
+          }
           self.enemy.effects = 2;
              self.angles = vectoangles (self.velocity);
              }
@@ -454,7 +457,7 @@ self.nextthink = time + adj_x;
 void ()
 Rune_Sniper =
 {
-	if (self.runetime > time)
+	if (self.runetime == -1)
 		return;
 
 	if (!W_CheckNoAmmo ())
@@ -496,7 +499,7 @@ Rune_Sniper =
           newmis.dmg = 1000;
           player_shot1 ();
 	self.punchangle_x = -4;
-	self.runetime = time + (7.5 / (self.health / 2));
+	self.runetime = -1;
           self.classname == "sniper round";
           
 
