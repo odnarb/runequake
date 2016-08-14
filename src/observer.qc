@@ -1055,6 +1055,7 @@ obs_rider_off =
 	if (self.owner)
 	{
 		setorigin (self, self.owner.origin);
+                    self.items2 = 0; // Cobalt , clear rune on hud
 		self.aqstate = self.aqstate - self.aqstate & AQS_RIDE_MASK;
 		obs_rider_drop (tell);
 		if (tell == 1)
