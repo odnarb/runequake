@@ -445,9 +445,9 @@ self.effects = 2;
 
 
 
-          adj_x = (0.25 / 2) - (0.025 * self.owner.snkills);
+          adj_x = (0.25 / 2) - (0.025 * (self.owner.snkills 10));
 if (adj_x < (frametime * 10))
-adj_x = frametime * 10;          
+adj_x = frametime * 20;          
 self.nextthink = time + adj_x;   
 
 
