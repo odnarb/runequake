@@ -44,7 +44,17 @@ restore_gmissile_owner =
 
 	self = os;
 };
-
+void () gmissile_repulse =
+{
+sound (self.groundentity, CHAN_AUTO, "weapons/sgun1.wav", 1, ATTN_IDLE);
+self.groundentity.effects = 2;
+self.groundentity.velocity = self.groundentity.velocity * 4;
+self.groundentity.classname = "missile";
+self.groundentity.nextthink = time + 5;
+self.groundentity.think = SUB_Remove;
+		          
+          
+};
 void ()
 gmissile_think =
 {
@@ -70,15 +80,20 @@ gmissile_think =
 	}
 
 	// update missile direction
+          if (self.classname != "missile")
+          {
 	makevectors (self.owner.v_angle);
 	self.velocity		= v_forward * 350;
 	self.angles		= vectoangles (self.velocity);
-
+          }
 	// remove ammo, explode if none
 	if (self.runetime < time)
 	{
-		if (self.owner.ammo_rockets >= 1)
-			self.owner.ammo_rockets = self.owner.ammo_rockets - 1;
+		if (self.owner.ammo_rockets >= 1) 
+                    {         // Cobalt - dont use rocks as fuel with repulse rune
+                              if (self.owner.runetype != RN_REPEL)
+                              self.owner.ammo_rockets = self.owner.ammo_rockets - 1;
+                    }
 		else
 		{
 			restore_gmissile_owner (self.owner);
@@ -103,7 +118,7 @@ W_FireGuidedMissile =
 {
 	newmis.nextthink	= time;
 	newmis.think		= gmissile_think;
-
+          newmis.owner.groundentity = newmis; // Cobalt to tag the missle in case of Repulse rune
 	// don't explode right away if low ammo
 	newmis.runetime		= time + 2;
 

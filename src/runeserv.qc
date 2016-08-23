@@ -71,6 +71,7 @@ Rune_Button =
 	else if (self.runetype == RN_HOLO)		Rune_Holo ();
 	else if (self.runetype == RN_BLINK)		Rune_Blink (0);
 	else if (self.runetype == RN_SHIELD)		Rune_Shield ();
+          else if (self.runetype == RN_REPEL)	          gmissile_repulse ();
 	else if (self.runetype == RN_RADIO)		Rune_Radio ();
 	else if (self.runetype == RN_SWITCH)		Rune_Switch ();
 	else if (self.runetype == RN_FREEZE)		Rune_Freeze ();
