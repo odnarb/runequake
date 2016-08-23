@@ -44,7 +44,8 @@ restore_gmissile_owner =
 
 	self = os;
 };
-void () gmissile_repulse =
+void ()
+gmissile_repulse =
 {
 sound (self.groundentity, CHAN_AUTO, "weapons/sgun1.wav", 1, ATTN_IDLE);
 self.groundentity.effects = 2;
