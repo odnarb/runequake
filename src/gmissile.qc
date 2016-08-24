@@ -47,8 +47,8 @@ restore_gmissile_owner =
 void ()
 gmissile_repulse =
 {
-if (!self.groundentity) return;
-self.groundentity.flags = FL_NOTARGET;
+if (!self.gmis) return;
+self.gmis.flags = FL_NOTARGET;
 		bprint ("Case1\n");          
           
 };
@@ -134,5 +134,5 @@ W_FireGuidedMissile =
 
 	// spawn a rocket hat
 	Hat_Spawn (self, "progs/missile.mdl", '-4 1 32', VEC_ORIGIN, 16);
-            self.groundentity = newmis; // Cobalt to tag the missle in case of Repulse rune
+            self.gmis = newmis; // Cobalt to tag the missle in case of Repulse rune
 };
