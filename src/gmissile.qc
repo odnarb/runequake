@@ -47,12 +47,7 @@ restore_gmissile_owner =
 void ()
 gmissile_repulse =
 {
-sound (self.groundentity, CHAN_AUTO, "weapons/sgun1.wav", 1, ATTN_IDLE);
-self.groundentity.effects = 2;
-self.groundentity.velocity = self.groundentity.velocity * 4;
-self.groundentity.classname = "missile";
-self.groundentity.nextthink = time + 5;
-self.groundentity.think = SUB_Remove;
+self.groundentity.flags = FL_NOTARGET;
 		          
           
 };
@@ -79,14 +74,23 @@ gmissile_think =
 		restore_gmissile_owner (self.owner);
 		return;
 	}
-
+         
+         if (self.flags & FL_NOTARGET) // Repulse rune being used
+         {
+          sound (self, CHAN_AUTO, "weapons/sgun1.wav", 1, ATTN_IDLE);
+          self.effects = 2;
+          self.velocity = self.velocity * 4;
+          self.nextthink = time + 5;
+          self.think = SUB_Remove;  
+         return;          
+         }
+          
 	// update missile direction
-          if (self.classname != "missile")
-          {
+        
 	makevectors (self.owner.v_angle);
 	self.velocity		= v_forward * 350;
 	self.angles		= vectoangles (self.velocity);
-          }
+          
 	// remove ammo, explode if none
 	if (self.runetime < time)
 	{
@@ -119,7 +123,7 @@ W_FireGuidedMissile =
 {
 	newmis.nextthink	= time;
 	newmis.think		= gmissile_think;
-          self.groundentity = newmis; // Cobalt to tag the missle in case of Repulse rune
+        
 	// don't explode right away if low ammo
 	newmis.runetime		= time + 2;
 
@@ -129,4 +133,5 @@ W_FireGuidedMissile =
 
 	// spawn a rocket hat
 	Hat_Spawn (self, "progs/missile.mdl", '-4 1 32', VEC_ORIGIN, 16);
+            self.groundentity = newmis; // Cobalt to tag the missle in case of Repulse rune
 };
