@@ -47,11 +47,9 @@ restore_gmissile_owner =
 void ()
 gmissile_repulse =
 {
-          bprint ("Case1\n");
+          
 if (self.gmis.think == SUB_Remove) return;
 self.gmis.flags = FL_NOTARGET;
-bprint ("Case2\n");
-		          
           
 };
 void ()
@@ -80,7 +78,7 @@ gmissile_think =
          
          if (self.flags & FL_NOTARGET) // Repulse rune being used
          {
-          sound (self, CHAN_AUTO, "weapons/sgun1.wav", 1, ATTN_IDLE);
+          sound (self, CHAN_AUTO, "bos1/throw.wav", 1, ATTN_IDLE);
           self.effects = 2;
           self.velocity = self.velocity * 4;
           self.nextthink = time + 5;

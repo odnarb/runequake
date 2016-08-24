@@ -92,7 +92,7 @@ precaches =
 	precache_sound ("misc/talk.wav");		// player talk/world message/countdown timer
 	precache_sound ("misc/water1.wav");		// swimming/underwater (lava/flamethrower) discharge
 	precache_sound ("misc/water2.wav");		// swimming/underwater (lava/flamethrower) discharge
-
+          precache_sound ("boss1/throw.wav");               // Cobalt test sound for fast rocket with repulse rune
 	// player/
 	precache_sound ("player/axhit1.wav");		// axe hits meat
 	precache_sound ("player/axhit2.wav");		// axe hits world/hook bounce
