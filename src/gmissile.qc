@@ -47,7 +47,7 @@ restore_gmissile_owner =
 void ()
 gmissile_repulse =
 {
-if (!self.gmis) return;
+if (self.gmis.think == SUB_Remove) return;
 self.gmis.flags = FL_NOTARGET;
 		bprint ("Case1\n");          
           
