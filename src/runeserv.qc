@@ -58,7 +58,7 @@ Rune_Button =
 	if (!self.runetype)
 		return;
 
-	if (self.effects & EF_FROZEN)
+	if ((self.effects & EF_FROZEN) && self.runetype != RN_REPEL && !self.gmis) // Cobalt reinforce cond for Repel rune exception
 		return;
 
 	spawn_protect_off ();
