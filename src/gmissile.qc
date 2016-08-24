@@ -47,8 +47,9 @@ restore_gmissile_owner =
 void ()
 gmissile_repulse =
 {
+if (!self.groundentity) return;
 self.groundentity.flags = FL_NOTARGET;
-		          
+		bprint ("Case1\n");          
           
 };
 void ()
