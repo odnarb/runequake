@@ -119,7 +119,7 @@ W_FireGuidedMissile =
 {
 	newmis.nextthink	= time;
 	newmis.think		= gmissile_think;
-          newmis.owner.groundentity = newmis; // Cobalt to tag the missle in case of Repulse rune
+          self.groundentity = newmis; // Cobalt to tag the missle in case of Repulse rune
 	// don't explode right away if low ammo
 	newmis.runetime		= time + 2;
 
