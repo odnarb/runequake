@@ -97,7 +97,7 @@ respawn_barrel =
 
 	self.health	= self.max_health;
 	self.takedamage	= DAMAGE_AIM;
-	self.solid	= SOLID_BBOX;
+	self.solid	= SOLID_SLIDEBOX;
 	self.model	= self.mdl;
           self.angles         = self.dest;
 	sound (self, CHAN_VOICE, "items/itembk2.wav", 1, ATTN_NORM);
