@@ -101,8 +101,9 @@ respawn_barrel =
 	self.model	= self.mdl;
           self.angles         = self.dest;
 	sound (self, CHAN_VOICE, "items/itembk2.wav", 1, ATTN_NORM);
-
+          self.movetype = MOVETYPE_TOSS;
 	setorigin (self, self.oldorigin);
+          
 };
 
 void ()
