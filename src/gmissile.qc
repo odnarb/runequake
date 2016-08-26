@@ -78,7 +78,7 @@ gmissile_think =
          
          if (self.flags & FL_NOTARGET) // Repulse rune being used
          {
-          particle (self.origin, self.velocity * -1, 5, 66);
+          particle (self.origin, (self.velocity * -1), 5, 66);
           sound (self, CHAN_AUTO, "bos1/throw.wav", 1, ATTN_NORM);
           self.effects = 10;
           self.velocity = self.velocity * 3;
