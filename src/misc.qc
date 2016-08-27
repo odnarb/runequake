@@ -102,7 +102,10 @@ respawn_barrel =
           self.angles         = self.dest;
 	sound (self, CHAN_VOICE, "items/itembk2.wav", 1, ATTN_NORM);
           self.movetype = MOVETYPE_TOSS;
-          self.angles_y = (random () * 359);
+          
+          self.angles_y = (random () * 15);
+          if (random () < 0.5)
+          self.angles_y = self.angles_y * -1;
 	setorigin (self, self.oldorigin);
           droptofloor ();
           
