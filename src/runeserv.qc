@@ -717,7 +717,7 @@ Rune_Activate =
 		{
 			cloaked_sound (self, CHAN_BODY, SOUND_RUNE_PICKUP,
 					1, ATTN_NORM);
-			muzzleflash ();
+			muzzleflash ();  // if (self.waterlevel < 3)
 			Rune_Tell (1, self, type, 0);
 		}
 		draw_hud (1);
