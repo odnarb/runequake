@@ -399,8 +399,8 @@ Sniper_Touch =
 void () Snipe_AAim =
 {
 
-if (self.owner.runetime < time && (self.owner.weaponmodel != self.weaponmodel) || self.think == SUB_Remove)
-self.owner.weaponmodel = self.weaponmodel;
+//if (self.owner.runetime < time && (self.owner.weaponmodel != self.weaponmodel) || self.think == SUB_Remove)
+//self.owner.weaponmodel = self.weaponmodel;
 
 
 
@@ -470,7 +470,7 @@ Rune_Sniper =
 	makevectors (self.v_angle);
 	launch_spike (self.origin + self.view_ofs + (v_up * -13) + (v_forward * 1), v_forward);
           newmis.weaponmodel = self.weaponmodel;
-          self.weaponmodel = "progs/k_spike.mdl";
+          //self.weaponmodel = "progs/k_spike.mdl";
 	newmis.touch = Sniper_Touch;
            
           if (self.snkills)
