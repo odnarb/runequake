@@ -402,18 +402,13 @@ void () Snipe_AAim =
 if (self.owner.runetime < time && (self.owner.weaponmodel != self.weaponmodel) || self.think == SUB_Remove)
 self.owner.weaponmodel = self.weaponmodel;
 
-if (self.owner.snkills < 1)
-{
-self.nextthink = time + frametime;
-return;
-}
 
-self.effects = 2;
+
    if (!self.enemy)
    {
              local entity this;
 	 this = findradius (self.origin, self.dmg);
-
+          self.effects = 2;
 	
 	while (this)
 	{
@@ -426,29 +421,34 @@ self.effects = 2;
    }
    else
    {
-             local vector adj;
-          adj = self.enemy.origin - self.origin;
-          adj = (((self.enemy.absmin + self.enemy.absmax) * 0.5) - self.origin);
+             
+             local vector	dir, vtemp;
+	vtemp = self.enemy.origin + '0 0 10';
+	if (self.enemy.health < 1)
+	{
+		remove(self);
+                    self.owner.runetime = 0;
+		return;
+	}
+	dir = normalize(vtemp - self.origin);
+		self.velocity = dir * (250 + (self.owner.snkills *;
 
-     
-          self.velocity	= self.velocity + adj;
-          if (vlen (self.velocity) > vlen (self.dest))
-          self.velocity	= normalize (self.velocity);
           if (vlen (self.velocity) < vlen (self.dest))
           {
             self.think = SUB_Remove;
             self.owner.runetime = 0;
           }
-          self.enemy.effects = 2;
+          
+             self.enemy.effects = 2;
              self.angles = vectoangles (self.velocity);
-             }
+             
+   }
 
 
-
-          adj_x = (0.25 / 2) - (0.025 * (self.owner.snkills * 10));
-if (adj_x < (frametime * 10))
-adj_x = frametime * 20;          
-self.nextthink = time + adj_x;   
+          dir_x = (0.25 / 2) - (0.025 * (self.owner.snkills * 10));
+          if (dir_x < (frametime * 10))
+         dir_x = frametime * 20;          
+          self.nextthink = time + dir_x;   
 
 
 
@@ -472,11 +472,11 @@ Rune_Sniper =
           newmis.weaponmodel = self.weaponmodel;
           self.weaponmodel = "progs/k_spike.mdl";
 	newmis.touch = Sniper_Touch;
-            newmis.think = Snipe_AAim;
-           newmis.nextthink = time + frametime;
+           
           if (self.snkills)
           {
-         
+            newmis.think = Snipe_AAim;
+           newmis.nextthink = time + frametime;
            local vector f, p1, p2, org;
 	org = self.origin + '0 0 15';
 	makevectors (self.v_angle);
@@ -500,7 +500,7 @@ Rune_Sniper =
           player_shot1 ();
 	self.punchangle_x = -4;
 	self.runetime = -1;
-          self.classname == "sniper round";
+          self.classname = "sniper round";
           
 
 	
