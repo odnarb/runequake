@@ -472,7 +472,7 @@ Rune_Sniper =
           newmis.weaponmodel = self.weaponmodel;
           //self.weaponmodel = "progs/k_spike.mdl";
 	newmis.touch = Sniper_Touch;
-           
+           newmis.classname = "sniper round";
           if (self.snkills)
           {
             newmis.think = Snipe_AAim;
@@ -500,7 +500,7 @@ Rune_Sniper =
           player_shot1 ();
 	self.punchangle_x = -4;
 	self.runetime = -1;
-          self.classname = "sniper round";
+          
           
 
 	
