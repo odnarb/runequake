@@ -457,8 +457,8 @@ void () Snipe_AAim =
 void ()
 Rune_Sniper =
 {
-	//if (self.runetime == -1)
-	//	return;
+	if (self.runetime == -1)
+		return;
 
 	if (!W_CheckNoAmmo ())
 		return;
