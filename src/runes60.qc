@@ -419,7 +419,7 @@ self.owner.weaponmodel = self.weaponmodel;
 		this = this.chain;
 	}
    }
-   else
+   if (self.enemy)
    {
              
              local vector	dir, vtemp;
@@ -431,7 +431,7 @@ self.owner.weaponmodel = self.weaponmodel;
 		return;
 	}
 	dir = normalize(vtemp - self.origin);
-		self.velocity = dir * (250 + (self.owner.snkills *;
+		self.velocity = dir * (200 + (self.owner.snkills * 100));
 
           if (vlen (self.velocity) < vlen (self.dest))
           {
