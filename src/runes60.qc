@@ -470,11 +470,13 @@ Rune_Sniper =
 	makevectors (self.v_angle);
 	launch_spike (self.origin + self.view_ofs + (v_up * -13) + (v_forward * 1), v_forward);
           newmis.weaponmodel = self.weaponmodel;
+          
           //self.weaponmodel = "progs/k_spike.mdl";
 	newmis.touch = Sniper_Touch;
            newmis.classname = "sniper round";
           if (self.snkills)
           {
+            newmis.enemy = trace_ent = world;
             newmis.think = Snipe_AAim;
            newmis.nextthink = time + frametime;
            local vector f, p1, p2, org;

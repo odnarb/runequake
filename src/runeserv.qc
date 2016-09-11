@@ -571,7 +571,7 @@ Rune_Tell_real =
 
 		d1 = "Activate to fire rifle\n"
 			"Single shot kills anything\n"
-			"Damage to self increases\n"
+			"Homing range increases\n"
 			"with each kill";
 	}
 	/*else if (type == RN_SONAR)
