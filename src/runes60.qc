@@ -430,6 +430,7 @@ void () Snipe_AAim =
 	this = nextent (this);	
 	
    }
+   }
    if (self.enemy)
    {
              
@@ -454,6 +455,7 @@ void () Snipe_AAim =
              self.angles = vectoangles (self.velocity);
              
    }
+   
 
 
           dir_x = (0.25 / 2) - (0.025 * (self.owner.snkills * 10));
