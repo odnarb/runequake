@@ -950,7 +950,8 @@ W_FireSpikes =
 
 	sound (self, CHAN_WEAPON, "weapons/rocket1i.wav", 1, ATTN_NORM);
 	self.attack_finished = time + 0.2;
-	launch_spike (self.origin + PLAYER_WEAPON_OFFSET + v_right*ox, v_forward);
+          launch_spike (self.origin + PLAYER_WEAPON_OFFSET + v_up * -8 + v_right*ox, dir); // Sevens improved nail positons
+	//launch_spike (self.origin + PLAYER_WEAPON_OFFSET + v_right*ox, v_forward);
 	smallkick ();
 
 	// efficiency

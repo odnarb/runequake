@@ -403,21 +403,32 @@ void () Snipe_AAim =
 //self.owner.weaponmodel = self.weaponmodel;
 
 
-
    if (!self.enemy)
    {
              local entity this;
-	 this = findradius (self.origin, self.dmg);
-          self.effects = 2;
-	
-	while (this)
+             local float max;
+             max = MAX_CLIENTS;
+             this = nextent (world);
+	while (max)
 	{
+	 
+          
+          
+          if (vlen (this.origin - self.origin) <= self.dmg)
+	{
+                    
+
 		if (this.classname == "player" && this != self.owner)
                     if (visible (this) && fov (this))
-	          self.enemy = this;	
-		
-		this = this.chain;
+                    {          
+                    self.enemy = this;
+                    self.effects = 2;
+                    }
+                    
 	}
+          max = max - 1;
+	this = nextent (this);	
+	
    }
    if (self.enemy)
    {
