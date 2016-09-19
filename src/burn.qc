@@ -231,12 +231,17 @@ burn_radius =
 	// Torch does more damage with flame weapons.
 	if (attacker.runetype == RN_TORCH)
 		damage = damage * 2;
+          
+          
+          
 
 	e = findradius (inflictor.origin, 50);
 	while (e)
 	{
 		if (e.takedamage && e.runetype != RN_TORCH && e != ignore)
 		{
+                              // Cobalt, burn chance higher if no Armor
+                              burn_chance = 0 - (e.armortype - 1);
 			T_Damage (e, inflictor, attacker, damage, dtype);
 			if (random () < burn_chance)
 				burn_start (e, attacker, burn_duration);
@@ -365,5 +370,5 @@ W_FireFlameMissile =
 	setmodel (newmis, newmis.mdl);
 	setorigin (newmis, org);
 	setsize (newmis, VEC_ORIGIN, VEC_ORIGIN);
-	sound (self, CHAN_WEAPON, snd, 1, ATTN_NORM);
+	sound (newmis, CHAN_WEAPON, snd, 1, ATTN_NORM);
 };
