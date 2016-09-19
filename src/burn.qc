@@ -356,7 +356,7 @@ W_FireFlameMissile =
 		newmis.mdl	= "progs/flame2.mdl";
 		newmis.runevar	= time + 6;
 		//org = self.origin + PLAYER_WEAPON_OFFSET + v_right * ox;
-                    org = self.origin + PLAYER_WEAPON_OFFSET + v_up * -8 + v_right*ox, v_forward; // Sevens improved nail positons
+                    org = self.origin + PLAYER_WEAPON_OFFSET + v_up * -8 + v_right*ox; // Sevens improved nail positons
 	}
 
 	else
