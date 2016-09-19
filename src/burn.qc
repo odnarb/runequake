@@ -355,7 +355,8 @@ W_FireFlameMissile =
 		newmis.pos1_z	= LAVAGUN_BURN_DURATION;
 		newmis.mdl	= "progs/flame2.mdl";
 		newmis.runevar	= time + 6;
-		org = self.origin + PLAYER_WEAPON_OFFSET + v_right * ox;
+		//org = self.origin + PLAYER_WEAPON_OFFSET + v_right * ox;
+                    org = self.origin + PLAYER_WEAPON_OFFSET + v_up * -8 + v_right*ox, v_forward); // Sevens improved nail positons
 	}
 
 	else
