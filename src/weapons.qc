@@ -907,7 +907,7 @@ launch_spike =
 		newmis.velocity = dir * 1000;
           
           if (self.weapon == IT_NAILGUN)
-                    newmis.velocity_z = newmis.velocity_z + (self.v_angle_x) 
+                    newmis.velocity_z = newmis.velocity_z + (self.v_angle_x); 
           
 };
 
