@@ -890,7 +890,7 @@ launch_spike =
 	newmis.solid = SOLID_BBOX;
 
 	newmis.angles = vectoangles (dir);
-
+          newmis.gravity = 1;
 	newmis.touch = spike_touch;
 	newmis.classname = "spike";
 	newmis.think = SUB_Remove;
