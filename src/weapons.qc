@@ -890,7 +890,6 @@ launch_spike =
 	newmis.solid = SOLID_BBOX;
 
 	newmis.angles = vectoangles (dir);
-          newmis.gravity = 100;
 	newmis.touch = spike_touch;
 	newmis.classname = "spike";
 	newmis.think = SUB_Remove;
@@ -906,6 +905,10 @@ launch_spike =
 		newmis.velocity = dir * 1250;
 	else
 		newmis.velocity = dir * 1000;
+          
+          if (self.weapon == IT_NAILGUN)
+                    newmis.velocity_z = newmis.velocity_z + (self.v_angle_x) 
+          
 };
 
 void ()
