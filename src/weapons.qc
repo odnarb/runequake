@@ -907,7 +907,7 @@ launch_spike =
 		newmis.velocity = dir * 1000;
           
           if (self.weaponmodel == "progs/v_nail.mdl")
-                    newmis.velocity_z = newmis.velocity_z + (self.angles_x); 
+                    newmis.velocity_z = newmis.velocity_z + (self.angles_x) + (0 - self.v_angle_x); 
           
 };
 
