@@ -389,7 +389,7 @@ T_Damage =
                     
                      if (targ.touch == Rune_Touch)
                      {
-                     targ.avelocity = crandom () * (vectoangles (targ.velocity));
+                     targ.avelocity = crandom () * (normalize (vectoangles (targ.velocity)));
                      return;
                      }
 	}
