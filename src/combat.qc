@@ -387,9 +387,11 @@ T_Damage =
 				targ.velocity = targ.velocity + dir * damage * rj;
 		-])
                     
-                     if (targ.touch == Rune_Touch) 
+                     if (targ.touch == Rune_Touch)
+                     {
+                     targ.avelocity = crandom () * (vectoangles (targ.velocity));
                      return;
-                     
+                     }
 	}
 
 	if (damage < SURE_KILL_DAMAGE)
