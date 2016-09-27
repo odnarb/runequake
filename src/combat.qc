@@ -172,7 +172,7 @@ T_Damage =
 	// MODE_MIDAIR
 	local float player_height, safe_height;
 
-	if (!targ.takedamage)
+	if (!targ.takedamage && targ.touch != Rune_Touch)
 		return 0;
 
 	// used by buttons and triggers to set activator for target firing
@@ -353,7 +353,7 @@ T_Damage =
 	damage_inflictor = inflictor;
 
 	// figure momentum add
-	if (inflictor != world && targ.movetype == MOVETYPE_WALK
+	if (inflictor != world && (targ.movetype == MOVETYPE_WALK || targ.touch == Rune_Touch)
 			&& (targ.runetype != RN_MONK || targ == attacker))
 	{
 		dir = targ.origin - (inflictor.absmin + inflictor.absmax) * 0.5;
