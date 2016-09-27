@@ -383,10 +383,8 @@ T_Damage =
 		-])
                     
                      if (targ.touch == Rune_Touch) 
-                     {
-                      bprint ("Rune pushed . . . \n");         
                      return;
-                     }
+                     
 	}
 
 	if (damage < SURE_KILL_DAMAGE)
