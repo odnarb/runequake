@@ -163,7 +163,9 @@ func_button =
 
 	self.movetype	= MOVETYPE_PUSH;
 	self.solid	= SOLID_BSP;
-
+          if (mapname == "e2m3" && self.model == "*50")
+	self.model = "*24";
+	
 	setmodel (self, self.model);
 
 	self.blocked	= button_blocked;
