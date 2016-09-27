@@ -356,6 +356,7 @@ T_Damage =
 	if (inflictor != world && (targ.movetype == MOVETYPE_WALK || targ.touch == Rune_Touch)
 			&& (targ.runetype != RN_MONK || targ == attacker))
 	{
+                   
 		dir = targ.origin - (inflictor.absmin + inflictor.absmax) * 0.5;
 		dir = normalize (dir);
 
@@ -375,6 +376,8 @@ T_Damage =
 			if (rj > 1 && targ == attacker)
 				targ.velocity = targ.velocity + dir * damage * rj;
 		-])
+                    
+                     if (targ.touch == Rune_Touch) return;
 	}
 
 	if (damage < SURE_KILL_DAMAGE)
@@ -726,7 +729,7 @@ T_RadiusDamage =
 	{
 		if (head != ignore)
 		{
-			if (head.takedamage)
+			if (head.takedamage || head.touch == Rune_Touch)
 			{
 				org = head.origin + (head.mins + head.maxs)*0.5;
 				dist = vlen (inflictor.origin - org);
