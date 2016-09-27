@@ -356,8 +356,13 @@ T_Damage =
 	if (inflictor != world && (targ.movetype == MOVETYPE_WALK || targ.touch == Rune_Touch)
 			&& (targ.runetype != RN_MONK || targ == attacker))
 	{
-                   
-		dir = targ.origin - (inflictor.absmin + inflictor.absmax) * 0.5;
+                   if (targ.touch == Rune_Touch) 
+                   if (targ.flags & FL_ONGROUND)
+                   {
+		targ.flags = targ.flags - FL_ONGROUND;
+		targ.velocity_z = 50;
+                   }
+                    dir = targ.origin - (inflictor.absmin + inflictor.absmax) * 0.5;
 		dir = normalize (dir);
 
 		if (attacker.runetype == RN_IMPACT)
