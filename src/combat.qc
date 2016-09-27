@@ -377,7 +377,11 @@ T_Damage =
 				targ.velocity = targ.velocity + dir * damage * rj;
 		-])
                     
-                     if (targ.touch == Rune_Touch) return;
+                     if (targ.touch == Rune_Touch) 
+                     {
+                      bprint ("Rune pushed . . . \n");         
+                     return;
+                     }
 	}
 
 	if (damage < SURE_KILL_DAMAGE)
