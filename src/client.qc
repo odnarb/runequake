@@ -933,6 +933,7 @@ PutClientInServer =
 
 	spot = SelectSpawnPoint ();
           self.pausetime = 0; // Cobalt, in case of Athletic Rune
+          self.stickies = 0;  // Cobalt, in case of multiple sticky bombs
 	self.last_thought = time;
 	self.classname = "player";
 	self.max_health = MAX_HEALTH_NORMAL;
@@ -2951,7 +2952,10 @@ ClientObituary =
 		else if (dt == "bombed")
 		{
 			s1 = " was attached to ";
-			s2 = "'s bomb\n";
+                              if (targ.stickies < 2)
+                              s2 = "'s bomb\n";
+                              else
+			s2 = "'s bombs\n";
 		}
 		else if (dt == "bomb")
 		{
