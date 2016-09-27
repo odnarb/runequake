@@ -369,7 +369,8 @@ T_Damage =
 			targ.velocity = targ.velocity + dir * damage * 70;
 		else
 			targ.velocity = targ.velocity + dir * damage * 8;
-
+                    if (targ.watertype != -1)
+                    targ.velocity = targ.velocity / (0 - (targ.watertype + targ.waterlevel)); 
 		if (gamemode == MODE_MIDAIR)
 		{
 			if (safe_height)
