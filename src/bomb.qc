@@ -62,7 +62,7 @@ bomb_arm =
 
 	// If it stricks a person or monster, do some damage plus stick
 	// to it as it moves around.
-	if (other.takedamage == DAMAGE_AIM || (other.movetype == MOVETYPE_PUSH && other.speed))
+	if (other.takedamage == DAMAGE_AIM || (other.movetype == MOVETYPE_PUSH && other.blocked))
 	{
 		T_Damage (other, self, self.owner, 30, "bombhit");
 		self.runevar = 1;
@@ -129,7 +129,7 @@ bomb_tick =
 			|| self.enemy.origin == VEC_ORIGIN))
 	{
 		self.velocity = self.enemy.velocity;
-                    if (!other.speed)
+                    if (!other.blocked)
 		self.movetype = MOVETYPE_TOSS;
 		self.runevar = 0;
 	}
