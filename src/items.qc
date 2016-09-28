@@ -1506,6 +1506,9 @@ powerup_set =
 
 	setmodel (self, it_model);
 	setsize (self, '-16 -16 -24', '16 16 32');
+          
+          if (it_powerup == IT_SUIT) // && (random () < (1/3)))
+                    self.effects = EF_FROZEN;
 
 	StartItem ();
 };
