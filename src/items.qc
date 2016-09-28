@@ -1435,7 +1435,7 @@ powerup_touch =
 		other.rad_time = -1;
 		other.radsuit_finished = time + 30;
 		other.aqstate = other.aqstate - other.aqstate & AQS_BURNING;
-                    if (self.groundentity) remove (self.groundentity);
+                    if (self.aiment) remove (self.aiment);
 	}
 	else if (self.classname == "item_artifact_invulnerability")
 	{
@@ -1510,14 +1510,15 @@ powerup_set =
           
           if (it_powerup == IT_SUIT) // && (random () < (1/3)))
           {
-                    self.effects = EF_FROZEN | EF_MAYBE_DRAW;
+                    self.effects = EF_MAYBE_DRAW;
                    // spawn eyes hat
                    local entity hat;
 
 	hat		= spawn ();
-	self.groundentity = hat;
-	setorigin (hat, self.origin + '0 0 32');
+	self.aiment = hat;
+	setorigin (hat, self.origin + '0 0 22');
 	setmodel (hat, "progs/eyes.mdl");
+          hat.avelocity_y = -60;
           setsize (hat, VEC_ORIGIN, VEC_ORIGIN);
 
                    
