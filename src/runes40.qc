@@ -113,7 +113,7 @@ Ball_Spawn =
           if (master.items & IT_INVISIBILITY)
           {
           temp.effects = EF_FROZEN;
-	bprint ("Frozen . . . \n");
+	bprint ("Frozen\n");
           
           if (master.health < 1)
 	{
