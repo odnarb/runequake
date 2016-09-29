@@ -132,7 +132,13 @@ Balls_Spawn =
 		n = n + 1;
 
 		chaff = spawn ();
-                     if (self.runent.effects == EF_FROZEN) // Cobalt - change up the propulsion if rune key is pressed
+                    local entity spk;
+                    spk = find (world, model , "progs/teleport.mdl")
+                    while (spk.owner != self)
+                    {
+                    spk = find (spk, model , "progs/teleport.mdl")          
+                    }
+                     if (spk.effects == EF_FROZEN) // Cobalt - change up the propulsion if rune key is pressed
                     { bprint ("Applying changes . . . \n");
                     chaff.movetype = MOVETYPE_NOCLIP;
                     chaff.effects = EF_FROZEN;
