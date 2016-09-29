@@ -25,7 +25,7 @@ Ball_Touch =
 	if (other.classname == "spikeball")
 		return;
 
-           if (self.owner.runent.aiment && checkbottom (self)) // Cobalt - change up the propulsion if rune key is pressed
+           if (self.owner.runent.aiment != world.aiment && checkbottom (self)) // Cobalt - change up the propulsion if rune key is pressed
            {
                     self.movetype = MOVETYPE_NOCLIP;
                     self.effects = EF_FROZEN;
