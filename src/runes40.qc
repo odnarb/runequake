@@ -110,11 +110,7 @@ Ball_Spawn =
 	temp.touch = Ball_Touch2;
 	temp.think = SUB_Remove;
 	temp.nextthink = time + 1 + random ()*2;
-          if (master.items & IT_INVISIBILITY)
-          {
-          temp.effects = EF_FROZEN;
-	bprint ("Frozen\n");
-          }
+        
           if (master.health < 1)
 	{
 		temp.velocity_z = crandom ()*700;
@@ -153,6 +149,11 @@ Balls_Spawn =
 		temp.touch = Ball_Touch;
 		temp.think = Ball_Move;
 		temp.nextthink = time + n;
+                      if (self.items & IT_INVISIBILITY)
+          {
+          temp.effects = EF_FROZEN;
+	bprint ("Frozen\n");
+          }
 	}
 };
 
