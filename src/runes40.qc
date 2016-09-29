@@ -128,11 +128,10 @@ Balls_Spawn =
           
                     local entity spk;
                     spk = find (world, model , "progs/teleport.mdl");
-                    while (spk)
-                    {
-                    if (spk != self.runent)          
+                    if (spk)
+                    while (spk != self.runent)          
                     spk = find (spk, model , "progs/teleport.mdl");          
-                    }
+                    
 
 	n = 0;
 	while (n <= 3)
