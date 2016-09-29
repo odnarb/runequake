@@ -208,7 +208,7 @@ void ()
 Cloud_Spawn =
 {
 	local entity cld;
-
+          bprint ("Spawn cloud . . .\n");
 	cld = spawn ();
 	cld.movetype = MOVETYPE_FLY;
 	cld.solid = SOLID_NOT;
@@ -222,7 +222,6 @@ Cloud_Spawn =
 	cld.think = Cloud_Think;
 	cld.nextthink = time;
 	self.runent = cld;
-          cld.state = -1;
 	Balls_Spawn ();
 };
 
