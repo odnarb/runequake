@@ -133,7 +133,7 @@ Balls_Spawn =
 
 		chaff = spawn ();
                      if (self.runent.effects == EF_FROZEN) // Cobalt - change up the propulsion if rune key is pressed
-                    {
+                    { bprint ("Applying changes . . . \n");
                     chaff.movetype = MOVETYPE_NOCLIP;
                     chaff.effects = EF_FROZEN;
                     }
