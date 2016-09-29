@@ -149,11 +149,11 @@ Balls_Spawn =
 		temp.touch = Ball_Touch;
 		temp.think = Ball_Move;
 		temp.nextthink = time + n;
-                      if (self.items & IT_INVISIBILITY)
-          {
-          temp.effects = EF_FROZEN;
-	bprint ("Frozen\n");
-          }
+                   // if (self.invisible_time > 0) 
+                   // {
+                    temp.effects = EF_FROZEN;
+                   // bprint ("Frozen\n");
+                   // }
 	}
 };
 
