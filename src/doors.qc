@@ -471,6 +471,7 @@ func_door =
 {
           if (mapname == "e1m7" && (self.model == "*10" || self.model == "*11"))
           {
+          func_wall ();
           droptofloor ();
           return;
           }

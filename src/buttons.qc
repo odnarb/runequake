@@ -137,7 +137,7 @@ then returns to it's original position where it can be triggered again.
 void ()
 func_button =
 {
-          if (mapname == "e1m7")
+          if (mapname == "e1m7" && self.model != "*16")
           {
           remove (self);
           return;
