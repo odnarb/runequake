@@ -473,6 +473,8 @@ func_door =
           {
           func_wall ();
           droptofloor ();
+          self.use = world.use;
+          makestatic (self);
           return;
           }
 
