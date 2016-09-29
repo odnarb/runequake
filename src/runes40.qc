@@ -114,7 +114,7 @@ Ball_Spawn =
           {
           temp.effects = EF_FROZEN;
 	bprint ("Frozen\n");
-          
+          }
           if (master.health < 1)
 	{
 		temp.velocity_z = crandom ()*700;
