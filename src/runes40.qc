@@ -230,7 +230,7 @@ Cloud_Toggle =
 {
 if (!(self.runent.effects))
     self.runent.effects = EF_FROZEN;
-else self.runent.effects = 0;;
+else self.runent.effects = 0;
           
 
 };
