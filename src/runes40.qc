@@ -125,6 +125,14 @@ Balls_Spawn =
 {
 	local entity chaff;
 	local float n;
+          
+                    local entity spk;
+                    spk = find (world, model , "progs/teleport.mdl");
+                    while (spk)
+                    {
+                    if (spk != self.runent)          
+                    spk = find (spk, model , "progs/teleport.mdl");          
+                    }
 
 	n = 0;
 	while (n <= 3)
@@ -132,14 +140,8 @@ Balls_Spawn =
 		n = n + 1;
 
 		chaff = spawn ();
-                    local entity spk;
-                    spk = find (world, model , "progs/teleport.mdl");
-                    while (spk)
-                    {
-                    if (spk.owner != self)          
-                    spk = find (spk, model , "progs/teleport.mdl");          
-                    }
-                     if (spk.effects == EF_FROZEN) // Cobalt - change up the propulsion if rune key is pressed
+                    
+                     if (spk.effects & EF_FROZEN) // Cobalt - change up the propulsion if rune key is pressed
                     { bprint ("Applying changes . . . \n");
                     chaff.movetype = MOVETYPE_NOCLIP;
                     chaff.effects = EF_FROZEN;
