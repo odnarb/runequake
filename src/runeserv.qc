@@ -94,6 +94,7 @@ Rune_Button =
 	else if (self.runetype == RN_ANTIPACK)		Rune_AntiPack ();
 	else if (self.runetype == RN_BETTY)		Rune_Betty ();
 	else if (self.runetype == RN_TORNADO)		Rune_Tornado ();
+          else if (self.runetype == RN_CLOUD)               Cloud_Toggle ();
           //else if (self.runetype == RN_ORB)                  ();
 };
 

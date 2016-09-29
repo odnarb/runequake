@@ -25,7 +25,7 @@ Ball_Touch =
 	if (other.classname == "spikeball")
 		return;
 
-           if ((self.owner.items & IT_INVISIBILITY) && checkbottom (self)) // Cobalt - make the spikes little harder to see if invisible
+           if (self.owner.runent.aiment)) && checkbottom (self)) // Cobalt - change up the propulsion if rune key is pressed
            {
                     self.movetype = MOVETYPE_NOCLIP;
                     self.effects = EF_FROZEN;
@@ -223,6 +223,16 @@ Cloud_Spawn =
 
 	Balls_Spawn ();
 };
+
+void ()
+Cloud_Toggle =
+{
+if (!self.runent.aiment)
+    self.runent.aiment = self.runent;
+else self.runent = world;          
+          
+};
+
 
 float ()
 is_shambler =
