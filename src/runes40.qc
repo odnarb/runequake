@@ -110,7 +110,7 @@ Ball_Spawn =
 	temp.touch = Ball_Touch2;
 	temp.think = SUB_Remove;
 	temp.nextthink = time + 1 + random ()*2;
-          if (master.invisible_time > 0)
+          if (master.items & IT_INVISIBILITY)
           temp.effects = EF_FROZEN;
 	if (master.health < 1)
 	{
