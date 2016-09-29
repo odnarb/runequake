@@ -25,11 +25,7 @@ Ball_Touch =
 	if (other.classname == "spikeball")
 		return;
 
-           if (!(self.owner.flags & FL_ONGROUND)) // Cobalt - change up the propulsion if rune key is pressed
-           {
-                    self.movetype = MOVETYPE_NOCLIP;
-                    self.effects = EF_FROZEN;
-           }
+          
 	if ((other.health > 0) && !isfriend2 (other, self.owner) && other.solid != SOLID_BSP)
 	{
 		T_Damage (other, self, self.owner, 40, "spikeball");
@@ -136,6 +132,12 @@ Balls_Spawn =
 		n = n + 1;
 
 		temp = spawn ();
+                     if (!(self.flags & FL_ONGROUND)) // Cobalt - change up the propulsion if rune key is pressed
+                    {
+                    temp.movetype = MOVETYPE_NOCLIP;
+                    temp.effects = EF_FROZEN;
+                    }
+                    else
 		temp.movetype = MOVETYPE_BOUNCE;
 		temp.solid = SOLID_TRIGGER;
 		temp.owner = self;
