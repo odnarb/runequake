@@ -229,7 +229,7 @@ Cloud_Toggle =
 {
 if (!self.runent.aiment)
     self.runent.aiment = self.runent;
-else self.runent = world;          
+else self.runent.aiment = world;          
           
 };
 
