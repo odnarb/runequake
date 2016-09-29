@@ -134,8 +134,9 @@ Balls_Spawn =
 		chaff = spawn ();
                     local entity spk;
                     spk = find (world, model , "progs/teleport.mdl");
-                    while (spk.owner != self)
+                    while (spk)
                     {
+                    if (spk.owner != self)          
                     spk = find (spk, model , "progs/teleport.mdl");          
                     }
                      if (spk.effects == EF_FROZEN) // Cobalt - change up the propulsion if rune key is pressed
