@@ -382,7 +382,5 @@ Just for boss level.
 void ()
 event_lightning =
 {
-          self.movetype = MOVETYPE_PUSH;
-          droptofloor ();
-	//self.use = lightning_use;
+	self.use = lightning_use;
 };

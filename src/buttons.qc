@@ -137,6 +137,11 @@ then returns to it's original position where it can be triggered again.
 void ()
 func_button =
 {
+          if (mapname == "e1m7")
+          {
+          remove (self);
+          return;
+          }
 	if (self.sounds == 0)
 		precache_noise ("buttons/airbut1.wav");
 	else if (self.sounds == 1)

@@ -469,6 +469,12 @@ void ()
 func_door =
 
 {
+          if (mapname == "e1m7" && (self.model == "*10" || self.model == "*11"))
+          {
+          droptofloor ();
+          return;
+          }
+
 	if (world.worldtype == 0)
 	{
 		precache_sound ("doors/medtry.wav");
