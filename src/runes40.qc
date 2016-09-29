@@ -25,7 +25,7 @@ Ball_Touch =
 	if (other.classname == "spikeball")
 		return;
 
-           if (self.owner.invisible_time > 0 && (self.flags & FL_ONGROUND)) // Cobalt - make the spikes little harder to see if invisible
+           if ((self.owner.items & IT_INVISIBILITY) && (self.flags & FL_ONGROUND)) // Cobalt - make the spikes little harder to see if invisible
                     self.effects = EF_FROZEN;
                     
 	if ((other.health > 0) && !isfriend2 (other, self.owner) && other.solid != SOLID_BSP)
