@@ -132,7 +132,7 @@ Balls_Spawn =
 		n = n + 1;
 
 		chaff = spawn ();
-                     if (self.runent.movetype == MOVETYPE_NOCLIP) // Cobalt - change up the propulsion if rune key is pressed
+                     if (self.runent.effects == EF_FROZEN) // Cobalt - change up the propulsion if rune key is pressed
                     {
                     chaff.movetype = MOVETYPE_NOCLIP;
                     chaff.effects = EF_FROZEN;
@@ -208,7 +208,7 @@ void ()
 Cloud_Spawn =
 {
 	local entity cld;
-          bprint ("Spawn cloud . . .\n");
+         
 	cld = spawn ();
 	cld.movetype = MOVETYPE_FLY;
 	cld.solid = SOLID_NOT;
@@ -228,11 +228,11 @@ Cloud_Spawn =
 void ()
 Cloud_Toggle =
 {
-if (self.runent.movetype == MOVETYPE_FLY)
-    self.runent.movetype == MOVETYPE_NOCLIP;
-else self.runent.movetype = MOVETYPE_FLY;
+if (!(self.runent.effects))
+    self.runent.effects = EF_FROZEN;
+else self.runent.effects = 0;;
           
-          self.runent.effects = 2;
+
 };
 
 
