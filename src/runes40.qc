@@ -132,7 +132,7 @@ Balls_Spawn =
 		n = n + 1;
 
 		chaff = spawn ();
-                     if (self.runent.aiment) // Cobalt - change up the propulsion if rune key is pressed
+                     if (self.runent.state != -1) // Cobalt - change up the propulsion if rune key is pressed
                     {
                     chaff.movetype = MOVETYPE_NOCLIP;
                     chaff.effects = EF_FROZEN;
@@ -222,16 +222,16 @@ Cloud_Spawn =
 	cld.think = Cloud_Think;
 	cld.nextthink = time;
 	self.runent = cld;
-
+          cld.state = -1;
 	Balls_Spawn ();
 };
 
 void ()
 Cloud_Toggle =
 {
-if (!(self.runent.aiment))
-    self.runent.aiment = self.runent;
-else self.runent.aiment = world.aiment;          
+if (self.runent.state == -1)
+    self.runent.state = 1;
+else self.runent.state = -1;          
           
 };
 
