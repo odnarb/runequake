@@ -26,8 +26,10 @@ Ball_Touch =
 		return;
 
            if ((self.owner.items & IT_INVISIBILITY) && checkbottom (self)) // Cobalt - make the spikes little harder to see if invisible
+           {
+                    self.movetype = MOVETYPE_NOCLIP;
                     self.effects = EF_FROZEN;
-                    
+           }
 	if ((other.health > 0) && !isfriend2 (other, self.owner) && other.solid != SOLID_BSP)
 	{
 		T_Damage (other, self, self.owner, 40, "spikeball");
