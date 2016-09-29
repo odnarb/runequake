@@ -25,6 +25,9 @@ Ball_Touch =
 	if (other.classname == "spikeball")
 		return;
 
+           if (self.owner.invisible_time > 0 && (self.flags & FL_ONGROUND)) // Cobalt - make the spikes little harder to see if invisible
+                    self.effects = EF_FROZEN;
+                    
 	if ((other.health > 0) && !isfriend2 (other, self.owner) && other.solid != SOLID_BSP)
 	{
 		T_Damage (other, self, self.owner, 40, "spikeball");
@@ -149,11 +152,7 @@ Balls_Spawn =
 		temp.touch = Ball_Touch;
 		temp.think = Ball_Move;
 		temp.nextthink = time + n;
-                   // if (self.invisible_time > 0) 
-                   // {
-                    temp.effects = EF_FROZEN;
-                   // bprint ("Frozen\n");
-                   // }
+                  
 	}
 };
 
