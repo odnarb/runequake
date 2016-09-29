@@ -123,7 +123,7 @@ Ball_Spawn =
 void ()
 Balls_Spawn =
 {
-	local entity temp;
+	local entity chaff;
 	local float n;
 
 	n = 0;
@@ -131,31 +131,31 @@ Balls_Spawn =
 	{
 		n = n + 1;
 
-		temp = spawn ();
-                     if (!(self.flags & FL_ONGROUND)) // Cobalt - change up the propulsion if rune key is pressed
+		chaff = spawn ();
+                     if (self.runent.aiment) // Cobalt - change up the propulsion if rune key is pressed
                     {
-                    temp.movetype = MOVETYPE_NOCLIP;
-                    temp.effects = EF_FROZEN;
+                    chaff.movetype = MOVETYPE_NOCLIP;
+                    chaff.effects = EF_FROZEN;
                     }
                     else
-		temp.movetype = MOVETYPE_BOUNCE;
-		temp.solid = SOLID_TRIGGER;
-		temp.owner = self;
-		setorigin (temp, self.runent.origin);
-		setsize (temp, '-15 -15 -15', '15 15 15');
-		setmodel (temp, "progs/v_spike.mdl");
+		chaff.movetype = MOVETYPE_BOUNCE;
+		chaff.solid = SOLID_TRIGGER;
+		chaff.owner = self;
+		setorigin (chaff, self.runent.origin);
+		setsize (chaff, '-15 -15 -15', '15 15 15');
+		setmodel (chaff, "progs/v_spike.mdl");
 
-		temp.flags = temp.flags-(temp.flags & FL_ONGROUND);
+		chaff.flags = chaff.flags-(chaff.flags & FL_ONGROUND);
 
-		temp.avelocity_x = crandom ()*360;
-		temp.avelocity_y = crandom ()*360;
-		temp.avelocity_z = crandom ()*360;
-		temp.velocity_x = crandom ()*200;
-		temp.velocity_y = crandom ()*200;
-		temp.classname = "spikeball";
-		temp.touch = Ball_Touch;
-		temp.think = Ball_Move;
-		temp.nextthink = time + n;
+		chaff.avelocity_x = crandom ()*360;
+		chaff.avelocity_y = crandom ()*360;
+		chaff.avelocity_z = crandom ()*360;
+		chaff.velocity_x = crandom ()*200;
+		chaff.velocity_y = crandom ()*200;
+		chaff.classname = "spikeball";
+		chaff.touch = Ball_Touch;
+		chaff.think = Ball_Move;
+		chaff.nextthink = time + n;
                   
 	}
 };
@@ -207,21 +207,21 @@ Cloud_Think =
 void ()
 Cloud_Spawn =
 {
-	local entity temp;
+	local entity cld;
 
-	temp = spawn ();
-	temp.movetype = MOVETYPE_FLY;
-	temp.solid = SOLID_NOT;
-	temp.owner = self;
-	setorigin (temp, self.origin);
-	setsize (temp, '-50 -50 -50', '-50 -50 -50');
-	setmodel (temp, "progs/teleport.mdl");
-	temp.avelocity_x = crandom ()*360;
-	temp.avelocity_y = crandom ()*360;
-	temp.avelocity_z = crandom ()*360;
-	temp.think = Cloud_Think;
-	temp.nextthink = time;
-	self.runent = temp;
+	cld = spawn ();
+	cld.movetype = MOVETYPE_FLY;
+	cld.solid = SOLID_NOT;
+	cld.owner = self;
+	setorigin (cld, self.origin);
+	setsize (cld, '-50 -50 -50', '-50 -50 -50');
+	setmodel (cld, "progs/teleport.mdl");
+	cld.avelocity_x = crandom ()*360;
+	cld.avelocity_y = crandom ()*360;
+	cld.avelocity_z = crandom ()*360;
+	cld.think = Cloud_Think;
+	cld.nextthink = time;
+	self.runent = cld;
 
 	Balls_Spawn ();
 };
