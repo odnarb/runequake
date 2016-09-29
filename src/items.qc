@@ -1516,6 +1516,7 @@ powerup_set =
 
 	hat		= spawn ();
 	self.aiment = hat;
+          hat.movetype = self.movetype;
 	setorigin (hat, self.origin + '0 0 22');
 	setmodel (hat, "progs/eyes.mdl");
           hat.avelocity_y = -60;
