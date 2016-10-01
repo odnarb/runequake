@@ -420,6 +420,7 @@ void () Snipe_AAim =
 
 		if (this.classname == "player" && this != self.owner)
                     if (visible (this) && fov (this))
+                    if (CanDamage (this, self)
                     {          
                     self.enemy = this;
                     self.effects = 2;
@@ -475,13 +476,14 @@ Rune_Sniper =
 
 	if (!W_CheckNoAmmo ())
 		return;
-
+          local vector dd;
 	//T_Damage (self, self, self, (25 + (random () * self.runevar)), "sniped");
 	
           sound (self, CHAN_WEAPON, "weapons/ric3.wav", 1, ATTN_NORM);
           
+          dd = aim (self, 100000);
 	makevectors (self.v_angle);
-	launch_spike (self.origin + self.view_ofs + (v_up * -13) + (v_forward * 1), v_forward);
+	launch_spike (self.origin + self.view_ofs + (v_up * -13) + (v_forward * 1), dd);
           newmis.weaponmodel = self.weaponmodel;
           
           //self.weaponmodel = "progs/k_spike.mdl";
