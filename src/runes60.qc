@@ -420,7 +420,7 @@ void () Snipe_AAim =
 
 		if (this.classname == "player" && this != self.owner)
                     if (visible (this) && fov (this))
-                    if (CanDamage (this, self)
+                    if (CanDamage (this, self))
                     {          
                     self.enemy = this;
                     self.effects = 2;
