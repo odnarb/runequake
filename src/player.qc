@@ -263,7 +263,8 @@ player_light1 = [$light1, player_light2]
 	SuperDamageSound ();
 	W_FireLightning ();
           if (self.runetype == RN_HASTE) // Cobalt shorten beam pulse duration so it is firing faster
-                    LIGHTNING_ATTACK_DURATION = 0.1;
+          self.attack_finished = time + 0.1;
+          else
 	self.attack_finished = time + LIGHTNING_ATTACK_DURATION;
 };
 void ()
@@ -278,8 +279,9 @@ player_light2 = [$light2, player_light1]
 		self.weaponframe = 1;
 	SuperDamageSound ();
 	W_FireLightning ();
-             if (self.runetype == RN_HASTE)
-                    LIGHTNING_ATTACK_DURATION = 0.1;
+          if (self.runetype == RN_HASTE)
+          self.attack_finished = time + 0.1;
+          else
 	self.attack_finished = time + LIGHTNING_ATTACK_DURATION;
 };
 
