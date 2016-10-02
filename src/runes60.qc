@@ -480,9 +480,12 @@ Rune_Sniper =
 	//T_Damage (self, self, self, (25 + (random () * self.runevar)), "sniped");
 	
           sound (self, CHAN_WEAPON, "weapons/ric3.wav", 1, ATTN_NORM);
-          
-          dd = aim (self, 100000);
+         
 	makevectors (self.v_angle);
+          
+          //if (self.snkills)
+          dd = aim (self, 100000);
+          //else dd = v_forward;
 	launch_spike (self.origin + self.view_ofs + (v_up * -13) + (v_forward * 1), dd);
           newmis.weaponmodel = self.weaponmodel;
           
