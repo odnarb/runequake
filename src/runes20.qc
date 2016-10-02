@@ -412,14 +412,17 @@ while (ox)
 
 if (ox.owner == self)
 {
+           ox.avelocity = VEC_ORIGIN;
+          ox.angles = self.v_angle;
 if (!ox.solid)
 {
           ox.solid = 1;
+          
           if (random () > 0.5)
           ox.avelocity_x = 55;
           else
           ox.avelocity_x = -55;
-          ox.avelocity_y = 0;
+          
 }
 else 
 {         
@@ -428,7 +431,7 @@ else
           ox.avelocity_y = 55;
           else
           ox.avelocity_y = -55;
-          ox.avelocity_x = 0;
+         
 }
 
 }
