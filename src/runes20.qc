@@ -341,13 +341,16 @@ Orb_Think =
 
 		return;
 	}
-
+          local vector line;
+          if (self.runent.solid)
+          line = v_up;
+          else line = v_forward
 	setorigin (self.runent, self.owner.origin + '0 0 10');
 	makevectors (self.runent.angles);
 
-	traceline (self.runent.origin, self.runent.origin + v_forward*120, TRUE, world);
+	traceline (self.runent.origin, self.runent.origin + line*120, TRUE, world);
 
-	setorigin (self, trace_endpos-v_forward*10);
+	setorigin (self, trace_endpos-line*10);
 	trackvel (self.owner);
 	self.nextthink = time + sys_ticrate;
 
@@ -364,9 +367,11 @@ Orb_Spawn =
 	local entity axis, orb;
 
 	axis = spawn ();
+          axis.classname = "Orb_Axis";
 	axis.movetype = MOVETYPE_FLY;
 	axis.solid = SOLID_NOT;
 	axis.owner = self;
+          axis.effects = EF_MAYBE_DRAW;
 	setorigin (axis, self.origin);
 	setsize (axis, VEC_ORIGIN, VEC_ORIGIN);
 	setmodel (axis, string_null);
@@ -397,6 +402,41 @@ Orb_Spawn =
 	orb.runent = axis;
 };
 
+void ()
+Orb_Toggle =
+{
+local entity ox;
+ox = find (world, classname, "Orb_Axis");
+while (ox)
+{
+
+if (ox.owner == self)
+{
+if (!ox.solid)
+{
+          ox.solid = 1;
+          if (random () > 0.5)
+          ox.avelocity_x = 55;
+          else
+          ox.avelocity_x = -55;
+          ox.avelocity_y = 0;
+}
+else 
+{         
+          ox.solid = 0;
+           if (random () > 0.5)
+          ox.avelocity_y = 55;
+          else
+          ox.avelocity_y = -55;
+          ox.avelocity_x = 0;
+}
+
+}
+
+ox = find (ox, classname, "Orb_Axis");
+}
+          
+};
 // This blink algorithm blinks you on top of one of the following types
 // of items.  This can still fail (with the "Unstuck" message if you
 // have developer mode on); it reblinks automatically in this case.
