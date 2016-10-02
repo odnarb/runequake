@@ -95,7 +95,7 @@ Rune_Button =
 	else if (self.runetype == RN_BETTY)		Rune_Betty ();
 	else if (self.runetype == RN_TORNADO)		Rune_Tornado ();
           else if (self.runetype == RN_CLOUD)               Cloud_Toggle ();
-          //else if (self.runetype == RN_ORB)                  ();
+          else if (self.runetype == RN_ORB)                  Orb_Toggle();
 };
 
 // This doesn't always tell the riders because it can be triggered both
@@ -373,7 +373,7 @@ Rune_Tell_real =
 
 		d1 = "Push rockets, death spots,\n"
 			"and people back from you\n"
-			"Try your grenade launcher";
+			"Try your grenade launcher & guided missiles";
 	}
 	else if (type == RN_CLOUD)
 	{
