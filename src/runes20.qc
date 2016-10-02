@@ -341,16 +341,17 @@ Orb_Think =
 
 		return;
 	}
-          local vector line;
-          if (self.runent.solid)
-          line = v_up;
-          else line = v_forward;
+          
+        
 	setorigin (self.runent, self.owner.origin + '0 0 10');
 	makevectors (self.runent.angles);
+            if (self.runent.state)
+                    self.dest = v_up;
+                    else self.dest = v_forward;
 
-	traceline (self.runent.origin, self.runent.origin + line*120, TRUE, world);
+	traceline (self.runent.origin, self.runent.origin + self.dest*120, TRUE, world);
 
-	setorigin (self, trace_endpos-line*10);
+	setorigin (self, trace_endpos-self.dest*10);
 	trackvel (self.owner);
 	self.nextthink = time + sys_ticrate;
 
@@ -413,7 +414,7 @@ while (ox)
 if (ox.owner == self)
 {
            ox.avelocity = VEC_ORIGIN;
-          ox.angles = self.v_angle;
+          ox.angles = self.v_angle * -1;
 if (!ox.state)
 {
           ox.state = 1;
