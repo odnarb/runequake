@@ -414,9 +414,9 @@ if (ox.owner == self)
 {
            ox.avelocity = VEC_ORIGIN;
           ox.angles = self.v_angle;
-if (!ox.solid)
+if (!ox.state)
 {
-          ox.solid = 1;
+          ox.state = 1;
           
           if (random () > 0.5)
           ox.avelocity_x = 55;
@@ -426,7 +426,7 @@ if (!ox.solid)
 }
 else 
 {         
-          ox.solid = 0;
+          ox.state = 0;
            if (random () > 0.5)
           ox.avelocity_y = 55;
           else
