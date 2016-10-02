@@ -344,7 +344,7 @@ Orb_Think =
           local vector line;
           if (self.runent.solid)
           line = v_up;
-          else line = v_forward
+          else line = v_forward;
 	setorigin (self.runent, self.owner.origin + '0 0 10');
 	makevectors (self.runent.angles);
 
