@@ -373,7 +373,7 @@ Rune_Tell_real =
 
 		d1 = "Push rockets, death spots,\n"
 			"and people back from you\n"
-			"Try your grenade launcher & guided missiles";
+			"Try your grenade launcher\n or guided missiles + runebutton";
 	}
 	else if (type == RN_CLOUD)
 	{
