@@ -121,11 +121,12 @@ aq_menu_print_n =
 	{
 		centerprint (self,
 			//----------------------------------*------
-			"Rune Quake was created by David   \n"
-			"'Slot Zero' Roberts.              \n"
+			"Rune Quake was created by Roderick Schertler 1998-2002\n"
+			"Maintained by Dave Slot Zero' Roberts. 2003 to present\n"
+                              "This ver currently maintained by the RQ Community Quakenerds\n"
 			"                                  \n\n"
-			"To report bugs, please e-mail     \n"
-			"slotzero@runequake.com            \n"
+			"To report bugs, visit us on       \n"
+			"Discoord [\bhttp:\\tiny.cc\runequake\b]\n"
 			"                                  \n\n"
 			"For more info visit,              \n\n"
 			"     \bwww.runequake.com\b        \n\n"
