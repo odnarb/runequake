@@ -103,7 +103,7 @@ r = find (world, classname, "plat");
           snd = spawn ();
           setorigin (snd, ((r.absmax + r.absmin) * 0.5));
           snd.effects = EF_MAYBE_DRAW;
-	sound (snd, "misc/h2ohit1.wav", 1, 1);   
+	sound (snd, CHAN_AUTO, "misc/h2ohit1.wav", 1, ATTN_NORM);   
 	//drip(r.absmax ,WATERCOLOR);
           r.velocity =  r.velocity * 0.95;
 	remove (snd);
