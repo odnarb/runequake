@@ -75,6 +75,55 @@ void () world_touch =
           
 };
 
+// Cobalt, mostly for the plat on e1m2 and other stuff
+void () VelocityPhysics = 
+{
+
+
+
+local entity r;
+
+r = find (world, classname, "plat");
+	while (r.velocity_z != 0)
+	{
+	
+
+	//bprint ("Plat ");
+	//bprint (r.model);
+	//bprint (" Is moving...waterlevel is ");
+	//bprint (ftos (r.waterlevel));
+	//PrintNL ();
+	
+	
+
+	//if (r.state == STATE_DOWN)
+	if ((pointcontents (r.absmax + '0 0 5') == CONTENT_EMPTY && pointcontents (r.absmax) == CONTENT_WATER))
+	{
+          local entity snd;
+          snd = spawn ();
+          setorigin (snd, ((r.absmax + r.absmin) * 0.5));
+          snd.effects = EF_MAYBE_DRAW;
+	sound (snd, "misc/h2ohit1.wav", 1, 1);   
+	//drip(r.absmax ,WATERCOLOR);
+          r.velocity =  r.velocity * 0.95;
+	remove (snd);
+          }
+/*
+	
+	if ((pointcontents (ctr + '0 0 -5') == CONTENT_WATER))
+	bprint ("Plat in water\n");
+	if ((pointcontents (r.absmax + '0 0 5') == CONTENT_EMPTY))
+          bprint ("Plat near surface\n");
+	   */
+		r = find (r, classname, "plat");
+		
+	}
+
+
+
+};
+
+
 
 //=======================
 void ()
@@ -144,7 +193,7 @@ StartFrame =
           }
           
 
-         
+         VelocityPhysics ();
           
 };
 
