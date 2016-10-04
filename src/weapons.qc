@@ -777,7 +777,7 @@ GrenadeTouch =
           // Cobalt mark gasbombs when they stop moving 
           if (self.classname == "gasbomb")
           {
-          if (!self.velocity)
+          if (self.velocity == '0 0 0')
                     self.effects = EF_FROZEN;
           }
           
