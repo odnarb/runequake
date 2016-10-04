@@ -774,9 +774,12 @@ GrenadeTouch =
 {
 	if (other == self.owner)
 		return;		// don't explode on owner
-          // Cobalt make grenade match angles of floors it comes to rest on or react to walls it hits
-         
-          
+          // Cobalt mark gasbombs when they stop moving 
+          if (self.classname == "gasbomb")
+          {
+          if (!self.velocity)
+                    self.effects = EF_FROZEN;
+          }
           
 	if (other.takedamage == DAMAGE_AIM)
 	{
