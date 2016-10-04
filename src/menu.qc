@@ -126,7 +126,7 @@ aq_menu_print_n =
                               "This ver currently maintained by the RQ Community Quakenerds\n"
 			"                                  \n\n"
 			"To report bugs, visit us on       \n"
-			"Discoord |\bhttp:\\tiny.cc\runequake\b|"
+			"Discoord \bhttp:\\tiny.cc\runequake\b"
 			"                                  \n\n\n"
 			"For more info visit,              \n\n"
 			"     \bwww.runequake.com\b        \n\n"
