@@ -2964,7 +2964,10 @@ ClientObituary =
 		}
 		else if (dt == "gas")
 		{
+                              if (framecount & 1)
 			s1 = " took a deep breath of ";
+                              else
+                              s1 = " choked to death on ";
 			s2 = "'s gas\n";
 		}
 		else if (dt == "gasbomb")
