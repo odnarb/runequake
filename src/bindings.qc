@@ -1509,7 +1509,7 @@ commands =
           self_sprint (self, "‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹\n");
           }
 	self_sprint (self, "\n        \b\.important commands\.\b\n\n");
-          if ((cvar ("developer"))
+          if ((cvar ("developer")))
           self_sprint (self, "\Hold down Jump and press alt weapon key\b   CHEAT COMMAND - All weapons and ammo\n");
 	self_sprint (self, "\brune-delete\b   delete your rune\n");
 	self_sprint (self, "\brune-tell\b     rune description\n");
