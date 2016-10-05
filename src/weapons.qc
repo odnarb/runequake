@@ -1357,7 +1357,7 @@ W_Attack =
 		player_rocket1 ();
 		if (is_alt)
 		{
-			if (!(cvar ("developer")) // XXX add a server command option to turn on
+			if (!(cvar ("developer"))) // XXX add a server command option to turn on
 			{
 				W_FireRocket ("gmissile");
 				t = 0.5;
