@@ -1504,7 +1504,7 @@ commands =
           self_sprint (self, "‹ \b143\b Selfpres   \b120\b Shield   \b129\b Shub       \b153\b Sniper   ‹\n"); 
           self_sprint (self, "‹ \b101\b Strength   \b123\b Switch   \b152\b Thor       \b126\b Teleport ‹\n");                   
           self_sprint (self, "‹ \b157\b Tornado    \b145\b Torch    \b119\b Vamp       \b128\b Veng     ‹\n");
-          self_sprint (self, "‹ \b134\b Weird      \b109\b Zap      \b141\b Zombie                      ‹\n");           
+          self_sprint (self, "‹ \b134\b Weird      \b109\b Zap      \b141\b Zombie              ‹\n");           
           self_sprint (self, "‹‹‹‹‹‹‹‹‹‹‹‹‹");
           self_sprint (self, "‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹\n");
           }
