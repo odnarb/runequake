@@ -119,6 +119,14 @@ r = find (world, classname, "plat");
 		
 	}
 
+            // Cobalt mark gasbombs when they stop moving 
+            r = find (world, classname, "gasbomb");
+	while (r)
+	{
+          if (!(r.velocity))
+                    r.effects = EF_FROZEN;
+          r = find (r, classname, "gasbomb");
+          }
 
 
 };
