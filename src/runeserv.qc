@@ -623,7 +623,7 @@ Rune_Tell_real =
 		d1 = "Items continously recharge\n"
 			"when you touch them";
 	}
-          else if (type == BUMMER)
+          else if (type == RN_BUMMER)
 	{
 		desc_l = "Rune of Bummer";
 		desc_s = " Bummr";
