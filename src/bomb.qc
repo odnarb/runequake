@@ -62,12 +62,12 @@ bomb_arm =
           
           if (other.movetype == MOVETYPE_PUSH && other != world) // Cobalt - Door or plat etc
           {
-          self.th_melee = SUB_Null;          
+          self.movetype = MOVETYPE_FLY;          
           }
 
 	// If it stricks a person or monster, do some damage plus stick
 	// to it as it moves around.
-	if (other.takedamage == DAMAGE_AIM || (self.th_melee == SUB_Null))
+	if (other.takedamage == DAMAGE_AIM || self.movetype == MOVETYPE_FLY)
 	{
 		T_Damage (other, self, self.owner, 30, "bombhit");
 		self.runevar = 1;
@@ -130,7 +130,8 @@ bomb_tick =
 		return;
 	}
 
-          if (!(self.th_melee))
+          if (self.movetype != MOVETYPE_FLY)
+          {
 	if (self.runevar && (self.enemy.health <= 0
 			|| self.enemy.origin == VEC_ORIGIN))
 	{
@@ -139,7 +140,9 @@ bomb_tick =
 		self.movetype = MOVETYPE_TOSS;
 		self.runevar = 0;
 	}
-
+          }
+          else self.velocity = self.enemy.velocity;
+          
 	if (self.runevar)
 	{
 		// XXX I'm not sure this is quite right for differences
@@ -158,10 +161,9 @@ bomb_tick =
 		a = self.enemy.angles + self.runevector;
 		a_x = 0 - a_x;
 		makevectors (a);
-                    if (!(self.th_melee))
+                     if (self.movetype != MOVETYPE_FLY)
 		setorigin (self, self.enemy.origin + v_forward * self.runetime);
-                    else
-                    setorigin (self, realorigin(self.enemy) + v_forward * self.runetime);      
+      
           }
 
 	if (self.ltime <= time)
