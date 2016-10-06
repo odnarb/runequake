@@ -165,7 +165,10 @@ bomb_tick =
 		setorigin (self, self.enemy.origin + v_forward * self.runetime);
                     else
                     {
-                     if (Ents_Touching (self, world))
+                    trace_ent = self;
+                    makevectors (self.velocity);
+                    traceline (self.origin, self.origin + (v_forward * 5), 0, self.enemy);
+                     if (trace_ent != self)
                      {
                       create_te_spike (TE_SUPERSPIKE, self.origin);
                       self.velocity = self.velocity * -1.25;
