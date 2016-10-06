@@ -163,16 +163,19 @@ bomb_tick =
 		makevectors (a);
                      if (self.movetype != MOVETYPE_FLY)
 		setorigin (self, self.enemy.origin + v_forward * self.runetime);
-                    else
+                    else if (self.velocity != VEC_ORIGIN)
                     {
                     trace_ent = self;
-                    makevectors (self.velocity);
-                    traceline (self.origin, self.origin + (v_forward * 5), 0, self.enemy);
-                     if (trace_ent != self)
+                    makevectors (self.enemy.velocity);
+                    traceline (self.origin, self.origin + (v_forward * 3), 0, self.enemy);
+                     if (trace_fraction != 1 && trace_ent == world)
                      {
                       create_te_spike (TE_SUPERSPIKE, self.origin);
-                      self.velocity = self.velocity * -1.25;
+                      if (self.flags & FL_ONGROUND)
+                      self.flags = self.flags - FL_ONGROUND;
                       self.movetype = MOVETYPE_TOSS;
+                      self.velocity = self.enemy.velocity * -1.25;
+ 
                       
                      }
                               
