@@ -477,12 +477,13 @@ float RN_DEFLECT	= 55;
 float RN_BETTY		= 56;
 float RN_TORNADO	= 57;
 float RN_REQUIEM	= 58;
-float RN_MAX		= 58;
+float RN_BUMMER = 59;
+float RN_MAX		= 59;
 
 // Only partially runes.
 
-float RN_LITHIUM_HOOK	= 59;
-float RN_MAX_ALL	= 59;
+float RN_LITHIUM_HOOK	= 60;
+float RN_MAX_ALL	= 60;
 
 // impulses
 

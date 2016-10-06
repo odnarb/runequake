@@ -40,7 +40,7 @@ Rune_Think =
 	else if (self.runetype == RN_JACK)		self.th_runeuse = jack_think;
 	else if (self.runetype == RN_BLIZZARD)		self.th_runeuse =Blizzard_Think;
 	else if (self.runetype == RN_THOR)		self.th_runeuse = Rune_Thor;
-          
+          else if (self.runetype == RN_BUMMER)		self.th_runeuse = Rune_Bummer;
          
 };
 
@@ -623,6 +623,14 @@ Rune_Tell_real =
 		d1 = "Items continously recharge\n"
 			"when you touch them";
 	}
+          else if (type == BUMMER)
+	{
+		desc_l = "Rune of Bummer";
+		desc_s = " Bummr";
+
+		d1 = "Cant pick up another rune\n"
+			"for 2 minutes - Bummer!";
+	}
 	else if (type == RN_LITHIUM_HOOK)
 	{
 		desc_l = "Grappling Hook";
@@ -805,6 +813,11 @@ Rune_Activate =
 	else
 		self.dropdelay = time;
 
+          if (self.runetype == RN_BUMMER)
+          {
+           self.runevar	= time + 120;         
+                    
+          }
 	if (self.runetype == RN_HEALTH)
 	{
 		self.max_health = MAX_HEALTH_GOOD_HEALTH;
@@ -1269,7 +1282,8 @@ Rune_Touch =
 		return;
 	if (other == self.runent && time < self.lip)
 		return;
-
+           if (other.runetype == RN_BUMMER && other.runevar	> time) return;
+           
 	if (self.runetype == RN_LITHIUM_HOOK)
 	{
 		if (other.aqflags & AQ_HOOK)

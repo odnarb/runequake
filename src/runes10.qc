@@ -220,6 +220,16 @@ Rune_Fly =
 };
 
 void ()
+Rune_Bummer =
+{
+		if (time > self.runevar)
+		{
+			sprint (self, "Bummer rune has vanished !\n");
+			Rune_Delete (0);
+		}          
+};
+
+void ()
 GFire_Touch =
 {
 	if (other == world)
