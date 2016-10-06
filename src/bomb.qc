@@ -67,7 +67,7 @@ bomb_arm =
 
 	// If it stricks a person or monster, do some damage plus stick
 	// to it as it moves around.
-	if (other.takedamage == DAMAGE_AIM || self.th_melee)
+	if (other.takedamage == DAMAGE_AIM || (self.th_melee == SUB_Null))
 	{
 		T_Damage (other, self, self.owner, 30, "bombhit");
 		self.runevar = 1;
