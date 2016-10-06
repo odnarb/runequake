@@ -59,10 +59,15 @@ bomb_arm =
 		remove (self);
 		return;
 	}
+          
+          if (other.movetype == MOVETYPE_PUSH && other != world) // Cobalt - Door or plat etc
+          {
+          self.th_melee = SUB_Null;          
+          }
 
 	// If it stricks a person or monster, do some damage plus stick
 	// to it as it moves around.
-	if (other.takedamage == DAMAGE_AIM)
+	if (other.takedamage == DAMAGE_AIM || self.th_melee)
 	{
 		T_Damage (other, self, self.owner, 30, "bombhit");
 		self.runevar = 1;
@@ -125,6 +130,7 @@ bomb_tick =
 		return;
 	}
 
+          if (!(self.th_melee))
 	if (self.runevar && (self.enemy.health <= 0
 			|| self.enemy.origin == VEC_ORIGIN))
 	{
@@ -152,9 +158,11 @@ bomb_tick =
 		a = self.enemy.angles + self.runevector;
 		a_x = 0 - a_x;
 		makevectors (a);
-		setorigin (self, self.enemy.origin
-					+ v_forward * self.runetime);
-	}
+                    if (!(self.th_melee))
+		setorigin (self, self.enemy.origin + v_forward * self.runetime);
+                    else
+                    setorigin (self, realorigin(self.enemy) + v_forward * self.runetime);      
+          }
 
 	if (self.ltime <= time)
 	{
