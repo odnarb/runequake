@@ -141,16 +141,8 @@ bomb_tick =
 		self.runevar = 0;
 	}
           }
-          else 
-          {
-          if (self.enemy.velocity)          
-          self.velocity = self.enemy.velocity;
-          else if (!(self.enemy.modelindex))
-          {
-          self.movetype = MOVETYPE_STEP;
-          self.velocity_z = 50;
-          }
-          }
+          else self.velocity = self.enemy.velocity;
+          
 	if (self.runevar)
 	{
 		// XXX I'm not sure this is quite right for differences
@@ -188,6 +180,9 @@ bomb_tick =
                      }
                               
                     }
+                    else if (!(self.flags & FL_ONGROUND))
+                    self.movetype = MOVETYPE_STEP;
+            
       
           }
 
