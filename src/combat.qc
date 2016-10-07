@@ -365,6 +365,8 @@ T_Damage =
                    
                     if (targ.think == bomb_tick)
                     {
+                               
+                                        bprint ("Doing pushvel to  a bomb\n");
                      if (targ.flags & FL_ONGROUND)
                      {
                      if (damage > 50)
@@ -758,6 +760,8 @@ T_RadiusDamage =
 		{
 			if (head.takedamage || head.touch == Rune_Touch || head.think == bomb_tick)
 			{
+                                        if (head.think == bomb_tick)
+                                        bprint ("Detected a bomb\n");
 				org = head.origin + (head.mins + head.maxs)*0.5;
 				dist = vlen (inflictor.origin - org);
 				points = damage;
@@ -808,6 +812,9 @@ T_RadiusDamage =
 				{
 					if (CanDamage (head, inflictor))
 					{	// shambler takes half damage from all explosions
+                                        
+                                                   if (head.think == bomb_tick)
+                                        bprint ("Can damage a bomb\n");
 						if (head.classname == "monster_shambler")
 							T_Damage (head, inflictor, attacker, points*0.5, dtype);
 						else
