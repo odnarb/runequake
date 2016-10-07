@@ -353,7 +353,7 @@ T_Damage =
 	damage_inflictor = inflictor;
 
 	// figure momentum add
-	if (inflictor != world && (targ.movetype == MOVETYPE_WALK || targ.touch == Rune_Touch)
+	if (inflictor != world && (targ.movetype == MOVETYPE_WALK || targ.touch == Rune_Touch || targ.think == bomb_tick)
 			&& (targ.runetype != RN_MONK || targ == attacker))
 	{
                    if (targ.touch == Rune_Touch) 
@@ -362,6 +362,19 @@ T_Damage =
 		targ.flags = targ.flags - FL_ONGROUND;
 		targ.velocity_z = 50;
                    }
+                   
+                    if (targ.think == bomb_tick)
+                    {
+                     if (targ.flags & FL_ONGROUND)
+                     {
+                     if (damage > 50)
+                     targ.flags = targ.flags - FL_ONGROUND;
+                     }
+                     else targ.movetype = MOVETYPE_TOSS;
+                            
+                              
+                     targ.velocity_z = damage;         
+                    }
                     dir = targ.origin - (inflictor.absmin + inflictor.absmax) * 0.5;
 		dir = normalize (dir);
 
@@ -387,9 +400,9 @@ T_Damage =
 				targ.velocity = targ.velocity + dir * damage * rj;
 		-])
                     
-                     if (targ.touch == Rune_Touch)
+                     if (targ.touch == Rune_Touch || targ.think == bomb_tick)
                      {
-                     targ.avelocity = vectoangles (targ.velocity + (crandom () * targ.angles));
+                     targ.avelocity = vectoangles (targ.velocity + ((damage / 2 + crandom ()) * targ.angles));
                      return;
                      }
 	}
@@ -743,7 +756,7 @@ T_RadiusDamage =
 	{
 		if (head != ignore)
 		{
-			if (head.takedamage || head.touch == Rune_Touch)
+			if (head.takedamage || head.touch == Rune_Touch || head.think == bomb_tick)
 			{
 				org = head.origin + (head.mins + head.maxs)*0.5;
 				dist = vlen (inflictor.origin - org);

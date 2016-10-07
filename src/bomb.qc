@@ -180,8 +180,7 @@ bomb_tick =
                      }
                               
                     }
-                    else if (!(self.flags & FL_ONGROUND))
-                    self.movetype = MOVETYPE_STEP;
+                   
             
       
           }
