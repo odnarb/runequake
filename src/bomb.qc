@@ -145,9 +145,9 @@ bomb_tick =
           {
           if (self.enemy.velocity)          
           self.velocity = self.enemy.velocity;
-          else if (!(self.enemy))
+          else if (!(self.enemy.modelindex))
           {
-          self.movetype = MOVETYPE_TOSS;
+          self.movetype = MOVETYPE_STEP;
           self.velocity_z = 50;
           }
           }
