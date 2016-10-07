@@ -1625,7 +1625,7 @@ common_impulses =
 		sprint (self, fps);
 	          sprint (self, " FPS\n");
 	}
-          else if (self.impulse == IMP_NOTARGET)
+          else if (self.impulse == IMP_NOTARGET && (cvar ("developer")))
           {
           if (self.flags & FL_NOTARGET)
           {
@@ -1638,7 +1638,7 @@ common_impulses =
           self.flags = self.flags | FL_NOTARGET;
           }
           }
-          else if (self.impulse == IMP_GOD)
+          else if (self.impulse == IMP_GOD && (cvar ("developer")))
           {
           if (self.flags & FL_GODMODE)
           {
