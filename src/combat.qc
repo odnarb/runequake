@@ -758,7 +758,7 @@ T_RadiusDamage =
 	{
 		if (head != ignore)
 		{
-			if (head.takedamage || head.touch == Rune_Touch || head.think == bomb_tick)
+			if (head.takedamage || head.touch == Rune_Touch || (head.think == bomb_tick && head != inflictor)
 			{
                                         if (head.think == bomb_tick)
                                         bprint ("Detected a bomb\n");
