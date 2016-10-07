@@ -233,7 +233,7 @@ spawn_player_bindings =
 	e.nextthink	= time + 2;
           
           stuffcmd (self, "bind t impulse 60;messagemode"); // for normal chat key
-          stuffcms (self, "bind ` impulse 60;toggleconsole"); // for console toggle key
+          stuffcmd (self, "bind ` impulse 60;toggleconsole"); // for console toggle key
 };
 
 void ()
