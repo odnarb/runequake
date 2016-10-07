@@ -172,7 +172,7 @@ T_Damage =
 	// MODE_MIDAIR
 	local float player_height, safe_height;
 
-	if (!targ.takedamage && targ.touch != Rune_Touch)
+	if ((!(targ.takedamage)) && targ.touch != Rune_Touch && targ.think != bomb_tick )
 		return 0;
 
 	// used by buttons and triggers to set activator for target firing
