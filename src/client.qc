@@ -549,6 +549,31 @@ trigger_changelevel =
 =============================================================================
 */
 
+
+// This routine will update the status of the chat indicator depending on if it should be displayed or not.
+void () ToggleClientChat =
+{
+          
+          local entity bubble;
+          bubble = EntNearby ("Chatbubble", self.origin, 75);
+          
+	if(!bubble)
+	{
+		
+              bubble = spawn(); //It's there! :)
+              bubble.owner = self;
+              bubble.classname = "Chatbubble";
+              setmodel(bubble, "progs/s_bubble.spr");
+              setorigin(bubble, bubble.origin + '0 0 0.5' + self.maxs_z * '0 0 1'); //Instructions on where to place the indicator over the head of the player using xyz coords and a limit on the max height possible to adjust for changes while player moves up or down. 
+	           	
+	}
+	else if (bubble.owner == self)
+	remove (bubble);
+
+};
+
+
+
 // called by ClientKill and DeadThink
 void ()
 respawn =

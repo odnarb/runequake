@@ -1617,6 +1617,10 @@ common_impulses =
 		sprint (self, s);
 		sprint (self, "\n");
 	}
+           else if (self.impulse == IMP_CLIENTCHAT)
+	{
+          ToggleClientChat ();
+	}
           else if (self.impulse == IMP_SERVER_FPS)
 	{
 		local string fps;
