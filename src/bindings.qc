@@ -311,8 +311,8 @@ player_aliases =
 	player_init_impulse_alias ("yes",			IMP_VOTE_YES);
           if ((cvar ("developer")))
           {
-          player_init_impulse_alias ("notarget",		          IMP_GOD);
-          player_init_impulse_alias ("god",		          IMP_NOTARGET);
+          player_init_impulse_alias ("notarget",		          IMP_NOTARGET);
+          player_init_impulse_alias ("god",		          IMP_GOD);
 	}
           
           self_stuffcmd (self, "alias +teamscores \"+showscores; impulse ");
