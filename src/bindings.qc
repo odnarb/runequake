@@ -309,8 +309,13 @@ player_aliases =
 	player_init_impulse_alias ("weapon-toggles",		IMP_WEAPON_TOGGLES);
 	player_init_impulse_alias ("weapon-toggles-toggle",	IMP_WEAPON_TOGGLES);
 	player_init_impulse_alias ("yes",			IMP_VOTE_YES);
-
-	self_stuffcmd (self, "alias +teamscores \"+showscores; impulse ");
+          if ((cvar ("developer")))
+          {
+          player_init_impulse_alias ("notarget",		          IMP_GOD);
+          player_init_impulse_alias ("god",		          IMP_NOTARGET);
+	}
+          
+          self_stuffcmd (self, "alias +teamscores \"+showscores; impulse ");
 	s = ftos (IMP_TEAMSCORES_ON);
 	self_stuffcmd (self, s);
 	self_stuffcmd (self, "\"\n");

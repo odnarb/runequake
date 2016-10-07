@@ -1625,6 +1625,32 @@ common_impulses =
 		sprint (self, fps);
 	          sprint (self, " FPS\n");
 	}
+          else if (self.impulse == IMP_NOTARGET)
+          {
+          if (self.flags & FL_NOTARGET)
+          {
+          self_sprint (self, "NOTARGET de-activated.\n");
+          self.flags = self.flags - FL_NOTARGET;
+          }
+          else
+          {
+          self_sprint (self, "NOTARGET activated.\n");
+          self.flags = self.flags | FL_NOTARGET;
+          }
+          }
+          else if (self.impulse == IMP_GOD)
+          {
+          if (self.flags & FL_GODMODE)
+          {
+          self_sprint (self, "GODMODE de-activated.\n");
+          self.flags = self.flags - FL_GODMODE;
+          }
+          else
+          {
+          self_sprint (self, "GODMODE activated.\n");
+          self.flags = self.flags | FL_GODMODE;
+          }
+          }
 	else if (self.impulse == QSMACK_IMPULSE_1)
 	{
 		if (QSMACK_IMPULSE_2 > 0 && QSMACK_IMPULSE_2 < 256
