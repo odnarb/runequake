@@ -232,8 +232,7 @@ spawn_player_bindings =
 	e.think		= player_bindings_think;
 	e.nextthink	= time + 2;
           
-          stuffcmd (self, "bind t impulse 60;messagemode"); // for normal chat key
-          stuffcmd (self, "bind ` impulse 60;toggleconsole"); // for console toggle key
+         
 };
 
 void ()
@@ -246,7 +245,8 @@ player_aliases =
 
 	// Prevent honest people from using cam.cfg.
 	//self_stuffcmd (self, "alias chase_active \"echo chase_active has been disabled on this server.\"\n");
-
+           stuffcmd (self, "bind t impulse 60;messagemode"); // for normal chat key
+          stuffcmd (self, "bind ` impulse 60;toggleconsole"); // for console toggle key
 	self_stuffcmd (self, "alias w5 \"wait;wait;wait;wait;wait;\"\n");
 	self_stuffcmd (self, "alias cl \"impulse ");
 	s = ftos (IMP_CHANGE_MAP);
