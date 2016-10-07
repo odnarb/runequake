@@ -141,8 +141,16 @@ bomb_tick =
 		self.runevar = 0;
 	}
           }
-          else self.velocity = self.enemy.velocity;
-          
+          else 
+          {
+          if (self.enemy.velocity)          
+          self.velocity = self.enemy.velocity;
+          else if (!(self.enemy))
+          {
+          self.movetype = MOVETYPE_TOSS;
+          self.velocity_z = 50;
+          }
+          }
 	if (self.runevar)
 	{
 		// XXX I'm not sure this is quite right for differences
