@@ -2132,7 +2132,7 @@ PlayerPreThink =
            if (self.th_runeuse)
              self.th_runeuse ();
 
-	if (self.button2)
+	if (self.button2 && self.chatbubble == world)
           PlayerJump ();
           
           
