@@ -1559,7 +1559,7 @@ W_WeaponFrame =
           {
               
               
-              if (self.button0)
+              if (self.button0 || self.cl[CL_CMD_FORWARD] || self.cl[CL_CMD_SIDE])
               ToggleClientChat (0);
               else
               {                        

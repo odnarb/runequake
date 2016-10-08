@@ -576,10 +576,16 @@ void () CbubbleThink =
           setmodel(self, "progs/s_bubble.spr");
           }
           
-          self.nextthink = time + (1/3);
+          self.nextthink = time + (1/4);
+          
+          if (self.ltime + 120 < time)
+          {
+          self.owner.air_finished = -1;
+          self.owner.impulse = 212;
+          }          
 };
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
-void ( float force) ToggleClientChat =
+void (float force) ToggleClientChat =
 {
          if (!(self.flags & FL_ONGROUND)) return;
           if (self.modelindex != modelindex_player || (!(self.model)))
@@ -594,7 +600,8 @@ void ( float force) ToggleClientChat =
               bubble.classname = "Chatbubble";
                setmodel(bubble, "progs/s_bubble.spr");
               setorigin(bubble, self.origin + '0 0 0.5' + self.maxs_z * '0 0 1'); //Instructions on where to place the indicator over the head of the player using xyz coords and a limit on the max height possible to adjust for changes while player moves up or down. 
-	    self.movetype = 0;
+	    bubble.ltime = time;
+              bubble.owner = self;
               create_te_spike (TE_WIZSPIKE, bubble.origin);
               bubble.think = CbubbleThink;
               bubble.nextthink = time + sys_ticrate;
