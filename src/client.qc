@@ -587,6 +587,7 @@ void () ToggleClientChat =
           
 	if(!(self.chatbubble))
 	{
+              self.movetype = 0;
               local entity bubble;                
               bubble = spawn(); //It's there! :)
               self.chatbubble = bubble;

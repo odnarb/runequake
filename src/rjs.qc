@@ -1655,6 +1655,19 @@ common_impulses =
           self.flags = self.flags | FL_GODMODE;
           }
           }
+             else if (self.impulse == IMP_NOCLIP && (cvar ("developer")))
+          {
+          if (self.movetype == MOVETYPE_NOCLIP)
+          {
+          self_sprint (self, "NOCLIP de-activated.\n");
+          self.movetype = MOVETYPE_WALK;
+          }
+          else
+          {
+          self_sprint (self, "NOCLIP activated.\n");
+          self.movetype = MOVETYPE_NOCLIP;
+          }
+          }
 	else if (self.impulse == QSMACK_IMPULSE_1)
 	{
 		if (QSMACK_IMPULSE_2 > 0 && QSMACK_IMPULSE_2 < 256

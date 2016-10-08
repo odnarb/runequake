@@ -321,6 +321,7 @@ player_aliases =
           {
           player_init_impulse_alias ("notarget",		          IMP_NOTARGET);
           player_init_impulse_alias ("god",		          IMP_GOD);
+          player_init_impulse_alias ("noclip",		          IMP_NOCLIP);
 	}
           
           self_stuffcmd (self, "alias +teamscores \"+showscores; impulse ");
