@@ -564,8 +564,8 @@ void () CbubbleThink =
           
              if (self.cnt & 1) 
              {
+             self.effects = 2;
              setmodel(self, "");
-             create_te_spike (TE_WIZSPIKE, self.origin);
              }             
           else 
           {
@@ -594,6 +594,7 @@ void () ToggleClientChat =
                setmodel(bubble, "progs/s_bubble.spr");
               setorigin(bubble, self.origin + '0 0 0.5' + self.maxs_z * '0 0 1'); //Instructions on where to place the indicator over the head of the player using xyz coords and a limit on the max height possible to adjust for changes while player moves up or down. 
 	    self.movetype = 0;
+              create_te_spike (TE_WIZSPIKE, bubble.origin);
               bubble.think = CbubbleThink;
               bubble.nextthink = time + sys_ticrate;
               
