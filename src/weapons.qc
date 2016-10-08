@@ -1506,7 +1506,7 @@ ImpulseCommands =
  				sprint (self, "\n");
 			}
 		}
-		else if (self.impulse == IMP_HOOK_ON)
+		else if (self.impulse == IMP_HOOK_ON && self.chatbubble == world)
 			HookOn ();
 		else if (self.impulse == IMP_HOOK_OFF)
 			HookOff ();
