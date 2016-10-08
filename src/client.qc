@@ -559,7 +559,7 @@ trigger_changelevel =
 
 void () CbubbleThink =
 {
-          self.effects = EF_MUZZLEFLASH;
+          muzzleflash ();
           self.cnt = self.cnt + 1;
           
              if (self.cnt & 1) 
