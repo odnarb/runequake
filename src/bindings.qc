@@ -250,7 +250,7 @@ player_aliases =
            stuffcmd (self, cmd); // for normal chat key
            cmd = strcat ("bind ` ", "\"toggleconsole;impulse 212\"\n");
           stuffcmd (self, cmd); // for console toggle key
-           cmd = strcat ("bind escape ", "\"togglemenu;impulse 212\"\n");
+           cmd = strcat ("bind escape ", "\"togglemenu;wait;wait;wait;wait;wait;wait;wait;wait;wait;wait;impulse 212\"\n");
           stuffcmd (self, cmd); // for console toggle key
           
 	self_stuffcmd (self, "alias w5 \"wait;wait;wait;wait;wait;\"\n");

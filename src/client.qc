@@ -2331,7 +2331,7 @@ PlayerPostThink =
 		obs_post_think ();
 		return;
 	}
-
+          if (!(self.chatbubble))
 	W_WeaponFrame ();
 
 	if (self.dropdelay < 0 && time >= (0 - self.dropdelay))
