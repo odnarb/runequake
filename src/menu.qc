@@ -132,7 +132,7 @@ aq_menu_print_n =
                               "This ver currently maintained by\n The RQ Community Quakenerds\n"
 			"                                  \n\n"
 			"To report bugs, visit us on Discoord\n"
-			"\b>\b[\bhttp:\\\\tiny.cc\\runequake\b]\b<\b\n"
+			"\b> > >\b[ \bhttp:\\\\tiny.cc\\runequake\b ]\b< < <\b\n"
 			"                                  \n\n"
 			"For more info visit,              \n\n"
 			"     \bwww.runequake.com\b        \n\n"
