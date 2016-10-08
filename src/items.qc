@@ -852,6 +852,7 @@ weapon_touch =
 			self.runetime = time + WEAPON_RESPAWN_TIME;
 			self.think = weapon_up;
 			self.nextthink = self.runetime;
+                              self.effects = EF_FROZEN;
 		}
 		if (!requiem)
 			return;
@@ -879,6 +880,7 @@ weapon_up =
 	if (options & WEAPONS_STAY || coop)
 	{
 		setorigin (self, self.oldorigin + WEAPON_CHARGED_OFFSET);
+                    self.effects = self.effects - EF_FROZEN;
 		// Keep on moving it due to the rocket in the squish
 		// room in Hell's Atrium (the squishing ceiling moves it
 		// down to the floor).
