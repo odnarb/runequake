@@ -559,12 +559,12 @@ trigger_changelevel =
 
 void () CbubbleThink =
 {
-          
+          self.effects = EF_MUZZLEFLASH;
           self.cnt = self.cnt + 1;
           
              if (self.cnt & 1) 
              self.effects = 0;
-          else self.effects = EF_MAYBE_DRAW;
+          else self.effects = EF_FROZEN;
           
           self.nextthink = time + (1);
 };
