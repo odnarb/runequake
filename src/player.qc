@@ -105,7 +105,11 @@ PLAYER
 void ()
 player_stand = [$stand1, player_stand]
 {
-          
+           if (self.chatbubble)
+          {
+            self.frame = 53;
+            return;
+          }
         
 	self.weaponframe = 0;
            // Cobalt - Use blocked for better animaiton
@@ -600,10 +604,10 @@ PlayerDie =
 
           if (self.chatbubble)
           {
-           self.chatbubble = world;
            if (self.effects & EF_FROZEN)
               self.effects = self.effects - EF_FROZEN;
           remove (self.chatbubble);
+           self.chatbubble = world;
           }
 	if (!options & NO_DROP_POWERUP)
 	{

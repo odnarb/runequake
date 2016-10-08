@@ -569,7 +569,6 @@ void () ToggleClientChat =
 	{
               local entity bubble;                
               bubble = spawn(); //It's there! :)
-              bubble.owner = self;
               self.chatbubble = bubble;
               bubble.classname = "Chatbubble";
               setmodel(bubble, "progs/s_bubble.spr");
@@ -582,8 +581,8 @@ void () ToggleClientChat =
           {
           if (!(self.chatbubble.mdl)) // Already was frozen
           self.effects = self.effects - EF_FROZEN;
-          self.chatbubble = world;
-          remove (bubble);
+          remove (self.chatbubble);
+           self.chatbubble = world;
           }
 };
 
@@ -658,10 +657,11 @@ ClientKill =
 	}
            if (self.chatbubble)
           {
-           self.chatbubble = world;
+           
             if (self.effects & EF_FROZEN)
               self.effects = self.effects - EF_FROZEN;
           remove (self.chatbubble);
+          self.chatbubble = world;
           }
 	// allow frozen and glued players to suicide without being kicked
 	if (!self.rqstate & RQS_GUIDED_MISSILE && self.effects & EF_FROZEN)
