@@ -654,6 +654,8 @@ ClientKill =
            if (self.chatbubble)
           {
            self.chatbubble = world;
+            if (self.effects & EF_FROZEN)
+              self.effects = self.effects - EF_FROZEN;
           remove (self.chatbubble);
           }
 	// allow frozen and glued players to suicide without being kicked

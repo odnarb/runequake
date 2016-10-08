@@ -600,6 +600,8 @@ PlayerDie =
           if (self.chatbubble)
           {
            self.chatbubble = world;
+           if (self.effects & EF_FROZEN)
+              self.effects = self.effects - EF_FROZEN;
           remove (self.chatbubble);
           }
 	if (!options & NO_DROP_POWERUP)
