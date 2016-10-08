@@ -774,9 +774,11 @@ weapon_touch =
                     
                     if (self.angles_x) // Cobalt - this is the ricochet type alt wep
                     {
-                    self.netname = "Ricochet Rocket Launcher";
+                    self.netname = "Rocket Launcher with a ricochet mode option";
                     other.RL_TYPE = "Rrocks";
-                    }                    
+                    } 
+                    else 
+                    self.netname = "Rocket Launcher with a guided missile capability";
 	}
 	else if (self.classname == "weapon_grenadelauncher")
 	{
@@ -807,7 +809,7 @@ weapon_touch =
 	else
 		objerror ("weapon_touch: unknown classname");
 
-	if (!deathmatch & DM_DM_MASK || self.angles_x)
+	if (!deathmatch & DM_DM_MASK || new = IT_ROCKET_LAUNCHER)
 	{
 		sprint (other, "You got the ");
 		sprint (other, self.netname);
