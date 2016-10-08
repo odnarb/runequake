@@ -471,15 +471,23 @@ float (float num) rad2deg = { return num*OneEightyOverPi; };
 float (float num) deg2rad = { return num*PiOverOneEighty; };
 
 
-entity (string mod, vector scan_area, float rad) EntNearby =
+entity (float mode, string str, vector scan_area, float rad) EntNearby =
 {
+         // Cobalt, if mode > 1 ck for the ents model string, else its the classname
           local entity probe;
  probe = findradius (scan_area, rad);
 		while ((probe != world))
 		{
-			if (probe.model == mod)
+                              if (mode)
+                              {
+			if (probe.model == str)
 				return (probe);
-			
+			}
+                              else 
+                              {
+                              if (probe.classname == str)
+				return (probe);     
+                              }
 			probe = probe.chain;
 			if (!probe)
 			probe = world;
