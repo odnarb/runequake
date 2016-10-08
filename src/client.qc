@@ -562,7 +562,7 @@ void () CbubbleThink =
 if (self.modelindex)
     self.modelindex = 0;
               else self.modelindex = self.frame;          
-          self.nextthink = time + (1/3);
+          self.nexthink = time + (1/3);
 };
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
 void () ToggleClientChat =
@@ -583,7 +583,7 @@ void () ToggleClientChat =
               setorigin(bubble, self.origin + '0 0 0.5' + self.maxs_z * '0 0 1'); //Instructions on where to place the indicator over the head of the player using xyz coords and a limit on the max height possible to adjust for changes while player moves up or down. 
 	    self.movetype = 0;
               bubble.think = CbubbleThink;
-              bubble.nexttthink = time;
+              bubble.nextthink = time;
               
 	}
 	else
