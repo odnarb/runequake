@@ -582,6 +582,7 @@ void () CbubbleThink =
           {
           self.owner.air_finished = -1;
           self.owner.impulse = 212;
+          self.think = SUB_Null;
           }          
 };
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
