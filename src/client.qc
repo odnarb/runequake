@@ -568,7 +568,7 @@ void () ToggleClientChat =
               self.chatbubble = bubble;
               bubble.classname = "Chatbubble";
               setmodel(bubble, "progs/s_bubble.spr");
-              setorigin(bubble, bubble.origin + '0 0 0.5' + self.maxs_z * '0 0 1'); //Instructions on where to place the indicator over the head of the player using xyz coords and a limit on the max height possible to adjust for changes while player moves up or down. 
+              setorigin(bubble, self.origin + '0 0 0.5' + self.maxs_z * '0 0 1'); //Instructions on where to place the indicator over the head of the player using xyz coords and a limit on the max height possible to adjust for changes while player moves up or down. 
 	    if (!(self.effects & EF_FROZEN))
               self.effects = self.effects | EF_FROZEN;
               else bubble.frame = -1;
