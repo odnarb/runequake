@@ -418,7 +418,15 @@ move_to_intermission =
 	e.modelindex	= 0;
 
 	self_stuffcmd (e, CSHIFT_NONE);
-};
+  if (e.chatbubble)
+          {
+           e.chatbubble = world;
+            if (e.effects & EF_FROZEN)
+              e.effects = e.effects - EF_FROZEN;
+          remove (e.chatbubble);
+          }
+          
+          };
 
 void (float who)
 proto_intermission =
@@ -573,7 +581,7 @@ void () ToggleClientChat =
               self.effects = self.effects | EF_FROZEN;
               else bubble.frame = -1;
 	}
-	else if (bubble.owner == self)
+	else
           {
           if (bubble.frame != -1) // Already was frozen
           self.effects = self.effects - EF_FROZEN;
@@ -1881,6 +1889,10 @@ PlayerPreThink =
 		IntermissionThink ();	// otherwise a button could be missed between
 		return;					// the think tics
 	}
+            if (self.chatbubble)
+            self.frame = 53;
+         
+          
 	if (!is_valid_player ())
 		return;
 	obs = is_observer ();

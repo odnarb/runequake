@@ -106,11 +106,7 @@ void ()
 player_stand = [$stand1, player_stand]
 {
           
-          if (self.chatbubble)
-          {
-          self.frame = 53;
-          return;
-          }
+        
 	self.weaponframe = 0;
            // Cobalt - Use blocked for better animaiton
 	//if (self.velocity_x || self.velocity_y)
