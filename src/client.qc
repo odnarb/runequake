@@ -561,13 +561,13 @@ void () CbubbleThink =
 {
 if (self.modelindex)
     self.modelindex = 0;
-              else self.modelinxex = self.frame;          
+              else self.modelindex = self.frame;          
           self.nextthink = time + (1/3);
 };
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
 void () ToggleClientChat =
 {
-         // if (!(self.flags & FL_ONGROUND)) return;
+         if (!(self.flags & FL_ONGROUND)) return;
           if (self.modelindex != modelindex_player || (!(self.model)))
 		return;
           
