@@ -563,8 +563,8 @@ void () CbubbleThink =
           self.cnt = self.cnt + 1;
           
              if (self.cnt & 1) 
-             self.effects = 0;
-          else self.effects = EF_FROZEN;
+             self.modelindex = 0;
+          else setmodel(bubble, "progs/s_bubble.spr");
           
           self.nextthink = time + (1);
 };
@@ -581,7 +581,6 @@ void () ToggleClientChat =
               bubble = spawn(); //It's there! :)
               self.chatbubble = bubble;
               bubble.classname = "Chatbubble";
-              bubble.effects = EF_MAYBE_DRAW;
                setmodel(bubble, "progs/s_bubble.spr");
               setorigin(bubble, self.origin + '0 0 0.5' + self.maxs_z * '0 0 1'); //Instructions on where to place the indicator over the head of the player using xyz coords and a limit on the max height possible to adjust for changes while player moves up or down. 
 	    self.movetype = 0;
