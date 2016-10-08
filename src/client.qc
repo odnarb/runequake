@@ -562,7 +562,7 @@ void () CbubbleThink =
 if (self.modelindex)
     self.modelindex = 0;
               else self.modelindex = self.frame;          
-          self.nexthink = time + (1/3);
+          self.nextthink = time + (1/3);
 };
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
 void () ToggleClientChat =
