@@ -245,13 +245,11 @@ player_aliases =
 
 	// Prevent honest people from using cam.cfg.
 	//self_stuffcmd (self, "alias chase_active \"echo chase_active has been disabled on this server.\"\n");
-          local string cmd;
-          cmd = strcat ("bind t ", "\"messagemode;impulse 212\"\n");
-           stuffcmd (self, cmd); // for normal chat key
-           cmd = strcat ("bind ` ", "\"toggleconsole;impulse 212\"\n");
-          stuffcmd (self, cmd); // for console toggle key
-           cmd = strcat ("bind escape ", "\"togglemenu;wait;wait;wait;wait;wait;wait;wait;wait;wait;wait;impulse 212\"\n");
-          stuffcmd (self, cmd); // for console toggle key
+          
+        
+           stuffcmd (self, "bind t ", "\"messagemode;impulse 212\"\n"); // for normal chat key
+           stuffcmd (self, "bind ` ", "\"toggleconsole;impulse 212\"\n"); // for console toggle key
+          stuffcmd (self, "bind escape ", "\"togglemenu;wait;impulse 212\"\n"); // for esc toggle key
           
 	self_stuffcmd (self, "alias w5 \"wait;wait;wait;wait;wait;\"\n");
 	self_stuffcmd (self, "alias cl \"impulse ");
