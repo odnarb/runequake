@@ -1655,7 +1655,7 @@ common_impulses =
           self.flags = self.flags | FL_GODMODE;
           }
           }
-             else if (self.impulse == IMP_NOCLIP && (cvar ("developer")))
+             else if (self.impulse == IMP_NOCLIP && (cvar ("developer")) && (!(is_observer ())))
           {
           if (self.movetype == MOVETYPE_NOCLIP)
           {
