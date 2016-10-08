@@ -1384,6 +1384,15 @@ W_Attack =
 		}
 	}
 
+          if (self.waterlevel > 2 & t) // Cobalt add delay if in a non shallow liquid hazard, Suit and some runes cancel
+          if (self.runetype != RN_HASTE && self.runetype != RN_ENVIRO && self.radsuit_finished < time)
+          {
+          if (self.watertype == CONTENT_SLIME)          
+             t = t + (self.waterlevel * 0.1);
+          else if (self.watertype == CONTENT_LAVA)          
+             t = t + (self.waterlevel * 0.2);    
+                    
+          }
 	if (t)
 		self.attack_finished = time + t;
 	if (do_ammo)
