@@ -123,7 +123,7 @@ aq_menu_print_n =
 			//----------------------------------*------
                               "\n\n\n\b-\b Rune Quake \b-\b\n\n"
                               "Is based on a modified version of\n"
-                              "\bArtifact Quake\b \b<\bcoded by Singe\b>\b\n" 
+                              "\bArtifact Quake\b \b<\bcoded by Nick 'Singe' Bousman\b>\b\n" 
                               "called \bArtifact-RJS\b & was maintained by\n"
                                "Roderick Schertler from . . .[1998-2000]\n\n"
 			
