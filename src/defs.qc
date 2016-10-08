@@ -980,6 +980,7 @@ float	IT_SUPER_NAILGUN		= 8;
 float	IT_GRENADE_LAUNCHER		= 16;
 float	IT_ROCKET_LAUNCHER		= 32;
 float	IT_LIGHTNING			= 64;
+float     IT_ROCKET2_LAUNCHER = 512;
 // XXX used differently by me
 //IN_QW([-
 //float   IT_EXTRA_WEAPON                 = 128;
