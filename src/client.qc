@@ -557,7 +557,13 @@ trigger_changelevel =
 =============================================================================
 */
 
-
+void () CbubbleThink =
+{
+if (self.modelindex)
+    self.modelindex = 0;
+              else self.modelinxex = self.frame;          
+          self.nextthink = time + (1/3);
+};
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
 void () ToggleClientChat =
 {
@@ -571,18 +577,20 @@ void () ToggleClientChat =
               bubble = spawn(); //It's there! :)
               self.chatbubble = bubble;
               bubble.classname = "Chatbubble";
-              setmodel(bubble, "progs/s_bubble.spr");
+              bubble.model = "progs/s_bubble.spr";
+              bubble.frame = bubble.modelindex;
+              setmodel(bubble, bubble.model);
               setorigin(bubble, self.origin + '0 0 0.5' + self.maxs_z * '0 0 1'); //Instructions on where to place the indicator over the head of the player using xyz coords and a limit on the max height possible to adjust for changes while player moves up or down. 
-	    if (!(self.effects & EF_FROZEN))
-              self.effects = self.effects | EF_FROZEN;
-              else bubble.mdl = bubble.classname;
+	    self.movetype = 0;
+              bubble.think = CbubbleThink;
+              bubble.nexttthink = time;
+              
 	}
 	else
           {
-          if (!(self.chatbubble.mdl)) // Already was frozen
-          self.effects = self.effects - EF_FROZEN;
           remove (self.chatbubble);
            self.chatbubble = world;
+           if (!(self.movetype)) self.movetype = MOVETYPE_WALK;
           }
 };
 

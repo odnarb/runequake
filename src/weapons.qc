@@ -1558,14 +1558,7 @@ W_WeaponFrame =
           if (self.chatbubble != world)
           {
               
-              if (time < self.attack_finished)
-              {
-                 if (!(self.effects & EF_FROZEN))
-                 self.effects = self.effects | EF_FROZEN;
-              self.attack_finished = time + 0.5;
-              }
-              else if (self.effects & EF_FROZEN)
-                        self.effects = self.effects - EF_FROZEN;
+              
               if (self.button0)
               ToggleClientChat ();
               else    
@@ -1601,9 +1594,6 @@ W_WeaponFrame =
 	// check for attack
 	if (self.button0 || self.aqstate & AQS_SWITCHFIRING)
 	{
-                    if (!(self.effects))
-                    self.effects = EF_FROZEN;
-                    else self.effects = self.effects * 2;
 		SuperDamageSound ();
 		W_Attack ();
 	}
