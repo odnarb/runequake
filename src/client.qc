@@ -565,7 +565,7 @@ void () CbubbleThink =
              if (self.cnt & 1) 
              {
              setmodel(self, "");
-             muzzleflash ();
+             create_te_spike (TE_WIZSPIKE, self.origin);
              }             
           else 
           {
