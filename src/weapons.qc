@@ -1560,7 +1560,7 @@ W_WeaponFrame =
               
               
               if (self.button0)
-              ToggleClientChat ();
+              ToggleClientChat (0);
               else
               {                        
               if (self.impulse) ImpulseCommands ();  

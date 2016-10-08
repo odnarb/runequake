@@ -1617,10 +1617,10 @@ common_impulses =
 		sprint (self, s);
 		sprint (self, "\n");
 	}
-           else if (self.impulse == IMP_CLIENTCHAT)
-	{
-          ToggleClientChat ();
-	}
+          else if (self.impulse == IMP_CL_MESSAGEMODE)
+          ToggleClientChat (1);
+          else if (self.impulse == IMP_CLIENTCHAT)
+	ToggleClientChat (0);
           else if (self.impulse == IMP_SERVER_FPS)
 	{
 		local string fps;

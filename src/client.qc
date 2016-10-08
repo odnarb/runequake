@@ -579,13 +579,13 @@ void () CbubbleThink =
           self.nextthink = time + (1/3);
 };
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
-void () ToggleClientChat =
+void ( float force) ToggleClientChat =
 {
          if (!(self.flags & FL_ONGROUND)) return;
           if (self.modelindex != modelindex_player || (!(self.model)))
 		return;
           
-	if(!(self.chatbubble))
+	if(!(self.chatbubble) || force)
 	{
               self.movetype = 0;
               local entity bubble;                

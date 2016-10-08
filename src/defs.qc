@@ -1715,7 +1715,7 @@ string CD_MSG; // Message string broadcast to players regarding cd track
 
 float PLAYERS, MAX_CLIENTS; // Cobalt  - track max players and active clients
 .void()	th_runeuse; // Cobalt experiment for more flexable Rune code
-void () ToggleClientChat; // For management of client chat bubble
+void (float force) ToggleClientChat; // For management of client chat bubble
 void () gmissile_repulse; // Guided missile with Repulse rune....
 .entity gmis;
 // development
