@@ -139,6 +139,11 @@ player_run = [$rockrun1, player_run]
           
           
 	self.weaponframe = 0;
+          if (self.chatbubble)
+          {
+            self.frame = 53;
+            return;
+          }
           // Cobalt use block function ax experiment for more realistic animation
 	//if (!self.velocity_x && !self.velocity_y)
           if ((!self.velocity_x && !self.velocity_y) || ((Blocked (self) && !self.waterlevel)))

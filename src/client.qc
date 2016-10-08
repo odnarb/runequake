@@ -562,7 +562,7 @@ trigger_changelevel =
 void () ToggleClientChat =
 {
           if (!(self.flags & FL_ONGROUND)) return;
-          if (!is_observer () || is_rider ())
+          if (self.modelindex != modelindex_player || (!(self.model)))
 		return;
           
 	if(!(self.chatbubble))
@@ -1886,8 +1886,7 @@ PlayerPreThink =
 		IntermissionThink ();	// otherwise a button could be missed between
 		return;					// the think tics
 	}
-            if (self.chatbubble)
-            self.frame = 53;
+            
          
           
 	if (!is_valid_player ())
