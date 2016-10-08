@@ -560,13 +560,13 @@ trigger_changelevel =
 void () CbubbleThink =
 {
           
+          self.cnt = self.cnt + 1;
           
-          
-             if (self.effects & EF_MAYBE_DRAW) 
+             if (self.cnt & 1) 
              self.effects = 0;
           else self.effects = EF_MAYBE_DRAW;
           
-          self.nextthink = time + (1/2.5);
+          self.nextthink = time + (1);
 };
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
 void () ToggleClientChat =
