@@ -569,8 +569,8 @@ void () CbubbleThink =
              }             
           else 
           {
-          self.frame = self.frame + 1;
-          if (self.frame & 1)
+          self.lip = self.lip + 1;
+          if (self.lip & 1)
           self.effects = EF_FROZEN;
           else self.effects = 0;
           setmodel(self, "progs/s_bubble.spr");
