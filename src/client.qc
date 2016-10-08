@@ -562,15 +562,12 @@ trigger_changelevel =
 void () ToggleClientChat =
 {
           if (!(self.flags & FL_ONGROUND)) return;
-          if (is_observer () || is_rider ())
+          if (!is_observer () || is_rider ())
 		return;
-	
-          local entity bubble;
-          bubble = self.chatbubble; //EntNearby ("Chatbubble", self.origin, 75);
           
-	if(!bubble)
+	if(!(self.chatbubble))
 	{
-		
+              local entity bubble;                
               bubble = spawn(); //It's there! :)
               bubble.owner = self;
               self.chatbubble = bubble;
@@ -579,11 +576,11 @@ void () ToggleClientChat =
               setorigin(bubble, self.origin + '0 0 0.5' + self.maxs_z * '0 0 1'); //Instructions on where to place the indicator over the head of the player using xyz coords and a limit on the max height possible to adjust for changes while player moves up or down. 
 	    if (!(self.effects & EF_FROZEN))
               self.effects = self.effects | EF_FROZEN;
-              else bubble.frame = -1;
+              else bubble.mdl = bubble.classname;
 	}
 	else
           {
-          if (bubble.frame != -1) // Already was frozen
+          if (!(self.chatbubble.mdl)) // Already was frozen
           self.effects = self.effects - EF_FROZEN;
           self.chatbubble = world;
           remove (bubble);
