@@ -597,6 +597,11 @@ PlayerDie =
 	if (self.rqstate & RQS_GUIDED_MISSILE)
 		restore_gmissile_owner (self);
 
+          if (self.chatbubble)
+          {
+           self.chatbubble = world;
+          remove (self.chatbubble);
+          }
 	if (!options & NO_DROP_POWERUP)
 	{
 		// Don't drop phoenix quad.

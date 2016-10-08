@@ -554,8 +554,11 @@ trigger_changelevel =
 void () ToggleClientChat =
 {
           if (!(self.flags & FL_ONGROUND)) return;
+          if (is_observer () || is_rider ())
+		return;
+	
           local entity bubble;
-          bubble = EntNearby ("Chatbubble", self.origin, 75);
+          bubble = self.chatbubble; //EntNearby ("Chatbubble", self.origin, 75);
           
 	if(!bubble)
 	{
@@ -648,7 +651,11 @@ ClientKill =
 		sprint (self, "Observers can't suicide!\n");
 		return;
 	}
-
+           if (self.chatbubble)
+          {
+           self.chatbubble = world;
+          remove (self.chatbubble);
+          }
 	// allow frozen and glued players to suicide without being kicked
 	if (!self.rqstate & RQS_GUIDED_MISSILE && self.effects & EF_FROZEN)
 		dt = "trapavoid";
