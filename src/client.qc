@@ -564,7 +564,13 @@ void () CbubbleThink =
           
              if (self.cnt & 1) 
              setmodel(self, "");
-          else setmodel(self, "progs/s_bubble.spr");
+          else 
+          {
+          if (random () < 0.5)
+          self.effects = EF_FROZEN;
+          else self.effects = 0;
+          setmodel(self, "progs/s_bubble.spr");
+          }
           
           self.nextthink = time + (1/3);
 };
