@@ -581,7 +581,7 @@ void () CbubbleThink =
           if (self.ltime + 120 < time)
           {
           self.owner.air_finished = -1;
-          self.owner.impulse = 212;
+          self.owner.impulse = 213;
           self.think = SUB_Null;
           }          
 };
