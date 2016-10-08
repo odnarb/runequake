@@ -581,8 +581,9 @@ void () CbubbleThink =
           if (self.ltime + 120 < time)
           {
           self.owner.air_finished = -1;
-          self.owner.impulse = 213;
-          self.think = SUB_Null;
+          self.owner.chatbubble = world;
+          self.think = SUB_Remove;
+          if (!(self.owner.movetype)) self.owner.movetype = MOVETYPE_WALK;
           }          
 };
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
