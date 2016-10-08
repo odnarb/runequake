@@ -251,8 +251,8 @@ DecodeLevelParms =
 	Rune_Activate (parm10, 0);
 	self.aqflags			= parm11;
 	self.rqflags			= parm14;  
-          self.RL_TYPE = decode(parm15, LOW8);    
-          self.items2 = decode(parm15, MID8); //Carry the rune over in the HUD
+          self.RL_TYPE = decode(parm15, 3);    
+          self.items2 = decode(parm15, 2); //Carry the rune over in the HUD
               
 
           
