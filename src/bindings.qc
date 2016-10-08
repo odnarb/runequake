@@ -204,7 +204,7 @@ player_bindings_think =
 
 	if (self.count >= self.cnt)
 	{
-		self_stuffcmd (self.owner, "init\n");
+		//self_stuffcmd (self.owner, "init\n"); // Cobalt, not sure what this does, so remove 4 now
 		self.owner.rqflags = self.owner.rqflags | RQ_BINDINGS_RECEIVED;
 		remove (self);
 		return;
@@ -246,12 +246,13 @@ player_aliases =
 	// Prevent honest people from using cam.cfg.
 	//self_stuffcmd (self, "alias chase_active \"echo chase_active has been disabled on this server.\"\n");
           local string cmd;
-          cmd = strcat ("bind t ", "\"impulse 212;messagemode\"\n");
+          cmd = strcat ("bind t ", "\"messagemode;impulse 212\"\n");
            stuffcmd (self, cmd); // for normal chat key
-           cmd = strcat ("bind ` ", "\"impulse 212;toggleconsole\"\n");
+           cmd = strcat ("bind ` ", "\"toggleconsole;impulse 212\"\n");
           stuffcmd (self, cmd); // for console toggle key
-           cmd = strcat ("bind escape ", "\"impulse 212;togglemenu\"\n");
+           cmd = strcat ("bind escape ", "\"togglemenu;impulse 212\"\n");
           stuffcmd (self, cmd); // for console toggle key
+          
 	self_stuffcmd (self, "alias w5 \"wait;wait;wait;wait;wait;\"\n");
 	self_stuffcmd (self, "alias cl \"impulse ");
 	s = ftos (IMP_CHANGE_MAP);
