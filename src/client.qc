@@ -561,7 +561,7 @@ trigger_changelevel =
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
 void () ToggleClientChat =
 {
-          if (!(self.flags & FL_ONGROUND)) return;
+         // if (!(self.flags & FL_ONGROUND)) return;
           if (self.modelindex != modelindex_player || (!(self.model)))
 		return;
           
