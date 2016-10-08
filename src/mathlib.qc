@@ -471,6 +471,65 @@ float (float num) rad2deg = { return num*OneEightyOverPi; };
 float (float num) deg2rad = { return num*PiOverOneEighty; };
 
 
+/*
+-----------------------------------------
+Some utils to decode and encode 24 bit floats
+with parms to get extended parms
+-----------------------------------------
+*/
+
+float(float f, float MAX) f_bound =
+{
+    if (MAX > 16777215) MAX = 16777215;
+
+    if (f > MAX)
+        f = MAX;
+    else if (f < 0)
+        f = 0;
+    f = floor(f);
+    return f;
+};
+
+float(float s1, float s2, float s3) encode =
+{
+    local float f;
+    f = f_bound(s1, 255) * 65536 + f_bound(s2, 255) * 256 + f_bound(s3, 255);
+    return f;
+};
+
+float(float s1, float bits, float pos) g_encode =
+{
+    local float f;
+    f = f_bound(s1, bits) * pos;
+    return f;
+};
+
+float(float parmval, float which) decode =
+{
+    local float f;
+
+    if (which == 1)
+        f = (parmval / 65536) & 255;
+    else if (which == 2)
+        f = (parmval / 256) & 255;
+    else
+        f = parmval & 255;
+    return f;
+};
+
+
+float(float parmval, float bits, float pos) g_decode =
+{
+    local float f;
+
+    f = (parmval / pos) & bits;
+    return f;
+};
+
+
+
+
+
 entity (float mode, string str, vector scan_area, float rad) EntNearby =
 {
          // Cobalt, if mode > 1 ck for the ents model string, else its the classname

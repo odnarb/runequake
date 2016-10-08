@@ -1351,7 +1351,7 @@ W_Attack =
 		if (is_alt)
 		{
 			 // Cobalt - detect type of RL
-			if (self.RL_TYPE == "Rrocks")
+			if (self.RL_TYPE)
 			{
 				W_FireRocket ("reflect");
 				t = 1.4 * haste_mult;

@@ -79,8 +79,10 @@ SetChangeParms =
 	parm12 = 0;	// observers, negative duration in game queue
 	parm13 = 0;	// observers, ridee
 	parm14 = self.rqflags;
-	parm15 = self.items2;
-
+          parm15 = encode(0, self.items2, self.RL_TYPE);
+	
+            
+         
 	if (is_observer ())
 	{
 		if (self.runevar)
@@ -248,9 +250,12 @@ DecodeLevelParms =
 
 	Rune_Activate (parm10, 0);
 	self.aqflags			= parm11;
-	self.rqflags			= parm14;
-	self.items2				= parm15; //Carry the rune over in the HUD
+	self.rqflags			= parm14;  
+          self.RL_TYPE = decode(parm15, LOW8);    
+          self.items2 = decode(parm15, MID8); //Carry the rune over in the HUD
+              
 
+          
 };
 
 /*
@@ -1012,7 +1017,7 @@ PutClientInServer =
 	spot = SelectSpawnPoint ();
           self.pausetime = 0; // Cobalt, in case of Athletic Rune
           self.stickies = 0;  // Cobalt, in case of multiple sticky bombs
-          self.RL_TYPE = string_null; // Cobalt, reset rl type just in case
+          self.RL_TYPE = 0; // Cobalt, reset rl type just in case
 	self.last_thought = time;
 	self.classname = "player";
 	self.max_health = MAX_HEALTH_NORMAL;
