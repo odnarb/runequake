@@ -1700,6 +1700,7 @@ float	maybe_bprint_option_hack;
 //misc
 .float	grenade_spam_time;
 .float	afk,stickies;
+.entity chatbubble;
 entity	last_teleport;
 float     TE_EXPLOSION2 = 12; // Cobalt test out new kind of available explosion
 .float items2; // Cobalt, Engine will show rune on hud

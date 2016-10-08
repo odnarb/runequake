@@ -557,7 +557,7 @@ trigger_changelevel =
 =============================================================================
 */
 
-.entity chatbubble;
+
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
 void () ToggleClientChat =
 {
