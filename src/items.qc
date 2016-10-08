@@ -809,11 +809,14 @@ weapon_touch =
 	else
 		objerror ("weapon_touch: unknown classname");
 
-	if (!deathmatch & DM_DM_MASK || (new = IT_ROCKET_LAUNCHER && (!(other.items & new))))
+	if (!deathmatch & DM_DM_MASK || new = IT_ROCKET_LAUNCHER)
 	{
+                    if (!(other.items & new)))
+                    {
 		sprint (other, "You got the ");
 		sprint (other, self.netname);
 		sprint (other, "\n");
+                    }
 	}
 	// weapon touch sound
 	item_sound (other, CHAN_ITEM, "weapons/pkup.wav", 1, ATTN_NORM);
