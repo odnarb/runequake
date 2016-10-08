@@ -563,8 +563,8 @@ void () CbubbleThink =
           self.cnt = self.cnt + 1;
           
              if (self.cnt & 1) 
-             self.modelindex = 0;
-          else setmodel(bubble, "progs/s_bubble.spr");
+             setmodel(self, "");
+          else setmodel(self, "progs/s_bubble.spr");
           
           self.nextthink = time + (1);
 };
