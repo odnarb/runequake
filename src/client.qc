@@ -559,9 +559,16 @@ trigger_changelevel =
 
 void () CbubbleThink =
 {
-if (self.modelindex)
-    self.modelindex = 0;
-              else self.modelindex = self.frame;          
+          self.cnt = self.cnt + 1;
+          
+          if (!(self.cnt & 1))
+          {
+             if (self.effects & EF_MAYBE_DRAW) 
+             self.effects = 0;
+          
+          }
+          else self.effects = EF_MAYBE_DRAW;
+          
           self.nextthink = time + (1/3);
 };
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
@@ -577,9 +584,8 @@ void () ToggleClientChat =
               bubble = spawn(); //It's there! :)
               self.chatbubble = bubble;
               bubble.classname = "Chatbubble";
-              bubble.model = "progs/s_bubble.spr";
-              bubble.frame = bubble.modelindex;
-              setmodel(bubble, bubble.model);
+              bubble.cnt = -1;
+               setmodel(bubble, "progs/s_bubble.spr");
               setorigin(bubble, self.origin + '0 0 0.5' + self.maxs_z * '0 0 1'); //Instructions on where to place the indicator over the head of the player using xyz coords and a limit on the max height possible to adjust for changes while player moves up or down. 
 	    self.movetype = 0;
               bubble.think = CbubbleThink;
