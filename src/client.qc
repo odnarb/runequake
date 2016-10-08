@@ -589,12 +589,13 @@ void () CbubbleThink =
 // This routine will update the status of the chat indicator depending on if it should be displayed or not.
 void (float force) ToggleClientChat =
 {
-         if (!(self.flags & FL_ONGROUND)) return;
-          if (self.modelindex != modelindex_player || (!(self.model)))
-		return;
+       
           
 	if(!(self.chatbubble) || force)
 	{
+               if (!(self.flags & FL_ONGROUND) || (!(self.takedamage))) return;
+          if (self.modelindex != modelindex_player || (!(self.model)))
+		return;
               self.movetype = 0;
               local entity bubble;                
               bubble = spawn(); //It's there! :)
