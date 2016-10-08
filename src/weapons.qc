@@ -1350,15 +1350,16 @@ W_Attack =
 		player_rocket1 ();
 		if (is_alt)
 		{
-			if (!(cvar ("developer"))) // XXX add a server command option to turn on
-			{
-				W_FireRocket ("gmissile");
-				t = 0.5;
-			}
-			else
+			 // Cobalt - detect type of RL
+			if (self.RL_TYPE == "Rrocks")
 			{
 				W_FireRocket ("reflect");
 				t = 1.4 * haste_mult;
+			}
+                              else
+			{
+				W_FireRocket ("gmissile");
+				t = 0.5;
 			}
 		}
 		else

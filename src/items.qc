@@ -771,6 +771,11 @@ weapon_touch =
 		if (hadammo >= MAX_ROCKETS && other.items & new)
 			return;
 		other.ammo_rockets = other.ammo_rockets + 5;
+                    
+                    if (self.angles_x) // Cobalt - this is the ricochet type alt wep
+                    {
+                    other.RL_TYPE = "Rrocks";
+                    }                    
 	}
 	else if (self.classname == "weapon_grenadelauncher")
 	{

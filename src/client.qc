@@ -1012,6 +1012,7 @@ PutClientInServer =
 	spot = SelectSpawnPoint ();
           self.pausetime = 0; // Cobalt, in case of Athletic Rune
           self.stickies = 0;  // Cobalt, in case of multiple sticky bombs
+          self.RL_TYPE = string_null; // Cobalt, reset rl type just in case
 	self.last_thought = time;
 	self.classname = "player";
 	self.max_health = MAX_HEALTH_NORMAL;

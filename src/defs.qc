@@ -1680,6 +1680,7 @@ string	timeset_gold = "\5\{0}":"\1\0":"\1\5":"\2\0":"\2\5":"\3\0";
 .float	killed;
 
 .float    snkills; // Track sniper rune kills
+.string   RL_TYPE; // To track alt wep style for RL
 // net functions
 .entity cl;
 .entity	netconnection;
