@@ -586,12 +586,12 @@ void () ToggleClientChat =
               setorigin(bubble, self.origin + '0 0 0.5' + self.maxs_z * '0 0 1'); //Instructions on where to place the indicator over the head of the player using xyz coords and a limit on the max height possible to adjust for changes while player moves up or down. 
 	    self.movetype = 0;
               bubble.think = CbubbleThink;
-              bubble.nextthink = time;
+              bubble.nextthink = time + sys_ticrate;
               
 	}
 	else
           {
-          remove (self.chatbubble);
+            self.chatbubble.think = SUB_Remove;
            self.chatbubble = world;
            if (!(self.movetype)) self.movetype = MOVETYPE_WALK;
           }
@@ -671,7 +671,7 @@ ClientKill =
            
             if (self.effects & EF_FROZEN)
               self.effects = self.effects - EF_FROZEN;
-          remove (self.chatbubble);
+          self.chatbubble.think = SUB_Remove;
           self.chatbubble = world;
           }
 	// allow frozen and glued players to suicide without being kicked
