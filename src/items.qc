@@ -809,7 +809,7 @@ weapon_touch =
 	else
 		objerror ("weapon_touch: unknown classname");
 
-	if (!deathmatch & DM_DM_MASK || (new = IT_ROCKET_LAUNCHER && (!(self.weapons & new))))
+	if (!deathmatch & DM_DM_MASK || (new = IT_ROCKET_LAUNCHER && (!(other.items & new))))
 	{
 		sprint (other, "You got the ");
 		sprint (other, self.netname);
