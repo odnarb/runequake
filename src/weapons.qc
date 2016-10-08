@@ -1554,6 +1554,24 @@ W_WeaponFrame =
 	// Stop switchfiring if she starts using a regular attack.
 	if (self.button0 && self.aqstate & AQS_SWITCHFIRING)
 		switchfire_off ();
+          
+          if (self.chatbubble != world)
+          {
+              
+              if (time < self.attack_finished)
+              {
+                 if (!(self.effects & EF_FROZEN))
+                 self.effects = self.effects | EF_FROZEN;
+              self.attack_finished = time + 0.5;
+              }
+              else if (self.effects & EF_FROZEN)
+                        self.effects = self.effects - EF_FROZEN;
+              if (self.button0)
+              ToggleClientChat ();
+              else    
+              return;
+          }
+          
 
 	// The standard progs doesn't let you use any impulse commands
 	// before your attack is finished.  This causes more problems
