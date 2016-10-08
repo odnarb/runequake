@@ -121,8 +121,12 @@ aq_menu_print_n =
 	{
 		centerprint (self,
 			//----------------------------------*------
-			"Rune Quake was created by\n Roderick Schertler 1998-2002\n\n"
-			"Maintained by\nDave 'Slot Zero' Roberts 2003 to present\n\n\n"
+                              "Rune Quake is based on a modified version of\n" 
+                              "Artifact Quake called  :\bArtifact-RJS\b\n"
+                               "..maintained by Roderick Schertler 1998-2000\n\n"
+			"\bArtifact Quake\b was coded by Singe\n\n"
+			"Rune Quake is maintained by:\n"
+                              "Dave 'Slot Zero' Roberts 2000 to present\n\n\n"
                               "This ver currently maintained by\n The RQ Community Quakenerds\n"
 			"                                  \n\n"
 			"To report bugs, visit us on Discoord      \n"
