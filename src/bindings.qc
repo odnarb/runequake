@@ -249,6 +249,7 @@ player_aliases =
         
            stuffcmd (self, "bind t \"messagemode;impulse 212\"\n"); // for normal chat key
            stuffcmd (self, "bind ` \"toggleconsole;impulse 212\"\n"); // for console toggle key
+           stuffcmd (self, "bind tilde \"toggleconsole;impulse 212\"\n"); // for console toggle key
           stuffcmd (self, "bind escape \"togglemenu;wait;impulse 212\"\n"); // for esc toggle key
           
 	self_stuffcmd (self, "alias w5 \"wait;wait;wait;wait;wait;\"\n");
