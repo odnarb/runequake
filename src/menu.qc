@@ -124,7 +124,7 @@ aq_menu_print_n =
                               "\n\n- Rune Quake -\n"
                               "Is based on a modified version of\n"
                               "\bArtifact Quake\b \b<\bcoded by Singe\b>\b\n" 
-                              "called [\bArtifact-RJS\b] which was maintained by\n"
+                              "called [\bArtifact-RJS\b] & was maintained by\n"
                                "Roderick Schertler from . . .[1998-2000]\n\n"
 			
 			"Rune Quake is now maintained by:\n"
