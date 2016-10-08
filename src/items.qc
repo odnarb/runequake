@@ -935,7 +935,7 @@ void ()
 weapon_rocketlauncher =
 {
           if (random () < 0.5)
-          self.angles_x  = 5.5;          
+          self.angles_x  = 10;          
           
 	weapon_set ("progs/g_rock2.mdl", 3, "Rocket Launcher");
 };
