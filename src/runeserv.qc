@@ -1206,6 +1206,7 @@ Rune_Touch =
                     
 		return;
 	}
+          if (other.chatbubble) return;
 
 	 if (other.solid == world.solid) // Cobalt, make the sound on doors, plats and exploboxes as well
           {

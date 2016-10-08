@@ -559,11 +559,14 @@ trigger_changelevel =
 
 void () CbubbleThink =
 {
-          muzzleflash ();
+          
           self.cnt = self.cnt + 1;
           
              if (self.cnt & 1) 
+             {
              setmodel(self, "");
+             muzzleflash ();
+             }             
           else 
           {
           self.frame = self.frame + 1;
