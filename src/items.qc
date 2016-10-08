@@ -811,7 +811,7 @@ weapon_touch =
 
 	if (!deathmatch & DM_DM_MASK || new = IT_ROCKET_LAUNCHER)
 	{
-                    if (!(other.items & new)))
+                    if (!(other.items & new))
                     {
 		sprint (other, "You got the ");
 		sprint (other, self.netname);
