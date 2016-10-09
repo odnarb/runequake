@@ -778,7 +778,7 @@ weapon_touch =
                     other.RL_TYPE = 1;
                     } 
                     else 
-                    self.netname = "Rocket Launcher with a guided missile capability";
+                    self.netname = "Rocket Launcher with guided missile capability";
 	}
 	else if (self.classname == "weapon_grenadelauncher")
 	{
@@ -811,9 +811,9 @@ weapon_touch =
 
 	if (!deathmatch & DM_DM_MASK || new == IT_ROCKET_LAUNCHER)
 	{
-                    if (!(other.items & new))
+                    if (!other.items & new)
                     {
-		sprint (other, "You got the ");
+		sprint (other, "You got a ");
 		sprint (other, self.netname);
 		sprint (other, "\n");
                     }

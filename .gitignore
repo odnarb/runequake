@@ -13,3 +13,5 @@ config.cfg
 *.log
 src/*.log
 node_modules/
+src/Copile-progsdat.lnk
+src/qccx.exe

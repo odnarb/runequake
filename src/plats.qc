@@ -338,7 +338,7 @@ func_train =
 
 	// start trains on the second frame, to make sure their targets
 	// have had a chance to spawn
-	self.nextthink = self.ltime + 0.1;
+	self.nextthink = self.ltime + sys_ticrate;
 	self.think = func_train_find;
 };
 
