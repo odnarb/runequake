@@ -287,7 +287,7 @@ func_train_find =
 	setorigin (self, targ.origin - self.mins);
 	if (!self.targetname)
 	{	// not triggered, so start immediately
-		self.nextthink = self.ltime + 0.1;
+		self.nextthink = self.ltime + sys_ticrate;
 		self.think = train_next;
 	}
 };
