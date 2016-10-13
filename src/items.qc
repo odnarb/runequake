@@ -883,7 +883,7 @@ weapon_up =
 		setorigin (self, self.oldorigin + WEAPON_CHARGED_OFFSET);
                     if (self.effects & EF_FROZEN)
                     self.effects = 2;
-                    item_sound (self, CHAN_ITEM, "items/itembk2.wav", 1, ATTN_NORM);
+                    sound (self, CHAN_ITEM, "items/itembk2.wav", 1, ATTN_NORM);
 		// Keep on moving it due to the rocket in the squish
 		// room in Hell's Atrium (the squishing ceiling moves it
 		// down to the floor).
