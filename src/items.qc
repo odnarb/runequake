@@ -851,6 +851,7 @@ weapon_touch =
 			setorigin (self, self.oldorigin);
 			self.runetime = time + WEAPON_RESPAWN_TIME;
 			self.think = weapon_up;
+                              self.noise3 = "items/itembk2.wav";
 			self.nextthink = self.runetime;
                               if (!(self.effects & EF_FROZEN))
                               self.effects = EF_FROZEN;
@@ -882,9 +883,13 @@ weapon_up =
 	{
 		setorigin (self, self.oldorigin + WEAPON_CHARGED_OFFSET);
                     if (self.effects & EF_FROZEN)
+                    {
                     self.effects = 2;
-                    sound (self, CHAN_ITEM, "items/itembk2.wav", 1, ATTN_NORM);
-		// Keep on moving it due to the rocket in the squish
+                    if (self.noise3 != string_null)
+                    sound (self, CHAN_ITEM, self.noise3, 1, ATTN_IDLE);
+		self.noise3 = string_null;
+                    }
+                    // Keep on moving it due to the rocket in the squish
 		// room in Hell's Atrium (the squishing ceiling moves it
 		// down to the floor).
 		self.nextthink = time + 5;
