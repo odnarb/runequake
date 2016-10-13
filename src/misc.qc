@@ -503,6 +503,13 @@ func_wall =
 	self.use	= func_wall_use;
 
 	setmodel (self, self.model);
+          
+          	if (self.model == "*69") // Cobalt for e2m6 alt layout
+	self.origin_z = self.origin_z - (ceil(random () * 100) + 45);
+		  
+		     
+          
+          
 };
 
 /*QUAKED func_illusionary (0 .5 .8) ?
