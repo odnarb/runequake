@@ -816,7 +816,7 @@ Rune_Activate =
           if (self.runetype == RN_BUMMER)
           {
            self.runevar	= time + 120;         
-                    
+           sound (self, CHAN_VOICE, "enforcer/death1.wav", 1, ATTN_IDLE);         
           }
 	if (self.runetype == RN_HEALTH)
 	{
