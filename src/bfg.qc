@@ -152,7 +152,7 @@ BFG_Warmup =
                     local float a;
                     a = (self.count * (1/number));
                     bprint (ftos (a));
-                    bprint ("/n");
+                    bprint ("\n");
 		sound (self.owner, CHAN_AUTO, "weapons/lstart.wav", a, ATTN_NORM);
 		return;
 	}
