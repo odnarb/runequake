@@ -491,11 +491,10 @@ func_door =
           if (self.model == "*86")
           {
           self.speed = 5;
-          self.sounds = 1;
-          self.movedir_z = -1;
+          self.targetname = "t157";
           self.effects = EF_DIMLIGHT;
           setmodel (self, self.model);
-          spawn_trigger_teleport (realorigin(self), self.model, "t198");
+          spawn_trigger_teleport (realorigin(self), self.model, "t199");
           spawn_info_teleport_destination ('-1738 -556.5 -263', 0, "t198");
           spawn_info_teleport_destination ('-679.5 -1227.3 467', 330, "t199");
           return;        
