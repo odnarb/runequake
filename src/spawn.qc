@@ -184,6 +184,8 @@ place_my_items =
 		// Place new RL.
 		spawn_item ("weapon_rocketlauncher", 0, '1104.0 640.0 312.0', 0);
 	}
+          else if (mapname == "e1m3")
+	spawn_item ("item_artifact_super_damage", 0, '-644 -1251 654', 0);
 	else if (mapname == "e1m6")
 	{
 		// Under the stairs.
