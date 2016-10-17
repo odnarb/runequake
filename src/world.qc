@@ -136,7 +136,6 @@ r = find (world, classname, "plat");
           r = find (r, classname, "trigger_teleport");
           }
 
-;
 };
 
 
