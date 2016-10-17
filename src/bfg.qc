@@ -201,7 +201,7 @@ W_BFG =
 
 	missile			= spawn ();
 	missile.owner		= self;
-	missile.movetype	= MOVETYPE_FLY;
+	missile.movetype	= MOVETYPE_NONE;
 	missile.solid		= SOLID_BBOX;
 	missile.classname	= "bfg";
 	missile.count		= 0;
@@ -214,7 +214,11 @@ W_BFG =
 	missile.think		= BFG_Warmup;
 
            if (self.runetype == RN_HASTE)
-                    missile.avelocity = vectoangles (self.origin);
-	if (self.runetype == RN_THOR)
+           {
+                     missile.movetype	= MOVETYPE_FLY;
+                    missile.avelocity = self.angles + vectoangles (self.origin);
+	
+           }
+          if (self.runetype == RN_THOR)
 		self.runetime = time + 15;
 };
