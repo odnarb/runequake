@@ -552,7 +552,7 @@ func_bossgate =
 		return; // all episodes completed
 
 	func_wall ();
-          self.origin_z = self.origin_z - 16;
+          self.origin_z = self.origin_z - 48;
 };
 
 //============================================================================
