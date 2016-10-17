@@ -490,8 +490,9 @@ func_door =
           }
           if (self.model == "*86")
           {
-          trigger_teleport ();
           self.effects = EF_FROZEN;
+          setmodel (self, self.model);
+          spawn_trigger_teleport (realorigin(self), self.model, "t172");
           return;        
           }
           }
