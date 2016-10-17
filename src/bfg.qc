@@ -142,7 +142,10 @@ BFG_Warmup =
 	// Make the sound and return unless this is the last tick.
 	self.count = self.count + 1;
 	if (self.owner.runetype == RN_HASTE)
+          {
 		number = 2;
+                    self.avelocity = vectoangles (self.origin);
+          }
 	else if (self.owner.runetype == RN_JACK)
 		number = 3;
 	else
@@ -178,10 +181,12 @@ BFG_Warmup =
 	self.nextthink = time + sys_ticrate;
 	self.think = BFG_Zap;
           // Cobalt, add some angular velocity to the bfg missile
+          if (!(self.avelocity))
+          {
           self.avelocity_x	= crandom () * self.owner.ammo_cells;
 	self.avelocity_y	= crandom () * self.owner.ammo_cells;
 	self.avelocity_z	= crandom () * self.owner.ammo_cells;
-     
+          }
 };
 
 void ()
