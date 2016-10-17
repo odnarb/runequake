@@ -483,7 +483,6 @@ func_door =
                     
           if (self.model == "*32" || self.model == "*45" || self.model == "*47")
           {
-          func_wall ();
           self.use = world.use;
           makestatic (self);
           return;

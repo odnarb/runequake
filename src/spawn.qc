@@ -92,7 +92,7 @@ spawn_item =
           else if (e.classname == "item_artifact_envirosuit")item_artifact_envirosuit ();
           else if (e.classname == "item_superhealth")
           {
-          self.spawnflags = H_ROTTEN;
+          self.spawnflags = 2;
           item_health ();
           }
 	self = o;
@@ -195,8 +195,8 @@ place_my_items =
           else if (mapname == "e1m3")
           {
           // Hidden Quad above ng
-          spawn_item ("item_artifact_super_damage", 0, '-644 -1251 425', 0);
-	spawn_item ("item_superhealth", 0, '-905 -64 -456', 0);
+          spawn_item ("item_artifact_super_damage", 0, '-644 -1251 645', 0);
+	spawn_item ("item_superhealth", 0, '-915 -80 -481', 0);
           }
           else if (mapname == "e1m6")
 	{
