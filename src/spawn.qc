@@ -211,7 +211,7 @@ place_my_items =
 		spawn_effects_model ('1696 368 96', EF_DIMLIGHT, "progs/flame.mdl");
 
 		// Dark room that holds single player monsters.
-		//spawn_trigger_teleport ('1696 -250 24', "progs/s_light.spr", "T2");
+		spawn_trigger_teleport ('1696 -250 24', "progs/s_light.spr", "T2");
 		spawn_info_teleport_destination ('1696 314 24', -90, "T1");
 
 		// Ceiling of GL room.
