@@ -149,7 +149,11 @@ BFG_Warmup =
 		number = 4;
 	if (self.count < number)
 	{         // Cobalt - make the bfg sound increase with charges 
-		sound (self.owner, CHAN_AUTO, "weapons/lstart.wav", (self.count * (1/number)), ATTN_NORM);
+                    local float a;
+                    a = (self.count * (1/number));
+                    bprint (ftos (a));
+                    bprint ("/n");
+		sound (self.owner, CHAN_AUTO, "weapons/lstart.wav", a, ATTN_NORM);
 		return;
 	}
 
