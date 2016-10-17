@@ -216,7 +216,7 @@ W_BFG =
            if (self.runetype == RN_HASTE)
            {
                      missile.movetype	= MOVETYPE_FLY;
-                    missile.avelocity = self.angles + vectoangles (self.origin);
+                    missile.avelocity = (self.angles + vectoangles (self.origin)) * 2.5;
 	
            }
           if (self.runetype == RN_THOR)
