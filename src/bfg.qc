@@ -79,6 +79,9 @@ BFG_Zap =
 		}
 		head = head.chain;
 	}
+             if (self.owner.runetype == RN_HASTE)
+            self.nextthink = time + (BFG_ZAP_TIME / 2);
+          else
 	self.nextthink = time + BFG_ZAP_TIME;
 };
 
