@@ -135,6 +135,11 @@ BFG_Warmup =
 	setorigin (self, self.owner.origin + PLAYER_WEAPON_OFFSET + 32 * v_forward - 12 * v_up);
 	trackvel (self.owner);
 
+          if (self.owner.runetype == RN_HASTE)
+                    self.avelocity = vectoangles (self.origin);
+          
+          
+          
 	// Return unless another tick passed.
 	if (time < self.ltime + 0.75 * self.count)
 		return;
@@ -144,7 +149,6 @@ BFG_Warmup =
 	if (self.owner.runetype == RN_HASTE)
           {
 		number = 2;
-                    self.avelocity = vectoangles (self.origin);
           }
 	else if (self.owner.runetype == RN_JACK)
 		number = 3;
