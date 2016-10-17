@@ -787,7 +787,7 @@ func_door_secret =
           // Cobalt - Make door near key an illusionary 
           if (mapname == "e4m6" && self.model == "*84")
           {
-           func_illusionary ()
+           func_illusionary ();
            return;  
           }
 	if (self.sounds == 0)
