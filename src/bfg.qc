@@ -147,7 +147,7 @@ BFG_Warmup =
 		number = 3;
 	else
 		number = 4;
-	if (self.count < number)
+	if (self.count <= number)
 	{         // Cobalt - make the bfg sound increase with charges 
                     local float a;
                     a = (self.count * (1/number));
