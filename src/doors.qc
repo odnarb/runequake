@@ -477,6 +477,16 @@ func_door =
           makestatic (self);
           return;
           }
+          // Cobalt - some doors under water, transform to illusionary
+          if (mapname == "e1m3" && (self.model == "*32" || self.model == "*45" || self.model == "*47"))
+          {
+          func_wall ();
+          self.use = world.use;
+          makestatic (self);
+          return;
+          }
+          
+          
 
 	if (world.worldtype == 0)
 	{
