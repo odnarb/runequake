@@ -135,8 +135,7 @@ BFG_Warmup =
 	setorigin (self, self.owner.origin + PLAYER_WEAPON_OFFSET + 32 * v_forward - 12 * v_up);
 	trackvel (self.owner);
 
-          if (self.owner.runetype == RN_HASTE)
-                    self.avelocity = vectoangles (self.origin);
+         
           
           
           
@@ -214,6 +213,8 @@ W_BFG =
 	missile.nextthink	= time;
 	missile.think		= BFG_Warmup;
 
+           if (self.runetype == RN_HASTE)
+                    missile.avelocity = vectoangles (self.origin);
 	if (self.runetype == RN_THOR)
 		self.runetime = time + 15;
 };
