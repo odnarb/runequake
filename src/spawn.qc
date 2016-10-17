@@ -87,6 +87,14 @@ spawn_item =
 	else if (e.classname == "weapon_supernailgun")		weapon_supernailgun ();
 	else if (e.classname == "weapon_supershotgun")		weapon_supershotgun ();
 	else if (e.classname == "item_artifact_invulnerability")item_artifact_invulnerability ();
+          else if (e.classname == "item_artifact_super_damage")item_artifact_super_damage ();
+          else if (e.classname == "item_artifact_invisibility")item_artifact_invisibility ();
+          else if (e.classname == "item_artifact_envirosuit")item_artifact_envirosuit ();
+          else if (e.classname == "item_superhealth")
+          {
+          self.spawnflags = H_ROTTEN;
+          item_health ();
+          }
 	self = o;
 };
 
@@ -185,8 +193,12 @@ place_my_items =
 		spawn_item ("weapon_rocketlauncher", 0, '1104.0 640.0 312.0', 0);
 	}
           else if (mapname == "e1m3")
-	spawn_item ("item_artifact_super_damage", 0, '-644 -1251 425', 0);
-	else if (mapname == "e1m6")
+          {
+          // Hidden Quad above ng
+          spawn_item ("item_artifact_super_damage", 0, '-644 -1251 425', 0);
+	spawn_item ("item_superhealth", 0, '-905 -64 -456', 0);
+          }
+          else if (mapname == "e1m6")
 	{
 		// Under the stairs.
 		spawn_item ("weapon_grenadelauncher", 0, '-510 355 -155', 0);
