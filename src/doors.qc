@@ -477,15 +477,24 @@ func_door =
           makestatic (self);
           return;
           }
-          // Cobalt - some doors under water, transform to illusionary
-          if (mapname == "e1m3" && (self.model == "*32" || self.model == "*45" || self.model == "*47"))
+          // Cobalt - some doors under water, transform to illusionary, make 1 a teleporter
+          if (mapname == "e1m3")
+          {
+                    
+          if (self.model == "*32" || self.model == "*45" || self.model == "*47")
           {
           func_wall ();
           self.use = world.use;
           makestatic (self);
           return;
           }
-          
+          if (self.model == "*86")
+          {
+          trigger_teleport ();
+          self.effects = EF_FROZEN;
+          return;        
+          }
+          }
           
 
 	if (world.worldtype == 0)
