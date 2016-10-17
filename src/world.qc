@@ -128,13 +128,7 @@ r = find (world, classname, "plat");
           r = find (r, classname, "gasbomb");
           }
           
-              r = find (world, classname, "trigger_teleport");
-	while (r)
-	{
-          if (mapname == "start" && (!(self.model)))
-                  particle (r.origin, VEC_ORIGIN, PARTICLE_TELEPORT_SHUFFLE, 100); 
-          r = find (r, classname, "trigger_teleport");
-          }
+    
 
 };
 
