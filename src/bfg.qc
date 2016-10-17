@@ -201,7 +201,7 @@ W_BFG =
 
 	missile			= spawn ();
 	missile.owner		= self;
-	missile.movetype	= MOVETYPE_NONE;
+	missile.movetype	= MOVETYPE_FLY;
 	missile.solid		= SOLID_BBOX;
 	missile.classname	= "bfg";
 	missile.count		= 0;
