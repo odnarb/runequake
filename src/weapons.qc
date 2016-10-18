@@ -785,14 +785,15 @@ GrenadeTouch =
           if (other.movetype == MOVETYPE_PUSH && self.watertype == -1)
           {
                     bprint ("Case1\n");
-          if (vlen(self.velocity))
+          if (vlen(self.velocity) && self.velocity_z < 1)
           {
                     bprint ("Case2\n");
           makevectors (self.velocity);
-          traceline (self.origin, v_up * (vlen(self.velocity) * -1), 1, self);
+          trace_ent = self;
+          traceline (self.origin, self.origin - '0 0 12', 1, self);
            SpawnTempDebugMarker (trace_endpos, 0.5, 0);
           self.finalangle = vectoangles(trace_plane_normal);
-           if (self.flags & FL_ONGROUND)
+          if (trace_ent == world)
           self.angles_x = self.finalangle_x - 90;
           }
           
