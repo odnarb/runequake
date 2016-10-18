@@ -588,6 +588,7 @@ void () CbubbleThink =
           self.owner.air_finished = -1;
           self.owner.chatbubble = world;
           self.think = SUB_Remove;
+          if ((!(intermission_running)))
           if (!(self.owner.movetype)) self.owner.movetype = MOVETYPE_WALK;
           }          
 };
