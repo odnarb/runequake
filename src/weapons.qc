@@ -784,7 +784,7 @@ GrenadeTouch =
           
           if (other.movetype == MOVETYPE_PUSH && self.watertype == -1)
           {
-          if (vlen(self.velocity) < cvar("sv_maxspeed"))
+          if (vlen(self.velocity))
           {
           makevectors (self.velocity);
           traceline (self.origin, v_up * (vlen(self.velocity) * -1), 1, self);
