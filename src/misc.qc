@@ -507,7 +507,7 @@ func_wall =
           	if (self.model == "*69") // Cobalt for e2m6 alt layout
                     if (random () < 0.5)
                     self.origin_z = self.origin_z - (ceil(random () * 100) + 45);
-                    else (makestatic (self);
+                    else makestatic (self);
                     if (self.model == "*47" && mapname == "start") // Cobalt for start alt layout
                     self.origin_z = self.origin_z - 64;
 		     
