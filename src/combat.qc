@@ -356,11 +356,13 @@ T_Damage =
 	if (inflictor != world && (targ.movetype == MOVETYPE_WALK || targ.touch == Rune_Touch || targ.think == bomb_tick)
 			&& (targ.runetype != RN_MONK || targ == attacker))
 	{
-                   if (targ.touch == Rune_Touch) 
+                    local float tag;
+                   if (targ.touch == Rune_Touch || targ.touch == BackpackTouch) 
                    if (targ.flags & FL_ONGROUND)
                    {
 		targ.flags = targ.flags - FL_ONGROUND;
 		targ.velocity_z = 50;
+                    tag = 1;
                    }
                    
                     if (targ.think == bomb_tick)
@@ -390,6 +392,7 @@ T_Damage =
 		targ.velocity_y = targ.velocity_y / ((0 - targ.watertype) + targ.waterlevel);
                     targ.velocity_z = targ.velocity_z / ((0 - targ.watertype) + targ.waterlevel);
                     }
+                    if (tag) targ.velocity = targ.velocity * (1/3);
                     if (gamemode == MODE_MIDAIR)
 		{
 			if (safe_height)
