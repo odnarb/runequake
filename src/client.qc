@@ -583,7 +583,7 @@ void () CbubbleThink =
           
           self.nextthink = time + (1/4);
           
-          if (self.ltime + 120 < time)
+          if (self.ltime + 120 < time || intermission_running)
           {
           self.owner.air_finished = -1;
           self.owner.chatbubble = world;
