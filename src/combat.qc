@@ -395,7 +395,7 @@ T_Damage =
                     else if (tag) 
                     {
                     targ.velocity_x = targ.velocity_x * (1/3);
-                    targ.velocity_xy= targ.velocity_y * (1/3);
+                    targ.velocity_y= targ.velocity_y * (1/3);
                     }
                     if (gamemode == MODE_MIDAIR)
 		{
