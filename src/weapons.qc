@@ -789,12 +789,19 @@ GrenadeTouch =
           {
                     bprint ("Case2\n");
           makevectors (self.velocity);
-          trace_ent = self;
-          traceline (self.origin, self.origin - '0 0 12', 1, self);
+          trace_ent = nextent(self.owner);
+          traceline (self.origin, self.origin - '0 0 12', 0, self);
+          if (trace_fraction != 1)
+          {
+                    bprint ("Case3\n");
            SpawnTempDebugMarker (trace_endpos, 0.5, 0);
           self.finalangle = vectoangles(trace_plane_normal);
-          if (trace_ent == world)
+          if (trace_ent.movetype == other.movetype)
+          {
           self.angles_x = self.finalangle_x - 90;
+          bprint ("Angle set\n");
+          }
+          }
           }
           
           }
