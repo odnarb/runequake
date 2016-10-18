@@ -124,7 +124,11 @@ r = find (world, classname, "plat");
 	while (r)
 	{
           if (!(r.velocity))
-                    r.effects = EF_FROZEN;
+          {
+           if (time -1  == r.nextthink)
+           r.effects = EF_FROZEN | 2;
+           else r.effects = 0;
+          }
           r = find (r, classname, "gasbomb");
           }
           
