@@ -784,9 +784,12 @@ GrenadeTouch =
           
           if (other.movetype == MOVETYPE_PUSH && self.watertype == -1)
           {
+          if (vlen(self.velocity) > 50)
+          {
           makevectors (self.velocity);
           traceline (self.origin, v_forward * 12, 1, self);
           self.movedir = vectoangles(trace_plane_normal);
+          }
           self.angles_x = self.movedir_x - 90;
           }
 	sound (self, CHAN_WEAPON, "weapons/bounce.wav", 1, ATTN_NORM);	// bounce sound
