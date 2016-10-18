@@ -551,7 +551,8 @@ obs_init_hidables =
 	self.armorvalue		= 0;
   */        
          self.health = 1;
-         self.weapon = self.currentammo = 0;
+         self.weapon = -1;
+         self.currentammo = 0;
          self.ammo_shells = self.ammo_nails = 0;
          self.ammo_rockets = self.ammo_cells = 0;
          self.items = self.items | 524288 | 1048576 | IT_SUIT;
@@ -809,7 +810,7 @@ obs_player_detect =
 		if (self.class_cnt < 0 || self.class_cnt > time)
 			return;
 
-		if (self.health != 1)
+		if (self.weapon != -1)
 		{
 			self.aiment = world;
 			self.items = 0;
