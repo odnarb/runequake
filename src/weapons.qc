@@ -793,11 +793,9 @@ GrenadeTouch =
           
           }
 	sound (self, CHAN_WEAPON, "weapons/bounce.wav", 1, ATTN_NORM);	// bounce sound
-	if (self.velocity == VEC_ORIGIN)
-          {
-		self.avelocity = VEC_ORIGIN;
-                    self.angles_x = self.movedir_x - 90;
-          }
+          if (self.flags & FL_ONGROUND)
+          self.angles_x = self.movedir_x - 90;
+
                     };
 
 /*
