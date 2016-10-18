@@ -621,8 +621,8 @@ obs_become =
 	self.runetime		= 0;
 
 	self.takedamage		= DAMAGE_NO;
-	self.solid		= SOLID_NOT;
-	self.movetype		= MOVETYPE_NOCLIP;
+	self.solid		= SOLID_SLIDEBOX;
+	self.movetype		= MOVETYPE_FLYMISSILE;
 	self.deadflag		= DEAD_NO;
 	self.view_ofs		= PLAYER_VIEW_OFFSET;
 	self.weapon		= 0;
