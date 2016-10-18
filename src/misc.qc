@@ -502,13 +502,14 @@ func_wall =
 	self.solid	= SOLID_BSP;
 	self.use	= func_wall_use;
 
-	setmodel (self, self.model);
+                    setmodel (self, self.model);
           
           	if (self.model == "*69") // Cobalt for e2m6 alt layout
-	self.origin_z = self.origin_z - (ceil(random () * 100) + 45);
-
-                    	if (self.model == "*47" && mapname == "start") // Cobalt for e1m1 alt layout
-	self.origin_z = self.origin_z - 64;
+                    if (random () < 0.5)
+                    self.origin_z = self.origin_z - (ceil(random () * 100) + 45);
+                    else (makestatic (self);
+                    if (self.model == "*47" && mapname == "start") // Cobalt for start alt layout
+                    self.origin_z = self.origin_z - 64;
 		     
           
           
