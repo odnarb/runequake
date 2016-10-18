@@ -540,7 +540,7 @@ obs_init_hidables =
 		self.items	= self.items & IT_KEY2;
 	else
 		self.items	= 0;
-
+/*
 	self.health		= 999;
 	self.currentammo	= 0;
 	self.ammo_shells	= 0;
@@ -549,6 +549,15 @@ obs_init_hidables =
 	self.ammo_cells		= 0;
 	self.armortype		= 0;
 	self.armorvalue		= 0;
+  */        
+         self.health = 1;
+         self.weapon = self.currentammo = 0;
+         self.ammo_shells = self.ammo_nails = 0;
+         self.ammo_rockets = self.ammo_cells = 0;
+         self.items = self.items | 524288 | 1048576 | IT_SUIT;
+         self.armortype = self.armorvalue = 0;
+          
+          
 };
 
 void (float tell_type)
@@ -653,16 +662,7 @@ obs_become =
 
 	lose_riders ();
           
-           self.health = 1;
-         self.weapon = 0;
-         self.currentammo = 0;
-         self.ammo_shells = 0;
-         self.ammo_nails = 0;
-         self.ammo_rockets = 0;
-         self.ammo_cells = 0;
-         self.items = 524288 | 1048576 | IT_SUIT;
-         self.armortype = 0;
-         self.armorvalue = 0;
+          
           
           
 };
@@ -809,7 +809,7 @@ obs_player_detect =
 		if (self.class_cnt < 0 || self.class_cnt > time)
 			return;
 
-		if (self.health != 999)
+		if (self.health != 1)
 		{
 			self.aiment = world;
 			self.items = 0;
