@@ -125,7 +125,7 @@ r = find (world, classname, "plat");
 	{
           if (!(r.velocity))
           {
-           if (time -1  == r.nextthink)
+           if (time - 1  == r.nextthink)
            r.effects = EF_FROZEN | 2;
            else r.effects = 0;
           }
