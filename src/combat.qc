@@ -357,7 +357,7 @@ T_Damage =
 			&& (targ.runetype != RN_MONK || targ == attacker))
 	{
                     local float tag;
-                   if (targ.touch == Rune_Touch || targ.touch == BackpackTouch) 
+                   if (targ.touch == Rune_Touch || targ.classname == "backpack") 
                    if (targ.flags & FL_ONGROUND)
                    {
 		targ.flags = targ.flags - FL_ONGROUND;
@@ -392,7 +392,11 @@ T_Damage =
 		targ.velocity_y = targ.velocity_y / ((0 - targ.watertype) + targ.waterlevel);
                     targ.velocity_z = targ.velocity_z / ((0 - targ.watertype) + targ.waterlevel);
                     }
-                    if (tag) targ.velocity = targ.velocity * (1/3);
+                    else if (tag) 
+                    {
+                    targ.velocity_x = targ.velocity_x * (1/3);
+                    targ.velocity_xy= targ.velocity_y * (1/3);
+                    }
                     if (gamemode == MODE_MIDAIR)
 		{
 			if (safe_height)
