@@ -287,7 +287,7 @@ func_train_find =
 	setorigin (self, targ.origin - self.mins);
 	if (!self.targetname)
 	{	// not triggered, so start immediately
-		self.nextthink = self.ltime + sys_ticrate;
+		self.nextthink = self.ltime + (sys_ticrate * 2);
 		self.think = train_next;
 	}
 };
@@ -338,7 +338,7 @@ func_train =
 
 	// start trains on the second frame, to make sure their targets
 	// have had a chance to spawn
-	self.nextthink = self.ltime + sys_ticrate;
+	self.nextthink = self.ltime + (sys_ticrate * 2);
 	self.think = func_train_find;
 };
 
