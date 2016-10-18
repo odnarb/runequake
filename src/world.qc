@@ -123,7 +123,7 @@ r = find (world, classname, "plat");
             r = find (world, classname, "gasbomb");
 	while (r)
 	{
-          if ((!(r.velocity)) && r.model != string_null)
+          if ((!(r.velocity)) && r.frame == 0)
           {
            if (time >= (r.nextthink - 1))
            r.effects = EF_FROZEN | 2;
