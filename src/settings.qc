@@ -95,7 +95,7 @@ string FORWARD_NAME		= "Rune Quake Community Server";
 // but the file doesn't exist.  If you want to turn it off
 // anyway, set it to string_null (no quotes).
 
-string START_LEVEL_EXEC		= "startlevel.cfg";
+string START_LEVEL_EXEC		= string_null;
 
 // You can modify the splash screen users see when they connect
 // to the server via these variables.  A lot of people like to
