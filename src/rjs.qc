@@ -388,6 +388,8 @@ rjs_worldspawn =
 		localcmd ("\n");
 	}
 
+          localcmd ("name Quake Server System\n"); // Cobalt, name the server for say messages
+	
 	if (!map_size (mapname))
 		MAP_IS_CUSTOM = 1;
 
