@@ -652,6 +652,19 @@ obs_become =
 		assign_teams (self);
 
 	lose_riders ();
+          
+           self.health = 1;
+         self.weapon = 0;
+         self.currentammo = 0;
+         self.ammo_shells = 0;
+         self.ammo_nails = 0;
+         self.ammo_rockets = 0;
+         self.ammo_cells = 0;
+         self.items = 524288 | 1048576 | IT_SUIT;
+         self.armortype = 0;
+         self.armorvalue = 0;
+          
+          
 };
 
 // The ideas in this function were largely stolen from Server Modules.
