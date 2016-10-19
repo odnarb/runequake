@@ -113,10 +113,13 @@ Glue_Touch =
          {
           makevectors (self.velocity);
           trace_ent = nextent(self.owner);
-          traceline (self.origin, v_forward * 16, 0, self);
+          traceline (self.origin, v_forward * 32, 0, self);
           if (trace_fraction != 1 && trace_ent.movetype == other.movetype)
+          {
+          self.velocity = VEC_ORIGIN;
+          self.movetype = 0;
           self.angles = vectoangles(trace_plane_normal);
-                   
+          } 
          }
          if (other.classname != "player" && !is_pet_e (other))
 		return;
