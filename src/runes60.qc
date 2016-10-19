@@ -93,8 +93,7 @@ Glue_Touch =
 {
           
           
-	if (other.classname != "player" && !is_pet_e (other))
-		return;
+	
 
 	if (other.health <= 0)
 		return;
@@ -109,6 +108,17 @@ Glue_Touch =
 		return;
 
 	if (!self.runevar)
+		return;
+         if (other.movetype == MOVETYPE_PUSH && (!(self.flags & FL_ONGROUND)))
+         {
+          makevectors (self.velocity);
+          trace_ent = nextent(self.owner);
+          traceline (self.origin, v_forward * 16, 0, self);
+          if (trace_fraction != 1 && trace_ent.movetype == other.movetype)
+          self.angles = vectoangles(trace_plane_normal);
+                   
+         }
+         if (other.classname != "player" && !is_pet_e (other))
 		return;
          
 	other.effects = other.effects | EF_FROZEN;
