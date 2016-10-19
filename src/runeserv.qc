@@ -55,6 +55,13 @@ Rune_Button =
 {
 	rune_tell_stop (0);
 
+             if (self.chatbubble)
+          {
+          self.chatbubble.think = SUB_Remove;
+          self.chatbubble.nextthink = time;
+          self.chatbubble = world;
+          }
+          
 	if (!self.runetype)
 		return;
 
