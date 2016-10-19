@@ -1754,7 +1754,7 @@ WaterMove =
           // Cobalt O2 meter , if not in quiet mode
           if ((!(self.aqflags & AQ_QUIET)) && self.runetype != RN_ENVIRO)
           if (self.watertype != -5 && self.waterlevel > 2 && self.health > 0 && (!(self.items & IT_INVULNERABILITY)))
-	if (self.waitmax > 0)
+	if (self.waitmin < 1)
           {
            local float ar;
            if (!(self.items & IT_SUIT))
