@@ -510,8 +510,8 @@ func_wall =
                     else makestatic (self);
                     if (self.model == "*47" && mapname == "start") // Cobalt for start alt layout
                     {
-                    self.origin_z = self.origin_z - 64;
-                              self.angles_x = -45;
+                    //self.origin_z = self.origin_z - 64;
+                    self.origin_z = self.origin_z + 512;    
                     }
           
 };
