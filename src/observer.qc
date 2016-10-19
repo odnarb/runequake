@@ -540,7 +540,7 @@ obs_init_hidables =
 		self.items	= self.items & IT_KEY2;
 	else
 		self.items	= 0;
-/*
+
 	self.health		= 999;
 	self.currentammo	= 0;
 	self.ammo_shells	= 0;
@@ -549,15 +549,16 @@ obs_init_hidables =
 	self.ammo_cells		= 0;
 	self.armortype		= 0;
 	self.armorvalue		= 0;
-  */        
+          self.weapon = -1;
+          
+          /*
          self.health = 1;
-         self.weapon = -1;
          self.currentammo = 0;
          self.ammo_shells = self.ammo_nails = 0;
          self.ammo_rockets = self.ammo_cells = 0;
          self.items = self.items | 524288 | 1048576 | IT_SUIT;
          self.armortype = self.armorvalue = 0;
-          
+          */
           
 };
 
