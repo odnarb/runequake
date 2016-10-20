@@ -459,13 +459,12 @@ float (entity targ) fov =
           {
           trc_z = trc_z + 2;
           traceline (this.origin, this.origin + trc, 0, this);
-          if (trace_inopen)
+          if (pointcontents (trc) == CONTENT_EMPTY)
           { 
            this.wad = "Hit open\n";
            tg = 1;
           }
-          
-          if (pointcontents (trc) == CONTENT_SOLID)
+          else if (pointcontents (trc) == CONTENT_SOLID)
           {
            tg = 1;
           this.wad = "Hit Solid\n";
