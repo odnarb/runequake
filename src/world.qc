@@ -139,7 +139,7 @@ r = find (world, classname, "plat");
           if ((!(r.flags & FL_CLIENT)) && r.modelindex)
           r.Ldepth = WlevelEnt (r);
           
-          r = nextent(world)
+          r = nextent(world);
           }
 
 };
