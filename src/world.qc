@@ -98,13 +98,15 @@ while (r)
 	if ((pointcontents (r.absmax + '0 0 5') == CONTENT_EMPTY && pointcontents (r.absmax) == CONTENT_WATER))
 	{
 
-	sound (r, CHAN_AUTO, "misc/h2ohit1.wav", 1, 0.5);   
-	//drip(r.absmax ,WATERCOLOR);
-          r.velocity =  r.velocity * 0.95;
+	sound (r, CHAN_AUTO, "misc/h2ohit1.wav", 1, ATTN_NORM);   
+	if (r.velocity_z < 0)
+          r.velocity =  r.velocity * 0.75;
 
           }
           }
-/*        
+         
+          
+          /*        
 	
 	if ((pointcontents (ctr + '0 0 -5') == CONTENT_WATER))
 	bprint ("Plat in water\n");
