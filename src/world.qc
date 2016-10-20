@@ -97,11 +97,11 @@ while (r)
 	//if (r.state == STATE_DOWN)
 	if ((pointcontents (r.absmax + '0 0 5') == CONTENT_EMPTY && pointcontents (r.absmax) == CONTENT_WATER))
 	{
-          local entity snd;
-          snd = spawn ();
-          setorigin (snd, ((r.absmax + r.absmin) * 0.5));
-          snd.effects = EF_MAYBE_DRAW;
-	sound (snd, CHAN_AUTO, "misc/h2ohit1.wav", 1, ATTN_NORM);   
+          //local entity snd;
+          //snd = spawn ();
+          //setorigin (snd, ((r.absmax + r.absmin) * 0.5));
+          //snd.effects = EF_MAYBE_DRAW;
+	sound (r, CHAN_AUTO, "misc/h2ohit1.wav", 1, ATTN_NORM);   
 	//drip(r.absmax ,WATERCOLOR);
           r.velocity =  r.velocity * 0.95;
 	remove (snd);
