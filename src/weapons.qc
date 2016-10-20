@@ -778,7 +778,8 @@ GrenadeTouch =
           if (self.watertype != -1)
           {
             self.Ldepth = WlevelEnt (self);
-           bprint ("Depth of Liquid: ");
+            bprint (self.message);
+           bprint (" - Depth of Liquid: ");
            bprint (ftos (self.Ldepth));
            bprint ("\n");
           }

@@ -460,7 +460,7 @@ float (entity targ) fov =
           traceline (this.origin, this.origin + trc, 0, this);
           if (trace_inopen || pointcontents (trc) == CONTENT_SOLID) return rint(trc_z - this.origin_z);
           }
-          return rint(trc_z - this.origin_z);
+         //return rint(trc_z - this.origin_z);
 
           };
 
