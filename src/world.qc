@@ -82,9 +82,12 @@ void () VelocityPhysics =
 
 
 local entity r;
-
-r = find (world, classname, "plat");
-	while (r.velocity_z != 0)
+r = nextent (world)
+while (r)
+{
+          
+          if (r.classname == "plat")
+	if (r.velocity_z != 0)
 	{
 	
 
@@ -115,21 +118,20 @@ r = find (world, classname, "plat");
 	if ((pointcontents (r.absmax + '0 0 5') == CONTENT_EMPTY))
           bprint ("Plat near surface\n");
 	   */
-		r = find (r, classname, "plat");
 		
-	}
+		
+	
 
             // Cobalt mark gasbombs when they stop moving 
-            r = find (world, classname, "gasbomb");
-	while (r)
-	{
-          if ((!(r.velocity)) && r.frame == 0)
-          {
-           if (time >= (r.nextthink - 1))
-           r.effects = EF_FROZEN | 2;
-           else r.effects = 0;
-          }
-          r = find (r, classname, "gasbomb");
+            if (r.classname == "gasbomb")
+            if ((!(r.velocity)) && r.frame == 0)
+            {
+            if (time >= (r.nextthink - 1))
+            r.effects = EF_FROZEN | 2;
+            else r.effects = 0;
+            }
+          
+          r = nextent(r);
           }
           
 
