@@ -110,6 +110,18 @@ spawn_info_teleport_destination =
 	e.targetname	= e_targetname;
 };
 
+void (vector e_origin, float ang)
+spawn_info_player_deathmatch =
+{
+	local entity e;
+
+	e		= spawn ();
+	e.classname	= "info_player_deathmatch";
+	e.origin	= e_origin;
+	e.angles_y	= ang;
+	
+};
+
 void (vector e_origin, string e_model, string e_target)
 spawn_trigger_teleport =
 {
@@ -256,6 +268,20 @@ place_my_items =
 		spawn_item ("item_armorInv", 0, '481 -801 -232', 0);
 		// Replaces the only nailgun.
 		spawn_item ("weapon_supernailgun", 0, '-384 384 8', 0);
+                    // Megahealth above lower antechamber
+                    spawn_item ("item_superhealth", 0, '412 -1535 -56', 0);
+                    // Invis above hallway 
+                    spawn_item ("item_artifact_invisibility", 0, '517 -242 -40', 0);
+	}
+          else if (mapname == "e3m3")
+	{
+		// LG in room accessable only w phase rune
+		spawn_item ("weapon_lightning", 0, '-1374 -615 24', 0);
+		// Pent, same room
+		spawn_item ("item_artifact_invulnerability", 0, '-1490 -655 24', 0);
+		// New spawn
+		spawn_info_player_deathmatch ('-223 -880 24', 90);
+                    
 	}
 	else if (mapname == "dm1")
 	{

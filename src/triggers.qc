@@ -550,14 +550,18 @@ void ()
 trigger_teleport =
 {
 	local vector o;
-
+          local float rem;
 	// Remove bogus teleporters, some of which have no destination.
 	if ((mapname == "e4m5" && self.target == "t178")
 		|| (mapname == "e4m8" && self.target == "t273")
 		|| (mapname == "start" && self.target == "t11")
 		|| (mapname == "e1m7" && self.target != "T2") // && self.target == "t15")
-		|| (mapname == "e2m6" && self.target == "t88"))
-	{
+		|| (mapname == "e2m6" && self.target == "t88")) rem = 1;
+                   // Cobalt - remove some teleporters so items in hidden room can be placed.
+	if (mapname == "e3m3" && (self.model == "*43" || self.model == "*44" || self.model == "*45"))
+                    rem = 1;
+          if (rem)
+          {
 		remove (self);
 		return;
 	}
