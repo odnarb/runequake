@@ -283,6 +283,12 @@ place_my_items =
 		spawn_info_player_deathmatch ('-223 -880 24', 90);
                     
 	}
+              else if (mapname == "e3m7")
+	{
+		// Superhealth in room accessable only w phase rune
+		spawn_item ("item_superhealth", 0, '-557 1133 -65', 0);
+                    
+	}
 	else if (mapname == "dm1")
 	{
 		// Replaces yellow armor.
