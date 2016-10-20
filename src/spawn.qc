@@ -152,15 +152,15 @@ spawn_trigger_teleport =
 	self = o;
 };
 
-void (vector o, string mod, float fr, float y) SpawnDecor =
+void (vector o, string md, float fr, float y) SpawnDecor =
 {
 
           local entity e;
 	e		= spawn ();
 	e.classname	= "misc_decor";
 	setorigin (e, o);
-	precache_model (mod);
-	setmodel (e, mod);
+	precache_model (md);
+	setmodel (e, md);
           e.solid = world.solid;
           e.effects = EF_DIMLIGHT;
           e.frame = fr;
@@ -245,8 +245,8 @@ place_my_items =
           else
           m1 = "progs/hknight.mdl";
           // Some statues on torch poles for decorations
-          SpawnDecor ('622 -704 1004', m, ((rint(random () * 34)) + 1), 25)
-          SpawnDecor ('622 -448 1004', m1, ((rint(random () * 34)) + 1), -25)
+          SpawnDecor ('622 -704 1004', m, ((rint(random () * 34)) + 1), 25);
+          SpawnDecor ('622 -448 1004', m1, ((rint(random () * 34)) + 1), -25);
           }
           else if (mapname == "e1m6")
 	{
