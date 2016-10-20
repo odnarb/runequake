@@ -166,8 +166,6 @@ void (vector o, string md, float fr, float y) SpawnDecor =
           e.frame = fr;
           e.angles_y = y;
 
-
-          makestatic (e);
 };
 
 // XXX Find a better way/place to do this?
