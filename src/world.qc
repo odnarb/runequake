@@ -104,7 +104,7 @@ while (r)
 	sound (r, CHAN_AUTO, "misc/h2ohit1.wav", 1, ATTN_NORM);   
 	//drip(r.absmax ,WATERCOLOR);
           r.velocity =  r.velocity * 0.95;
-	remove (snd);
+	//remove (snd);
           }
           }
 /*        
