@@ -82,7 +82,7 @@ void () VelocityPhysics =
 
 
 local entity r;
-r = nextent (world)
+r = nextent (world);
 while (r)
 {
           
