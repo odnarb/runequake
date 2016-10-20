@@ -287,6 +287,8 @@ place_my_items =
 	{
 		// Superhealth in room accessable only w phase rune
 		spawn_item ("item_superhealth", 0, '-557 1133 -65', 0);
+                    // New spawn
+		spawn_info_player_deathmatch ('-720 623 184', 90);
                     
 	}
 	else if (mapname == "dm1")
