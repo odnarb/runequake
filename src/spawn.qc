@@ -208,8 +208,9 @@ place_my_items =
 		spawn_item ("weapon_rocketlauncher", 0, '-96.0 605.0 320.0', 0);
 		// Place new RL.
 		spawn_item ("weapon_rocketlauncher", 0, '1104.0 640.0 312.0', 0);
-                    // New spawn
-		spawn_info_player_deathmatch ('1713.7 -195.2 240', 45);
+                    // New spawns
+		spawn_info_player_deathmatch ('1717 -195.5 168', 45);
+                    spawn_info_player_deathmatch ('2124 -460 168', 135);
 	}
           else if (mapname == "e1m3")
           {
