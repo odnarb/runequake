@@ -451,7 +451,7 @@ float (entity targ) fov =
 
           float (entity this) WlevelEnt =
           {
-          if (pointcontents (this) == -1) return 0;
+          if (pointcontents (this.origin) == -1) return 0;
           local vector trc;
           trc = this.origin;
           while (pointcontents (trc) != -1)
