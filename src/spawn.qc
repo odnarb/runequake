@@ -159,7 +159,8 @@ void (vector loc, string md, float fr, float y) SpawnDecor =
 	e		= spawn ();
 	e.classname	= "misc_decor";
 	precache_model (md);
-	setmodel (e, md);
+          e.model = md;
+	setmodel (e, e.model);
           setsize (e, VEC_HULL_MIN, VEC_HULL_MAX);
           setorigin (e, loc);
           e.solid = world.solid;
@@ -233,19 +234,19 @@ place_my_items =
           }
           else if (mapname == "e1m4")
           {
-          local string m,m1;
+          local string s,ss;
           if (random () < 0.5)
-          m = "progs/knight.mdl";
+          s = "progs/knight.mdl";
           else
-          m = "progs/hknight.mdl"; 
+          s = "progs/hknight.mdl"; 
           
             if (random () < 0.5)
-          m1 = "progs/knight.mdl";
+          ss = "progs/knight.mdl";
           else
-          m1 = "progs/hknight.mdl";
+          ss = "progs/hknight.mdl";
           // Some statues on torch poles for decorations
-          SpawnDecor ('622 -704 1004', m, ((rint(random () * 34)) + 1), 25);
-          SpawnDecor ('622 -448 1004', m1, ((rint(random () * 34)) + 1), -25);
+          SpawnDecor ('622 -704 1004', s, ((rint(random () * 34)) + 1), 25);
+          SpawnDecor ('622 -448 1004', ss, ((rint(random () * 34)) + 1), -25);
           }
           else if (mapname == "e1m6")
 	{
