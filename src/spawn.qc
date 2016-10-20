@@ -211,6 +211,7 @@ place_my_items =
                     // New spawns
 		spawn_info_player_deathmatch ('1717 -195.5 168', 45);
                     spawn_info_player_deathmatch ('2124 -460 168', 135);
+                    spawn_info_player_deathmatch ('-585 -724 480', 22.5);
 	}
           else if (mapname == "e1m3")
           {
