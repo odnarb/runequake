@@ -132,15 +132,6 @@ r = find (world, classname, "plat");
           r = find (r, classname, "gasbomb");
           }
           
-               // Cobalt assign a real waterlevel to certain ents that dont have an accurate .waterlevel 
-            r = nextent (world);
-	while (r.velocity != VEC_ORIGIN)
-	{
-          if ((!(r.flags & FL_CLIENT)) && r.modelindex)
-          r.Ldepth = WlevelEnt (r);
-          
-          r = nextent(world);
-          }
 
 };
 
