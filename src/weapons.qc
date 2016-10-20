@@ -775,7 +775,12 @@ GrenadeTouch =
 	if (other == self.owner)
 		return;		// don't explode on owner
         
-          
+          if (self.watertype != -1)
+          {
+           bprint ("Depth of Liquid: ");
+           bprint (ftos (self.Ldepth));
+           bprint ("\n");
+          }
 	if (other.takedamage == DAMAGE_AIM)
 	{
 		GrenadeExplode_targ (other);
