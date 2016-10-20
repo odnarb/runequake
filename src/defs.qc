@@ -1703,7 +1703,7 @@ float	maybe_bprint_option_hack;
 
 //misc
 .float	grenade_spam_time;
-.float	afk,stickies. Ldepth;
+.float	afk,stickies, Ldepth;
 .entity chatbubble;
 entity	last_teleport;
 float     TE_EXPLOSION2 = 12; // Cobalt test out new kind of available explosion
