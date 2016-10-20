@@ -152,6 +152,24 @@ spawn_trigger_teleport =
 	self = o;
 };
 
+void (vector o, string mod, float fr, float y) SpawnDecor =
+{
+
+          local entity e;
+	e		= spawn ();
+	e.classname	= "misc_decor";
+	setorigin (e, o);
+	precache_model (mod);
+	setmodel (e, mod);
+          e.solid = world.solid;
+          e.effects = EF_DIMLIGHT;
+          e.frame = fr;
+          e.angles_y = y;
+
+
+          makestatic (e);
+};
+
 // XXX Find a better way/place to do this?
 void (vector eo, float ef, string em)
 spawn_effects_model =
@@ -214,6 +232,22 @@ place_my_items =
           spawn_item ("item_artifact_super_damage", 0, '-644 -1251 645', 0);
 	spawn_item ("item_superhealth", 0, '-915 -80 -481', 0);
           }
+          else if (mapname == "e1m4")
+          {
+          local string m,m1;
+          if (random () < 0.5)
+          m = "progs/knight.mdl";
+          else
+          m = "progs/hknight.mdl"; 
+          
+            if (random () < 0.5)
+          m1 = "progs/knight.mdl";
+          else
+          m1 = "progs/hknight.mdl";
+          // Some statues on torch poles for decorations
+          SpawnDecor ('622 -704 1004', m, ((rint(random () * 34)) + 1), 25)
+          SpawnDecor ('622 -448 1004', m1, ((rint(random () * 34)) + 1), -25)
+          }
           else if (mapname == "e1m6")
 	{
 		// Under the stairs.
@@ -249,6 +283,11 @@ place_my_items =
 	{
 		// Same room as the RA that's near quad.
 		spawn_item ("weapon_grenadelauncher", 0, '1178.5 1965 24', 0);
+	}
+          else if (mapname == "e2m2")
+	{
+		// Ring in door that only opens 1 time near rising big bridge
+		spawn_item ("item_artifact_invisibility", 0, '515 740 24', 0);
 	}
 	else if (mapname == "e2m4")
 	{
