@@ -163,7 +163,8 @@ void (vector loc, string md, vector tmp) SpawnDecor =
 	setmodel (e, e.model);
           setsize (e, VEC_HULL_MIN, VEC_HULL_MAX);
           setorigin (e, loc);
-          e.solid = world.solid;
+          e.flags = FL_NOTARGET;
+          e.solid = SOLID_BBOX;
           e.effects = EF_DIMLIGHT;
           e.frame = tmp_x;
           e.angles_y = tmp_y;
