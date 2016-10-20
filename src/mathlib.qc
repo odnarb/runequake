@@ -454,11 +454,11 @@ float (entity targ) fov =
           if (this.watertype == -1) return 0;
           local vector trc;
           trc = this.origin
-          while (pointcontents (trc) != -1 && lvl == 0)
+          while (pointcontents (trc) != -1)
           {
           trc_z = trc_z + 1;
           traceline (this.origin, this.origin + trc, 0, this);
-          if (trace_inopen) return trc_z;
+          if (trace_inopen || pointcontents (trc) == CONTENT_SOLID) return trc_z;
           }
 
 
