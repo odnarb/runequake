@@ -453,12 +453,26 @@ float (entity targ) fov =
           {
           if (pointcontents (this.origin) == -1) return 0;
           local vector trc;
-          trc = this.origin;
-          while (pointcontents (trc) != -1)
+          local float tg;
+          trc = this.origin + '0 0 1';
+          while ((!(tg)))
           {
           trc_z = trc_z + 2;
           traceline (this.origin, this.origin + trc, 0, this);
-          if (trace_inopen || pointcontents (trc) == CONTENT_SOLID) return rint(trc_z - this.origin_z);
+          if (trace_inopen)
+          { 
+           this.wad = "Hit open\n";
+           tg = 1;
+          }
+          
+          if (pointcontents (trc) == CONTENT_SOLID)
+          {
+           tg = 1;
+          this.wad = "Hit Solid\n";
+          }
+          
+          if (tg) 
+          return rint(trc_z - this.origin_z);
           }
          //return rint(trc_z - this.origin_z);
 
