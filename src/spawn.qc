@@ -152,15 +152,16 @@ spawn_trigger_teleport =
 	self = o;
 };
 
-void (vector o, string md, float fr, float y) SpawnDecor =
+void (vector loc, string md, float fr, float y) SpawnDecor =
 {
 
           local entity e;
 	e		= spawn ();
 	e.classname	= "misc_decor";
-	setorigin (e, o);
 	precache_model (md);
 	setmodel (e, md);
+          setsize (e, VEC_HULL_MIN, VEC_HULL_MAX);
+          setorigin (e, loc);
           e.solid = world.solid;
           e.effects = EF_DIMLIGHT;
           e.frame = fr;
