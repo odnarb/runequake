@@ -316,6 +316,7 @@ ShamblerSizeOk =
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
            if (dh_shambler_test (testfield))
            {      
+                    create_te_gunshot (this.origin + this.view_ofs, 64);
                      centerprint (this,"Player origin ok\n");
                      return testfield.origin;
                      
@@ -478,13 +479,12 @@ Rune_ShamblerReloc =
           //spawn_tfog (self.origin);
 	//setorigin (self, self.owner.origin);
 	//spawn_tfog (self.origin);
-         bprint (vtos(here));
-         bprint ("\n");
-         
+ 
           if (here)
           {
+          if (self.origin)
           spawn_tfog (self.origin);
-	setorigin (self, self.runent.dest);
+	setorigin (self, here);
           spawn_tfog (self.origin);
           }
           else
