@@ -85,7 +85,7 @@ float(entity dh_player) dh_shambler_test =
 	dhmax_x = dh_player.absmax_x;
 	dhmax_y = dh_player.absmin_y;
 	dhmax_z = dh_player.absmin_z;
-          //bprint ("Bottom\n");
+          
 	while (dhmin_y < dh_player.absmax_y ) {
 		if (d) { SpawnTempDebugMarker(dhmin,20,0); SpawnTempDebugMarker(dhmax,20,0); }
 		traceline (dhmin, dhmax, 0, dh_player.groundentity);
@@ -95,7 +95,7 @@ float(entity dh_player) dh_shambler_test =
 		dhmin_y = dhmin_y + i;
 		dhmax_y = dhmax_y + i;
 	}
-         
+          bprint ("Bottom passed ok \n");
 	// 2 : "right"
 	dhmin_x = dh_player.absmin_x;
 	dhmin_y = dh_player.absmin_y;
@@ -111,7 +111,7 @@ float(entity dh_player) dh_shambler_test =
 		dhmin_z = dhmin_z + i;
 		dhmax_z = dhmax_z + i;
 	}
-
+           bprint ("Right passed ok \n");
 	// 3 : "top"
 	dhmin_x = dh_player.absmin_x;
 	dhmin_y = dh_player.absmin_y;
@@ -127,7 +127,7 @@ float(entity dh_player) dh_shambler_test =
 		dhmin_y = dhmin_y + i;
 		dhmax_y = dhmax_y + i;
 	}
-
+           bprint ("top passed ok \n");
 	// 4 : "left"
 	dhmin_x = dh_player.absmin_x;
 	dhmin_y = dh_player.absmax_y;
@@ -143,7 +143,7 @@ float(entity dh_player) dh_shambler_test =
 		dhmin_z = dhmin_z + i;
 		dhmax_z = dhmax_z + i;
 	}
-
+           bprint ("left passed ok \n");
 	// To avoid hitting a debug bubble drawing the last 2 sides and then returning, shift the original vectors slightly to compensate :)
 	// this is not needed if we are not drawing bubbles :)
 	if (d) { dh_player.absmin_z = dh_player.absmin_z + 4; dh_player.absmax_z = dh_player.absmax_z + 4; }
@@ -163,7 +163,7 @@ float(entity dh_player) dh_shambler_test =
 		dhmin_z = dhmin_z + i;
 		dhmax_z = dhmax_z + i;
 	}
-
+           bprint ("Back passed ok \n");
 	// 6 : "front"
 	dhmin_x = dh_player.absmax_x;
 	dhmin_y = dh_player.absmin_y;
