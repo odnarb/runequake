@@ -469,7 +469,7 @@ Rune_ShamblerReloc =
           if (self.runent.dest)
           {
           spawn_tfog (self.origin);
-	setorigin (self, place);
+	setorigin (self, self.runent.dest);
           spawn_tfog (self.origin);
           }
           else
