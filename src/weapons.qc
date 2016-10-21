@@ -37,6 +37,7 @@ W_SetCurrentAmmo (0);
   bprint ("CMax_Clients: ");
             bprint (ftos(MAX_CLIENTS));
             bprint ("\n");
+            eprint (self);
 
 };
 
