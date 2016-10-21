@@ -89,24 +89,50 @@ while (r)
           
           if ((r.flags & FL_CLIENT) && (!(r.flags & FL_OBSERVER)))
           {
-          if (r.ShamDir < time)
+          if (r.ShamTmr < time)
           {
-          
+          r.ShamDir = r.ShamDir + 1;
+          r.dest = VEC_ORIGIN;
+          if (r.ShamDir == 1)
+          {
           r.ShamPos6 = ShamblerSizeOk (r, 6);
-        
+          if (r.ShamPos6 == r.size)
+          r.dest = r.origin + '0 0 4';
+          }
+          else if (r.ShamDir == 2)
+          {
           r.ShamPos5 = ShamblerSizeOk (r, 5);  
-         
+          if (r.ShamPos5 == r.size)
+          r.dest = r.origin + '0 0 4';
+          }
+         else if (r.ShamDir == 3)
+         {
           r.ShamPos4 = ShamblerSizeOk (r, 4);
-         
+         if (r.ShamPos4 == r.size)
+          r.dest = r.origin + '0 0 4';
+         }
+          else if (r.ShamDir == 4)
+          {
           r.ShamPos3 = ShamblerSizeOk (r, 3);
-          
+          if (r.ShamPos3 == r.size)
+          r.dest = r.origin + '0 0 4';
+          }
+          else if (r.ShamDir == 5)
+          {
           r.ShamPos2 = ShamblerSizeOk (r, 2);
-           
+          if (r.ShamPos2 == r.size)
+          r.dest = r.origin + '0 0 4';
+          }
+          else if (r.ShamDir == 6) 
+          {
           r.ShamPos1 = ShamblerSizeOk (r, 1);
+          if (r.ShamPos1 == r.size)
+          r.dest = r.origin + '0 0 4';
+          r.ShamDir = 0;
           }
           
         
-          r.ShamDir = time + frametime + (r.colormap * frametime);
+          r.ShamTmr = time + frametime + (r.colormap * frametime);
           }
           
           if (r.classname == "plat")

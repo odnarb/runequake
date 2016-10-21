@@ -474,6 +474,7 @@ Rune_ShamblerReloc =
           else if (self.ShamPos2) here = self.ShamPos2;
           else if (self.ShamPos1) here = self.ShamPos1;
           
+          if (self.dest) here = self.dest;
 	old_self = self;
 	self = self.runent;
           //spawn_tfog (self.origin);
