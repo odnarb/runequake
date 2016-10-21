@@ -180,13 +180,7 @@ worldspawn =
 	IN_POQ(InitSearchHunk();)
          
           
-          newmis = nextent(world);
-	while (newmis.colormap > 0)
-	{
-           MAX_CLIENTS = MAX_CLIENTS + 1;
-
-           other = nextent (newmis);
-	}
+        
           
          
 };
@@ -195,6 +189,19 @@ void ()
 StartFrame =
 {
           sys_ticrate 	= frametime; // Cobalt - same as frametime cvar ("sys_ticrate");
+          
+          if (framecount < 1)
+          {
+             newmis = nextent(world);
+	while (newmis.colormap > 0)
+	{
+           MAX_CLIENTS = MAX_CLIENTS + 1;
+
+           newmis = nextent (newmis);
+	}         
+                    
+                    
+          }
           framecount = framecount + 1; // Cobalt count number of frames
 	check_teamplay ();
 	check_console_command ();
