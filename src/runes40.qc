@@ -316,9 +316,9 @@ ShamblerSizeOk =
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
            if (dh_shambler_test (testfield))
            {      
-                    create_te_gunshot (this.origin + this.view_ofs, 64);
+                    create_te_gunshot (this.origin + this.view_ofs, 32);
                      centerprint (this,"Player origin ok\n");
-                     return testfield.origin;
+                     return this.size;
                      
            }     
          
