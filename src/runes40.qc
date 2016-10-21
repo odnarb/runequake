@@ -459,20 +459,22 @@ Rune_ShamblerReloc =
 	// Stop burning when recalled in water or acid.
 	if (self.runent.owner.waterlevel > 1 && self.runent.owner.watertype != CONTENT_LAVA)
 		self.runent.aqstate = self.runent.aqstate - self.runent.aqstate & AQS_BURNING;
-
+          local vector here;
+             if (self.ShamPos6) here = self.ShamPos6;
+          else if (self.ShamPos5) here = self.ShamPos5;
+          else if (self.ShamPos4) here = self.ShamPos4;
+          else if (self.ShamPos3) here = self.ShamPos3;
+          else if (self.ShamPos2) here = self.ShamPos2;
+          else if (self.ShamPos1) here = self.ShamPos1;
+          
 	old_self = self;
 	self = self.runent;
           //spawn_tfog (self.origin);
 	//setorigin (self, self.owner.origin);
 	//spawn_tfog (self.origin);
-            if (self.runent.ShamPos6) self.runent.dest = self.runent.ShamPos6;
-          else if (self.runent.ShamPos5) self.runent.dest = self.runent.ShamPos5;
-          else if (self.runent.ShamPos4) self.runent.dest = self.runent.ShamPos4;
-          else if (self.runent.ShamPos3) self.runent.dest = self.runent.ShamPos3;
-          else if (self.runent.ShamPos2) self.runent.dest = self.runent.ShamPos2;
-          else if (self.runent.ShamPos1) self.runent.dest = self.runent.ShamPos1;
          
-          if (self.runent.dest)
+         
+          if (here)
           {
           spawn_tfog (self.origin);
 	setorigin (self, self.runent.dest);
