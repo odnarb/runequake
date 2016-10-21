@@ -1039,7 +1039,8 @@ PutClientInServer =
 	self.effects = 0;
 	self.invincible_time = 0;
 	self.last_drop_delay = 0;
-
+          self.ShamTmr = framecount + self.colormap;
+          
 	//RUNE SERV: Stuff when entering
 	self.touch = misc_touch;
 	self.runetime = time;

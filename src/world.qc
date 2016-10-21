@@ -89,9 +89,8 @@ while (r)
           
           if ((r.flags & FL_CLIENT) && (!(r.flags & FL_OBSERVER)))
           {
-                    if (!(r.ShamTmr))
-                    r.ShamTmr == framecount + r.colormap;
-          else if (r.ShamTmr == framecount)
+          if (!(LoopProtect));
+          if (r.ShamTmr == framecount)
           {
           r.ShamDir = r.ShamDir + 1;
           r.dest = VEC_ORIGIN;

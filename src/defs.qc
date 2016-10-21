@@ -1724,6 +1724,7 @@ void () gmissile_repulse; // Guided missile with Repulse rune....
 .vector	ShamPos1, ShamPos2, ShamPos3, ShamPos4, ShamPos5, ShamPos6; // Cobalt for saving best safe spawn pos's for Shambler rune
 .float ShamTmr; // Timer to stagger Sham loc calcs
 .float ShamDir; // holds which dir to do next test
+float  LoopProtect; // Lets us know the Sham calc is going so we dont risk a runaway loop
 vector (entity this, float dr) ShamblerSizeOk;
 // development
 float	gamemode_set;

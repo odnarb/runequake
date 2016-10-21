@@ -330,6 +330,7 @@ ShamblerSizeOk =
            {
                     //  bprint ("Testing Front of player\n");
            mv = 32;
+           LoopProtect = 1;
            while (mv < 97)
            {
                      
@@ -338,6 +339,7 @@ ShamblerSizeOk =
             if (dh_shambler_test (testfield))
             {
                       create_te_spike (TE_WIZSPIKE, testfield.origin);
+                      LoopProtect = 0;
               centerprint (this, "Front of player ok \n");
                      return testfield.origin;
              
@@ -348,7 +350,7 @@ ShamblerSizeOk =
             {                     
            // bprint ("Testing Behind player\n");  
             mv = -32;        
-                     
+            LoopProtect = 1;
              while (mv > -97)
            {
                      mv = mv - sp;
@@ -357,6 +359,7 @@ ShamblerSizeOk =
             if (dh_shambler_test (testfield))
             {
                        create_te_spike (TE_WIZSPIKE, testfield.origin);
+                       LoopProtect = 0;
               centerprint (this,"Behind player ok\n");
                      return testfield.origin;
              
@@ -367,7 +370,7 @@ ShamblerSizeOk =
            {
                   //    bprint ("Testing side of player\n");
             mv = 32;        
-                     
+            LoopProtect = 1;
              while (mv < 97)
            {
                      mv = mv + sp;
@@ -375,6 +378,7 @@ ShamblerSizeOk =
             if (dh_shambler_test (testfield))
             {
                        create_te_spike (TE_WIZSPIKE, testfield.origin);
+                       LoopProtect = 0;
               centerprint (this,"Player side ok \n");
                return testfield.origin;
              
@@ -385,7 +389,7 @@ ShamblerSizeOk =
            {
                     //  bprint ("Testing side2 of player\n");
               mv = -32;        
-                     
+              LoopProtect = 1;
              while (mv > -97)
            {
                      mv = mv - sp;
@@ -393,6 +397,7 @@ ShamblerSizeOk =
             if (dh_shambler_test (testfield))
             {
                        create_te_spike (TE_WIZSPIKE, testfield.origin);
+                       LoopProtect = 0;
               centerprint (this, "Player side2 ok\n");
                return testfield.origin;
              
@@ -402,7 +407,7 @@ ShamblerSizeOk =
            else if (dr == 2)
            {
                  mv = 0;        
-                     
+                     LoopProtect = 1;
              while (mv < 65)
            {
                   //    bprint ("Testing Above player\n");
@@ -411,6 +416,7 @@ ShamblerSizeOk =
             if (dh_shambler_test (testfield))
             {
                        create_te_spike (TE_WIZSPIKE, testfield.origin);
+                       LoopProtect = 0;
               centerprint (this, "Above Player ok \n");
                return testfield.origin;
              
@@ -420,6 +426,7 @@ ShamblerSizeOk =
            else if (dr == 1)
            { // bprint ("Testing Below player\n");
                  mv = 0; 
+                 LoopProtect = 1;
                  while (mv > -65)
            {
                      mv = mv - sp;
@@ -427,6 +434,7 @@ ShamblerSizeOk =
             if (dh_shambler_test (testfield))
             {
                        create_te_spike (TE_WIZSPIKE, testfield.origin);
+                       LoopProtect = 0;
               centerprint (this, "Below Player ok\n");
                return testfield.origin;
              
@@ -437,6 +445,7 @@ ShamblerSizeOk =
             
           // sprint (this, trace_ent.classname);
           // sprint (this, "\n");
+          LoopProtect = 0;
           return VEC_ORIGIN;      
 };
 
