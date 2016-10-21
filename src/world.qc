@@ -85,6 +85,34 @@ local entity r;
 r = nextent (world);
 while (r)
 {
+          ShamCalc = ShamCalc + 1;
+          if ((r.flags & FL_CLIENT) && ShamCalc == r.colormap))
+          {
+          r.ShamDir = r.ShamDir - 1;
+          if (r.ShamDir == -1)
+          r.ShamPos6 = ShamblerSizeOk (r, 6);
+          else if (r.ShamDir == -2)
+          r.ShamPos5 = ShamblerSizeOk (r, 5);  
+          else if (r.ShamDir == -3)
+           r.ShamPos4 = ShamblerSizeOk (r, 4);
+          else if (r.ShamDir == -4)
+          r.ShamPos3 = ShamblerSizeOk (r, 3);
+          else if (r.ShamDir == -5)
+          r.ShamPos2 = ShamblerSizeOk (r, 2);
+          else if (r.ShamDir == -6)
+          {
+          r.ShamPos1 = ShamblerSizeOk (r, 1);
+          r.ShamDir = 0;
+          }
+          if (r.ShamPos6) r.dest = r.ShamPos6;
+          else if (r.ShamPos5) r.dest = r.ShamPos5;
+          else if (r.ShamPos4) r.dest = r.ShamPos4;
+          else if (r.ShamPos3) r.dest = r.ShamPos3;
+          else if (r.ShamPos2) r.dest = r.ShamPos2;
+          else if (r.ShamPos1) r.dest = r.ShamPos1;
+          
+                    
+          }
           
           if (r.classname == "plat")
 	if (r.velocity_z != 0)
@@ -125,7 +153,7 @@ while (r)
             r.effects = EF_FROZEN | 2;
             else r.effects = 0;
             }
-          
+          if (ShamCalc == MAX_CLIENTS) ShamCalc = 0;
           r = nextent(r);
           }
 

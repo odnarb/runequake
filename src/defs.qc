@@ -1721,6 +1721,9 @@ float PLAYERS, MAX_CLIENTS; // Cobalt  - track max players and active clients
 void (float force) ToggleClientChat; // For management of client chat bubble
 void () gmissile_repulse; // Guided missile with Repulse rune....
 .entity gmis;
+.vector	ShamPos1, ShamPos2, ShamPos3, ShamPos4, ShamPos5, ShamPos6; // Cobalt for saving best safe spawn pos's for Shambler rune
+.float ShamDir; // Count and save curent direction last checked
+float ShamCalc; // Stagger ShamCheck count by increminting this so 1 player at a time does the check
 // development
 float	gamemode_set;
 entity (entity e) ridee_e;

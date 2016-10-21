@@ -501,12 +501,7 @@ void ()
 Rune_ShamblerThink =
 {
           
-            self.count = self.count + 1;
-          
-          self.runent.dest = ShamblerSizeOk (self.runent.owner, self.count);
-          if (self.count == 6)
-          self.count = 0;
-          
+           
 	// Angry shambler for dead player.
 	if (self.runevar)
 	{
