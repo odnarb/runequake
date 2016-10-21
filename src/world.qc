@@ -89,7 +89,7 @@ while (r)
           
           if ((r.flags & FL_CLIENT) && (!(r.flags & FL_OBSERVER)))
           {
-          if (!(LoopProtect));
+          if (!(LoopProtect))
           if (r.ShamTmr == framecount)
           {
           r.ShamDir = r.ShamDir + 1;
