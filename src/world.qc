@@ -149,7 +149,6 @@ while (r)
             else r.effects = 0;
             }
           
-          if (ShamCalc == MAX_CLIENTS) ShamCalc = 0;
           r = nextent(r);
           }
 
