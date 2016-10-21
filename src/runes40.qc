@@ -316,7 +316,7 @@ ShamblerSizeOk =
            setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
            if (dh_shambler_test (testfield))
            {      
-                     centerprint (this,"Player origin\n");
+                     centerprint (this,"Player origin ok\n");
                      return testfield.origin;
                      
            }     
@@ -336,7 +336,8 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); // Front of player
             if (dh_shambler_test (testfield))
             {
-              centerprint (this, "Front of player selected \n");
+                      create_te_spike (TE_WIZSPIKE, testfield.origin);
+              centerprint (this, "Front of player ok \n");
                      return testfield.origin;
              
             }
@@ -354,7 +355,8 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); 
             if (dh_shambler_test (testfield))
             {
-              centerprint (this,"Behind player selected\n");
+                       create_te_spike (TE_WIZSPIKE, testfield.origin);
+              centerprint (this,"Behind player ok\n");
                      return testfield.origin;
              
             }
@@ -371,7 +373,8 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (dh_shambler_test (testfield))
             {
-              centerprint (this,"Player side selected \n");
+                       create_te_spike (TE_WIZSPIKE, testfield.origin);
+              centerprint (this,"Player side ok \n");
                return testfield.origin;
              
             }
@@ -388,7 +391,8 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
             if (dh_shambler_test (testfield))
             {
-              centerprint (this, "Player side2 selected\n");
+                       create_te_spike (TE_WIZSPIKE, testfield.origin);
+              centerprint (this, "Player side2 ok\n");
                return testfield.origin;
              
             }
@@ -405,7 +409,8 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
             if (dh_shambler_test (testfield))
             {
-              centerprint (this, "Above Player selected \n");
+                       create_te_spike (TE_WIZSPIKE, testfield.origin);
+              centerprint (this, "Above Player ok \n");
                return testfield.origin;
              
             }
@@ -420,7 +425,8 @@ ShamblerSizeOk =
             setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
             if (dh_shambler_test (testfield))
             {
-              centerprint (this, "Below Player selected\n");
+                       create_te_spike (TE_WIZSPIKE, testfield.origin);
+              centerprint (this, "Below Player ok\n");
                return testfield.origin;
              
             }
@@ -472,7 +478,8 @@ Rune_ShamblerReloc =
           //spawn_tfog (self.origin);
 	//setorigin (self, self.owner.origin);
 	//spawn_tfog (self.origin);
-         
+         bprint (vtos(here));
+         bprint ("\n");
          
           if (here)
           {
@@ -482,7 +489,7 @@ Rune_ShamblerReloc =
           }
           else
           {
-          centerprint (self.owner, "Not enough room anywhere for your Shambler, move and try again.");
+          centerprint (self.owner, "\bNot enough room near you for the Shambler\n move and try again.\b");
                     self_sound (self.owner,"shambler/sidle.wav");   
                self = old_self;                    
 		return;          
