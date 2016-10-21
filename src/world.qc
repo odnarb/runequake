@@ -105,14 +105,7 @@ while (r)
           r.ShamPos1 = ShamblerSizeOk (r, 1);
           r.ShamDir = 0;
           }
-          if (r.ShamPos6) r.dest = r.ShamPos6;
-          else if (r.ShamPos5) r.dest = r.ShamPos5;
-          else if (r.ShamPos4) r.dest = r.ShamPos4;
-          else if (r.ShamPos3) r.dest = r.ShamPos3;
-          else if (r.ShamPos2) r.dest = r.ShamPos2;
-          else if (r.ShamPos1) r.dest = r.ShamPos1;
-          
-                    
+        
           }
           
           if (r.classname == "plat")

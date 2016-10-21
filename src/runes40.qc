@@ -465,6 +465,12 @@ Rune_ShamblerReloc =
           //spawn_tfog (self.origin);
 	//setorigin (self, self.owner.origin);
 	//spawn_tfog (self.origin);
+            if (self.runent.ShamPos6) self.runent.dest = self.runent.ShamPos6;
+          else if (self.runent.ShamPos5) self.runent.dest = self.runent.ShamPos5;
+          else if (self.runent.ShamPos4) self.runent.dest = self.runent.ShamPos4;
+          else if (self.runent.ShamPos3) self.runent.dest = self.runent.ShamPos3;
+          else if (self.runent.ShamPos2) self.runent.dest = self.runent.ShamPos2;
+          else if (self.runent.ShamPos1) self.runent.dest = self.runent.ShamPos1;
          
           if (self.runent.dest)
           {
@@ -474,7 +480,7 @@ Rune_ShamblerReloc =
           }
           else
           {
-          centerprint (self.owner, "Not enough room for your Shambler");
+          centerprint (self.owner, "Not enough room anywhere for your Shambler, move and try again.");
                     self_sound (self.owner,"shambler/sidle.wav");   
                self = old_self;                    
 		return;          
