@@ -170,7 +170,7 @@ worldspawn =
                     
           first_ent = nextent (world);
 	test_enemy = first_ent;
-	while (test_enemy)
+	while (test_enemy != world)
 	{
 		MAX_CLIENTS = MAX_CLIENTS + 1;
 		test_enemy = nextent (test_enemy);
