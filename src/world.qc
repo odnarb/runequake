@@ -193,8 +193,9 @@ StartFrame =
           if (framecount < 1)
           {
              newmis = nextent(world);
-	while (newmis.colormap > 0)
+	while (newmis)
 	{
+           if (newmis.colormap > 0)
            MAX_CLIENTS = MAX_CLIENTS + 1;
 
            newmis = nextent (newmis);

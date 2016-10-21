@@ -34,10 +34,10 @@ self.weapon = IT_ROCKET_LAUNCHER;
 self.impulse = 0;
 W_SetCurrentAmmo (0);
 
-  bprint ("CMax_Clients: ");
+  bprint ("Max_Clients: ");
             bprint (ftos(MAX_CLIENTS));
             bprint ("\n");
-            eprint (self);
+          
 
 };
 
