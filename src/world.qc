@@ -154,9 +154,7 @@ while (r)
             r.effects = EF_FROZEN | 2;
             else r.effects = 0;
             }
-            bprint ("Checked slot: ");
-            bprint (ftos(MAX_CLIENTS));
-            bprint ("\n");
+          
           if (ShamCalc == MAX_CLIENTS) ShamCalc = 0;
           r = nextent(r);
           }
