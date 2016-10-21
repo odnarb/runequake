@@ -259,6 +259,14 @@ place_my_items =
 	{
 		// Under the stairs.
 		spawn_item ("weapon_grenadelauncher", 0, '-510 355 -155', 0);
+                    // Above quad
+		spawn_item ("weapon_grenadelauncher", 0, '233 1440 344', 0);
+                    // Ring behind new secret doot
+		spawn_item ("item_artifact_invisibility", 0, '-863 1501 -488', 0);
+                    // New spawn above quad
+		spawn_info_player_deathmatch ('216 1488 24', 270);
+                    
+                    
 	}
 	else if (mapname == "e1m7")
 	{
