@@ -493,22 +493,22 @@ Rune_ShamblerReloc =
           if (here)
           {
           local vector oorg;
-          local string mod;
-          mod = self.model;
+          local string modl;
+          modl = self.model;
           oorg = self.origin;
           setmodel (self, string_null);
           setorigin (self, here);
           if (walkmove (0, 0))
           {
           spawn_tfog (self.origin);
-	setmodel (self, mod);
+	setmodel (self, modl);
           spawn_tfog (self.origin);
           }
           else 
           {
                     
                     setorigin (self, oorg);
-                    setmodel (self, mod);
+                    setmodel (self, modl);
                     centerprint (self.owner, "\bShambler has no clue where you are . . .\n move and try again.\b");
                     self_sound (self.owner,"shambler/sidle.wav");   
                     self = old_self;                    
