@@ -317,10 +317,11 @@ ShamblerSizeOk =
            if (dh_shambler_test (testfield))
            {      
                      centerprint (this,"Player origin\n");
-                     return testfield.origin;
+                     this.dest = testfield.origin;
+                     return VEC_ORIGIN;
            }     
-          else
-          {
+         
+          
            makevectors (this.v_angle);
            local float mv,sp;
            sp = 4;
@@ -425,7 +426,7 @@ ShamblerSizeOk =
             }
            }
            }
-          }
+          
             
           // sprint (this, trace_ent.classname);
           // sprint (this, "\n");
