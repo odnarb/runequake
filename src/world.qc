@@ -169,6 +169,29 @@ while (r)
 void ()
 worldspawn =
 {
+          
+           
+          
+                    local entity first_ent, test_enemy;
+          
+                    
+          first_ent = nextent (world);
+	test_enemy = first_ent;
+	while (test_enemy)
+	{
+		MAX_CLIENTS = MAX_CLIENTS + 1;
+		test_enemy = nextent (test_enemy);
+	}
+                    
+                    
+	
+                    
+                    
+          
+          
+          
+          
+          
           SetMapAuthor ();
           //world.touch = world_touch;
           InternalInit ();
@@ -190,20 +213,7 @@ StartFrame =
 {
           sys_ticrate 	= frametime; // Cobalt - same as frametime cvar ("sys_ticrate");
           
-          if (framecount < 1)
-          {
-                    local entity ent;
-          ent = nextent (world);
-	MAX_CLIENTS = 0;
-	while (ent != world)
-	{
-                    if (ent.colormap > 0)
-		MAX_CLIENTS = MAX_CLIENTS + 1;
-		ent = nextent (ent);
-	}
-                    
-                    
-          }
+        
           framecount = framecount + 1; // Cobalt count number of frames
 	check_teamplay ();
 	check_console_command ();

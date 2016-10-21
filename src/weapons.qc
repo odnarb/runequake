@@ -34,10 +34,9 @@ self.weapon = IT_ROCKET_LAUNCHER;
 self.impulse = 0;
 W_SetCurrentAmmo (0);
 
-local float mx;
-mx = max_players ();
+
   bprint ("Max_Clients: ");
-            bprint (ftos(mx));
+            bprint (ftos(MAX_CLIENTS));
             bprint ("\n");
           
 
