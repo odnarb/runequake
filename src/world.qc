@@ -86,7 +86,7 @@ r = nextent (world);
 while (r)
 {
 
-          ShamCal
+          
           if ((r.flags & FL_CLIENT) && (!(r.flags & FL_OBSERVER)))
           {
           if (r.ShamDir < time)
