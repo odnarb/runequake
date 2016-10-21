@@ -35,7 +35,7 @@ self.impulse = 0;
 W_SetCurrentAmmo (0);
 
   bprint ("Max_Clients: ");
-            bprint (ftos(MAX_CLIENTS));
+            bprint (ftos(FORWARD_MAX_PLAYERS));
             bprint ("\n");
           
 
