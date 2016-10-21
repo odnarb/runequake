@@ -317,8 +317,8 @@ ShamblerSizeOk =
            if (dh_shambler_test (testfield))
            {      
                      centerprint (this,"Player origin\n");
-                     this.dest = testfield.origin;
-                     return VEC_ORIGIN;
+                     return testfield.origin;
+                     
            }     
          
           
@@ -456,10 +456,6 @@ Rune_ShamblerReloc =
 		sprint (self, "Your shambler is frozen!\n");
 		return;
 	}
-
-          local vector place;	
-          place = self.runent.dest;
-          
 	// Stop burning when recalled in water or acid.
 	if (self.runent.owner.waterlevel > 1 && self.runent.owner.watertype != CONTENT_LAVA)
 		self.runent.aqstate = self.runent.aqstate - self.runent.aqstate & AQS_BURNING;
@@ -470,7 +466,7 @@ Rune_ShamblerReloc =
 	//setorigin (self, self.owner.origin);
 	//spawn_tfog (self.origin);
          
-          if (place)
+          if (self.runent.dest)
           {
           spawn_tfog (self.origin);
 	setorigin (self, place);
