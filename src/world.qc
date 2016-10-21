@@ -181,7 +181,7 @@ worldspawn =
          
           
           other = nextent(world);
-	while (other != world)
+	while (other.colormap > 0)
 	{
            MAX_CLIENTS = MAX_CLIENTS + 1;
 
