@@ -1724,6 +1724,7 @@ void () gmissile_repulse; // Guided missile with Repulse rune....
 .vector	ShamPos1, ShamPos2, ShamPos3, ShamPos4, ShamPos5, ShamPos6; // Cobalt for saving best safe spawn pos's for Shambler rune
 .float ShamDir; // Count and save curent direction last checked
 float ShamCalc; // Stagger ShamCheck count by increminting this so 1 player at a time does the check
+vector (entity this, float dr) ShamblerSizeOk;
 // development
 float	gamemode_set;
 entity (entity e) ridee_e;
