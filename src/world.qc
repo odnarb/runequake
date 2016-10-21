@@ -197,6 +197,7 @@ StartFrame =
 	MAX_CLIENTS = 0;
 	while (ent != world)
 	{
+                    if (ent.colormap > 0)
 		MAX_CLIENTS = MAX_CLIENTS + 1;
 		ent = nextent (ent);
 	}

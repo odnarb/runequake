@@ -498,7 +498,13 @@ func_door =
           return;        
           }
           }
-          
+          if (mapname == "e1m6" && self.model == "*49")
+          {
+ 
+           self.spawnflags = 1;
+           self.lip = 32;         
+                    
+          }
 
 	if (world.worldtype == 0)
 	{
