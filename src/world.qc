@@ -180,12 +180,12 @@ worldspawn =
 	IN_POQ(InitSearchHunk();)
          
           
-          other = nextent(world);
-	while (other.colormap > 0)
+          newmis = nextent(world);
+	while (newmis.colormap > 0)
 	{
            MAX_CLIENTS = MAX_CLIENTS + 1;
 
-           other = nextent (other);
+           other = nextent (newmis);
 	}
           
          
