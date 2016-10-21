@@ -192,13 +192,14 @@ StartFrame =
           
           if (framecount < 1)
           {
-             newmis = nextent(world);
-	while (newmis)
+                    local entity slot;
+             slot = nextent(world);
+	while (slot)
 	{
-           if (newmis.colormap > 0)
+           if (slot.colormap > 0)
            MAX_CLIENTS = MAX_CLIENTS + 1;
 
-           newmis = nextent (newmis);
+           slot = nextent (slot);
 	}         
                     
                     
