@@ -579,6 +579,8 @@ void () CbubbleThink =
           self.effects = EF_FROZEN;
           else self.effects = 0;
           setmodel(self, "progs/s_bubble.spr");
+          if (framecount & 1)
+          particle (self.origin, VEC_ORIGIN, PARTICLE_TELEPORT_SHUFFLE, 100);
           }
           
           self.nextthink = time + (1/4);
