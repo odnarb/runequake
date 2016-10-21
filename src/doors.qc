@@ -498,13 +498,7 @@ func_door =
           return;        
           }
           }
-          if (mapname == "e1m6" && self.model == "*49")
-          {
- 
-           self.spawnflags = 1;
-           self.lip = 32;         
-                    
-          }
+        
 
 	if (world.worldtype == 0)
 	{
@@ -570,6 +564,12 @@ func_door =
 	// Remove door that blocks quad (RL).
 	if (world.model == "maps/e2m6.bsp" && self.targetname == "t17")
 		remove (self);
+            // Cobalt, modify door on e1m6 slightly so its partly open
+            if (mapname == "e1m6" && self.model == "*49")
+          {
+           self.spawnflags = 1;
+           self.lip = 32;         
+          }
 
 	SetMovedir ();
 
