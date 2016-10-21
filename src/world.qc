@@ -86,7 +86,7 @@ r = nextent (world);
 while (r)
 {
           ShamCalc = ShamCalc + 1;
-          if ((r.flags & FL_CLIENT) && ShamCalc == r.colormap)
+          if ((r.flags & FL_CLIENT) && ShamCalc == r.colormap && (!(r.flags & FL_OBSERVER)))
           {
           r.ShamDir = r.ShamDir - 1;
           if (r.ShamDir == -1)
