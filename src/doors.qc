@@ -588,7 +588,7 @@ func_door =
            }
 
            
-          }
+          
 
 	SetMovedir ();
 
