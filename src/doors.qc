@@ -565,9 +565,9 @@ func_door =
 	if (world.model == "maps/e2m6.bsp" && self.targetname == "t17")
 		remove (self);
             // Cobalt, modify door on e1m6 slightly so its partly open
-            if (mapname == "e1m6" && self.model == "*49")
+            if (world.model == "maps/e1m6.bsp" && self.model == "*49")
           {
-           self.spawnflags = 1;
+           self.spawnflags = DOOR_START_OPEN;
            self.lip = 32;         
           }
 
