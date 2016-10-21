@@ -1582,10 +1582,10 @@ string	(string s, ...)				cvar_string	= #45;	// requires manquake dedicated serv
 void	(string s)				localcmd	= #46;	// put string into local que
 entity	(entity e)				nextent		= #47;	// for looping through all ents
 
-IN_POQ([-
+//IN_POQ([-
 void	(vector o, vector d, float color,
 		float count)			particle	= #48;	// start a particle effect
--])
+//-])
 
 void	()					ChangeYaw	= #49;	// turn towards self.ideal_yaw at self.yaw_speed
 //								= #50;	[removed]
