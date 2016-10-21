@@ -134,7 +134,7 @@ while (r)
         
           r.ShamTmr = time + frametime + (r.colormap * frametime);
           }
-          
+          }
           if (r.classname == "plat")
 	if (r.velocity_z != 0)
 	{
