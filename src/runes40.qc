@@ -493,7 +493,7 @@ Rune_ShamblerReloc =
           self.model = string_null;
           setmodel (self, self.model);
           setorigin (self, here);
-          if (walkmove (0, 0) free = 1;
+          if (walkmove (0, 0)) free = 1;
           } else free = 1;
           
           
