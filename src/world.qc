@@ -103,7 +103,7 @@ while (r)
           setorigin (tf, r.origin + '0 0 4'); // Cobalt try player origin first
            if (dh_shambler_test (tf))
            {      
-                    r.dest = tf.origin
+                    r.dest = tf.origin;
                      centerprint (this,"Player origin ok\n");
                      remove (tf);
                      
