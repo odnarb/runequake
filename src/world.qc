@@ -93,50 +93,61 @@ while (r)
           if (!(LoopProtect))
           if (r.ShamTmr == framecount)
           {
+            
+          local entity tf;
+          tf = spawn ();
+          tf.effects = EF_MAYBE_DRAW;
+          tf.groundentity = r;
+          tf.classname = "testfield_0";
+          setsize (tf, VEC_HULL2_MIN, VEC_HULL2_MAX);
+          setorigin (tf, r.origin + '0 0 4'); // Cobalt try player origin first
+           if (dh_shambler_test (tf))
+           {      
+                    r.dest = tf.origin
+                     centerprint (this,"Player origin ok\n");
+                     remove (tf);
+                     
+           }            
+                    
+          if (!(r.dest))
+          {
+                    
           r.ShamDir = r.ShamDir + 1;
           
           if (r.ShamDir == 1)
           {
           r.ShamPos6 = ShamblerSizeOk (r, 6);
-          if (r.ShamPos6 == r.size)
-          r.dest = r.origin + '0 0 4';
           }
           else if (r.ShamDir == 2)
           {
           r.ShamPos5 = ShamblerSizeOk (r, 5);  
-          if (r.ShamPos5 == r.size)
-          r.dest = r.origin + '0 0 4';
           }
          else if (r.ShamDir == 3)
          {
           r.ShamPos4 = ShamblerSizeOk (r, 4);
-         if (r.ShamPos4 == r.size)
-          r.dest = r.origin + '0 0 4';
+
          }
           else if (r.ShamDir == 4)
           {
           r.ShamPos3 = ShamblerSizeOk (r, 3);
-          if (r.ShamPos3 == r.size)
-          r.dest = r.origin + '0 0 4';
+
           }
           else if (r.ShamDir == 5)
           {
           r.ShamPos2 = ShamblerSizeOk (r, 2);
-          if (r.ShamPos2 == r.size)
-          r.dest = r.origin + '0 0 4';
+
           }
           else if (r.ShamDir == 6) 
           {
           r.ShamPos1 = ShamblerSizeOk (r, 1);
-          if (r.ShamPos1 == r.size)
-          r.dest = r.origin + '0 0 4';
           r.ShamDir = 0;
           }
-          
+          }
         
           r.ShamTmr = framecount + r.colormap;
           }
           }
+          
           if (r.classname == "plat")
 	if (r.velocity_z != 0)
 	{

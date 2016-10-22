@@ -312,17 +312,6 @@ ShamblerSizeOk =
           setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
           
          
-          
-           setorigin (testfield, this.origin + '0 0 4'); // Cobalt try player origin first
-           if (dh_shambler_test (testfield))
-           {      
-                    create_te_gunshot (this.origin + this.view_ofs, 8);
-                     centerprint (this,"Player origin ok\n");
-                     return this.size;
-                     
-           }     
-         
-          
            makevectors (this.v_angle);
            local float mv,sp;
            sp = 4;
