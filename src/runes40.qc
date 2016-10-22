@@ -485,12 +485,23 @@ Rune_ShamblerReloc =
           local string modl;
           modl = self.model;
           oorg = self.origin;
-          setmodel (self, string_null);
+          local float free;
+          local entity cl;
+          cl = EntNearby (0, "player", here, 48);
+          if (cl != old_self) // Not near player 
+          {
+          self.model = string_null;
+          setmodel (self, self.model);
           setorigin (self, here);
-          if (here_x != old_self.origin_x && here_y != old_self.origin_y)
-          if (walkmove (0, 0))
+          if (walkmove (0, 0) free = 1;
+          } else free = 1;
+          
+          
+                    
+          if (free)
           {
           spawn_tfog (self.origin);
+          self.model = modl;
 	setmodel (self, modl);
           spawn_tfog (self.origin);
           }
@@ -499,8 +510,8 @@ Rune_ShamblerReloc =
                     
                     setorigin (self, oorg);
                     setmodel (self, modl);
-                    centerprint (self.owner, "\bShambler has no clue where you are . . .\n move and try again.\b");
-                    self_sound (self.owner,"shambler/sidle.wav");   
+                    centerprint (self.owner, "Shambler has no clue where you are . . .\n move and try again.");
+                    self_sound (self,"shambler/sidle.wav");   
                     self = old_self;                    
 		return; 
           
