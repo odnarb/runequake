@@ -526,6 +526,7 @@ Rune_ShamblerReloc =
           spawn_tfog (self.origin);
           self.model = modl;
 	setmodel (self, modl);
+          setorigin (self, here);
           spawn_tfog (self.origin);
           }
           else 
