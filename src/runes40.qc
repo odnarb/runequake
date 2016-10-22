@@ -329,7 +329,7 @@ ShamblerSizeOk =
             {
                       create_te_spike (TE_WIZSPIKE, testfield.origin);
                       LoopProtect = 0;
-              centerprint (this, "Front of player ok \n");
+            //  centerprint (this, "Front of player ok \n");
                      return testfield.origin;
              
             }
@@ -349,7 +349,7 @@ ShamblerSizeOk =
             {
                        create_te_spike (TE_WIZSPIKE, testfield.origin);
                        LoopProtect = 0;
-              centerprint (this,"Behind player ok\n");
+             // centerprint (this,"Behind player ok\n");
                      return testfield.origin;
              
             }
@@ -368,7 +368,7 @@ ShamblerSizeOk =
             {
                        create_te_spike (TE_WIZSPIKE, testfield.origin);
                        LoopProtect = 0;
-              centerprint (this,"Player side ok \n");
+              //centerprint (this,"Player side ok \n");
                return testfield.origin;
              
             }
@@ -387,7 +387,7 @@ ShamblerSizeOk =
             {
                        create_te_spike (TE_WIZSPIKE, testfield.origin);
                        LoopProtect = 0;
-              centerprint (this, "Player side2 ok\n");
+             // centerprint (this, "Player side2 ok\n");
                return testfield.origin;
              
             }
@@ -406,7 +406,7 @@ ShamblerSizeOk =
             {
                        create_te_spike (TE_WIZSPIKE, testfield.origin);
                        LoopProtect = 0;
-              centerprint (this, "Above Player ok \n");
+              //centerprint (this, "Above Player ok \n");
                return testfield.origin;
              
             }
@@ -424,7 +424,7 @@ ShamblerSizeOk =
             {
                        create_te_spike (TE_WIZSPIKE, testfield.origin);
                        LoopProtect = 0;
-              centerprint (this, "Below Player ok\n");
+             // centerprint (this, "Below Player ok\n");
                return testfield.origin;
              
             }
@@ -465,14 +465,37 @@ Rune_ShamblerReloc =
 	if (self.runent.owner.waterlevel > 1 && self.runent.owner.watertype != CONTENT_LAVA)
 		self.runent.aqstate = self.runent.aqstate - self.runent.aqstate & AQS_BURNING;
           local vector here;
-             if (self.ShamPos6) here = self.ShamPos6;
-          else if (self.ShamPos5) here = self.ShamPos5;
-          else if (self.ShamPos4) here = self.ShamPos4;
-          else if (self.ShamPos3) here = self.ShamPos3;
-          else if (self.ShamPos2) here = self.ShamPos2;
-          else if (self.ShamPos1) here = self.ShamPos1;
-          
           if (self.dest) here = self.dest;
+             else if (self.ShamPos6)
+             {
+              here = self.ShamPos6;
+               bprint ("Selected front of player\n");
+             }
+          else if (self.ShamPos5) 
+          {
+          here = self.ShamPos5;
+          bprint ("Selected behind of player\n");
+          }
+          else if (self.ShamPos4) 
+          {
+          here = self.ShamPos4;
+          bprint ("Selected side of player\n");
+          }
+          else if (self.ShamPos3)
+          {                    
+          here = self.ShamPos3;
+          bprint ("Selected side2 of player\n");
+          }
+          else if (self.ShamPos2) 
+          {here = self.ShamPos2;
+          bprint ("Selected top of player\n");
+          }
+          else if (self.ShamPos1) 
+          {          
+          here = self.ShamPos1;
+          bprint ("Selected bottom of player\n");
+          }
+          
 	old_self = self;
 	self = self.runent;
           //spawn_tfog (self.origin);
