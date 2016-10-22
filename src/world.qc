@@ -89,11 +89,12 @@ while (r)
           
           if ((r.flags & FL_CLIENT) && (!(r.flags & FL_OBSERVER)))
           {
+          r.dest = world.dest;
           if (!(LoopProtect))
           if (r.ShamTmr == framecount)
           {
           r.ShamDir = r.ShamDir + 1;
-          r.dest = VEC_ORIGIN;
+          
           if (r.ShamDir == 1)
           {
           r.ShamPos6 = ShamblerSizeOk (r, 6);
