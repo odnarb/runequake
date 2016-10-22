@@ -498,6 +498,7 @@ Rune_ShamblerReloc =
           oorg = self.origin;
           setmodel (self, string_null);
           setorigin (self, here);
+          if (here_x != old_self.origin_x && here_y != old_self.origin_y)
           if (walkmove (0, 0))
           {
           spawn_tfog (self.origin);
