@@ -104,7 +104,7 @@ while (r)
            if (dh_shambler_test (tf))
            {      
                     r.dest = tf.origin;
-                     centerprint (this,"Player origin ok\n");
+                     centerprint (r,"Player origin ok\n");
                      remove (tf);
                      
            }            
