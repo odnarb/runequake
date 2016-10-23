@@ -110,17 +110,6 @@ spawn_info_intermission =
 	
 };
 
-void (vector e_origin, float ang)
-spawn_info_player_deathmatch =
-{
-	local entity e;
-
-	e		= spawn ();
-	e.classname	= "info_player_deathmatch";
-	e.origin	= e_origin;
-	e.angles_y	= ang;
-
-};
 
 void (vector e_origin, float ang)
 spawn_info_player_deathmatch =
