@@ -98,16 +98,28 @@ spawn_item =
 	self = o;
 };
 
-void (vector e_origin, float e_mangle, string e_targetname)
-spawn_info_teleport_destination =
+void (vector e_origin, float e_mangle)
+spawn_info_intermission =
 {
 	local entity e;
 
 	e		= spawn ();
-	e.classname	= "info_teleport_destination";
+	e.classname	= "info_intermission";
 	e.origin	= e_origin;
 	e.mangle_y	= e_mangle;
-	e.targetname	= e_targetname;
+	
+};
+
+void (vector e_origin, float ang)
+spawn_info_player_deathmatch =
+{
+	local entity e;
+
+	e		= spawn ();
+	e.classname	= "info_player_deathmatch";
+	e.origin	= e_origin;
+	e.angles_y	= ang;
+
 };
 
 void (vector e_origin, float ang)
@@ -293,6 +305,14 @@ place_my_items =
 
 		// Ceiling of GL room.
 		spawn_info_teleport_destination ('-450 64 366', 0, "T2");
+                    
+                    // Ring for phasing players
+                    spawn_item ("item_artifact_invisibility", 0, '-610 57 250', 0);
+                    
+                    // extra intermission
+                    spawn_info_intermission ('701.2 -327.8 79.9', -90);
+                    
+                    
 	}
 	else if (mapname == "e2m1")
 	{
