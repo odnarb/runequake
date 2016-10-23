@@ -591,8 +591,10 @@ Rune_ShamblerThink =
 		}
 		self = old_self;
 	}
- 
-        
+          // Cobalt - track owner
+          makevectors (self.owner.v_angle);
+	setorigin (self, self.owner.origin + ' 0 0 4');
+	trackvel (self.owner);
 	self.nextthink = self.owner.nextthink;
 };
 
@@ -652,17 +654,17 @@ Rune_ShamblerSpawn =
 	shamctrl		= spawn ();
 	shamctrl.solid		= SOLID_NOT;
 	shamctrl.movetype	= MOVETYPE_FLY;
-
+          shamctrl.effects = EF_MAYBE_DRAW;
 	setorigin (shamctrl, self.origin);
 	setsize (shamctrl, VEC_ORIGIN, VEC_ORIGIN);
-          setmodel (shamctrl, "progs/s_light.spr");
+          setmodel (shamctrl, "progs/lavaball.mdl");
 	shamctrl.classname	= "shambler_control";
 	shamctrl.owner		= self;
 	shamctrl.runent		= sham;
 	shamctrl.runevar	= 0;
 	shamctrl.nextthink	= time + 1;
 	shamctrl.think		= Rune_ShamblerThink;
-
+          shamctrl.avelocity_y = vlen (self.size);
 	sham.trigger_field	= shamctrl;
 };
 
