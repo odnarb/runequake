@@ -510,7 +510,7 @@ Rune_ShamblerReloc =
           oorg = self.origin;
           local float free;
           local entity cl1;
-          cl1 = EntNearby (0, "player", here, 48);
+          cl1 = EntNearby (0, "player", here, 32);
           if (cl1 != old_self) // Not near player 
           {
           self.model = string_null;
