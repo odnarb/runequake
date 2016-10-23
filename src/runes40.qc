@@ -466,35 +466,7 @@ Rune_ShamblerReloc =
 		self.runent.aqstate = self.runent.aqstate - self.runent.aqstate & AQS_BURNING;
           local vector here;
           if (self.dest) here = self.dest;
-             else if (self.ShamPos6)
-             {
-              here = self.ShamPos6;
-               bprint ("Selected front of player\n");
-             }
-          else if (self.ShamPos5) 
-          {
-          here = self.ShamPos5;
-          bprint ("Selected behind of player\n");
-          }
-          else if (self.ShamPos4) 
-          {
-          here = self.ShamPos4;
-          bprint ("Selected side of player\n");
-          }
-          else if (self.ShamPos3)
-          {                    
-          here = self.ShamPos3;
-          bprint ("Selected side2 of player\n");
-          }
-          else if (self.ShamPos2) 
-          {here = self.ShamPos2;
-          bprint ("Selected top of player\n");
-          }
-          else if (self.ShamPos1) 
-          {          
-          here = self.ShamPos1;
-          bprint ("Selected bottom of player\n");
-          }
+
           
 	old_self = self;
 	self = self.runent;
@@ -683,7 +655,7 @@ Rune_ShamblerSpawn =
 
 	setorigin (shamctrl, self.origin);
 	setsize (shamctrl, VEC_ORIGIN, VEC_ORIGIN);
-
+          setmodel (shamctrl, "progs/s_light.spr");
 	shamctrl.classname	= "shambler_control";
 	shamctrl.owner		= self;
 	shamctrl.runent		= sham;

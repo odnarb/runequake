@@ -90,7 +90,7 @@ while (r)
           if ((r.flags & FL_CLIENT) && (!(r.flags & FL_OBSERVER)))
           {
           r.dest = world.dest;
-          if (!(LoopProtect))
+          
           if (r.ShamTmr == framecount)
           {
             
@@ -108,42 +108,13 @@ while (r)
                      remove (tf);
                      
            }            
-                    
+                    /*
           if (!(r.dest))
           {
                     
-          r.ShamDir = r.ShamDir + 1;
-          
-          if (r.ShamDir == 1)
-          {
-          r.ShamPos6 = ShamblerSizeOk (r, 6);
+         
           }
-          else if (r.ShamDir == 2)
-          {
-          r.ShamPos5 = ShamblerSizeOk (r, 5);  
-          }
-         else if (r.ShamDir == 3)
-         {
-          r.ShamPos4 = ShamblerSizeOk (r, 4);
-
-         }
-          else if (r.ShamDir == 4)
-          {
-          r.ShamPos3 = ShamblerSizeOk (r, 3);
-
-          }
-          else if (r.ShamDir == 5)
-          {
-          r.ShamPos2 = ShamblerSizeOk (r, 2);
-
-          }
-          else if (r.ShamDir == 6) 
-          {
-          r.ShamPos1 = ShamblerSizeOk (r, 1);
-          r.ShamDir = 0;
-          }
-          }
-        
+        */
           r.ShamTmr = framecount + r.colormap;
           }
           }
