@@ -300,143 +300,6 @@ shambler_slave_retribution =
 	self = old_self;
 };
 
-// Cobalt - Test respawn areas for Shambler otherwise cancel the teleport
-vector (entity this, float dr)
-ShamblerSizeOk =
-{
-          local entity testfield;
-          
-          testfield = spawn ();
-          testfield.groundentity = this;
-          testfield.classname = "testfield";
-          setsize (testfield, VEC_HULL2_MIN, VEC_HULL2_MAX);
-          
-         
-           makevectors (this.v_angle);
-           local float mv,sp;
-           sp = 4;
-           if (dr == 6)
-           {
-                    //  bprint ("Testing Front of player\n");
-           mv = 32;
-           LoopProtect = 1;
-           while (mv < 97)
-           {
-                     
-                     mv = mv + sp;
-            setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); // Front of player
-            if (dh_shambler_test (testfield))
-            {
-                      create_te_spike (TE_WIZSPIKE, testfield.origin);
-                      LoopProtect = 0;
-            //  centerprint (this, "Front of player ok \n");
-                     return testfield.origin;
-             
-            }
-           }
-           }
-            else if (dr == 5)      
-            {                     
-           // bprint ("Testing Behind player\n");  
-            mv = -32;        
-            LoopProtect = 1;
-             while (mv > -97)
-           {
-                     mv = mv - sp;
-
-            setorigin (testfield, this.origin + (v_forward * mv) + '0 0 56'); 
-            if (dh_shambler_test (testfield))
-            {
-                       create_te_spike (TE_WIZSPIKE, testfield.origin);
-                       LoopProtect = 0;
-             // centerprint (this,"Behind player ok\n");
-                     return testfield.origin;
-             
-            }
-           }
-            }       
-           else if (dr == 4)
-           {
-                  //    bprint ("Testing side of player\n");
-            mv = 32;        
-            LoopProtect = 1;
-             while (mv < 97)
-           {
-                     mv = mv + sp;
-            setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
-            if (dh_shambler_test (testfield))
-            {
-                       create_te_spike (TE_WIZSPIKE, testfield.origin);
-                       LoopProtect = 0;
-              //centerprint (this,"Player side ok \n");
-               return testfield.origin;
-             
-            }
-           }
-           }
-           else if (dr == 3)
-           {
-                    //  bprint ("Testing side2 of player\n");
-              mv = -32;        
-              LoopProtect = 1;
-             while (mv > -97)
-           {
-                     mv = mv - sp;
-            setorigin (testfield, this.origin + (v_right * mv) + '0 0 56');
-            if (dh_shambler_test (testfield))
-            {
-                       create_te_spike (TE_WIZSPIKE, testfield.origin);
-                       LoopProtect = 0;
-             // centerprint (this, "Player side2 ok\n");
-               return testfield.origin;
-             
-            }
-           }
-           }
-           else if (dr == 2)
-           {
-                 mv = 0;        
-                     LoopProtect = 1;
-             while (mv < 65)
-           {
-                  //    bprint ("Testing Above player\n");
-                     mv = mv + sp;
-            setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
-            if (dh_shambler_test (testfield))
-            {
-                       create_te_spike (TE_WIZSPIKE, testfield.origin);
-                       LoopProtect = 0;
-              //centerprint (this, "Above Player ok \n");
-               return testfield.origin;
-             
-            }
-           }
-           }
-           else if (dr == 1)
-           { // bprint ("Testing Below player\n");
-                 mv = 0; 
-                 LoopProtect = 1;
-                 while (mv > -65)
-           {
-                     mv = mv - sp;
-            setorigin (testfield, this.origin + (v_up * mv) + '0 0 32');
-            if (dh_shambler_test (testfield))
-            {
-                       create_te_spike (TE_WIZSPIKE, testfield.origin);
-                       LoopProtect = 0;
-             // centerprint (this, "Below Player ok\n");
-               return testfield.origin;
-             
-            }
-           }
-           }
-          
-            
-          // sprint (this, trace_ent.classname);
-          // sprint (this, "\n");
-          LoopProtect = 0;
-          return VEC_ORIGIN;      
-};
 
 void (float riders, entity of_e)
 Rune_Shambler_sprint =
@@ -592,8 +455,10 @@ Rune_ShamblerThink =
 		self = old_self;
 	}
           // Cobalt - track owner
-          makevectors (self.owner.v_angle);
-	setorigin (self, self.owner.origin + ' 0 0 4');
+          setorigin (self, self.owner.origin + ' 0 0 4');
+           
+          
+	
 	trackvel (self.owner);
 	self.nextthink = self.owner.nextthink;
 };
@@ -664,7 +529,6 @@ Rune_ShamblerSpawn =
 	shamctrl.runevar	= 0;
 	shamctrl.nextthink	= time + 1;
 	shamctrl.think		= Rune_ShamblerThink;
-          shamctrl.avelocity_y = vlen (self.size);
 	sham.trigger_field	= shamctrl;
 };
 

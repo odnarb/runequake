@@ -94,7 +94,7 @@ while (r)
           if (r.ShamTmr == framecount)
           {
             
-          local entity tf;
+          local entity tf,sc;
           tf = spawn ();
           tf.effects = EF_MAYBE_DRAW;
           tf.groundentity = r;
@@ -105,12 +105,34 @@ while (r)
            {      
                     r.dest = tf.origin;
                      centerprint (r,"Player origin ok\n");
-                     remove (tf);
+                     
                      
            }            
-                    /*
+                 remove (tf);   
           if (!(r.dest))
           {
+          sc = find (world, classname, "shambler_control");
+	while (sc != world)
+	{
+		if (sc.owner != r)
+		sc = find (sc, classname, "shambler_control");
+	}          
+                    
+              while (anglemod (sc.angles_y) < 360)
+           {      
+           sc.angles_y = sc.angles_y + 5;
+           makevectors (sc.angles);
+          sc.dest = sc.origin + v_forward*56;
+           if (dh_shambler_test (sc.dest))
+           {
+                    r.dest = sc.dest;
+                    create_te_spike (TE_WIZSPIKE, sc.dest);
+                    break;
+           }
+                     
+                     
+           }          
+                    
                     
          
           }
