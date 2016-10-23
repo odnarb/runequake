@@ -136,7 +136,7 @@ while (r)
                     
          
           }
-        */
+        
           r.ShamTmr = framecount + r.colormap;
           }
           }
