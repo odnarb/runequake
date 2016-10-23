@@ -524,7 +524,7 @@ Rune_ShamblerSpawn =
 	setsize (shamctrl, VEC_ORIGIN, VEC_ORIGIN);
           setmodel (shamctrl, "progs/lavaball.mdl");
 	shamctrl.classname	= "shambler_control";
-	shamctrl.owner		= self;
+	shamctrl.owner		= shamctrl.groundentity = self;
 	shamctrl.runent		= sham;
 	shamctrl.runevar	= 0;
 	shamctrl.nextthink	= time + 1;

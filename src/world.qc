@@ -117,13 +117,15 @@ while (r)
 		if (sc.owner != r)
 		sc = find (sc, classname, "shambler_control");
 	}          
-                    
+               setsize (sc, VEC_HULL2_MIN, VEC_HULL2_MAX);
+               sc.dest = sc.origin;
               while (anglemod (sc.angles_y) < 360)
            {      
-           sc.angles_y = sc.angles_y + 5;
+           sc.angles_y = anglemod (sc.angles_y + 5);
            makevectors (sc.angles);
-          sc.dest = sc.origin + v_forward*56;
-           if (dh_shambler_test (sc.dest))
+           
+          setorigin (sc, sc.origin + v_forward*56);
+           if (dh_shambler_test (sc))
            {
                     r.dest = sc.dest;
                     create_te_spike (TE_WIZSPIKE, sc.dest);
@@ -132,8 +134,8 @@ while (r)
                      
                      
            }          
-                    
-                    
+           setorigin (sc, sc.dest);         
+           setsize (sc, VEC_ORIGIN, VEC_ORIGIN);
          
           }
         
