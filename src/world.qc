@@ -119,7 +119,8 @@ while (r)
 	}          
                setsize (sc, VEC_HULL2_MIN, VEC_HULL2_MAX);
                sc.dest = sc.origin;
-              while (anglemod (sc.angles_y) < 360)
+               local float halt;
+              while (anglemod (sc.angles_y) < 360 && (!(halt)))
            {      
            sc.angles_y = anglemod (sc.angles_y + 5);
            makevectors (sc.angles);
@@ -129,7 +130,7 @@ while (r)
            {
                     r.dest = sc.dest;
                     create_te_spike (TE_WIZSPIKE, sc.dest);
-                    break;
+                    halt = 1;
            }
                      
                      
