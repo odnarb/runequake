@@ -1083,7 +1083,12 @@ Berserk_Bleed =
 		self.velocity_y = self.velocity_y + crandom() * 75;
 	-])
 };
-
+void () tmp_touch =
+{
+if (other == self.owner)
+self.nextthink = time;   
+          
+};
 void ()
 Wall_Check =
 {
@@ -1125,9 +1130,11 @@ Wall_Check =
           img.flags = FL_NOTARGET;
 	img.solid = SOLID_TRIGGER; // Cobalt, just testing, No longer non solid
           img.owner = self;
+          img.touch = tmp_touch;
           img.frame = self.frame;
 	img.classname = "image";
 	setmodel (img, self.model);
+          img.modelindex = self.modelindex; // Match in case of eyes
           setsize (img, VEC_HULL_MIN, VEC_HULL_MAX); // Cobalt - make it player size so it wont fall into the floor
 	setorigin (img, self.origin);
 	img.angles = self.angles;
