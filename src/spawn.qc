@@ -131,6 +131,7 @@ spawn_info_player_deathmatch =
 	e.classname	= "info_player_deathmatch";
 	e.origin	= e_origin;
 	e.angles_y	= ang;
+          precache_model ("progs/soldier.mdl");
           setmodel (e, "progs/soldier.mdl");
 };
 
