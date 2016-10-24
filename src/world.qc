@@ -86,7 +86,7 @@ r = nextent (world);
 while (r)
 {
 
-          
+          /*
           if ((r.flags & FL_CLIENT) && (!(r.flags & FL_OBSERVER)))
           {
           r.dest = world.dest;
@@ -143,7 +143,7 @@ while (r)
           r.ShamTmr = framecount + r.colormap;
           }
           }
-          
+          */
           if (r.classname == "plat")
 	if (r.velocity_z != 0)
 	{
