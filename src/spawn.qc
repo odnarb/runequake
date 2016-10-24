@@ -378,7 +378,7 @@ place_my_items =
           else if (mapname == "dm6")
 	{
                     // New spawn
-		spawn_info_player_deathmatch ('184 -830 136', 90);
+		spawn_info_player_deathmatch ('198.3 -809.5 136', 90);
 	}
 	else if (mapname == "arma4")
 	{
