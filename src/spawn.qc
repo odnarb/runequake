@@ -374,6 +374,11 @@ place_my_items =
 		// Room where entrance requires trigger activation.
 		spawn_item ("weapon_rocketlauncher", 0, '423 1532 -120', 0);
 	}
+          else if (mapname == "dm6")
+	{
+                    // New spawn
+		spawn_info_player_deathmatch ('184 -830 136', 90);
+	}
 	else if (mapname == "arma4")
 	{
 		spawn_info_teleport_destination ('120 448 147', -90, "arena2");
