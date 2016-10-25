@@ -2437,17 +2437,17 @@ PlayerPostThink =
                               inc = 0.04;
                               if (!self.waterlevel)
                               inc = 0.05;
-                              self.v_angle_x = (self.v_angle_x - (random () * inc));
+                              self.angles_x = (self.angles_x + (random () * inc));
                               
-                              r = -45;
-                             if (self.v_angle_x > 45 )
+                              r = 45;
+                             if (self.angles_x > 45 )
                               {
-                              self.v_angle_x = 45;
+                              self.angles_x = 45;
                               }
-                              if (self.v_angle_x < r )
+                              if (self.angles_x > r )
                               {
 
-                              self.v_angle_x = 0;
+                              self.angles_x = 0;
                               }
                                        
                              }
