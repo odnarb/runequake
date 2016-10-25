@@ -198,6 +198,7 @@ spawn_effects_model =
 	setorigin (e, eo);
 	precache_model (em);
 	setmodel (e, em);
+          makestatic (e);
 };
 
 void ()

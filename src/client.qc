@@ -421,7 +421,7 @@ move_to_intermission =
 	e.solid		= SOLID_NOT;
 	e.movetype	= MOVETYPE_NONE;
 	e.modelindex	= 0;
-
+          Killpowerups (e);
 	self_stuffcmd (e, CSHIFT_NONE);
   if (e.chatbubble)
           {
@@ -430,6 +430,7 @@ move_to_intermission =
               e.effects = e.effects - EF_FROZEN;
           remove (e.chatbubble);
           }
+          
           
           };
 
@@ -2162,6 +2163,46 @@ PlayerPreThink =
 		if (self.weapon != IT_AXE && self.weapon != WEAPON_HOOK)
 			set_weapon (W_BestWeapon ());
 	}
+};
+
+void (entity who) Killpowerups =
+{
+local float d;
+d = who.items;
+  
+   // remove items
+    
+if (d & IT_INVISIBILITY)
+{
+who.items = who.items - IT_INVISIBILITY; 
+who.invisible_time = 0;
+who.invisible_finished  = 0;
+}
+
+if (d & IT_INVULNERABILITY)
+{
+who.items = who.items - IT_INVULNERABILITY; 
+who.invincible_time = 0; 
+who.invincible_finished = 0;
+}
+if (d & IT_SUIT) who.items = who.items - IT_SUIT; 
+
+who.radsuit_finished = 0;
+who.rad_time = 0;
+
+
+if (d & IT_QUAD)
+{
+who.items = who.items - IT_QUAD;
+who.super_time = 0;
+who.super_damage_finished = 0;
+}
+  
+	 who.effects =  who.effects -  who.effects;
+	     if (intermission_running) 
+	      who.stringResult = "called";
+
+   
 };
 
 /*
