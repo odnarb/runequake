@@ -309,7 +309,8 @@ place_my_items =
                     
                       // Ring for phasing players
                     spawn_item ("item_artifact_invisibility", 0, '-610 57 250', 0);
-                    
+                    // Some light for it
+                    spawn_effects_model ('-609 -51 112', EF_DIMLIGHT, "progs/flame.mdl");
                     // extra intermission
                     spawn_info_intermission ('701.2 -327.8 79.9', -90);
 	}
