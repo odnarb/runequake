@@ -278,9 +278,9 @@ FindIntermission =
 		// in rune cheat (debugging) mode, always use the same
 		// spot, for testing proper behavior at intermission (so
 		// you set something up at the place you'll see during
-		// intermission)
-		if (temp1 & T1_RUNE_CHEAT)
-			return spot;
+		// intermission) - Cobalt disable for now
+		//if (temp1 & T1_RUNE_CHEAT)
+		//	return spot;
 		// pick a random one
 		cyc = random () * 4;
 		while (cyc > 1)
