@@ -93,7 +93,7 @@ Glue_Touch =
 {
           
           
-	
+	 bprint ("Touch case 1\n");
 
 	
 
@@ -108,6 +108,8 @@ Glue_Touch =
 
 	if (!self.runevar)
 		return;
+          
+           bprint ("Touch case 2\n");
          if (other.movetype == MOVETYPE_PUSH && (checkbottom (self)))
          {
           makevectors (self.velocity);
