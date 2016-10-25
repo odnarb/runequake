@@ -2428,6 +2428,7 @@ PlayerPostThink =
                              self.nextthink = self.nextthink - (frametime * 1.15);
                              if (self.cl[CL_CMD_FORWARD])
                              {
+                                       bprint ("Test active\n");
                               local float inc, r;
                               if (self.waterlevel == 3)
                               inc = 0.025;
