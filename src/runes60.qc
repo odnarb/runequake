@@ -112,8 +112,10 @@ Glue_Touch =
          if (other.movetype == MOVETYPE_PUSH && (!(self.flags & FL_ONGROUND)))
          {
           makevectors (self.velocity);
-          trace_ent = nextent(self.owner);
+          trace_ent = self;
           traceline (self.origin, v_forward * 32, 0, self);
+          bprint (vtos (trace_plane_normal));
+          bprint ("\n");
           if (trace_fraction != 1 && trace_ent.movetype == other.movetype)
           {
           self.velocity = VEC_ORIGIN;
