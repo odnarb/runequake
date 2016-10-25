@@ -99,17 +99,19 @@ Glue_Touch =
 
 	if (environmental (other))
 		return;
+          bprint ("Touch case 2\n");
 
 	if (isfriend2 (self.owner, other) && self.owner != other)
 		return;
+          bprint ("Touch case 3\n");
 
 	if (other.effects & EF_FROZEN)
 		return;
-
+          bprint ("Touch case 4\n");
 	if (!self.runevar)
 		return;
           
-           bprint ("Touch case 2\n");
+           
          if (other.movetype == MOVETYPE_PUSH && (checkbottom (self)))
          {
           makevectors (self.velocity);
