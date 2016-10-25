@@ -34,26 +34,27 @@ self.weapon = IT_ROCKET_LAUNCHER;
 self.impulse = 0;
 W_SetCurrentAmmo (0);
 
-local string p,m;
+          local string p,m;
 
-p = "Max_Clients: ";
-m = (vtos(self.origin));
+          p = "Max_Clients: ";
+          m = (ftos(MAX_CLIENTS));
 
-  p = strcat (p,m);
-  self_sprint (self, p);
-  self_sprint (self, "\n");
+            p = strcat (p,m);
+            self_sprint (self, p);
+            self_sprint (self, "\n");
             
-  return;          
 
-p = strcat ("You are at: ", (vtos(self.origin)));
-p = strcat (p, "\n");
-self_sprint (self, p);
+          p = "You are at: ";
+          m = (vtos(self.origin));
+          p = strcat (p,m);
+          self_sprint (self, p);
+          self_sprint (self, "\n");
 
-m = strcat (" and your mangle is: ", (vtos(self.angles)));
-m = strcat (m, "\n");
-
-self_sprint (self, m);
-          
+          p = "and your mangle is: ";
+          m = (vtos(self.angles));
+          p = strcat (p,m);
+          self_sprint (self, p);
+          self_sprint (self, "\n");
 
 };
 
