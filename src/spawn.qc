@@ -313,7 +313,8 @@ place_my_items =
                     // Some light for it
                     spawn_effects_model ('-609 -51 112', EF_DIMLIGHT, "progs/flame.mdl");
                     // extra intermission
-                    spawn_info_intermission ('701.2 -327.8 79.9', -90);
+                    spawn_info_intermission ('707 -200 56', -90);
+                    //spawn_info_intermission ('701.2 -327.8 79.9', -90);
 	}
 	else if (mapname == "e2m1")
 	{
