@@ -123,7 +123,7 @@ Glue_Touch =
            self.movetype = 0;
            self.velocity = VEC_ORIGIN;
           } 
-          else if (self.flags & FL_ONFROUND)
+          else if (self.flags & FL_ONGROUND)
          {
               self.finalangle = vectoangles(trace_plane_normal);
           
