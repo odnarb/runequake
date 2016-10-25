@@ -93,27 +93,27 @@ Glue_Touch =
 {
           if (other == self.owner) return;
           
-	 bprint ("Touch case 1\n");
+	
 
 	
 
 	if (environmental (other))
 		return;
-          bprint ("Touch case 2\n");
+      
 
 	if (isfriend2 (self.owner, other) && self.owner != other)
 		return;
-          bprint ("Touch case 3\n");
-
+          
 	if (other.effects & EF_FROZEN)
 		return;
-          bprint ("Touch case 4\n");
+         
 	if (!self.runevar)
 		return;
           
-           
+            bprint ("Touch case 1\n");
          if (other.movetype == MOVETYPE_PUSH && (checkbottom (self)))
          {
+                       bprint ("Touch case 2\n");
           makevectors (self.velocity);
           trace_ent = self;
           traceline (self.origin, v_forward * 32, 0, self);
