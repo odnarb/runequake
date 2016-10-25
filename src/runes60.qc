@@ -91,11 +91,7 @@ Glue_Stuck =
 void()
 Glue_Touch =
 {
-          if (other == self.owner) return;
-          
-	
 
-	
 
 	if (environmental (other))
 		return;
@@ -122,9 +118,10 @@ Glue_Touch =
           bprint ("\n");
           if (trace_fraction != 1 && trace_ent == other)
           {
-          self.velocity = VEC_ORIGIN;
-          self.movetype = 0;
-          self.angles = vectoangles(trace_plane_normal);
+          self.avelocity = VEC_ORIGIN;
+         
+          self.angles = vectoangles(self.velocity * -1);
+           self.movetype = 0;
           } 
          }
          if (other.classname != "player" && !is_pet_e (other))
