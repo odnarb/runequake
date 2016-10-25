@@ -313,7 +313,7 @@ place_my_items =
                     // Some light for it
                     spawn_effects_model ('-609 -51 112', EF_DIMLIGHT, "progs/flame.mdl");
                     // extra intermissions
-                    spawn_info_intermission ('702.4 -325 80', '0 -90 0');
+                    spawn_info_intermission ('700 -325 82.5', '0 -90 0');
                     spawn_info_intermission ('1680 360 50', '17 -92 0');
                     spawn_info_intermission ('679 158 -839', '10 -43 0');
 	}
