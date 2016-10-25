@@ -110,16 +110,17 @@ Glue_Touch =
 	//if (!self.runevar)
 	//	return;
           
-            bprint ("Touch case 1\n");
-         if (other.movetype == MOVETYPE_PUSH && (checkbottom (self)))
+           
+         if (other.movetype == MOVETYPE_PUSH && (!(self.flags & FL_ONGROUND)
          {
-                       bprint ("Touch case 2\n");
+                       bprint ("Touch case 1\n");
           makevectors (self.velocity);
           trace_ent = self;
           traceline (self.origin, v_forward * 32, 0, self);
+            SpawnTempDebugMarker (trace_endpos, -1, 0);
           bprint (vtos (trace_plane_normal));
           bprint ("\n");
-          if (trace_fraction != 1 && trace_ent.movetype == other.movetype)
+          if (trace_fraction != 1 && trace_ent == other)
           {
           self.velocity = VEC_ORIGIN;
           self.movetype = 0;
@@ -197,7 +198,7 @@ Rune_Glue =
           glue.dest = glue.angles; // Save old angles
 	glue.velocity		= v_forward * (600 + random() * 100) + v_up * 200 + v_right * (random() * 100 - random() * 100);
 	glue.avelocity		= vectoangles (glue.velocity + (crandom () * self.angles));
-
+    
 	setmodel (glue, "progs/tarbaby.mdl");
 	setsize (glue, '-16 -16 -24', '16 16 24');
 	setorigin (glue, self.origin + '0 0 24');
