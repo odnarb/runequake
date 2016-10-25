@@ -46,7 +46,7 @@ p = strcat ("You are at: ", (vtos(self.origin)));
 p = strcat (p, "\n");
 self_sprint (self, p);
 
-m = strcat (" and your mangle is: ", (ftos(self.angles)));
+m = strcat (" and your mangle is: ", (vtos(self.angles)));
 m = strcat (m, "\n");
 
 self_sprint (self, m);
