@@ -34,14 +34,17 @@ self.weapon = IT_ROCKET_LAUNCHER;
 self.impulse = 0;
 W_SetCurrentAmmo (0);
 
+local string p,m;
 
-  self_sprint (self, "Max_Clients: ");
-  self_sprint (self, (ftos (MAX_CLIENTS)));
+p = "Max_Clients: ";
+m = (vtos(self.origin));
+
+  p = strcat (p,m);
+  self_sprint (self, p);
   self_sprint (self, "\n");
             
-            local string p,m;
-p = "-";
-m = "-";
+  return;          
+
 p = strcat ("You are at: ", (vtos(self.origin)));
 p = strcat (p, "\n");
 self_sprint (self, p);
