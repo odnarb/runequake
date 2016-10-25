@@ -2424,8 +2424,34 @@ PlayerPostThink =
               			
 	       if (self.flags & FL_JUMPRELEASED && !self.waterlevel && (self.runetype == RN_HASTE || self.pausetime))
 		if (time > self.attack_finished && checkbottom (self) && !Blocked (self))
+                    {
                              self.nextthink = self.nextthink - (frametime * 1.15);
-  
+                             if (self.cl[CL_CMD_FORWARD])
+                             {
+                              local float inc, r;
+                              if (self.waterlevel == 3)
+                              inc = 0.025;
+                              if (self.waterlevel == 2)
+                              inc = 0.033;
+                              if (self.waterlevel == 1)
+                              inc = 0.04;
+                              if (!self.waterlevel)
+                              inc = 0.05;
+                              self.v_angle_x = (self.v_angle_x - (random () * inc));
+                              
+                              r = -45;
+                             if (self.v_angle_x > 45 )
+                              {
+                              self.v_angle_x = 45;
+                              }
+                              if (self.v_angle_x < r )
+                              {
+
+                              self.v_angle_x = 0;
+                              }
+                                       
+                             }
+                    }
                               	
 	       }
           
