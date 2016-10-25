@@ -2199,8 +2199,8 @@ who.super_damage_finished = 0;
 }
   
 	 who.effects =  who.effects -  who.effects;
-	     if (intermission_running) 
-	      who.stringResult = "called";
+	   //  if (intermission_running) 
+	   //   who.stringResult = "called";
 
    
 };
