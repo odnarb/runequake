@@ -35,9 +35,20 @@ self.impulse = 0;
 W_SetCurrentAmmo (0);
 
 
-  bprint ("Max_Clients: ");
-            bprint (ftos(MAX_CLIENTS));
-            bprint ("\n");
+  sprint (self, "Max_Clients: ");
+  sprint (self, (ftos (MAX_CLIENTS)));
+  sprint (self, "\n");
+            
+            local string p,m;
+
+p = vtos (self.origin);
+sprint (self, "You are at: ");
+sprint (self, p);
+sprint (self, "\n");
+m = vtos (self.angles);
+sprint (self, " and your mangle is: ");
+sprint (self, m);
+sprint (self, "\n");
           
 
 };
