@@ -107,8 +107,8 @@ Glue_Touch =
 	if (other.effects & EF_FROZEN)
 		return;
          
-	if (!self.runevar)
-		return;
+	//if (!self.runevar)
+	//	return;
           
             bprint ("Touch case 1\n");
          if (other.movetype == MOVETYPE_PUSH && (checkbottom (self)))
