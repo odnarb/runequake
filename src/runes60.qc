@@ -111,7 +111,7 @@ Glue_Touch =
 	//	return;
           
            
-         if (other.movetype == MOVETYPE_PUSH && (!(self.flags & FL_ONGROUND)
+         if (other.movetype == MOVETYPE_PUSH && (!(self.flags & FL_ONGROUND)))
          {
                        bprint ("Touch case 1\n");
           makevectors (self.velocity);
