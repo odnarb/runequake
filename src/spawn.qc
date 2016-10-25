@@ -359,6 +359,10 @@ place_my_items =
 		// New spawn
 		spawn_info_player_deathmatch ('-223 -880 24', 90);
                     
+                    // Hidden Quad for phase rune below elevating stairs
+                    spawn_item ("item_artifact_super_damage", 0, '44 -743 -130', 0);
+                    
+                    
 	}
               else if (mapname == "e3m7")
 	{
