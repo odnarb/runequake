@@ -125,6 +125,8 @@ Glue_Touch =
           } 
           else if (self.flags & FL_ONGROUND)
          {
+              traceline (self.origin, self.origin - '0 0 18', 0, self);
+
               self.finalangle = vectoangles(trace_plane_normal);
           
           self.angles_x = self.finalangle_x - 90;
