@@ -40,15 +40,16 @@ W_SetCurrentAmmo (0);
   self_sprint (self, "\n");
             
             local string p,m;
-
-p = vtos (self.origin);
-self_sprint (self, "You are at: ");
+p = "-";
+m = "-";
+p = strcat ("You are at: " (vtos(self.origin)));
+p = strcat (p, "\n");
 self_sprint (self, p);
-self_sprint (self, "\n");
-m = vtos (self.angles);
-self_sprint (self, " and your mangle is: ");
+
+m = strcat (" and your mangle is: " (ftos(self.angles)));
+m = strcat (m, "\n");
+
 self_sprint (self, m);
-self_sprint (self, "\n");
           
 
 };
