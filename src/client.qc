@@ -1280,14 +1280,7 @@ void ()
 testplayerstart =
 {
 };
-void () fx_think =
-{
-     makevectors (self.owner.angles);
-     traceline (self.owner.origin, self.owner.origin + v_forward*48, TRUE, world);
 
-	setorigin (self, trace_endpos);
-           self.nextthink = time + frametime;
-};
 /*QUAKED info_player_deathmatch (1 0 1) (-16 -16 -24) (16 16 24)
 potential spawning position for deathmatch games
 */
@@ -1299,25 +1292,9 @@ info_player_deathmatch =
 	// and causes the player to pop up where she died.
 	if (world.model == "maps/e3m7.bsp" && self.origin == '-720 528 24')
 		remove (self);
-          
-          local entity fx;
-
-	fx = spawn ();
-          fx.classname = "Fx_Axis";
-	fx.movetype = MOVETYPE_FLY;
-	fx.solid = SOLID_NOT;
-	fx.owner = self;
-          fx.think = fx_think;
-          fx.effects = self.effects = EF_MAYBE_DRAW;
-	setorigin (fx, self.origin);
-	setsize (fx, VEC_ORIGIN, VEC_ORIGIN);
-	setmodel (fx, "progs/s_bubble.spr");
-          self.movetype = MOVETYPE_FLY;
-          self.avelocity_x = crandom ()*360;
-	self.avelocity_y = crandom ()*360;
-	self.avelocity_z = crandom ()*360;
-          
-          fx.nextthink = time + frametime;
+         
+          self.effects = EF_MAYBE_DRAW;
+	makestatic (self);
 };
 
 /*QUAKED info_player_coop (1 0 1) (-16 -16 -24) (16 16 24)
