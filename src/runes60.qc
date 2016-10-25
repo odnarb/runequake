@@ -107,22 +107,34 @@ Glue_Touch =
 	//	return;
           
            
-         if (other.movetype == MOVETYPE_PUSH && (!(self.flags & FL_ONGROUND)))
+         if (other.movetype == MOVETYPE_PUSH)
          {
           
           makevectors (self.velocity);
           trace_ent = self;
           traceline (self.origin, v_forward * 32, 0, self);
             SpawnTempDebugMarker (trace_endpos, -1, 0);
-          
-          if (trace_fraction != 1 && trace_ent == other)
+            
+          if (trace_fraction != 1 && trace_ent == other && (!(self.flags & FL_ONGROUND)))
           {
           self.avelocity = VEC_ORIGIN;
          
           self.angles = vectoangles(self.velocity * -1);
            self.movetype = 0;
+           self.velocity = VEC_ORIGIN;
           } 
+          else if (self.flags & FL_ONFROUND)
+         {
+              self.finalangle = vectoangles(trace_plane_normal);
+          
+          self.angles_x = self.finalangle_x - 90;
          }
+         }
+         
+        
+                   
+                   
+         
          if (other.classname != "player" && !is_pet_e (other))
 		return;
           if (other.health <= 0)
