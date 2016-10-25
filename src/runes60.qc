@@ -113,7 +113,6 @@ Glue_Touch =
           makevectors (self.velocity);
           trace_ent = self;
           traceline (self.origin, v_forward * 32, 0, self);
-            SpawnTempDebugMarker (trace_endpos, -1, 0);
             
           if (trace_fraction != 1 && trace_ent == other && (!(self.flags & FL_ONGROUND)))
           {
