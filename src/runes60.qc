@@ -95,8 +95,7 @@ Glue_Touch =
           
 	
 
-	if (other.health <= 0)
-		return;
+	
 
 	if (environmental (other))
 		return;
@@ -109,7 +108,7 @@ Glue_Touch =
 
 	if (!self.runevar)
 		return;
-         if (other.movetype == MOVETYPE_PUSH && (!(self.flags & FL_ONGROUND)))
+         if (other.movetype == MOVETYPE_PUSH && (checkbottom (self)))
          {
           makevectors (self.velocity);
           trace_ent = self;
@@ -125,7 +124,8 @@ Glue_Touch =
          }
          if (other.classname != "player" && !is_pet_e (other))
 		return;
-         
+          if (other.health <= 0)
+		return;
 	other.effects = other.effects | EF_FROZEN;
 	maybe_update_trap_count (self.owner, RN_GLUE);
    
