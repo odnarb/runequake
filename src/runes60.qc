@@ -92,7 +92,7 @@ void()
 Glue_Touch =
 {
 
-
+          if (other == self.owner && self.attack_finished > time) return;
 	if (environmental (other))
 		return;
       
@@ -109,13 +109,12 @@ Glue_Touch =
            
          if (other.movetype == MOVETYPE_PUSH && (!(self.flags & FL_ONGROUND)))
          {
-                       bprint ("Touch case 1\n");
+          
           makevectors (self.velocity);
           trace_ent = self;
           traceline (self.origin, v_forward * 32, 0, self);
             SpawnTempDebugMarker (trace_endpos, -1, 0);
-          bprint (vtos (trace_plane_normal));
-          bprint ("\n");
+          
           if (trace_fraction != 1 && trace_ent == other)
           {
           self.avelocity = VEC_ORIGIN;
@@ -199,7 +198,7 @@ Rune_Glue =
 	setmodel (glue, "progs/tarbaby.mdl");
 	setsize (glue, '-16 -16 -24', '16 16 24');
 	setorigin (glue, self.origin + '0 0 24');
-
+          glue.attack_finished = time + 0.5; // Cobalt - add timer so it wont stick to owner quickly
 	glue.touch		= Glue_Touch;
 	glue.think		= Glue_Think;
 	glue.nextthink		= time;
