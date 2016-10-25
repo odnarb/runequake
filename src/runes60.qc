@@ -91,7 +91,7 @@ Glue_Stuck =
 void()
 Glue_Touch =
 {
-          
+          if (other == self.owner) return;
           
 	 bprint ("Touch case 1\n");
 
