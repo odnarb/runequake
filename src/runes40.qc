@@ -440,7 +440,7 @@ Rune_ShamblerThink =
            self.owner.dest = self.origin;
           else
           {
-                    local float oso;
+                    local vector oso;
                     oso = self.origin;
                     if (AgainstSky (self.owner) && (!(self.owner.flags & FL_ONGROUND)))
                     setorigin (self, self.owner.origin - '0 0 20');
