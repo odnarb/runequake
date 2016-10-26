@@ -477,7 +477,21 @@ float (entity targ) fov =
 
           };
 
+          // Cobalt - crude test to check if we are hitting the ceiling / top world
+float (entity xx) AgainstSky =
+{
+local vector zz;
+zz = xx.origin;
+zz_z = xx.absmax_z - 4;
+trace_ent = xx;
+traceline (xx.origin, zz ,FALSE, xx);
+if (trace_fraction != 1 && trace_ent.model == world.model)
+return (TRUE);
+else
+return (FALSE);
 
+
+};
 
 
 /*

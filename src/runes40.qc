@@ -414,7 +414,39 @@ Rune_ShamblerThink =
 			remove (self);
 			return;
 		}
-
+          
+          
+           if (dh_shambler_test (self))
+           self.owner.dest = self.origin;
+          else
+          {
+                    local float oso;
+                    oso = self.origin;
+                    if (AgainstSky (self.owner) && (!(self.owner.flags & FL_ONGROUND)))
+                    setorigin (self, self.owner.origin - '0 0 20');
+                    
+           self.angles_y = anglemod (self.angles_y + 5);
+           
+           makevectors (self.angles);
+           
+          setorigin (self, self.origin + v_forward*56);
+           if (dh_shambler_test (self))
+           {
+                   self.owner.dest = self.origin;
+                    create_te_spike (TE_WIZSPIKE, sc.dest);
+              
+           }
+                 setorigin (self, oso);    
+                     
+           }                              
+                    
+                    
+                    
+          }
+                      
+           
+                    
+                    
 		// Otherwise do nothing.  I can't easily respawn the
 		// shambler to get it unstuck because I have nowhere to
 		// respawn it to.  XXX Fix this.  When you do be careful
@@ -456,8 +488,6 @@ Rune_ShamblerThink =
 	}
           // Cobalt - track owner
           setorigin (self, self.owner.origin + ' 0 0 4');
-           
-          
 	
 	trackvel (self.owner);
 	self.nextthink = self.owner.nextthink;
@@ -521,8 +551,8 @@ Rune_ShamblerSpawn =
 	shamctrl.movetype	= MOVETYPE_FLY;
           shamctrl.effects = EF_MAYBE_DRAW;
 	setorigin (shamctrl, self.origin);
-	setsize (shamctrl, VEC_ORIGIN, VEC_ORIGIN);
           setmodel (shamctrl, "progs/lavaball.mdl");
+	setsize (shamctrl, VEC_HULL2_MIN, VEC_HULL2_MAX);
 	shamctrl.classname	= "shambler_control";
 	shamctrl.owner		= shamctrl.groundentity = self;
 	shamctrl.runent		= sham;
