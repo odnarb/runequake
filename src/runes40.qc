@@ -414,7 +414,27 @@ Rune_ShamblerThink =
 			remove (self);
 			return;
 		}
-          
+                    
+                    
+		// Otherwise do nothing.  I can't easily respawn the
+		// shambler to get it unstuck because I have nowhere to
+		// respawn it to.  XXX Fix this.  When you do be careful
+		// that you can't use the owner's runent &c anymore
+		// because she could have respawned already.
+
+		self.nextthink = time + frametime;
+		return;
+	}
+
+	if (self.owner.runetype != RN_SHAMB
+			|| self.owner.runent != self.runent)
+	{
+		self.runent.health = 0;
+		spawn_tfog (self.runent.origin);
+		remove (self.runent);
+		remove (self);
+		return;
+	}
           
            if (dh_shambler_test (self))
            self.owner.dest = self.origin;
@@ -441,31 +461,8 @@ Rune_ShamblerThink =
            }                              
                     
                     
-                    
-          }
-                      
-           
-                    
-                    
-		// Otherwise do nothing.  I can't easily respawn the
-		// shambler to get it unstuck because I have nowhere to
-		// respawn it to.  XXX Fix this.  When you do be careful
-		// that you can't use the owner's runent &c anymore
-		// because she could have respawned already.
-
-		self.nextthink = time + frametime;
-		return;
-	}
-
-	if (self.owner.runetype != RN_SHAMB
-			|| self.owner.runent != self.runent)
-	{
-		self.runent.health = 0;
-		spawn_tfog (self.runent.origin);
-		remove (self.runent);
-		remove (self);
-		return;
-	}
+          
+          
 
 	// Check to see that the shambler isn't stuck, but only if the
 	// shambler wasn't placed in a stuck place by the player.
