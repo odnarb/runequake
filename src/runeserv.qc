@@ -577,7 +577,7 @@ Rune_Tell_real =
 		desc_l = "Sniper Rifle Rune";
 		desc_s = " Sniper";
 
-		d1 = "Select shotgun to activate & fire rifle\n\ uses 10 shells per shot\n"
+		d1 = "Select shotgun to activate & fire rifle\n uses 10 shells per shot\n"
 			"Single shot kills anything\n"
 			"Homing range increases\n"
 			"with each kill";
