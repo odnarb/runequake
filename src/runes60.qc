@@ -500,11 +500,9 @@ void () Snipe_AAim =
 void ()
 Rune_Sniper =
 {
-	if (self.runetime == -1)
+	if (self.runetime == -1 || self.ammo_shells < 10 || self.weapon != IT_SHOTGUN)
 		return;
 
-	if (!W_CheckNoAmmo ())
-		return;
           local vector dd;
 	//T_Damage (self, self, self, (25 + (random () * self.runevar)), "sniped");
 	
@@ -547,6 +545,7 @@ Rune_Sniper =
           if (self.velocity == VEC_ORIGIN)
           newmis.dmg = 1000;
           player_shot1 ();
+          self.ammo_shells = self.ammo_shells - 10;
 	self.punchangle_x = -4;
 	self.runetime = -1;
           
