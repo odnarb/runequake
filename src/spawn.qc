@@ -59,6 +59,21 @@ place_my_targets =
 	return TRUE;
 };
 
+void (vector am, vector amx, string md) spawn_button =
+{
+          local entity e, os;
+	e		= spawn ();     
+          e.classname	= "func_button";
+          e.model = md;
+          e.absmin = am;
+          e.absmax = amx;
+          
+          os = self;
+          self = e;
+          func_button ();
+          self = os;
+          
+};
 void (string ec, float ea, vector eo, float es)
 spawn_item =
 {
@@ -340,6 +355,11 @@ place_my_items =
 		spawn_item ("item_armorInv", 0, '870 1280 -968', 0);
 		// Bottom level of all lifts.
 		spawn_item ("weapon_grenadelauncher", 0, '1250 1140 -744', 0);
+                    
+                    // Try to spawn a dynamic button
+                    spawn_button ('595.1 477.5 -528', '645.1 527.5 -502', "*83");
+                    
+                    
 	}
 	else if (mapname == "e3m2")
 	{
