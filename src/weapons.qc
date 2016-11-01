@@ -469,7 +469,7 @@ void () Expl6 =
 void () Expl5 =
 {
  self.frame = rint (random () * 5) + 1;
- self.think = player_jump6;
+ self.think = Expl6;
  self.nextthink = time + frametime + (frametime * ((random () * 33)));
 };
 void () Expl4 =
