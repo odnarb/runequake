@@ -556,7 +556,7 @@ obs_init_hidables =
          self.currentammo = 0;
          self.ammo_shells = self.ammo_nails = 0;
          self.ammo_rockets = self.ammo_cells = 0;
-         self.items = self.items | 524288 | 1048576 | IT_SUIT;
+         self.items = self.items | IT_INVISIBILITY | IT_INVULNERABILITY | IT_SUIT;
          self.armortype = self.armorvalue = 0;
           */
           
