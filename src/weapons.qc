@@ -470,7 +470,7 @@ void () Expl6 =
  }
  self.frame = rint (random () * 5) + 1;
  self.think = SUB_Remove;
- self.nextthink = time + frametime + (frametime * ((random () * 13)));
+ self.nextthink = time + frametime + (frametime * ((random () * 5)));
 };
 void () Expl5 =
 {
@@ -482,7 +482,7 @@ void () Expl5 =
  }
  self.frame = rint (random () * 5) + 1;
  self.think = Expl6;
- self.nextthink = time + frametime + (frametime * ((random () * 13)));
+ self.nextthink = time + frametime + (frametime * ((random () * 5)));
 };
 void () Expl4 =
 {
@@ -494,7 +494,7 @@ void () Expl4 =
  }
  self.frame = rint (random () * 5) + 1;
  self.think = Expl5;
- self.nextthink = time + frametime + (frametime * ((random () * 13)));
+ self.nextthink = time + frametime + (frametime * ((random () * 5)));
 };
 
 void () Expl3 =
@@ -507,7 +507,7 @@ void () Expl3 =
  }
  self.frame = rint (random () * 5) + 1;
  self.think = Expl4;
- self.nextthink = time + frametime + (frametime * ((random () * 13)));
+ self.nextthink = time + frametime + (frametime * ((random () * 5)));
 };
 
 void () Expl2 =
@@ -532,7 +532,7 @@ void () Expl1 =
  }
  self.frame = rint (random () * 5) + 1;
  self.think = Expl2;
- self.nextthink = time + 0.1;
+ self.nextthink = time + frametime;
 };
 
 void ()	s_explode1 = [0, s_explode2] {};
