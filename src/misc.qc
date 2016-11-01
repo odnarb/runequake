@@ -515,7 +515,7 @@ func_wall =
                     self.origin_y = self.origin_y - 312;
                     local entity dup;
                     dup = spawn ();
-                    dup.angles = '90 0 0';
+                    dup.angles = '0 0 0';
                     dup.classname = self.classname;
                     dup.solid = self.solid;
                     dup.movetype = self.movetype;
