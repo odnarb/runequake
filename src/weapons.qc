@@ -460,6 +460,45 @@ ROCKETS
 
 ==============================================================================
 */
+void () Expl6 =
+{
+ self.frame = rint (random () * 5) + 1;
+ self.think = SUB_Remove;
+ self.nextthink = time + frametime + (frametime * ((random () * 33)));
+};
+void () Expl5 =
+{
+ self.frame = rint (random () * 5) + 1;
+ self.think = player_jump6;
+ self.nextthink = time + frametime + (frametime * ((random () * 33)));
+};
+void () Expl4 =
+{
+ self.frame = rint (random () * 5) + 1;
+ self.think = Expl5;
+ self.nextthink = time + frametime + (frametime * ((random () * 33)));
+};
+
+void () Expl3 =
+{
+ self.frame = rint (random () * 5) + 1;
+ self.think = Expl4;
+ self.nextthink = time + frametime + (frametime * ((random () * 33)));
+};
+
+void () Expl2 =
+{
+ self.frame = rint (random () * 5) + 1;
+ self.think = Expl3;
+ self.nextthink = time + 0.1;
+};
+void () Expl1 =
+{
+ self.effects = EF_FROZEN;
+ self.frame = rint (random () * 5) + 1;
+ self.think = Expl2;
+ self.nextthink = time + 0.1;
+};
 
 void ()	s_explode1 = [0, s_explode2] {};
 void ()	s_explode2 = [1, s_explode3] {};
@@ -476,8 +515,10 @@ BecomeExplosion =
 	self.touch	= SUB_Null;
 	setmodel (self, "progs/s_explod.spr");
 	self.solid	= SOLID_NOT;
-          self.effects = EF_FROZEN;
-	s_explode1 ();
+          
+          //if (framecount & 1)
+	//s_explode1 ();
+          Expl1 ();
 };
 
 // explosion effect with radius damage
