@@ -516,7 +516,7 @@ func_wall =
                     local entity dup;
                     dup = spawn ();
                     dup.angles = self.angles;
-                    dup.classname = self.classsname;
+                    dup.classname = self.classname;
                     dup.solid = self.solid;
                     dup.movetype = self.movetype;
                     dup.use = self.use;
