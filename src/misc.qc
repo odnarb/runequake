@@ -523,7 +523,7 @@ func_wall =
                     setmodel (dup, self.model);
                     dup.origin = self.origin;
                     dup.origin_z = dup.origin_z + 145;
-                    dup.angles_z = 90;
+                    
                     }
           
 };
