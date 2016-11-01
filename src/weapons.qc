@@ -468,7 +468,7 @@ void () Expl6 =
  self.effects = EF_FROZEN;
  else self.effects = 2;
  }
- self.frame = rint (random () * 5) + 1;
+ self.frame = rint (random () * 5);
  self.think = SUB_Remove;
  self.nextthink = time + frametime + (frametime * ((random () * 5)));
 };
