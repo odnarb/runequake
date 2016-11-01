@@ -513,6 +513,16 @@ func_wall =
                     //self.origin_z = self.origin_z - 64;
                     self.origin_z = self.origin_z + 183;
                     self.origin_y = self.origin_y - 312;
+                    local entity dup;
+                    dup = spawn ();
+                    dup.angles = self.angles;
+                    dup.classname = self.classsname;
+                    dup.solid = self.solid;
+                    dup.movetype = self.movetype;
+                    dup.use = self.use;
+                    setmodel (dup, self.model);
+                    dup.origin = self.origin;
+                    dup.origin_z = dup.origin_z + 256;
                     }
           
 };
