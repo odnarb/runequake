@@ -462,39 +462,74 @@ ROCKETS
 */
 void () Expl6 =
 {
+  if (random () < 0.5)
+ {
+ if (framecount & 1)
+ self.effects = EF_FROZEN;
+ else self.effects = 2;
+ }
  self.frame = rint (random () * 5) + 1;
  self.think = SUB_Remove;
- self.nextthink = time + frametime + (frametime * ((random () * 33)));
+ self.nextthink = time + frametime + (frametime * ((random () * 13)));
 };
 void () Expl5 =
 {
+  if (random () < 0.5)
+ {
+ if (framecount & 1)
+ self.effects = EF_FROZEN;
+ else self.effects = 2;
+ }
  self.frame = rint (random () * 5) + 1;
  self.think = Expl6;
- self.nextthink = time + frametime + (frametime * ((random () * 33)));
+ self.nextthink = time + frametime + (frametime * ((random () * 13)));
 };
 void () Expl4 =
 {
+  if (random () < 0.5)
+ {
+ if (framecount & 1)
+ self.effects = EF_FROZEN;
+ else self.effects = 2;
+ }
  self.frame = rint (random () * 5) + 1;
  self.think = Expl5;
- self.nextthink = time + frametime + (frametime * ((random () * 33)));
+ self.nextthink = time + frametime + (frametime * ((random () * 13)));
 };
 
 void () Expl3 =
 {
+  if (random () < 0.5)
+ {
+ if (framecount & 1)
+ self.effects = EF_FROZEN;
+ else self.effects = 2;
+ }
  self.frame = rint (random () * 5) + 1;
  self.think = Expl4;
- self.nextthink = time + frametime + (frametime * ((random () * 33)));
+ self.nextthink = time + frametime + (frametime * ((random () * 13)));
 };
 
 void () Expl2 =
 {
+  if (random () < 0.5)
+ {
+ if (framecount & 1)
+ self.effects = EF_FROZEN;
+ else self.effects = 2;
+ }
  self.frame = rint (random () * 5) + 1;
  self.think = Expl3;
- self.nextthink = time + 0.1;
+ self.nextthink = time + frametime;
 };
 void () Expl1 =
 {
+ if (random () < 0.5)
+ {
+ if (framecount & 1)
  self.effects = EF_FROZEN;
+ else self.effects = 2;
+ }
  self.frame = rint (random () * 5) + 1;
  self.think = Expl2;
  self.nextthink = time + 0.1;
