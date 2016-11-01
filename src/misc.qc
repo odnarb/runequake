@@ -522,7 +522,7 @@ func_wall =
                     dup.use = self.use;
                     setmodel (dup, self.model);
                     dup.origin = self.origin;
-                    dup.origin_z = dup.origin_z + 175;
+                    dup.origin_z = dup.origin_z + 165;
                     }
           
 };
