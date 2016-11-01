@@ -512,7 +512,7 @@ func_wall =
                     {
                     //self.origin_z = self.origin_z - 64;
                     self.origin_z = self.origin_z + 183;
-                    self.origin_y = self.origin_y - 312;
+                    self.origin_y = self.origin_y - 256;
                     local entity dup;
                     dup = spawn ();
                     dup.angles = '0 0 0';
