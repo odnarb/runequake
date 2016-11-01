@@ -480,7 +480,7 @@ void () Expl5 =
  self.effects = EF_FROZEN;
  else self.effects = 2;
  }
- self.frame = rint (random () * 5) + 1;
+ self.frame = rint (random () * 5);
  self.think = Expl6;
  self.nextthink = time + frametime + (frametime * ((random () * 5)));
 };
@@ -492,7 +492,7 @@ void () Expl4 =
  self.effects = EF_FROZEN;
  else self.effects = 2;
  }
- self.frame = rint (random () * 5) + 1;
+ self.frame = rint (random () * 5);
  self.think = Expl5;
  self.nextthink = time + frametime + (frametime * ((random () * 5)));
 };
@@ -505,7 +505,7 @@ void () Expl3 =
  self.effects = EF_FROZEN;
  else self.effects = 2;
  }
- self.frame = rint (random () * 5) + 1;
+ self.frame = rint (random () * 5);
  self.think = Expl4;
  self.nextthink = time + frametime + (frametime * ((random () * 5)));
 };
@@ -518,7 +518,7 @@ void () Expl2 =
  self.effects = EF_FROZEN;
  else self.effects = 2;
  }
- self.frame = rint (random () * 5) + 1;
+ self.frame = rint (random () * 5);
  self.think = Expl3;
  self.nextthink = time + frametime;
 };
@@ -530,7 +530,7 @@ void () Expl1 =
  self.effects = EF_FROZEN;
  else self.effects = 2;
  }
- self.frame = rint (random () * 5) + 1;
+ self.frame = rint (random () * 5);
  self.think = Expl2;
  self.nextthink = time + frametime;
 };
