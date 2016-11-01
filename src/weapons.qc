@@ -476,6 +476,7 @@ BecomeExplosion =
 	self.touch	= SUB_Null;
 	setmodel (self, "progs/s_explod.spr");
 	self.solid	= SOLID_NOT;
+          self.effects = EF_FROZEN;
 	s_explode1 ();
 };
 
