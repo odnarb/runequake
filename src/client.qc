@@ -2437,6 +2437,7 @@ PlayerPostThink =
 	}
         
        // Cobalt detect mouse movement
+       if (framecount & 1)
        self.mouse_move = (vlen(self.angles));
        
         
