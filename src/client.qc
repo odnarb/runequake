@@ -2635,8 +2635,7 @@ ClientDisconnect =
 	lose_riders ();
 	setmodel (self, string_null);
 	Log_Client_Disconnect ();
-          PLAYERS = PLAYERS - 1;
-          LoadBalance (2);
+
 };
 
 /*

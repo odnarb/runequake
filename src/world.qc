@@ -80,12 +80,15 @@ void () VelocityPhysics =
 {
 
 
-
+local float ap,op;
+op = PLAYERS;
 local entity r;
 r = nextent (world);
 while (r)
 {
-
+          
+          if (r.flags & FL_CLIENT)
+          ap = ap + 1;
           /*
           if ((r.flags & FL_CLIENT) && (!(r.flags & FL_OBSERVER)))
           {
@@ -188,7 +191,13 @@ while (r)
           }
 
           
+          PLAYERS = ap;
 
+          if (PLAYERS > op)
+          LoadBalance (1);
+          else if (PLAYERS < op)
+          LoadBalance (2);
+          
 };
 
 
