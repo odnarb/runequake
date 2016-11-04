@@ -1949,7 +1949,7 @@ PlayerPreThink =
 			self.afk = time;
 	}
 
-          if (vlen(self.mouse_move) > 0)
+          //if (vlen(self.mouse_move) > 0)
           if (self.mouse_move != vlen(self.angles)) // Cobalt, player has moved the mouse
         {
                   // Remove our chat bubble or take us out of afk
