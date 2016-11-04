@@ -2624,7 +2624,12 @@ ClientDisconnect =
 	// player to get this slot (which can last for a while) isn't
 	// confusing.
 	self.frags	= -99;
-
+              if (self.chatbubble)
+          {
+          self.chatbubble.think = SUB_Remove;
+          self.chatbubble.nextthink = time;
+          self.chatbubble = world;
+          }
 	set_suicide_frame ();
 	obs_process_game_queue ();
 	lose_riders ();
