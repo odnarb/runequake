@@ -81,6 +81,7 @@ void () VelocityPhysics =
 
 
 local float ap,op;
+ap = 0;
 op = PLAYERS;
 local entity r;
 r = nextent (world);

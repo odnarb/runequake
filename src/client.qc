@@ -2630,6 +2630,7 @@ ClientDisconnect =
           self.chatbubble.nextthink = time;
           self.chatbubble = world;
           }
+          self.flags = FL_NOTARGET;
 	set_suicide_frame ();
 	obs_process_game_queue ();
 	lose_riders ();
