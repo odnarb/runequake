@@ -43,6 +43,13 @@ W_SetCurrentAmmo (0);
             self_sprint (self, p);
             self_sprint (self, "\n");
             
+             p = "Active players: ";
+             m = (ftos(PLAYERS));
+
+            p = strcat (p,m);
+            self_sprint (self, p);
+            self_sprint (self, "\n");
+            
 
           p = "You are at: ";
           m = (vtos(self.origin));
