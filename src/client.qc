@@ -1935,8 +1935,7 @@ PlayerPreThink =
 		return;					// the think tics
 	}
             
-          if (!(framecount & 1)) // Cobalt detect mouse movement
-       self.mouse_move = (vlen(self.angles));
+       
           
 	if (!is_valid_player ())
 		return;
@@ -1950,6 +1949,22 @@ PlayerPreThink =
 			self.afk = time;
 	}
 
+          if (vlen(self.mouse_move))
+          if (self.mouse_move != vlen(self.angles)) // Cobalt, player has moved the mouse
+        {
+                  // Remove our chat bubble or take us out of afk
+                  
+                      if (self.chatbubble)
+          {
+          self.chatbubble.think = SUB_Remove;
+          self.chatbubble.nextthink = time;
+          self.chatbubble = world;
+          }
+          
+          if (self.rqstate & RQS_AFK)
+	self.afk = time;        
+                  
+        }
 	// updates
 	if (self.lefty < time)
 	{
@@ -2421,22 +2436,10 @@ PlayerPostThink =
 		return;
 	}
         
-        if (framecount & 1)
-        if (self.mouse_move != vlen(self.angles)) // Cobalt, player has moved the mouse
-        {
-                  // Remove our chat bubble or take us out of afk
-                  
-                      if (self.chatbubble)
-          {
-          self.chatbubble.think = SUB_Remove;
-          self.chatbubble.nextthink = time;
-          self.chatbubble = world;
-          }
-          
-          if (self.rqstate & RQS_AFK)
-	self.afk = time;        
-                  
-        }
+       // Cobalt detect mouse movement
+       self.mouse_move = (vlen(self.angles));
+       
+        
         
         
 	W_WeaponFrame ();
