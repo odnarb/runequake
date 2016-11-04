@@ -1950,7 +1950,7 @@ PlayerPreThink =
 	}
 
           //if (vlen(self.mouse_move) > 0)
-          if (self.mouse_move != vlen(self.angles)) // Cobalt, player has moved the mouse
+          if (self.mouse_move != vlen(self.v_angle)) // Cobalt, player has moved the mouse
         {
                   // Remove our chat bubble or take us out of afk
                   
@@ -2438,7 +2438,7 @@ PlayerPostThink =
         
        // Cobalt detect mouse movement
        if (framecount & 1)
-       self.mouse_move = (vlen(self.angles));
+       self.mouse_move = (vlen(self.v_angle));
        
         
         
