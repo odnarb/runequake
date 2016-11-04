@@ -1959,6 +1959,7 @@ PlayerPreThink =
           self.chatbubble.think = SUB_Remove;
           self.chatbubble.nextthink = time;
           self.chatbubble = world;
+          self.movetype = MOVETYPE_WALK;
           }
           
           if (self.rqstate & RQS_AFK)
