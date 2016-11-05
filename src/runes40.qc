@@ -449,12 +449,12 @@ Rune_ShamblerThink =
            {
            self.angles_y = anglemod (self.angles_y + 5);
             makevectors (self.angles);
-            setorigin (self, self.origin + v_forward*56);
+            setorigin (self, self.origin + v_forward*64);
            if (dh_shambler_test (self))
            {
                    self.owner.dest = self.origin;
                    // create_te_spike (TE_WIZSPIKE, self.origin);
-                    setorigin (self, oso); 
+                    
                     self.angles_y = 0;
            }
            
@@ -463,7 +463,7 @@ Rune_ShamblerThink =
 
 
           
-                    
+            setorigin (self, oso);         
                      
            }                              
                     
