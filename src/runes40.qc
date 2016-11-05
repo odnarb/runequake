@@ -445,23 +445,25 @@ Rune_ShamblerThink =
                     if (AgainstSky (self.owner) && (!(self.owner.flags & FL_ONGROUND)))
                     setorigin (self, self.owner.origin - '0 0 20');
             
-           
+           do
+           {
            self.angles_y = anglemod (self.angles_y + 5);
-           self.angles_x = anglemod (self.angles_x + 5);
-            self.angles_z = anglemod (self.angles_z + 5);
-           
-
-
-           makevectors (self.angles);
-           
-          setorigin (self, self.origin + v_forward*56);
+            makevectors (self.angles);
+            setorigin (self, self.origin + v_forward*56);
            if (dh_shambler_test (self))
            {
                    self.owner.dest = self.origin;
-                    create_te_spike (TE_WIZSPIKE, self.origin);
-              
+                   // create_te_spike (TE_WIZSPIKE, self.origin);
+                    setorigin (self, oso); 
+                    self.angles_y = 0;
            }
-                 setorigin (self, oso);    
+           
+           
+           } while (self.angles_y != 0) 
+
+
+          
+                    
                      
            }                              
                     
