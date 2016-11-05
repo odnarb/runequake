@@ -459,7 +459,7 @@ Rune_ShamblerThink =
            }
            
            
-           } while (self.angles_y != 0) 
+           } while (self.angles_y != 0);
 
 
           
