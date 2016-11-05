@@ -463,7 +463,7 @@ Rune_ShamblerThink =
            if (dh_shambler_test (self))
            {
                    self.owner.dest = self.origin;
-                   // create_te_spike (TE_WIZSPIKE, self.origin);
+                   create_te_spike (TE_WIZSPIKE, self.origin);
                    
                    
            }
@@ -473,7 +473,7 @@ Rune_ShamblerThink =
 
 
           
-            setorigin (self, oso);         
+           // setorigin (self, oso);         
                      
            }                              
                     
