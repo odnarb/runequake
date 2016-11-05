@@ -447,8 +447,11 @@ Rune_ShamblerThink =
             
            
            self.angles_y = anglemod (self.angles_y + 5);
-           bprint (ftos(self.angles_y));
-           bprint ("\n");
+           self.angles_x = anglemod (self.angles_x + 5);
+            self.angles_z = anglemod (self.angles_z + 5);
+           
+
+
            makevectors (self.angles);
            
           setorigin (self, self.origin + v_forward*56);
