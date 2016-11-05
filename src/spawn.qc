@@ -342,6 +342,11 @@ place_my_items =
 		spawn_item ("weapon_grenadelauncher", 0, '1250 1140 -744', 0);
                     
 	}
+          else if (mapname == "e3m1")
+	{
+		// 4 biosuits near slime pool
+		spawn_item ("item_artifact_envirosuit", 0, '1440 -415 184', 0); 
+	}
 	else if (mapname == "e3m2")
 	{
 		// On long pole above double shotgun.
