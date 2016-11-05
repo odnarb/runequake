@@ -440,6 +440,11 @@ Rune_ShamblerThink =
            self.owner.dest = self.origin;
           else
           {
+                     if (self.lip == 3)
+                    self.lip = 0;
+                    else
+                    self.lip = self.lip + 1;
+                   
                     local vector oso;
                     oso = self.origin;
                  //   if (AgainstSky (self.owner) && (!(self.owner.flags & FL_ONGROUND)))
@@ -447,19 +452,24 @@ Rune_ShamblerThink =
             
            do
            {
+           if (self.lip == 1)
            self.angles_y = anglemod (self.angles_y + 5);
+           else if (self.lip == 2)
+           self.angles_x = anglemod (self.angles_x + 5);
+           else if (self.lip == 3)
+           self.angles_z = anglemod (self.angles_z + 5);
             makevectors (self.angles);
             setorigin (self, self.origin + v_forward*64);
            if (dh_shambler_test (self))
            {
                    self.owner.dest = self.origin;
                    // create_te_spike (TE_WIZSPIKE, self.origin);
-                    
-                    self.angles_y = 0;
+                   
+                   
            }
            
            
-           } while (self.angles_y != 0);
+           } while (self.owner.dest != self.origin;);
 
 
           
@@ -553,7 +563,7 @@ Rune_ShamblerSpawn =
 	shamctrl		= spawn ();
 	shamctrl.solid		= SOLID_NOT;
 	shamctrl.movetype	= MOVETYPE_FLY;
-          shamctrl.effects = EF_MAYBE_DRAW;
+          //shamctrl.effects = EF_MAYBE_DRAW;
 	setorigin (shamctrl, self.origin);
           setmodel (shamctrl, "progs/lavaball.mdl");
 	setsize (shamctrl, VEC_HULL2_MIN, VEC_HULL2_MAX);
