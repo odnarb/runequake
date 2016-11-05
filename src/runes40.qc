@@ -442,8 +442,8 @@ Rune_ShamblerThink =
           {
                     local vector oso;
                     oso = self.origin;
-                    if (AgainstSky (self.owner) && (!(self.owner.flags & FL_ONGROUND)))
-                    setorigin (self, self.owner.origin - '0 0 20');
+                 //   if (AgainstSky (self.owner) && (!(self.owner.flags & FL_ONGROUND)))
+                  //  setorigin (self, self.owner.origin - '0 0 20');
             
            do
            {
@@ -494,7 +494,7 @@ Rune_ShamblerThink =
           setorigin (self, self.owner.origin + ' 0 0 4');
 	
 	trackvel (self.owner);
-	self.nextthink = time; //self.owner.nextthink;
+	self.nextthink = time + frametime; //self.owner.nextthink;
 };
 
 void ()
