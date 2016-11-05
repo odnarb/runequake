@@ -444,9 +444,11 @@ Rune_ShamblerThink =
                     oso = self.origin;
                     if (AgainstSky (self.owner) && (!(self.owner.flags & FL_ONGROUND)))
                     setorigin (self, self.owner.origin - '0 0 20');
-                    
-           self.angles_y = anglemod (self.angles_y + 5);
+            
            
+           self.angles_y = anglemod (self.angles_y + 5);
+           bprint (ftos(self.angles_y));
+           bprint ("\n");
            makevectors (self.angles);
            
           setorigin (self, self.origin + v_forward*56);
@@ -487,7 +489,7 @@ Rune_ShamblerThink =
           setorigin (self, self.owner.origin + ' 0 0 4');
 	
 	trackvel (self.owner);
-	self.nextthink = self.owner.nextthink;
+	self.nextthink = time; //self.owner.nextthink;
 };
 
 void ()
