@@ -469,7 +469,7 @@ Rune_ShamblerThink =
            }
            
            
-           } while (self.owner.dest != self.origin;);
+           } while (self.owner.dest != self.origin);
 
 
           
