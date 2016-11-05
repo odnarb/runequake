@@ -1535,9 +1535,11 @@ powerup_set =
           if (it_powerup == IT_SUIT) // && (random () < (1/3)))
           {
                     self.effects = EF_MAYBE_DRAW;
-                   // spawn eyes hat
-                   local entity hat;
-
+                    if (mapname == "e3m1")
+                    setsize (self, '-16 -16 0', '16 16 32');
+                   // spawn eyes hat for test
+                   //local entity hat;
+          /*
 	hat		= spawn ();
 	self.aiment = hat;
           hat.movetype = self.movetype;
@@ -1545,7 +1547,7 @@ powerup_set =
 	setmodel (hat, "progs/eyes.mdl");
           hat.avelocity_y = -60;
           setsize (hat, VEC_ORIGIN, VEC_ORIGIN);
-
+          */
                    
           }
 
