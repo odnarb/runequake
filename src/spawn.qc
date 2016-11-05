@@ -345,7 +345,7 @@ place_my_items =
           else if (mapname == "e3m1")
 	{
 		// 4 biosuits near slime pool
-		spawn_item ("item_artifact_envirosuit", 0, '1440 -415 184', 0); 
+		spawn_item ("item_artifact_envirosuit", 0, '1440 -415 165', 0); 
 	}
 	else if (mapname == "e3m2")
 	{
