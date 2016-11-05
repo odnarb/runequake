@@ -351,6 +351,19 @@ place_my_items =
                     spawn_item ("item_artifact_envirosuit", 0, '1440 -735 180', 0);
                     // Ring in slime
                     spawn_item ("item_artifact_invisibility", 0, '1034 855 -336', 0);
+                    // New spawns
+		spawn_info_player_deathmatch ('1976 -608 -22', 0);
+                    spawn_info_player_deathmatch ('-417 -105 104', 270);
+                    spawn_info_player_deathmatch ('-652 -791 -40', 275);
+                    spawn_info_player_deathmatch ('544 392 56', 90);
+                    spawn_info_player_deathmatch ('-419.3 -343.3 -264', 135);
+                    
+                    // Cells in hidden hall
+                    spawn_item ("item_cells", 0, '-588 -400 104', 2);
+		spawn_item ("item_cells", 0, '-660 -940 -40', 2);
+                    spawn_item ("item_cells", 0, '-290 185 -24', 1);
+		
+                    
 	}
 	else if (mapname == "e3m2")
 	{
