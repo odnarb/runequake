@@ -345,10 +345,10 @@ place_my_items =
           else if (mapname == "e3m1")
 	{
 		// 4 biosuits near slime pool
-		spawn_item ("item_artifact_envirosuit", 0, '1440 -415 174', 0);
-                    spawn_item ("item_artifact_envirosuit", 0, '1120 -415 174', 0);
-                    spawn_item ("item_artifact_envirosuit", 0, '1120 -735 174', 0);
-                    spawn_item ("item_artifact_envirosuit", 0, '1440 -735 174', 0);
+		spawn_item ("item_artifact_envirosuit", 0, '1440 -415 180', 0);
+                    spawn_item ("item_artifact_envirosuit", 0, '1120 -415 180', 0);
+                    spawn_item ("item_artifact_envirosuit", 0, '1120 -735 180', 0);
+                    spawn_item ("item_artifact_envirosuit", 0, '1440 -735 180', 0);
                     // Ring in slime
                     spawn_item ("item_artifact_invisibility", 0, '1034 855 -336', 0);
 	}
