@@ -3263,8 +3263,16 @@ ClientObituary =
 	}
 
 	// tricks and traps
-	if (attacker.classname == "trap_shooter" || attacker.classname == "trap_spikeshooter")
-		bprint (" was spiked\n");
+          if (attacker.classname == "trap_shooter" || attacker.classname == "trap_spikeshooter")
+			{
+			
+			if (attacker.spawnflags & SPAWNFLAG_LASER)
+				bprint (" got zapped\n");
+			          else
+				bprint (" was spiked\n");
+			
+			}
+	
 	else if (attacker.classname == "trigger_hurt")
 		bprint (" got hurt\n");
 	else if (dt == "lavaball")

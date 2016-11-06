@@ -404,7 +404,7 @@ Rune_ShamblerThink =
           
            
 	// Angry shambler for dead player.
-	if (self.runevar)
+	if (self.runevar || intermission_running)
 	{
 		if (time > self.runent.super_damage_finished)
 		{
@@ -436,14 +436,16 @@ Rune_ShamblerThink =
 		return;
 	}
           
+           if (self.lip == 3)
+                    self.lip = 0;
+                    else
+                    self.lip = self.lip + 1;
+          
            if (dh_shambler_test (self))
            self.owner.dest = self.origin;
           else
           {
-                     if (self.lip == 3)
-                    self.lip = 0;
-                    else
-                    self.lip = self.lip + 1;
+                    
                    
                     local vector oso;
                     oso = self.origin;
