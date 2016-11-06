@@ -222,8 +222,7 @@ misc_explobox2 =
 
 //============================================================================
 
-float SPAWNFLAG_SUPERSPIKE	= 1;
-float SPAWNFLAG_LASER		= 2;
+
 
 void ()
 Laser_Touch =
