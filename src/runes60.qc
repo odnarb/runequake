@@ -202,7 +202,7 @@ Rune_Glue =
 	glue.movetype		= MOVETYPE_TOSS;
 	glue.solid		= SOLID_TRIGGER;
 	glue.classname		= "glue";
-
+          glue.frame	= (random () * 3);
 	makevectors (self.v_angle);
           glue.dest = glue.angles; // Save old angles
 	glue.velocity		= v_forward * (600 + random() * 100) + v_up * 200 + v_right * (random() * 100 - random() * 100);
