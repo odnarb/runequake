@@ -49,10 +49,15 @@ Glue_Think =
 		self.solid	= SOLID_TRIGGER;
 		self.nextthink	= time + 45;
 
-		setsize (self, self.mins, self.maxs);
+		
 		sound (self, CHAN_WEAPON, "blob/land1.wav", 1, ATTN_NORM);
                     if (checkbottom (self))
+                    {
+                    setsize (self, self.mins - '0 0 20', self.maxs);          
                     self.angles_x = 180;
+                    }
+                    else
+                    setsize (self, self.mins, self.maxs);
 	}
 };
 
