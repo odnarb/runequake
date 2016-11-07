@@ -51,6 +51,8 @@ Glue_Think =
 
 		setsize (self, self.mins, self.maxs);
 		sound (self, CHAN_WEAPON, "blob/land1.wav", 1, ATTN_NORM);
+                    if (checkbottom (self))
+                    self.angles_x = 90;
 	}
 };
 
