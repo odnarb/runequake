@@ -3268,6 +3268,8 @@ ClientObituary =
 			
 			if (attacker.spawnflags & SPAWNFLAG_LASER)
 				bprint (" got zapped\n");
+                              else if (attacker.spawnflags & SPAWNFLAG_SUPERSPIKE)
+				bprint (" was crucified\n");
 			          else
 				bprint (" was spiked\n");
 			
