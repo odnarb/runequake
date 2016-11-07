@@ -53,7 +53,7 @@ Glue_Think =
 		sound (self, CHAN_WEAPON, "blob/land1.wav", 1, ATTN_NORM);
                     if (checkbottom (self))
                     {
-                    self.origin_z = self.origin_z - 35;
+                    self.origin_z = self.origin_z - 45;
                     self.flags = FL_ITEM;
                     self.angles_x = 180;
                     }
