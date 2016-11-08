@@ -553,7 +553,7 @@ Rune_Sniper =
           if (self.velocity == VEC_ORIGIN)
           newmis.dmg = 1000;
           player_shot1 ();
-          self.ammo_shells = self.ammo_shells - 10;
+          self.ammo_shells = self.currentammo = (self.ammo_shells - 10);
 	self.punchangle_x = -4;
 	self.runetime = -1;
           
