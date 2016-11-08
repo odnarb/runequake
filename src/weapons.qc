@@ -1667,7 +1667,8 @@ ImpulseCommands =
 
           if (self.impulse > 0 && cvar ("developer"))
           {
-          local string k,ic;
+          local string k;
+          local string ic;
           ic = (ftos(self.impulse)));
           k = "\bRequested impulse ";
            ic = strcat (k,ic);
