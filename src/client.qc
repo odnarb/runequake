@@ -600,11 +600,12 @@ void (float force) ToggleClientChat =
 {
        
           
-	if(!(self.chatbubble) || force)
+	if((!(self.chatbubble)) || force)
 	{
-               if (!(self.flags & FL_ONGROUND) || self.health < 1 || self.chatbubble.ltime > time) return;
+               if (!(self.flags & FL_ONGROUND) || self.health < 1 ) return;
           if (self.modelindex != modelindex_player || (!(self.model)))
 		return;
+          if (self.chatbubble.ltime > time) return;
               self.movetype = 0;
               local entity bubble;                
               bubble = spawn(); //It's there! :)
