@@ -1664,19 +1664,19 @@ ImpulseCommands =
 
 	else
 		common_impulses ();
-/*
+
           if (self.impulse > 0 && cvar ("developer"))
           {
           local string k;
           local string ic;
-          ic = (ftos(self.impulse)));
+          ic = (ftos(self.impulse));
           k = "\bRequested impulse ";
            ic = strcat (k,ic);
             self_sprint (self, ic);
             self_sprint (self, "\b\n");
           
           }
-  */                  
+                  
 	self.impulse = 0;
 };
 
