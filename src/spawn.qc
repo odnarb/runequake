@@ -416,7 +416,7 @@ place_my_items =
 
           ///Exploboxes near pent
           spawn_item ("misc_explobox", 0, '1080 675 -296', 0);
-          spawn_item ("misc_explobox2", 0, '1440 -735 180', 0);
+          spawn_item ("misc_explobox2", 0, '1002 695 -296', 0);
           
 	}
           else if (mapname == "dm4")
