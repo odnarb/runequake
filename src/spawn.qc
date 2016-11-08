@@ -412,6 +412,11 @@ place_my_items =
                     // extra intermission
                     spawn_info_intermission ('73.6 -1236.5 101.6', '2.3 46.4 0');
 	}
+           else if (mapname == "dm5")
+	{
+                    // extra intermission
+                    spawn_info_intermission ('399 61.3 -8', '-0.6 -99.4 0');
+	}
           else if (mapname == "dm6")
 	{
                     // New spawn
