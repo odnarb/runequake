@@ -122,7 +122,7 @@ spawn_info_teleport_destination =
 	e.targetname	= e_targetname;
 };
 
-void (vector e_origin, vector ang)
+void (vector e_origin, float ang)
 spawn_info_player_deathmatch =
 {
 	local entity e;
@@ -130,7 +130,7 @@ spawn_info_player_deathmatch =
 	e		= spawn ();
 	e.classname	= "info_player_deathmatch";
 	e.origin	= e_origin;
-	e.angles	= ang;
+	e.angles_y	= ang;
           //precache_model ("progs/soldier.mdl");
          // setmodel (e, "progs/soldier.mdl");
 };
@@ -238,9 +238,9 @@ place_my_items =
 		// Place new RL.
 		spawn_item ("weapon_rocketlauncher", 0, '1104.0 640.0 312.0', 0);
                     // New spawns
-		spawn_info_player_deathmatch ('1717 -195.5 168', '0 45 0');
-                    spawn_info_player_deathmatch ('2124 -460 168', '0 135 0');
-                    spawn_info_player_deathmatch ('-585 -724 480', '0 22.5 0');
+		spawn_info_player_deathmatch ('1717 -195.5 168', 45);
+                    spawn_info_player_deathmatch ('2124 -460 168', 135);
+                    spawn_info_player_deathmatch ('-585 -724 480', 22.5);
 	}
           else if (mapname == "e1m3")
           {
@@ -278,7 +278,7 @@ place_my_items =
                     // Ring behind new secret doot
 		spawn_item ("item_artifact_invisibility", 0, '-863 1501 -488', 0);
                     // New spawn
-		spawn_info_player_deathmatch ('216 1488 24', '0 270 0');
+		spawn_info_player_deathmatch ('216 1488 24', 270);
                     
                     
 	}
@@ -352,11 +352,11 @@ place_my_items =
                     // Ring in slime
                     spawn_item ("item_artifact_invisibility", 0, '1034 855 -336', 0);
                     // New spawns
-		spawn_info_player_deathmatch ('1976 -608 -22', '0 0 0');
-                    spawn_info_player_deathmatch ('-417 -105 104', '0 270 0');
-                    spawn_info_player_deathmatch ('-652 -791 -40', '0 275 0');
-                    spawn_info_player_deathmatch ('544 392 56', '0 90 0');
-                    spawn_info_player_deathmatch ('-419.3 -343.3 -264', '0 135 0');
+		spawn_info_player_deathmatch ('1976 -608 -22', 0);
+                    spawn_info_player_deathmatch ('-417 -105 104', 270);
+                    spawn_info_player_deathmatch ('-652 -791 -40', 275);
+                    spawn_info_player_deathmatch ('544 392 56', 90);
+                    spawn_info_player_deathmatch ('-419.3 -343.3 -264', 135);
                     
                     // Cells in hidden hall
                     spawn_item ("item_cells", 0, '-588 -400 104', 2);
@@ -385,7 +385,7 @@ place_my_items =
 		// Pent, same room
 		spawn_item ("item_artifact_invulnerability", 0, '-1490 -655 24', 0);
 		// New spawn
-		spawn_info_player_deathmatch ('-223 -880 24', '0 90 0');
+		spawn_info_player_deathmatch ('-223 -880 24', 90);
                     
                     // Hidden Quad for phase rune below elevating stairs
                     spawn_item ("item_artifact_super_damage", 0, '46.2 -726.6 -168', 0);
@@ -397,7 +397,7 @@ place_my_items =
 		// Superhealth in room accessable only w phase rune
 		spawn_item ("item_superhealth", 0, '-557 1133 -65', 0);
                     // New spawn
-		spawn_info_player_deathmatch ('-720 623 184', '0 90 0');
+		spawn_info_player_deathmatch ('-720 623 184', 90);
                     
 	}
 	else if (mapname == "dm1")
@@ -410,12 +410,12 @@ place_my_items =
           else if (mapname == "dm4")
 	{
                     // extra intermission
-                    spawn_info_intermission ('703.5 -325 82', '0 -90 0');
+                    spawn_info_intermission ('73.6 -1236.5 101.6', '2.3 46.4 0');
 	}
           else if (mapname == "dm6")
 	{
                     // New spawn
-		spawn_info_player_deathmatch ('73.6 -1236.5 101.6', '2.3 46.4 0');
+		spawn_info_player_deathmatch ('198.3 -809.5 136', 90);
 	}
 	else if (mapname == "arma4")
 	{
