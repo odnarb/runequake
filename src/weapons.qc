@@ -1664,7 +1664,7 @@ ImpulseCommands =
 
 	else
 		common_impulses ();
-
+/*
           if (self.impulse > 0 && cvar ("developer"))
           {
           local string k;
@@ -1676,7 +1676,7 @@ ImpulseCommands =
             self_sprint (self, "\b\n");
           
           }
-                    
+  */                  
 	self.impulse = 0;
 };
 
