@@ -407,6 +407,16 @@ place_my_items =
 		// Room where entrance requires trigger activation.
 		spawn_item ("weapon_rocketlauncher", 0, '423 1532 -120', 0);
 	}
+           else if (mapname == "dm3")
+	{
+          // New suit near pent
+          spawn_item ("item_artifact_envirosuit", 0, '1500 620 -296', 0);
+
+          ///Exploboxes near pent
+          spawn_item ("misc_explobox", 0, '1080 675 -296', 0);
+          spawn_item ("misc_explobox2", 0, '1440 -735 180', 0);
+          
+	}
           else if (mapname == "dm4")
 	{
                     // extra intermission
