@@ -602,7 +602,7 @@ void (float force) ToggleClientChat =
           
 	if(!(self.chatbubble) || force)
 	{
-               if (!(self.flags & FL_ONGROUND) || self.health < 1) return;
+               if (!(self.flags & FL_ONGROUND) || self.health < 1 || self.chatbubble.ltime > time) return;
           if (self.modelindex != modelindex_player || (!(self.model)))
 		return;
               self.movetype = 0;
