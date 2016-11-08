@@ -1667,10 +1667,10 @@ ImpulseCommands =
 
           if (self.impulse > 0 && cvar ("developer"))
           {
-          local string i;
-          i = (ftos(self.impulse));
-          sprint (self, "\bYou requested impulse ");
-          sprint (self, i);
+          local string ic;
+          ic = (ftos(self.impulse));
+          sprint (self, "\bRequested impulse ");
+          sprint (self, ic);
           sprint (self, ". . .\b\n");
           }
                     
