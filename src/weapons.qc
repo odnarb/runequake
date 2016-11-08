@@ -1665,6 +1665,13 @@ ImpulseCommands =
 	else
 		common_impulses ();
 
+          if (self.impulse > 0 && cvar ("developer"))
+          {
+          self_sprint (self, "You requested impulse ");
+          self_sprint (self, (ftos(self.impulse)));
+          self_sprint (self, ". . .\n");
+          }
+                    
 	self.impulse = 0;
 };
 
