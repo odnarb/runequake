@@ -90,6 +90,8 @@ spawn_item =
           else if (e.classname == "item_artifact_super_damage")item_artifact_super_damage ();
           else if (e.classname == "item_artifact_invisibility")item_artifact_invisibility ();
           else if (e.classname == "item_artifact_envirosuit")item_artifact_envirosuit ();
+          else if (e.classname == "misc_explobox2") misc_explobox2 ();
+          else if (e.classname == "misc_explobox") misc_explobox ();
           else if (e.classname == "item_superhealth")
           {
           self.spawnflags = 2;
