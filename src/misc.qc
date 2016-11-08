@@ -107,7 +107,7 @@ respawn_barrel =
           if (random () < 0.5)
           self.angles_y = self.angles_y * -1;
 	setorigin (self, self.oldorigin);
-          
+          droptofloor ();
           
 };
 
