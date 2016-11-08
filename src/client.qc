@@ -581,7 +581,7 @@ void () CbubbleThink =
           else self.effects = 0;
           setmodel(self, "progs/s_bubble.spr");
           if (framecount & 1)
-          particle (self.origin, VEC_ORIGIN, 234, 50);
+          particle (self.origin, VEC_ORIGIN, 105, 50);
           }
           
           self.nextthink = time + (1/4);
@@ -605,7 +605,7 @@ void (float force) ToggleClientChat =
                if (!(self.flags & FL_ONGROUND) || self.health < 1 ) return;
           if (self.modelindex != modelindex_player || (!(self.model)))
 		return;
-          if (self.chatbubble.ltime > time) remove (self.chatbubble);
+          if (self.chatbubble.think == CbubbleThink) remove (self.chatbubble);
               self.movetype = 0;
               local entity bubble;                
               bubble = spawn(); //It's there! :)
