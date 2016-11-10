@@ -117,7 +117,8 @@ Glue_Touch =
            
          if (other.movetype == MOVETYPE_PUSH)
          {
-          
+             if (AgainstSky (self)) bprint ("hit top\n");
+             
           makevectors (self.velocity);
           trace_ent = self;
           traceline (self.origin, v_forward * 32, 0, self);
