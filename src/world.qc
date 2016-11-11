@@ -180,15 +180,18 @@ while (r)
 	
             if (r.model == "progs/grenade.mdl")
             {
-            if (pointcontents (r.origin) == CONTENT_LAVA)
+            local float pc;
+           pc = pointcontents (r.origin);
+            if (pc == CONTENT_LAVA)
                       r.nextthink = time;
             else
             {
-            if (pointcontents (r.origin) != -1)
+            if (pc != -1)
             {
-            if (r.Ldepth > 5 && r.movetype != MOVETYPE_FLYMISSILE)
+            if (r.Ldepth > 5 && r.movetype != MOVETYPE_FLY)
             {
-	   r.movetype = MOVETYPE_FLYMISSILE;
+             if (pc < -2 && pc > -5)
+             r.movetype = MOVETYPE_FLY;
 	   r.avelocity_x = r.avelocity_x * 0.33 + (r.avelocity_x * random ());
              r.avelocity_y = r.avelocity_y * 0.33 + (r.avelocity_y * random ());
              r.avelocity_z = r.avelocity_z * 0.33 + (r.avelocity_z * random ());
