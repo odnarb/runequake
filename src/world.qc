@@ -186,11 +186,15 @@ while (r)
             {
             if (pointcontents (r.origin) != -1)
             {
-            if (!(r.Ldepth))
+            if (!(r.Ldepth) && r.waterlevel > 1)
             {
-            r.velocity_z = r.velocity_z / (0 - r.watertype);
-            r.velocity_x = r.velocity_x / (0 - r.watertype);
-            r.velocity_y = r.velocity_y / (0 - r.watertype);
+	   r.movetype = MOVETYPE_FLYMISSILE;
+	   r.avelocity_x = r.avelocity_x * 0.33 + (r.avelocity_x * random ());
+             r.avelocity_y = r.avelocity_y * 0.33 + (r.avelocity_y * random ());
+             r.avelocity_z = r.avelocity_z * 0.33 + (r.avelocity_z * random ());
+            r.velocity_z = r.velocity_z / (r.watertype * -2);
+            r.velocity_x = r.velocity_x / (r.watertype * -2);
+            r.velocity_y = r.velocity_y / (r.watertype * -2);
             }
             r.Ldepth = WlevelEnt (r);
             }
