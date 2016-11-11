@@ -176,16 +176,22 @@ while (r)
           bprint ("Plat near surface\n");
 	   */
 		
-		
 	
-
-            // Cobalt mark gasbombs when they stop moving 
-            if (r.classname == "gasbomb")
+	
+            if (r.model == "progs/grenade.mdl")
+            {
+            r.Ldepth = WlevelEnt (self);
+            if (r.classname == "gasbomb") // Cobalt mark gasbombs when they stop moving 
             if ((!(r.velocity)) && r.frame == 0)
             {
             if (time >= (r.nextthink - 1))
             r.effects = EF_FROZEN | 2;
             else r.effects = 0;
+            }
+            
+            if (pointcontents (r.origin) == CONTENT_LAVA))
+                      r.nextthink = time;
+            
             }
           
           r = nextent(r);
