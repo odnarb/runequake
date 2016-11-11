@@ -189,7 +189,7 @@ while (r)
             else r.effects = 0;
             }
             
-            if (pointcontents (r.origin) == CONTENT_LAVA))
+            if (pointcontents (r.origin) == CONTENT_LAVA)
                       r.nextthink = time;
             
             }
