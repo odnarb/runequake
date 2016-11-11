@@ -180,6 +180,7 @@ while (r)
 	
             if (r.model == "progs/grenade.mdl")
             {
+            if (pointcontents (r.origin) != -1)
             r.Ldepth = WlevelEnt (self);
             if (r.classname == "gasbomb") // Cobalt mark gasbombs when they stop moving 
             if ((!(r.velocity)) && r.frame == 0)
