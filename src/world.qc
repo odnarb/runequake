@@ -186,7 +186,7 @@ while (r)
             {
             if (pointcontents (r.origin) != -1)
             {
-            if (!(r.Ldepth) && r.waterlevel > 1)
+            if ((!(r.Ldepth)) && r.waterlevel > 1)
             {
 	   r.movetype = MOVETYPE_FLYMISSILE;
 	   r.avelocity_x = r.avelocity_x * 0.33 + (r.avelocity_x * random ());
