@@ -187,10 +187,12 @@ while (r)
             if (pointcontents (r.origin) != -1)
             {
             if (!(r.Ldepth))
-            r.velocity = r.velocity / (0 - r.watertype);
+            {
+            r.velocity_z = r.velocity_z / (0 - r.watertype);
+            r.velocity_x = r.velocity_x / (0 - r.watertype);
+            r.velocity_y = r.velocity_y / (0 - r.watertype);
+            }
             r.Ldepth = WlevelEnt (r);
-            
-            
             }
             if (r.classname == "gasbomb") // Cobalt mark gasbombs when they stop moving 
             if ((!(r.velocity)) && r.frame == 0)
