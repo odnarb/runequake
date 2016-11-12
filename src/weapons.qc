@@ -886,7 +886,7 @@ GrenadeTouch =
 		return;		// don't explode on owner
         
           
-	if (other.takedamage == DAMAGE_AIM)
+	if (other.takedamage == DAMAGE_AIM && (other.watertype > -2 && other.waterlevel < 3))
 	{
 		GrenadeExplode_targ (other);
 		return;
