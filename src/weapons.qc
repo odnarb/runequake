@@ -558,7 +558,7 @@ BecomeExplosion =
 	setmodel (self, "progs/s_explod.spr");
 	self.solid	= SOLID_NOT;
           
-          if (self.classname == "gasbomb" && self.pcn < -2)          
+          if (self.classname == "gasbomb" && self.watertype != -1)          
           {
           self.effects = EF_BRIGHTLIGHT;
 	s_explode1 ();

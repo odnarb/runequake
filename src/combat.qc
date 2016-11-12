@@ -485,7 +485,7 @@ T_Damage =
 			}
 		}
                     
-               if (dtype == "gas" || attacker == world && targ.waterlevel > 2 && targ.air_finished < time) // Simplified QIP Armor drown fix
+               if (attacker == world && targ.waterlevel > 2 && targ.air_finished < time) // Simplified QIP Armor drown fix
 	     save = 0;
                     
 		if (save >= targ.armorvalue)
@@ -507,7 +507,7 @@ T_Damage =
 			else
 				save = save - 1;
 		}
-
+                    if (dtype != "gas")
 		targ.armorvalue = targ.armorvalue - save;
 		if (targ.runetype == RN_ARMOR)
 			good_armor_set_armor_items_e (targ);
