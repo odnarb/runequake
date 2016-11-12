@@ -184,9 +184,9 @@ while (r)
            
                     if (r.pcn == CONTENT_LAVA)
                       r.nextthink = time;
-            else if (r.pco)
+            else 
             {
-            if (r.pco == -1 && r.pcn != r.pco)
+            if (r.pcn < -2 && r.pcn != r.pco)
             {
             if (r.Ldepth > 5)
             {
@@ -199,7 +199,7 @@ while (r)
             }
             r.Ldepth = WlevelEnt (r);
             }
-            else if (r.pco != -1 && r.pcn == -1)
+            else if (r.pco < -2 && r.pcn == -1)
             r.velocity = VEC_ORIGIN;    
             if (r.classname == "gasbomb") // Cobalt mark gasbombs when they stop moving 
             if ((!(r.velocity)) && r.frame == 0)
