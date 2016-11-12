@@ -252,7 +252,7 @@ Gas_Cloud_Damage =
 				head_dmg = 0;
 
 			head_dmg = ceil (head_dmg);
-			if (head_dmg)
+			if (head_dmg && head.waterlevel < 3)
 				T_Damage (head, self, self.owner, head_dmg, "gas");
 		}
 		head = head.chain;

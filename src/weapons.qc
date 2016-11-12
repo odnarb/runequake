@@ -857,8 +857,10 @@ void (entity targ)
 GrenadeExplode_targ =
 {
 	if (self.classname == "gasbomb")
+          {
+                    self.effects = EF_BRIGHTLIGHT;
 		Gas_Cloud ();
-
+          }
 	if (targ)
 		T_Damage (targ, self, self.owner, 100 + (random () + 0.01) * 20, self.classname);
 
