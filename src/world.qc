@@ -185,7 +185,7 @@ while (r)
                       r.nextthink = time;
             else
             {
-            if (r.pco == -1 && r.pcn != opc)
+            if (r.pco == -1 && r.pcn != r.pco)
             {
             if (r.Ldepth > 5)
             {
