@@ -558,8 +558,12 @@ BecomeExplosion =
 	setmodel (self, "progs/s_explod.spr");
 	self.solid	= SOLID_NOT;
           
-          //if (framecount & 1)
-	//s_explode1 ();
+          if (self.classname == "gasbomb" && self.npc < -2)          
+          {
+          self.effects = EF_BRIGHTLIGHT;
+	s_explode1 ();
+          }
+          else
           Expl1 ();
 };
 
@@ -857,10 +861,8 @@ void (entity targ)
 GrenadeExplode_targ =
 {
 	if (self.classname == "gasbomb")
-          {
-                    self.effects = EF_BRIGHTLIGHT;
 		Gas_Cloud ();
-          }
+
 	if (targ)
 		T_Damage (targ, self, self.owner, 100 + (random () + 0.01) * 20, self.classname);
 
