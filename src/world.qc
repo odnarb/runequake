@@ -185,7 +185,7 @@ while (r)
             if (r.model == "progs/grenade.mdl")
             {
            
-                    if (r.pcn == CONTENT_LAVA)
+           if ((r.classname == "gasbomb" && r.pcn < -2 && r.pcn != r.pco) || r.pcn == CONTENT_LAVA)
                       r.nextthink = time;
             else 
             {
@@ -193,16 +193,16 @@ while (r)
             {
         
             
-             r.velocity_z = r.velocity_z * (1/5);
-             r.velocity_x = r.velocity_x * (1/4);
-             r.velocity_y = r.velocity_y * (1/4);
+             r.velocity_z = r.velocity_z * (1/8);
+             r.velocity_x = r.velocity_x * (1/6);
+             r.velocity_y = r.velocity_y * (1/6);
              r.movetype = MOVETYPE_FLY;
 	    
             
             
             }
             else if (r.pco < -2 && r.pcn == -1)
-            r.velocity = VEC_ORIGIN;    
+            r.velocity_z = -2;    
             if (r.classname == "gasbomb") // Cobalt mark gasbombs when they stop moving 
             if ((!(r.velocity)) && r.frame == 0)
             {
