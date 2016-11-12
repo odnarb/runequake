@@ -191,13 +191,11 @@ while (r)
             if (r.Ldepth > 5 && r.movetype != MOVETYPE_FLY)
             {
              if (pc < -2 && pc > -5)
+             {
+             r.velocity_z = r.velocity_z * (1/3);
              r.movetype = MOVETYPE_FLY;
-	   r.avelocity_x = r.avelocity_x * 0.33 + (r.avelocity_x * random ());
-             r.avelocity_y = r.avelocity_y * 0.33 + (r.avelocity_y * random ());
-             r.avelocity_z = r.avelocity_z * 0.33 + (r.avelocity_z * random ());
-            r.velocity_z = r.velocity_z / (r.watertype * -2);
-            r.velocity_x = r.velocity_x / (r.watertype * -2);
-            r.velocity_y = r.velocity_y / (r.watertype * -2);
+	   
+             }
             }
             r.Ldepth = WlevelEnt (r);
             }
