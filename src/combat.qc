@@ -353,6 +353,7 @@ T_Damage =
 	damage_inflictor = inflictor;
 
 	// figure momentum add
+          if (dtype != "gas") // Cancel push adjust for gas dmg
 	if (inflictor != world && (targ.movetype == MOVETYPE_WALK || targ.touch == Rune_Touch || targ.think == bomb_tick)
 			&& (targ.runetype != RN_MONK || targ == attacker))
 	{
