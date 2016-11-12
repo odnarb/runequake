@@ -193,6 +193,8 @@ while (r)
              if (pc < -2 && pc > -5)
              {
              r.velocity_z = r.velocity_z * (1/3);
+             r.velocity_x = r.velocity_x * (1/3);
+             r.velocity_y = r.velocity_y * (1/3);
              r.movetype = MOVETYPE_FLY;
 	   
              }
