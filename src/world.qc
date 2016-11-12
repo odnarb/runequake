@@ -183,7 +183,7 @@ while (r)
            
                     if (r.pcn == CONTENT_LAVA)
                       r.nextthink = time;
-            else
+            else if (r.pco)
             {
             if (r.pco == -1 && r.pcn != r.pco)
             {
