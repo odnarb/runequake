@@ -232,18 +232,16 @@ Gas_Cloud_Damage =
 	head = findradius (self.origin, radius);
 	while (head)
 	{
-		if (head.health > 0)
+		if (head.health > 0 && (!(environmental (head))))
 		{
-			if (head.classname == "player")
+			if (head.classname == "player" && head.air_finished > time)
 			{
 				if (CanDamage (head, self))
 					head_dmg = damage;
 				else
 					head_dmg = damage * 0.25;
 
-				if (environmental (head))
-					head_dmg = 0;
-				else if (head == self.owner)
+				if (head == self.owner)
 					head_dmg = head_dmg * 0.5;
 			}
 			else if (is_pet_e (head))
@@ -252,8 +250,17 @@ Gas_Cloud_Damage =
 				head_dmg = 0;
 
 			head_dmg = ceil (head_dmg);
-			if (head_dmg && head.waterlevel < 3)
+			if (head_dmg)
+                              {         
+                                        if (vlen(head.velocity))
+                                        {
+                                        sound (head, CHAN_AUTO, "player/gasp1.wav", 0.5, ATTN_IDLE);
+                                        self.flags = self.flags + (self.flags & FL_ONGROUND); //adding this will make the player limp
+                                        }
+                                        create_te_spike (TE_WIZSPIKE, head.origin + head.view_ofs);
 				T_Damage (head, self, self.owner, head_dmg, "gas");
+                                        
+                              }
 		}
 		head = head.chain;
 	}
@@ -284,6 +291,9 @@ Gas_Cloud =
 	cloud.movetype	= MOVETYPE_NONE;
 	cloud.velocity	= VEC_ORIGIN;
 	cloud.solid	= SOLID_NOT;
+          if (self.pcn != -1)
+          cloud.cnt	= 25 * (0 - self.watertype);
+          else
 	cloud.cnt	= 25;
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
