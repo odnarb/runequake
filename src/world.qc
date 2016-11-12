@@ -89,6 +89,9 @@ while (r)
 {
           if (pointcontents (r.origin) != r.pco)
             r.pcn = pointcontents (r.origin); 
+  
+           if (r.pcn != -1)
+           r.Ldepth = WlevelEnt (r);
           if (r.flags & FL_CLIENT)
           ap = ap + 1;
           /*
@@ -188,16 +191,15 @@ while (r)
             {
             if (r.pcn < -2 && r.pcn != r.pco)
             {
-            if (r.Ldepth > 5)
-            {
+        
             
              r.velocity_z = r.velocity_z * (1/5);
              r.velocity_x = r.velocity_x * (1/4);
              r.velocity_y = r.velocity_y * (1/4);
              r.movetype = MOVETYPE_FLY;
 	    
-            }
-            r.Ldepth = WlevelEnt (r);
+            
+            
             }
             else if (r.pco < -2 && r.pcn == -1)
             r.velocity = VEC_ORIGIN;    
@@ -273,13 +275,7 @@ worldspawn =
           
          
 };
-void () EndFrame = 
-{
-if (framecount > 1000)
-bprint ("Endframe\n");  
-          
-          
-};
+
 void ()
 StartFrame =
 {
