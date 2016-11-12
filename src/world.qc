@@ -273,7 +273,13 @@ worldspawn =
           
          
 };
-
+void EndFrame() = 
+{
+if (framecount > 1000)
+bprint ("Endframe\n");          
+          
+          
+};
 void ()
 StartFrame =
 {
