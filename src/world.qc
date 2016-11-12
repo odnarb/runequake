@@ -180,27 +180,31 @@ while (r)
 	
             if (r.model == "progs/grenade.mdl")
             {
-            local float pc;
-           pc = pointcontents (r.origin);
-            if (pc == CONTENT_LAVA)
+            local float opc;
+            
+            if (r.pt_contents != 0)
+            opc = r.pt_contents;
+                    if (r.pt_contents == CONTENT_LAVA)
                       r.nextthink = time;
             else
             {
-            if (pc != -1)
+            if (opc == -1 && r.pt_contents != -1)
             {
-            if (r.Ldepth > 5 && r.movetype != MOVETYPE_FLY)
+            if (r.Ldepth > 5)
             {
-             if (pc < -2 && pc > -5)
+             if (r.pt_contents < -2)
              {
              r.velocity_z = r.velocity_z * (1/3);
-             r.velocity_x = r.velocity_x * (1/3);
-             r.velocity_y = r.velocity_y * (1/3);
+             r.velocity_x = r.velocity_x * (1/4);
+             r.velocity_y = r.velocity_y * (1/4);
              r.movetype = MOVETYPE_FLY;
 	   
              }
             }
             r.Ldepth = WlevelEnt (r);
             }
+            else if (opc != -1 && r.pt_contents == -1)
+            r.velocity = VEC_ORIGIN;    
             if (r.classname == "gasbomb") // Cobalt mark gasbombs when they stop moving 
             if ((!(r.velocity)) && r.frame == 0)
             {
@@ -214,6 +218,8 @@ while (r)
             
             }
           
+          
+          r.pt_contents = pointcontents (r.origin);
           r = nextent(r);
           }
 
