@@ -273,10 +273,10 @@ worldspawn =
           
          
 };
-void EndFrame() = 
+void () EndFrame = 
 {
 if (framecount > 1000)
-bprint ("Endframe\n");          
+bprint ("Endframe\n");  
           
           
 };
