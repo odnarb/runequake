@@ -234,7 +234,7 @@ Gas_Cloud_Damage =
 	{
 		if (head.health > 0 && (!(environmental (head))))
 		{
-			if (head.classname == "player" && head.air_finished > time)
+			if (head.classname == "player")
 			{
 				if (CanDamage (head, self))
 					head_dmg = damage;
