@@ -1395,9 +1395,18 @@ powerup_denied =
 		// XXX I think dead people can still see this message, or there's a race.
 		if (e != other && is_player_e (e) && e.health > 0)
 		{
+                              local entity os;
+                              local string deny;
+                              os = self;
+                              self = e;
+                              if (fov (os))
+                              deny = "\{141} \bdenied!\n";
+                    
 			dist = vlen (self.origin - e.origin);
-			if (dist < 125)
-				self_sprint (e, "\{141} \bdenied!\n");
+			if (dist < 125 && deny)
+				self_sprint (e, deny);
+                              
+                              
 		}
 		e = find (e, classname, "player");
 	}
