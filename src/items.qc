@@ -1406,7 +1406,7 @@ powerup_denied =
 			dist = vlen (self.origin - e.origin);
 			if (dist < 125 && deny != "")
 				self_sprint (e, deny);
-                              
+                              self = os;
                               
 		}
 		e = find (e, classname, "player");
