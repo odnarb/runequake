@@ -272,7 +272,8 @@ Gas_Cloud_Think =
 	if (self.cnt > 0)
 	{
 		Gas_Cloud_Damage (4, 225 - self.cnt);
-
+                    if (framecount & 1)
+                    particle (self.origin, '0 0 100', 105, 500);
 		self.cnt	= self.cnt - 1;
 		self.nextthink	= time + 0.1;
 	}
@@ -291,10 +292,7 @@ Gas_Cloud =
 	cloud.movetype	= MOVETYPE_NONE;
 	cloud.velocity	= VEC_ORIGIN;
 	cloud.solid	= SOLID_NOT;
-          if (self.pcn != -1)
-          cloud.cnt	= 25 * (0 - self.watertype);
-          else
-	cloud.cnt	= 25;
+          cloud.cnt	= -25 * (self.watertype);
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
           cloud.effects = EF_MAYBE_DRAW; // Cobalt, try to minimize net traffic
