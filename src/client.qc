@@ -606,6 +606,10 @@ void (float force) ToggleClientChat =
           if (self.modelindex != modelindex_player || (!(self.model)))
 		return;
           if (self.chatbubble.think == CbubbleThink) remove (self.chatbubble);
+          if (!(EntNearby (0, "plat", self.origin, 72)))
+          if (!(EntNearby (0, "door", self.origin, 72)))
+          if (!(EntNearby (0, "func_train", self.origin, 72)))
+          if (!(EntNearby (0, "func_door_secret", self.origin, 72)))          
               self.movetype = 0;
               local entity bubble;                
               bubble = spawn(); //It's there! :)
