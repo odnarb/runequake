@@ -273,9 +273,9 @@ Gas_Cloud_Think =
 	{
                     
                     if (self.count <= (self.cnt / 2))
-                    Gas_Cloud_Damage (4, 225 + (self.cnt * 1.5);
+                    Gas_Cloud_Damage (4, 225 + (self.cnt * 1.5));
 		else 
-                    Gas_Cloud_Damage (4, 225 - (self.cnt * 1.5);
+                    Gas_Cloud_Damage (4, 225 - (self.cnt * 1.5));
                     self.count	= self.count + 1;
 		self.nextthink	= time + 0.1;
 	}
