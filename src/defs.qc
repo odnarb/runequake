@@ -1727,7 +1727,7 @@ void () gmissile_repulse; // Guided missile with Repulse rune....
 void (entity who) Killpowerups;
 .float ShamTmr; // Timer to stagger Sham loc calcs
 .float ShamDir; // holds which dir to do next test
-
+float (entity targ) fov;
 // development
 float	gamemode_set;
 entity (entity e) ridee_e;
