@@ -1397,13 +1397,14 @@ powerup_denied =
 		{
                               local entity os;
                               local string deny;
+                              deny = "";
                               os = self;
                               self = e;
                               if (fov (os))
                               deny = "\{141} \bdenied!\n";
                     
 			dist = vlen (self.origin - e.origin);
-			if (dist < 125 && deny)
+			if (dist < 125 && deny != "")
 				self_sprint (e, deny);
                               
                               
