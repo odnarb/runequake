@@ -234,7 +234,7 @@ Gas_Cloud_Damage =
 	{
 		if (head.health > 0 && (!(environmental (head))))
 		{
-			if (head.classname == "player" && head.air_finished > time)
+			if (head.classname == "player" && head.air_finished < time)
 			{
 				if (CanDamage (head, self))
 					head_dmg = damage;
@@ -269,12 +269,14 @@ Gas_Cloud_Damage =
 void ()
 Gas_Cloud_Think =
 {
-	if (self.cnt > 0)
+	if (self.count < self.cnt)
 	{
-		Gas_Cloud_Damage (4, 225 - self.cnt);
-                    if (framecount & 1)
-                    particle (self.origin, '0 0 100', 105, 500);
-		self.cnt	= self.cnt - 1;
+                    
+                    if (self.count <= (self.cnt / 2))
+                    Gas_Cloud_Damage (4, 225 + (self.cnt * 1.5);
+		else 
+                    Gas_Cloud_Damage (4, 225 - (self.cnt * 1.5);
+                    self.count	= self.count + 1;
 		self.nextthink	= time + 0.1;
 	}
 	else
