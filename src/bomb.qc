@@ -250,12 +250,12 @@ Gas_Cloud_Damage =
 				head_dmg = 0;
 
 			head_dmg = ceil (head_dmg);
-			if (head_dmg)
+			if (head_dmg && visible (head))
                               {         
                                         if (vlen(head.velocity))
                                         {
                                         sound (head, CHAN_AUTO, "player/gasp1.wav", 0.5, ATTN_IDLE);
-                                        self.flags = self.flags + (self.flags & FL_ONGROUND); //adding this will make the player limp
+                                        head.flags = head.flags + (head.flags & FL_ONGROUND); //adding this will make the player limp
                                         }
                                         create_te_spike (TE_WIZSPIKE, head.origin + head.view_ofs);
 				T_Damage (head, self, self.owner, head_dmg, "gas");
