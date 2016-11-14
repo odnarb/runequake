@@ -383,6 +383,57 @@ void ()	player_axpain4	= [$axpain4,	player_axpain5] {};
 void ()	player_axpain5	= [$axpain5,	player_axpain6]	{};
 void ()	player_axpain6	= [$axpain6,	player_run]	{};
 
+;
+void () player_choke5 =
+{
+if (framecount & 1)
+ self.frame = (random () * 5) + 50;
+
+self.think = player_run;
+self.nextthink = time + 0.15;
+
+};
+void () player_choke4 =
+{
+
+ self.frame = 55;
+ self.think = player_choke5;
+ self.nextthink = time + 0.1;
+};
+
+void () player_choke3 =
+{
+
+ self.frame = 54;
+ self.think = player_choke4;
+ self.nextthink = time + 0.1;
+};
+
+void () player_choke2 =
+{
+
+ self.frame = 53;
+ self.think = player_choke3;
+ self.nextthink = time + 0.1;
+};
+void () player_choke1 =
+{
+
+ self.frame = 52;
+ self.think = player_choke2;
+ self.nextthink = time + 0.1;
+};
+
+void () player_choke =
+{
+
+ self.frame = 51;
+ self.think = player_choke1;
+ self.nextthink = time + 0.1;
+};
+
+
+
 void ()
 player_pain =
 {
@@ -400,6 +451,8 @@ player_pain =
 
 	if (self.weapon & WEAPON_NONALT_MASK == IT_AXE)
 		player_axpain1 ();
+          if (self.waterlevel > 2 && self.watertype != -5 && self.air_finished < time || self.frame == 50)
+                    player_choke ();
 	else
 		player_pain1 ();
 };
