@@ -220,9 +220,9 @@ while (r)
             {
             if (r.pco < -2 && r.pcn == -1)
             {
-             if (pco == CONTENT_WATER)
+             if (r.pco == CONTENT_WATER)
 	SUB_Drip(self.origin + ' 0 0 16',WATERCOLOR);
-	else if (pcn == CONTENT_SLIME)
+	else if (r.pcn == CONTENT_SLIME)
 	SUB_Drip(self.origin + ' 0 0 16',SLIMECOLOR);         
               r.think = SUB_Remove;
               r.nextthink = time + frametime;
