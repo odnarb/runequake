@@ -297,6 +297,7 @@ Gas_Cloud =
           cloud.cnt	= -25 * (self.watertype);
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
+          cloud.view_ofs = '0 0 56'
           cloud.effects = EF_MAYBE_DRAW; // Cobalt, try to minimize net traffic
 	setmodel (cloud, string_null);
 	setorigin (cloud, self.origin);
