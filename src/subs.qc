@@ -632,3 +632,15 @@ local vector low1, high1, low2, high2;
 
 	return TRUE;
 };
+
+void(vector v, float f1) SUB_Drip =
+{
+
+        makevectors(self.angles);
+        v=v+'-4 0 4';
+        particle(v+v_up*random()*-70, '0 0 -1', f1, 3);
+        particle(v+v_forward*random()*-10, '0 0 -1', f1, 3);
+        particle(v+v_right*random()*10, '0 0 -1', f1, 3);
+        particle(v+v_right*random()*-10, '0 0 -1', f1, 3);
+	 
+};

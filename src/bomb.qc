@@ -258,8 +258,6 @@ Gas_Cloud_Damage =
                                         head.flags = head.flags + (head.flags & FL_ONGROUND); //adding this will make the player limp
                                         }
                                         create_te_spike (TE_WIZSPIKE, head.origin + head.view_ofs);
-                                        if (self.frame < 50 || self.frame > 55)
-                                          self.frame = 50;
 				T_Damage (head, self, self.owner, head_dmg, "gas");
                                         
                               }

@@ -215,6 +215,20 @@ while (r)
             
             
             }
+            
+            if (r.classname == "bubble")
+            {
+            if (r.pco < -2 && r.pcn == -1)
+            {
+             if (pco == CONTENT_WATER)
+	SUB_Drip(self.origin + ' 0 0 16',WATERCOLOR);
+	else if (pcn == CONTENT_SLIME)
+	SUB_Drip(self.origin + ' 0 0 16',SLIMECOLOR);         
+              r.think = SUB_Remove;
+              r.nextthink = time + frametime;
+            }
+            
+            }
           
           
           r.pco = r.pcn;
@@ -271,6 +285,38 @@ worldspawn =
 	IN_POQ(InitSearchHunk();)
          
           
+          WATERCOLOR = 178; // 13;
+//if (self.model == "maps/e1m1.bsp" || self.model == "maps/dm2.bsp" || self.model == "maps/e3m3.bsp")
+//WATERCOLOR = 3; 
+if (self.model == "maps/e1m2.bsp"  || self.model == "maps/end.bsp" || self.model == "maps/e2m6.bsp" || self.model == "maps/e2m5.bsp")
+WATERCOLOR =112;
+
+
+if (self.model == "maps/e1m3.bsp")
+WATERCOLOR =30;
+if (self.model == "maps/e1m4.bsp" || self.model == "maps/dm3.bsp" || self.model == "maps/e3m5.bsp")
+WATERCOLOR =16;
+if (self.model == "maps/e1m5.bsp" || self.model == "maps/dm5.bsp" || self.model == "maps/e2m7.bsp")
+WATERCOLOR =170;
+if (self.model == "maps/e2m1.bsp")
+WATERCOLOR =30;
+if (self.model == "maps/e2m2.bsp")
+WATERCOLOR =185;
+if (self.model == "maps/e2m3.bsp")
+WATERCOLOR =31;
+if (self.model == "maps/e2m4.bsp")
+WATERCOLOR =19;
+if (self.model == "maps/e3m4.bsp" || self.model == "maps/e4m3.bsp")
+WATERCOLOR =45;
+if (self.model == "maps/e4m1.bsp")
+WATERCOLOR =17;
+if (self.model == "maps/e4m2.bsp")
+WATERCOLOR =33;
+if (self.model == "maps/e4m4.bsp")
+WATERCOLOR =35;
+if (self.model == "maps/e1m8.bsp" || self.model == "maps/dm4.bsp")
+WATERCOLOR =229;
+
         
           
          
@@ -320,7 +366,17 @@ StartFrame =
           }
           
 
-         VelocityPhysics ();
+          VelocityPhysics ();
+         
+          SLIMECOLOR = (rint (random () * 12) + 179);
+
+          if (random () < 0.5)
+          LAVACOLOR = (rint (random () * 7) + 227);
+          else if (random () < 0.5)
+          LAVACOLOR = (random () * 5) + 74;
+          else 
+          LAVACOLOR = (random () * 6) + 101;
+         
           
 };
 

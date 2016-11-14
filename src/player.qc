@@ -326,7 +326,7 @@ PainSound =
 		s = "player/teledth1.wav";
 	else if (dt == "drown")
 	{
-		DeathBubbles (1);
+		DeathBubbles ((time - self.air_finished));
 		s = random_string2 ("player/drown1.wav", "player/drown2.wav");
 		chan = CHAN_AUTO;
 	}
@@ -387,8 +387,8 @@ void ()	player_axpain6	= [$axpain6,	player_run]	{};
 void () player_choke5 =
 {
 if (framecount & 1)
- self.frame = (random () * 5) + 50;
-
+ self.frame = (random () * 4) + 51;
+else self.frame = 55;
 self.think = player_run;
 self.nextthink = time + 0.15;
 
@@ -396,7 +396,7 @@ self.nextthink = time + 0.15;
 void () player_choke4 =
 {
 
- self.frame = 55;
+ self.frame = 54;
  self.think = player_choke5;
  self.nextthink = time + 0.1;
 };
@@ -404,7 +404,7 @@ void () player_choke4 =
 void () player_choke3 =
 {
 
- self.frame = 54;
+ self.frame = 53;
  self.think = player_choke4;
  self.nextthink = time + 0.1;
 };
@@ -412,14 +412,14 @@ void () player_choke3 =
 void () player_choke2 =
 {
 
- self.frame = 53;
+ self.frame = 52;
  self.think = player_choke3;
  self.nextthink = time + 0.1;
 };
 void () player_choke1 =
 {
 
- self.frame = 52;
+ self.frame = 51;
  self.think = player_choke2;
  self.nextthink = time + 0.1;
 };
@@ -427,7 +427,7 @@ void () player_choke1 =
 void () player_choke =
 {
 
- self.frame = 51;
+ self.frame = 50;
  self.think = player_choke1;
  self.nextthink = time + 0.1;
  PainSound (); self.weaponframe = 0;
@@ -452,7 +452,7 @@ player_pain =
 
 	if (self.weapon & WEAPON_NONALT_MASK == IT_AXE)
 		player_axpain1 ();
-          if (self.waterlevel > 2 && self.watertype != -5 && self.air_finished < time || self.frame == 50)
+          if (self.waterlevel > 2 && self.watertype != -5 && self.air_finished < time || self.damage_type == "gas")
                     player_choke ();
 	else
 		player_pain1 ();
