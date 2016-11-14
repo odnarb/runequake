@@ -430,6 +430,7 @@ void () player_choke =
  self.frame = 51;
  self.think = player_choke1;
  self.nextthink = time + 0.1;
+ PainSound (); self.weaponframe = 0;
 };
 
 
