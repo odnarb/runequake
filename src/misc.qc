@@ -395,8 +395,6 @@ bubble_split =
 	e.velocity	= self.velocity;
 	e.nextthink	= time + 0.5;
 	e.think		= bubble_bob;
-
-	
 	e.frame		= 1;
 	e.cnt		= 10;
 	//e.effects	= EF_MAYBE_DRAW;
