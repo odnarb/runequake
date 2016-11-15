@@ -127,6 +127,8 @@ precaches =
 	precache_sound ("player/tornoff2.wav");		// player disconnect
 	precache_sound ("player/udeath.wav");		// gibbed
 
+          precache_sound ("ambience/drip1.wav");		// bubble break surface
+          
 	// progs/
           precache_model ("progs/k_spike.mdl"); // Hellknight spike for test
 	precache_model ("progs/armor.mdl");		// armor drop
