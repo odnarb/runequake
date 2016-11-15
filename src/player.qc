@@ -552,7 +552,7 @@ PlayerDead =
           if (self.bubbler != world)
           {
                     self.bubbler.think = SUB_Remove;
-		self.bubbler.think = time;
+		self.bubbler.nextthink = time;
           }
           
 };
