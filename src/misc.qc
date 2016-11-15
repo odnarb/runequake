@@ -359,12 +359,12 @@ air_bubbles =
 {
 	remove (self);
 };
-
+/*
 void ()
 bubble_remove =
 {
 	return;
-};
+};*/
 void ()
 make_bubbles =
 {
