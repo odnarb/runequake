@@ -395,7 +395,7 @@ bubble_split =
 	e.velocity	= self.velocity;
 	e.nextthink	= time + 0.5;
 	e.think		= bubble_bob;
-	e.touch		= bubble_remove;
+
 	
 	e.frame		= 1;
 	e.cnt		= 10;
@@ -403,7 +403,6 @@ bubble_split =
 
 	setmodel (e, "progs/s_bubble.spr");
 	setorigin (e, self.origin);
-	setsize (e, '-8 -8 -8', '8 8 8');
 
 	self.frame	= 1;
 	self.cnt	= 10;
