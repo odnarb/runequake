@@ -478,7 +478,7 @@ DeathBubblesSpawn =
 	bubble.classname	= "bubble";
 	bubble.frame		= 0;
 	bubble.cnt		= 0;
-	//bubble.effects		= EF_MAYBE_DRAW;
+	bubble.effects		= EF_MAYBE_DRAW;
 
 	setmodel (bubble, "progs/s_bubble.spr");
 	setorigin (bubble, self.owner.origin + '0 0 24');
