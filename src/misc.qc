@@ -361,6 +361,11 @@ air_bubbles =
 };
 
 void ()
+bubble_remove =
+{
+	return;
+};
+void ()
 make_bubbles =
 {
 	local entity e;
