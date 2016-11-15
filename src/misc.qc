@@ -371,7 +371,7 @@ make_bubbles =
 	e.velocity	= '0 0 15';
 	e.nextthink	= time + 0.5;
 	e.think		= bubble_bob;
-	e.touch		= bubble_remove;
+
 	e.classname	= "bubble";
 	e.frame		= 0;
 	e.cnt		= 0;
@@ -390,16 +390,16 @@ bubble_split =
 	local entity e;
 
 	e		= spawn ();
-	e.movetype	= MOVETYPE_NOCLIP;
+	e.movetype	= MOVETYPE_FLYMISSILE;
 	e.solid		= SOLID_NOT;
 	e.velocity	= self.velocity;
 	e.nextthink	= time + 0.5;
 	e.think		= bubble_bob;
 	e.touch		= bubble_remove;
-	e.classname	= "bubble";
+	
 	e.frame		= 1;
 	e.cnt		= 10;
-	e.effects	= EF_MAYBE_DRAW;
+	//e.effects	= EF_MAYBE_DRAW;
 
 	setmodel (e, "progs/s_bubble.spr");
 	setorigin (e, self.origin);
@@ -412,14 +412,6 @@ bubble_split =
 		remove (self);
 };
 
-void ()
-bubble_remove =
-{
-	if (other.classname == self.classname)
-		return;
-
-	remove (self);
-};
 
 void ()
 bubble_bob =
