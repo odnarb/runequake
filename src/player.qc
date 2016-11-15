@@ -487,7 +487,7 @@ DeathBubblesSpawn =
           self.bubble_count = self.bubble_count - 1;
 	if (self.bubble_count < 0)
 	remove (self);
-	else self.nextthink = time + 0.1;
+	else self.nextthink = time + frametime;
 };
 
 void (float num_bubbles)
@@ -497,18 +497,13 @@ DeathBubbles =
 	local entity bubble_spawner;
 
 	bubble_spawner			= spawn ();
-          bubble_spawner.movetype = MOVETYPE_FLY;
-	bubble_spawner.velocity_z = self.velocity_z * (1/3);
-          bubble_spawner.velocity_x = self.velocity_x * (1/3);
-          bubble_spawner.velocity_y = self.velocity_y * (1/3);
-	bubble_spawner.solid = 0;
           bubble_spawner.effects                  = EF_MAYBE_DRAW;
 	bubble_spawner.nextthink	= time + 0.05;
 	bubble_spawner.think		= DeathBubblesSpawn;
 	bubble_spawner.owner		= self;
 	bubble_spawner.bubble_count	= num_bubbles;
 
-	setorigin (bubble_spawner, self.origin);
+	setorigin (bubble_spawner, world.absmax);
 };
 
 void ()

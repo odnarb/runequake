@@ -218,7 +218,12 @@ while (r)
             
             if (r.classname == "bubble")
             {
-            if (r.pco < -2 && r.pcn == -1)
+             if (r.pcn == -2)
+             {
+             r.think = SUB_Remove;
+              r.nextthink = time + frametime;
+             }
+            else if (r.pco < -2 && r.pcn == -1)
             {
              if (r.pco == CONTENT_WATER)
 	SUB_Drip(r.origin + ' 0 0 16',WATERCOLOR);
