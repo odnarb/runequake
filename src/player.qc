@@ -326,7 +326,7 @@ PainSound =
 		s = "player/teledth1.wav";
 	else if (dt == "drown")
 	{
-		DeathBubbles ((time - self.air_finished));
+		DeathBubbles ((time - self.air_finished) - 1);
 		s = random_string2 ("player/drown1.wav", "player/drown2.wav");
 		chan = CHAN_AUTO;
 	}
@@ -484,17 +484,16 @@ DeathBubblesSpawn =
 	setorigin (bubble, self.owner.origin + '0 0 24');
 	setsize (bubble, '-8 -8 -8', '8 8 8');
 
-	self.nextthink		= time + sys_ticrate;
-	self.think		= DeathBubblesSpawn;
-	self.air_finished	= self.air_finished + 1;
-
-	if (self.air_finished >= self.bubble_count)
-		remove (self);
+          self.bubble_count = self.bubble_count - 1;
+	if (self.bubble_count < 1)
+	remove (self);
+	else self.nextthink = time + 0.1;
 };
 
 void (float num_bubbles)
 DeathBubbles =
 {
+          if (num_bubbles < 1) return;
 	local entity bubble_spawner;
 
 	bubble_spawner			= spawn ();
