@@ -452,8 +452,8 @@ player_pain =
 
 	if (self.weapon & WEAPON_NONALT_MASK == IT_AXE)
 		player_axpain1 ();
-//          if (self.waterlevel > 2 && self.watertype != -5 && self.air_finished < time || self.damage_type == "gas")
-  //                  player_choke ();
+          if (self.waterlevel > 2 && self.watertype != -5 && self.air_finished < time || self.damage_type == "gas")
+                    player_choke ();
 	else
 		player_pain1 ();
 };
@@ -470,9 +470,9 @@ DeathBubblesSpawn =
 	}
 
 	bubble			= spawn ();
-	bubble.movetype		= MOVETYPE_NOCLIP;
+	bubble.movetype		= MOVETYPE_FLY;
 	bubble.solid		= SOLID_NOT;
-	bubble.velocity		= '0 0 15';
+	bubble.velocity_z		= 15;
 	bubble.nextthink	= time + 0.5;
 	bubble.think		= bubble_bob;
 	bubble.classname	= "bubble";
@@ -497,6 +497,7 @@ DeathBubbles =
 	local entity bubble_spawner;
 
 	bubble_spawner			= spawn ();
+          bubble_spawner.classname = "bubble_spawner";
           bubble_spawner.effects                  = EF_MAYBE_DRAW;
 	bubble_spawner.nextthink	= time + 0.05;
 	bubble_spawner.think		= DeathBubblesSpawn;
