@@ -452,8 +452,8 @@ player_pain =
 
 	if (self.weapon & WEAPON_NONALT_MASK == IT_AXE)
 		player_axpain1 ();
-          if (self.waterlevel > 2 && self.watertype != -5 && self.air_finished < time || self.damage_type == "gas")
-                    player_choke ();
+//          if (self.waterlevel > 2 && self.watertype != -5 && self.air_finished < time || self.damage_type == "gas")
+  //                  player_choke ();
 	else
 		player_pain1 ();
 };
@@ -482,7 +482,7 @@ DeathBubblesSpawn =
 
 	setmodel (bubble, "progs/s_bubble.spr");
 	setorigin (bubble, self.owner.origin + '0 0 24');
-	setsize (bubble, '-8 -8 -8', '8 8 8');
+
 
           self.bubble_count = self.bubble_count - 1;
 	if (self.bubble_count < 0)
