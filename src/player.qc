@@ -508,7 +508,7 @@ DeathBubbles =
 
 	setorigin (self.bubbler, world.absmax);
           }
-          else self.bubbler.bubble_count	= num_bubbles + self.bubbler.bubble_count;
+          else self.bubbler.bubble_count	= num_bubbles;
 };
 
 void ()
