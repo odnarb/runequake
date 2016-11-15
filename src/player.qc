@@ -472,7 +472,7 @@ DeathBubblesSpawn =
 	bubble			= spawn ();
 	bubble.movetype		= MOVETYPE_FLY;
 	bubble.solid		= SOLID_NOT;
-	bubble.velocity_z		= 15;
+	bubble.velocity		= '0 0 15';
 	bubble.nextthink	= time + 0.5;
 	bubble.think		= bubble_bob;
 	bubble.classname	= "bubble";
@@ -482,7 +482,7 @@ DeathBubblesSpawn =
 
 	setmodel (bubble, "progs/s_bubble.spr");
 	setorigin (bubble, self.owner.origin + '0 0 24');
-
+          setsize (bubble, '-4 -4 -4', '4 4 4');
 
           self.bubble_count = self.bubble_count - 1;
 	if (self.bubble_count < 0)

@@ -406,7 +406,7 @@ bubble_split =
 
 	setmodel (e, "progs/s_bubble.spr");
 	setorigin (e, self.origin);
-
+          setsize (e, '-4 -4 -4', '4 4 4');
 	self.frame	= 1;
 	self.cnt	= 10;
 
