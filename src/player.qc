@@ -326,7 +326,7 @@ PainSound =
 		s = "player/teledth1.wav";
 	else if (dt == "drown")
 	{
-		DeathBubbles ((time - self.air_finished) - 1);
+		DeathBubbles (1);
 		s = random_string2 ("player/drown1.wav", "player/drown2.wav");
 		chan = CHAN_AUTO;
 	}
