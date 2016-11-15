@@ -607,6 +607,7 @@ ThrowGib =
 	new.nextthink	= time + 10 + random ()*10;
 	new.frame	= 0;
 	new.flags	= 0;
+          if (framecount & 1) // Cobalt optimize lag mode a little
 	new.effects	= EF_MAYBE_DRAW;
 };
 

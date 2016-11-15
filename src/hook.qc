@@ -204,6 +204,7 @@ CreateChain =
 		link.weapon = linknum / num;
 		link.movetype = MOVETYPE_NOCLIP;
 		link.solid = SOLID_NOT;
+                    if (linknum & 1) // Cobalt optimize every other link as no draw
 		link.effects = EF_MAYBE_DRAW;
 		setmodel (link, "progs/s_spike.mdl");
 		setsize (link, VEC_ORIGIN, VEC_ORIGIN);
