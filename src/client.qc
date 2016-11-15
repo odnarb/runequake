@@ -1297,7 +1297,7 @@ info_player_deathmatch =
           precache_model ("progs/invulner.mdl");
          setmodel (self,"progs/invulner.mdl");
           //self.effects = EF_MAYBE_DRAW;
-          
+          setmodel (self, string_null);
           self.think = SUB_Makestatic;
           self.nextthink = time + 1;
 
