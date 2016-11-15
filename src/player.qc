@@ -463,7 +463,7 @@ DeathBubblesSpawn =
 {
 	local entity bubble;
 
-	if (self.owner.waterlevel != 3)
+	if (self.owner.waterlevel != 3 || (time > self.ltime && self.bubble_count < 1))
 	{
                     self.owner.bubbler = world;
 		remove (self);
@@ -505,7 +505,7 @@ DeathBubbles =
 	self.bubbler.think		= DeathBubblesSpawn;
 	self.bubbler.owner		= self;
 	self.bubbler.bubble_count	= num_bubbles;
-
+          self.bubbler.ltime = time + 6;
 	setorigin (self.bubbler, world.absmax);
           }
           else self.bubbler.bubble_count	= num_bubbles;
