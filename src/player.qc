@@ -438,6 +438,7 @@ void () player_choke =
 void ()
 player_pain =
 {
+          if (self.pain_finished > time) return;
 	if (self.weaponframe)
 	{
 		PainSound ();
@@ -550,8 +551,8 @@ PlayerDead =
           
           if (self.bubbler != world)
           {
-                    self.bubbler = world;
-		remove (self.bubbler);
+                    self.bubbler.think = SUB_Remove;
+		self.bubbler.think = time;
           }
           
 };

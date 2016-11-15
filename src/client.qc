@@ -1056,7 +1056,7 @@ PutClientInServer =
 	self.head_chain = world;
 	self.movetarget = world;
 
-
+         self.bubbler = world; // Cobalt for creating bubles
 	// Prevent damage when you join the game as an observer
 	// in lava or slime.
 	self.waterlevel = 0;
