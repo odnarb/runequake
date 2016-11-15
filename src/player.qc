@@ -470,6 +470,7 @@ DeathBubblesSpawn =
 		return;
 	}
           self.bubble_count = self.bubble_count - 1;
+           self.nextthink = time + 0.075;
           if (self.bubble_count < 0) return;
 	bubble			= spawn ();
 	bubble.movetype		= MOVETYPE_FLY;
@@ -487,7 +488,7 @@ DeathBubblesSpawn =
 
           
 
-          self.nextthink = time + 0.075;
+         
 };
 
 void (float num_bubbles)
@@ -495,7 +496,7 @@ DeathBubbles =
 {
           if (num_bubbles < 1) return;
           
-          if (!(self.bubbler))
+          if ((!(self.bubbler)) || self.bubbler == world)
           {
 	self.bubbler			= spawn ();
           self.bubbler.classname = "bubbler";
@@ -547,9 +548,9 @@ PlayerDead =
 	// allow respawn after a certain time
 	self.deadflag = DEAD_DEAD;
           
-          if (self.bubbler)
+          if (self.bubbler != world)
           {
-          self.bubbler = world;
+                    self.bubbler = world;
 		remove (self.bubbler);
           }
           
