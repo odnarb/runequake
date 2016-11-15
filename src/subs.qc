@@ -644,3 +644,8 @@ void(vector v, float f1) SUB_Drip =
         particle(v+v_right*random()*-10, '0 0 -1', f1, 3);
 	 
 };
+
+void () SUB_Makestatic =
+{
+	   makestatic (self);	
+};

@@ -1296,7 +1296,10 @@ info_player_deathmatch =
 		remove (self);
           precache_model ("progs/invulner.mdl");
          setmodel (self,"progs/invulner.mdl");
-          self.effects = EF_MAYBE_DRAW;
+          //self.effects = EF_MAYBE_DRAW;
+          
+          self.think = SUB_Makestatic;
+          self.nextthink = time + 1;
 
 };
 
