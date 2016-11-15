@@ -1294,8 +1294,7 @@ info_player_deathmatch =
 	// and causes the player to pop up where she died.
 	if (world.model == "maps/e3m7.bsp" && self.origin == '-720 528 24')
 		remove (self);
-          precache_model ("progs/invulner.mdl");
-         setmodel (self,"progs/invulner.mdl");
+
           self.effects = EF_MAYBE_DRAW;
 
 };
