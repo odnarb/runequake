@@ -326,7 +326,7 @@ PainSound =
 		s = "player/teledth1.wav";
 	else if (dt == "drown")
 	{
-		DeathBubbles (1);
+		DeathBubbles (time - self.air_finished);
 		s = random_string2 ("player/drown1.wav", "player/drown2.wav");
 		chan = CHAN_AUTO;
 	}
@@ -465,10 +465,12 @@ DeathBubblesSpawn =
 
 	if (self.owner.waterlevel != 3)
 	{
+                    self.owner.bubbler = world;
 		remove (self);
 		return;
 	}
-
+          self.bubble_count = self.bubble_count - 1;
+          if (self.bubble_count < 0) return;
 	bubble			= spawn ();
 	bubble.movetype		= MOVETYPE_FLY;
 	bubble.solid		= SOLID_NOT;
@@ -476,35 +478,36 @@ DeathBubblesSpawn =
 	bubble.nextthink	= time + 0.5;
 	bubble.think		= bubble_bob;
 	bubble.classname	= "bubble";
-	bubble.frame		= 0;
-	bubble.cnt		= 0;
+	bubble.frame		= bubble.cnt = 0;
 	bubble.effects		= EF_MAYBE_DRAW;
 
 	setmodel (bubble, "progs/s_bubble.spr");
 	setorigin (bubble, self.owner.origin + '0 0 24');
           setsize (bubble, '-4 -4 -4', '4 4 4');
 
-          self.bubble_count = self.bubble_count - 1;
-	if (self.bubble_count < 0)
-	remove (self);
-	else self.nextthink = time + frametime;
+          
+
+          self.nextthink = time + 0.075;
 };
 
 void (float num_bubbles)
 DeathBubbles =
 {
           if (num_bubbles < 1) return;
-	local entity bubble_spawner;
+          
+          if (!(self.bubbler))
+          {
+	self.bubbler			= spawn ();
+          self.bubbler.classname = "bubbler";
+          self.bubbler.effects                  = EF_MAYBE_DRAW;
+	self.bubbler.nextthink	= time;
+	self.bubbler.think		= DeathBubblesSpawn;
+	self.bubbler.owner		= self;
+	self.bubbler.bubble_count	= num_bubbles;
 
-	bubble_spawner			= spawn ();
-          bubble_spawner.classname = "bubble_spawner";
-          //bubble_spawner.effects                  = EF_MAYBE_DRAW;
-	bubble_spawner.nextthink	= time + 0.05;
-	bubble_spawner.think		= DeathBubblesSpawn;
-	bubble_spawner.owner		= self;
-	bubble_spawner.bubble_count	= num_bubbles;
-
-	setorigin (bubble_spawner, world.absmax);
+	setorigin (self.bubbler, world.absmax);
+          }
+          else self.bubbler.bubble_count	= num_bubbles + self.bubbler.bubble_count;
 };
 
 void ()
@@ -543,6 +546,13 @@ PlayerDead =
 	self.nextthink = -1;
 	// allow respawn after a certain time
 	self.deadflag = DEAD_DEAD;
+          
+          if (self.bubbler)
+          {
+          self.bubbler = world;
+		remove (self.bubbler);
+          }
+          
 };
 
 vector (float dm)

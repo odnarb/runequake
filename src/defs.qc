@@ -1725,6 +1725,7 @@ float PLAYERS, MAX_CLIENTS; // Cobalt  - track max players and active clients
 void (float force) ToggleClientChat; // For management of client chat bubble
 void () gmissile_repulse; // Guided missile with Repulse rune....
 .entity gmis;
+.entity bubbler;
 void (entity who) Killpowerups;
 .float ShamTmr; // Timer to stagger Sham loc calcs
 .float ShamDir; // holds which dir to do next test
