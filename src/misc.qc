@@ -403,7 +403,7 @@ bubble_split =
 	e.think		= bubble_bob;
 	e.frame		= 1;
 	e.cnt		= 10;
-	//e.effects	= EF_MAYBE_DRAW;
+	e.effects	= EF_MAYBE_DRAW;
 
 	setmodel (e, "progs/s_bubble.spr");
 	setorigin (e, self.origin);
