@@ -499,6 +499,7 @@ DeathBubbles =
 	bubble_spawner			= spawn ();
 	bubble_spawner.movetype		= MOVETYPE_NONE;
 	bubble_spawner.solid		= SOLID_NOT;
+          bubble_spawner.effects                  = EF_MAYBE_DRAW;
 	bubble_spawner.nextthink	= time + sys_ticrate;
 	bubble_spawner.think		= DeathBubblesSpawn;
 	bubble_spawner.air_finished	= 0;
