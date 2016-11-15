@@ -1567,13 +1567,13 @@ common_impulses =
 		{
 			self.rqflags = self.rqflags - self.rqflags & RQ_LOW_BANDWIDTH_CLIENT;
 			self.flags = self.flags - self.flags & FL_LOW_BANDWIDTH_CLIENT;
-			sprint (self, "gibs and hook links enabled\n");
+			sprint (self, "bubbles,gibs,hook links and other low priority edicts enabled\n");
 		}
 		else
 		{
 			self.rqflags = self.rqflags | RQ_LOW_BANDWIDTH_CLIENT;
 			self.flags = self.flags | FL_LOW_BANDWIDTH_CLIENT;
-			sprint (self, "gibs and hook links disabled\n");
+			sprint (self, "bubbles,gibs,hook links and other low priority edicts disabled\n");
 		}
 	}
 
