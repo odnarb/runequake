@@ -1545,7 +1545,7 @@ commands =
 	self_sprint (self, "\bremove-frags\b  reset frags to zero\n");
 	self_sprint (self, "\b+hook\b         use hook\n");
 	self_sprint (self, "\bquiet-toggle\b  mute many game messages\n");
-          self_sprint (self, "\blag\b         Optimize\Reduce Server to Client packet size\n");
+          self_sprint (self, "\blag\b           optimize server to client packet size\n");
 	self_sprint (self, "\bbind-keys\b     bind default keys\n");
 	// self_sprint (self, "\n");
 
