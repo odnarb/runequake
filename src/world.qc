@@ -223,8 +223,11 @@ while (r)
              if (r.pco == CONTENT_WATER)
 	SUB_Drip(r.origin + ' 0 0 16',WATERCOLOR);
 	else if (r.pco == CONTENT_SLIME)
-	SUB_Drip(r.origin + ' 0 0 16',SLIMECOLOR);    
-          sound (r, CHAN_AUTO, "ambience/drip1.wav", 0.5, ATTN_IDLE);
+	SUB_Drip(r.origin + ' 0 0 16',SLIMECOLOR);
+          local float db;
+          db = random ();
+          if (db == 0) db = 0.5;
+          sound (r, CHAN_AUTO, "wizard/hit.wav", db, ATTN_IDLE);
               r.think = SUB_Remove;
               r.nextthink = time + frametime;
             }
