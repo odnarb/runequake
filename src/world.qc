@@ -90,6 +90,7 @@ while (r)
           if (pointcontents (r.origin) != r.pco)
             r.pcn = pointcontents (r.origin); 
   
+        
            if (r.pcn != -1)
            r.Ldepth = WlevelEnt (r);
           if (r.flags & FL_CLIENT)
@@ -238,6 +239,12 @@ while (r)
             }
             
             }
+            else if (!(r.effects & EF_MAYBE_DRAW))
+          {
+           if (r.solid < 2 && (!(r.flags & FL_ITEM)))
+                     r.effects = r.effects | EF_MAYBE_DRAW;
+                    
+          }
           
           
           r.pco = r.pcn;
