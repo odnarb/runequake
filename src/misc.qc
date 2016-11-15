@@ -398,6 +398,7 @@ bubble_split =
 	e.movetype	= MOVETYPE_FLYMISSILE;
 	e.solid		= SOLID_NOT;
 	e.velocity	= self.velocity;
+          e.classname = self.classname;
 	e.nextthink	= time + 0.5;
 	e.think		= bubble_bob;
 	e.frame		= 1;
@@ -410,8 +411,6 @@ bubble_split =
 	self.frame	= 1;
 	self.cnt	= 10;
 
-	if (self.waterlevel != 3)
-		remove (self);
 };
 
 
