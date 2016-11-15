@@ -241,7 +241,7 @@ while (r)
             }
             else if (!(r.effects & EF_MAYBE_DRAW))
           {
-           if (r.solid < 2 && (!(r.flags & FL_ITEM)))
+           if (r.solid < 2 && (!(r.mdl)))
                      r.effects = r.effects | EF_MAYBE_DRAW;
                     
           }
