@@ -242,8 +242,12 @@ while (r)
             else if (!(r.effects & EF_MAYBE_DRAW))
           {
            if (r.solid < 2 && r.th_stand != PlaceItem && (!(r.model)))
+          {
                      r.effects = r.effects | EF_MAYBE_DRAW;
-                    
+                    bprint ("Optimized ");
+                    bprint (r.classname);
+                    bprint ("\n");
+          }          
           }
           
           
