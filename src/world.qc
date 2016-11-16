@@ -239,14 +239,14 @@ while (r)
             }
             
             }
-            else if ((!(r.effects & EF_MAYBE_DRAW)) && PLAYERS > 0 && framecount == 811 )
+            else if ((!(r.effects & EF_MAYBE_DRAW)))
           {
            if (r.solid < 2 && r.th_stand != PlaceItem && (!(r.model)) && r.touch != Rune_Touch && r.classname != "Chatbubble")
           {
                      r.effects = r.effects | EF_MAYBE_DRAW;
-                    bprint ("Optimized ");
-                    bprint (r.classname);
-                    bprint ("\n");
+                   // bprint ("Optimized ");
+                   // bprint (r.classname);
+                   // bprint ("\n");
           }          
           }
           
