@@ -1302,7 +1302,7 @@ pad.effects = self.effects;
 pad.model = "maps/b_batt1.bsp";
 setmodel (pad, pad.model);
 setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
-setorigin (pad, self.absmax - '0 0 75');
+setorigin (pad, self.absmin - '0 0 80');
 setorigin (self, self.origin + '0 0 5');
 	makestatic (pad);
 
