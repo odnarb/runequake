@@ -1284,31 +1284,6 @@ testplayerstart =
 {
 };
 
-void () Telepad =
-{
-local entity pad;
-
-	traceline (self.origin, self.origin - '0 0 25',FALSE, self);
-          if (trace_fraction == 1) //  in open air
-	return;
-precache_model ("maps/b_batt1.bsp");
-pad =spawn ();
-
-pad.classname = "telepad";
-pad.movetype =MOVETYPE_PUSH;
-pad.solid = SOLID_BSP;
-pad.angles_z = 180;
-pad.effects = self.effects;
-pad.model = "maps/b_batt1.bsp";
-setmodel (pad, pad.model);
-setorigin (pad, trace_endpos - '8 8 22');
-setorigin (self, self.origin + '0 0 5');
-	makestatic (pad);
-
-
-
-};
-
 /*QUAKED info_player_deathmatch (1 0 1) (-16 -16 -24) (16 16 24)
 potential spawning position for deathmatch games
 */
@@ -1327,9 +1302,6 @@ info_player_deathmatch =
          //setmodel (self,"progs/invulner.mdl");
           self.effects = EF_MAYBE_DRAW;
 
-          if (world.worldtype == 2)
-          Telepad ();
-          
 
 };
 
