@@ -1297,7 +1297,7 @@ pad =spawn ();
 pad.classname = "telepad";
 pad.movetype =MOVETYPE_PUSH;
 pad.solid = SOLID_BSP;
-pad.angles = self.angles;
+pad.angles_z = 180;
 pad.effects = self.effects;
 pad.model = "maps/b_batt1.bsp";
 setmodel (pad, pad.model);
