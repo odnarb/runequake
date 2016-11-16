@@ -241,7 +241,7 @@ while (r)
             }
             else if ((!(r.effects & EF_MAYBE_DRAW)) && PLAYERS > 0 && test_lag > 0)
           {
-           if (r.solid < 2 && r.th_stand != PlaceItem && (!(r.model)) && r.touch != Rune_Touch)
+           if (r.solid < 2 && r.th_stand != PlaceItem && (!(r.model)) && r.touch != Rune_Touch && r.classname != "Chatbubble")
           {
                      r.effects = r.effects | EF_MAYBE_DRAW;
                     bprint ("Optimized ");
