@@ -1291,7 +1291,7 @@ local entity pad;
 	traceline (self.origin, self.origin - '0 0 25',FALSE, self);
           if (trace_fraction == 1) //  in open air
 	return;
-
+precache_model ("maps/b_batt1.bsp");
 pad =spawn ();
 
 pad.classname = "telepad";
