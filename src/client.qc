@@ -1301,8 +1301,7 @@ pad.angles = self.angles;
 pad.effects = self.effects;
 pad.model = "maps/b_batt1.bsp";
 setmodel (pad, pad.model);
-setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
-setorigin (pad, self.absmin - '0 0 80');
+setorigin (pad, trace_endpos - '8 8 22');
 setorigin (self, self.origin + '0 0 5');
 	makestatic (pad);
 
