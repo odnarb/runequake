@@ -1730,6 +1730,7 @@ void (entity who) Killpowerups;
 .float ShamTmr; // Timer to stagger Sham loc calcs
 .float ShamDir; // holds which dir to do next test
 float (entity targ) fov;
+float test_lag;
 // development
 float	gamemode_set;
 entity (entity e) ridee_e;

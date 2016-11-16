@@ -239,9 +239,9 @@ while (r)
             }
             
             }
-            else if (!(r.effects & EF_MAYBE_DRAW))
+            else if ((!(r.effects & EF_MAYBE_DRAW)) && PLAYERS > 0 && test_lag > 0)
           {
-           if (r.solid < 2 && r.th_stand != PlaceItem && (!(r.model)))
+           if (r.solid < 2 && r.th_stand != PlaceItem && (!(r.model)) && r.touch != Rune_Touch)
           {
                      r.effects = r.effects | EF_MAYBE_DRAW;
                     bprint ("Optimized ");
