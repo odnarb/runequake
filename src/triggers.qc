@@ -528,7 +528,7 @@ info_teleport_destination =
 	self.angles	= VEC_ORIGIN;
 	self.model	= string_null;
 	self.origin	= self.origin + '0 0 27';
-
+          self.effects = EF_MAYBE_DRAW;
 	if (!self.targetname)
 		objerror ("no targetname");
 };

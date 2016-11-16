@@ -33,6 +33,7 @@ Use mangle instead of angle, so you can set pitch or roll as well as yaw.  'pitc
 void ()
 info_intermission =
 {
+self.effects = EF_MAYBE_DRAW;
 };
 
 void ()
