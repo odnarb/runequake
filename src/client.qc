@@ -1301,8 +1301,8 @@ pad.angles = self.angles;
 
 pad.model = "maps/b_batt1.bsp";
 setmodel (pad, pad.model);
-setorigin (pad, trace_endpos - '0 0 12');
-
+setorigin (pad, trace_endpos - '-16 -16 24');
+setorigin (self, self.origin - '0 0 5');
 	
 
 
