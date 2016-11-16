@@ -1298,11 +1298,11 @@ pad.classname = "telepad";
 pad.movetype =MOVETYPE_PUSH;
 pad.solid = SOLID_BSP;
 pad.angles = self.angles;
-pad.effects = EF_FROZEN;
+pad.effects = self.effects;
 pad.model = "maps/b_batt1.bsp";
 setmodel (pad, pad.model);
 setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
-setorigin (pad, self.absmin);
+setorigin (pad, self.absmax - '0 0 75');
 setorigin (self, self.origin + '0 0 5');
 	makestatic (pad);
 
