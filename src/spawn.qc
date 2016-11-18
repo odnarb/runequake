@@ -281,7 +281,8 @@ place_my_items =
 		spawn_item ("item_artifact_invisibility", 0, '-863 1501 -488', 0);
                     // New spawn
 		spawn_info_player_deathmatch ('216 1488 24', 270);
-                    
+                    // extra intermission
+                    spawn_info_intermission ('1221 291 -128', '-90 0 0');
                     
 	}
 	else if (mapname == "e1m7")
