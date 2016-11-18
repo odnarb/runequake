@@ -1158,7 +1158,7 @@ float	PQC_PING_TIMES			= 7;
 float	movedist;
 float	gameover;		// set when a rule exits
 
-string	string_null = "string_NULL\n";		// null string, nothing should be held here
+string	string_null;		// null string, nothing should be held here
 float	empty_float;
 
 IN_POQ([-
