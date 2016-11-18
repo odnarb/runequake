@@ -383,6 +383,7 @@ place_my_items =
                     // New spawns
 		spawn_info_player_deathmatch ('1825 375 24', 180);
                     spawn_info_player_deathmatch ('1830 630 24', 180);
+                    spawn_info_player_deathmatch ('360 -970 -232', 135);
 	}
           else if (mapname == "e3m3")
 	{
