@@ -380,6 +380,9 @@ place_my_items =
                     spawn_item ("item_superhealth", 0, '412 -1535 -56', 0);
                     // Invis above hallway 
                     spawn_item ("item_artifact_invisibility", 0, '517 -242 -40', 0);
+                    // New spawns
+		spawn_info_player_deathmatch ('1825 375 24', 180);
+                    spawn_info_player_deathmatch ('1830 630 24', 180);
 	}
           else if (mapname == "e3m3")
 	{
