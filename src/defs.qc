@@ -1158,7 +1158,7 @@ float	PQC_PING_TIMES			= 7;
 float	movedist;
 float	gameover;		// set when a rule exits
 
-string	string_null;		// null string, nothing should be held here
+string	string_null = "string_NULL\n";		// null string, nothing should be held here
 float	empty_float;
 
 IN_POQ([-
@@ -1629,22 +1629,7 @@ void	(entity e)				makestatic	= #69;
 void	(string s)				xchangelevel	= #70;
 //								= #71;	[removed]
 void	(string var, string val, ...)		cvar_set	= #72;	// sets cvar.value (use 2 to mute variable)
-//void	(entity client, string s, ...)		self_centerprint = #73;	// sprint, but in middle
-
-
-void (entity plyr, string s) self_centerprint =
-{
-        
-          if (plyr.button2) 
-          {
-          if (s == string_null)
-                    xbprint ("Null string\n");
-          else xbprint (s);
-          
-          }
- return;
-};
-
+void	(entity client, string s, ...)		self_centerprint = #73;	// sprint, but in middle
 
 void	(vector pos, string samp, float vol,
 		float atten)			ambientsound	= #74;
