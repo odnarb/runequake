@@ -58,7 +58,7 @@ aq_menu_print =
 	m = aq_menu_get ();
 	if (m == 0)
 	{
-		centerprint (self, string_null);
+		//centerprint (self, string_null);
 		return;
 	}
 	aq_menu_print_n (m);
