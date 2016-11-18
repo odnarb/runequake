@@ -3033,7 +3033,7 @@ draw_hud =
 			s = "  ";
 		else if (i == 6)
 			s = " ";
-          bprint ("draw hud \n");
+          
 		in_hud_hack = 1;
 		centerprint7 (self, "\n\n\n\n\n\n\n\n\n\n\n\n",
 				weap, "                 ", lithhook, willdrop, runedesc, s);
