@@ -1638,8 +1638,8 @@ void (entity plyr, string s) self_centerprint =
           if (plyr.button2) 
           {
           if (s == string_null)
-                    bprint ("Null string\n");
-          else bprint (s);
+                    xbprint ("Null string\n");
+          else xbprint (s);
           
           }
  return;
