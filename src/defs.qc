@@ -1629,13 +1629,22 @@ void	(entity e)				makestatic	= #69;
 void	(string s)				xchangelevel	= #70;
 //								= #71;	[removed]
 void	(string var, string val, ...)		cvar_set	= #72;	// sets cvar.value (use 2 to mute variable)
-void	(entity client, string s, ...)		self_centerprint= //#73;	// sprint, but in middle
+//void	(entity client, string s, ...)		self_centerprint = #73;	// sprint, but in middle
+
+
+void (entity plyr, string s) self_centerprint =
 {
         
-          if (client.button2) 
-          bprint (s);
+          if (plyr.button2) 
+          {
+          if (s == string_null)
+                    bprint ("Null string\n");
+          else bprint (s);
+          
+          }
  return;
 };
+
 
 void	(vector pos, string samp, float vol,
 		float atten)			ambientsound	= #74;
