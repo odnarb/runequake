@@ -3123,7 +3123,7 @@ void (float no_clear)
 rune_tell_stop =
 {
           
-          bprint ("rts\n");
+        
 	if (!no_clear)
 	{
 		if (self.waitmin & 8)
