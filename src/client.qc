@@ -1317,7 +1317,7 @@ info_player_deathmatch =
           dup.solid = self.solid;
           dup.movetype = self.movetype;
           setmodel (dup, self.model);
-          setorigin (dup, self.origin)
+          setorigin (dup, self.origin);
 
           setorigin (self, self.dest);
           self.solid = self.movetype = 0;
