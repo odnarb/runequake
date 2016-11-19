@@ -1312,7 +1312,7 @@ info_player_deathmatch =
           pad.movetype = world.movetype;
           setmodel (pad, "*16");
           setorigin (pad, self.origin - '0 0 24');
-          pad.angles = trace_plane_normal;
+          pad.angles = vectoangles (self.origin);
           makestatic (pad);
           }
           
