@@ -1304,16 +1304,26 @@ info_player_deathmatch =
 
             if (mapname == "e1m7")
           {
-          traceline (self.origin , self.origin - '0 0 64', 0, self);
-          local entity pad;
-          pad = spawn ();
-          pad.classname = "telepad";
-          pad.solid = world.solid;
-          pad.movetype = world.movetype;
-          setmodel (pad, "*16");
-          setorigin (pad, self.origin - '0 0 24');
-          pad.angles = vectoangles (self.origin);
-          makestatic (pad);
+          self.dest = self.origin;
+
+          self.solid = world.solid;
+          self.movetype = world.movetype;
+          setmodel (self, "*16");
+          droptofloor ();
+           local entity dup;
+          dup = spawn ();
+          dup.angles = '0 0 0';
+          dup.classname = "telepad";
+          dup.solid = self.solid;
+          dup.movetype = self.movetype;
+          setmodel (dup, self.model);
+          dup.origin = self.origin;
+
+          setorigin (self, self.dest);
+          self.solid = self.movetype = 0;
+          setmodel (self, string_null);
+          
+          makestatic (dup);
           }
           
 
