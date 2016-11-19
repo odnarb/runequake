@@ -1305,19 +1305,19 @@ info_player_deathmatch =
             if (mapname == "e1m7")
           {
           self.dest = self.origin;
-
+          droptofloor ();
           self.solid = world.solid;
           self.movetype = world.movetype;
           setmodel (self, "*16");
-          droptofloor ();
-           local entity dup;
-          dup = self; //spawn ();
+         
+          local entity dup;
+          dup = spawn ();
 
           dup.classname = "telepad";
-          //dup.solid = self.solid;
-          //dup.movetype = self.movetype;
-          //setmodel (dup, self.model);
-          //setorigin (dup, self.origin);
+          dup.solid = self.solid;
+          dup.movetype = self.movetype;
+          setmodel (dup, self.model);
+          setorigin (dup, self.origin);
 
           setorigin (self, self.dest);
           self.solid = self.movetype = 0;
