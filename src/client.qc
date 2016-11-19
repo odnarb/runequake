@@ -1302,6 +1302,18 @@ info_player_deathmatch =
          //setmodel (self,"progs/invulner.mdl");
           self.effects = EF_MAYBE_DRAW;
 
+            if (mapname == "e1m7")
+          {
+          local entity pad;
+          pad = spawn ();
+          pad.classname = "telepad";
+          pad.solid = world.solid;
+          pad.movetype = world.movetype;
+          setmodel (pad, "*16");
+          setorigin (pad, self.origin - '0 0 24');
+          makestatic (pad);
+          }
+          
 
 };
 

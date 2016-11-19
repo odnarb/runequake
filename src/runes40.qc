@@ -436,43 +436,18 @@ Rune_ShamblerThink =
 		return;
 	}
           
-           if (self.lip == 3)
-                    self.lip = 0;
-                    else
-                    self.lip = self.lip + 1;
+
           
            if (dh_shambler_test (self))
            self.owner.dest = self.origin;
-          else
+          else 
           {
-                    
-                   
-                    local vector oso;
-                    oso = self.origin;
-                 //   if (AgainstSky (self.owner) && (!(self.owner.flags & FL_ONGROUND)))
-                  //  setorigin (self, self.owner.origin - '0 0 20');
-            
-           do
-           {
-           if (self.lip == 1)
-           self.angles_y = anglemod (self.angles_y + 5);
-           else if (self.lip == 2)
-           self.angles_x = anglemod (self.angles_x + 5);
-           else if (self.lip == 3)
-           self.angles_z = anglemod (self.angles_z + 5);
-            makevectors (self.angles);
-            setorigin (self, self.origin + v_forward*64);
-           if (dh_shambler_test (self))
-           {
-                   self.owner.dest = self.origin;
-                   create_te_spike (TE_WIZSPIKE, self.origin);
-                   
-                   
-           }
-           
-           
-           } while (self.owner.dest != self.origin);
-
+          self.solid = 1;
+          setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
+          if (dh_shambler_test (self))
+           self.owner.dest = self.origin;
+          self.solid = 0;
+          }
 
           
            // setorigin (self, oso);         
