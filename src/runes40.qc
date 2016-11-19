@@ -452,7 +452,7 @@ Rune_ShamblerThink =
           
            // setorigin (self, oso);         
                      
-           }                              
+                                         
                     
                     
           
