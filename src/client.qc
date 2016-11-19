@@ -1304,6 +1304,7 @@ info_player_deathmatch =
 
             if (mapname == "e1m7")
           {
+          traceline (self.origin , self.origin - '0 0 64', 0, self);
           local entity pad;
           pad = spawn ();
           pad.classname = "telepad";
@@ -1311,7 +1312,7 @@ info_player_deathmatch =
           pad.movetype = world.movetype;
           setmodel (pad, "*16");
           setorigin (pad, self.origin - '0 0 24');
-          pad.angles = '90 0 0';
+          pad.angles = trace_plane_normal;
           makestatic (pad);
           }
           
