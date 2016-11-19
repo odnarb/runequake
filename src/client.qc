@@ -1311,13 +1311,13 @@ info_player_deathmatch =
           setmodel (self, "*16");
           droptofloor ();
            local entity dup;
-          dup = spawn ();
-          dup.angles = '0 0 90';
+          dup = self; //spawn ();
+
           dup.classname = "telepad";
-          dup.solid = self.solid;
-          dup.movetype = self.movetype;
-          setmodel (dup, self.model);
-          setorigin (dup, self.origin);
+          //dup.solid = self.solid;
+          //dup.movetype = self.movetype;
+          //setmodel (dup, self.model);
+          //setorigin (dup, self.origin);
 
           setorigin (self, self.dest);
           self.solid = self.movetype = 0;
