@@ -634,37 +634,38 @@ var float (float a, float b, float c, float d, float e, float f, float g, float 
 var float (float minimum, float val, float maximum) bound;
 var vector() randomvec;
 
-float(float val) ext_sin = #60;
-float(float val) ext_cos = #61;
-float(float val) ext_sqrt = #62;
-vector() ext_randomvec = #91;
-float(float a, float b) ext_min = #94;
-float(float a, float b, float c) ext_min3 = #94;
-float(float a, float b, float c, float d) ext_min4 = #94;
-float(float a, float b, float c, float d, float e) ext_min5 = #94;
-float(float a, float b, float c, float d, float e, float f) ext_min6 = #94;
-float(float a, float b, float c, float d, float e, float f, float g) ext_min7 = #94;
-float(float a, float b, float c, float d, float e, float f, float g, float h) ext_min8 = #94;
-float(float a, float b) ext_max = #95;
-float(float a, float b, float c) ext_max3 = #95;
-float(float a, float b, float c, float d) ext_max4 = #95;
-float(float a, float b, float c, float d, float e) ext_max5 = #95;
-float(float a, float b, float c, float d, float e, float f) ext_max6 = #95;
-float(float a, float b, float c, float d, float e, float f, float g) ext_max7 = #95;
-float(float a, float b, float c, float d, float e, float f, float g, float h) ext_max8 = #95;
-float(float minimum, float val, float maximum) ext_bound = #96;
-float(float a, float b) ext_pow = #97;
-float(float number, float quantity) ext_bitshift = #218;
+// by DarkHelmet: The qccx compiler will force include code the left of any # symbol, even when it's part of a slash-star comment block
+// but the per-line slash-slash comment overrides, so I'm slash-slash'ing out this whole section
+// It's a little bit of a pain, but it works.
 
-
-
+// float(float val) ext_sin = #60;
+// float(float val) ext_cos = #61;
+// float(float val) ext_sqrt = #62;
+// vector() ext_randomvec = #91;
+// float(float a, float b) ext_min = #94;
+// float(float a, float b, float c) ext_min3 = #94;
+// float(float a, float b, float c, float d) ext_min4 = #94;
+// float(float a, float b, float c, float d, float e) ext_min5 = #94;
+// float(float a, float b, float c, float d, float e, float f) ext_min6 = #94;
+// float(float a, float b, float c, float d, float e, float f, float g) ext_min7 = #94;
+// float(float a, float b, float c, float d, float e, float f, float g, float h) ext_min8 = #94;
+// float(float a, float b) ext_max = #95;
+// float(float a, float b, float c) ext_max3 = #95;
+// float(float a, float b, float c, float d) ext_max4 = #95;
+// float(float a, float b, float c, float d, float e) ext_max5 = #95;
+// float(float a, float b, float c, float d, float e, float f) ext_max6 = #95;
+// float(float a, float b, float c, float d, float e, float f, float g) ext_max7 = #95;
+// float(float a, float b, float c, float d, float e, float f, float g, float h) ext_max8 = #95;
+// float(float minimum, float val, float maximum) ext_bound = #96;
+// float(float a, float b) ext_pow = #97;
+// float(float number, float quantity) ext_bitshift = #218;
 
 // The engine sin/cos builtins use radians rather than degrees. This is less useful, so convert
-float(float val) wrap_sin = { return ext_sin(val*PiOverOneEighty); };
-float(float val) wrap_cos = { return ext_cos(val*PiOverOneEighty); };
+// float(float val) wrap_sin = { return ext_sin(val*PiOverOneEighty); };
+// float(float val) wrap_cos = { return ext_cos(val*PiOverOneEighty); };
 
 // this must be called in worldspawn before using any above functions
-void () MathlibCheckBuiltins =
+// void () MathlibCheckBuiltins =
 {
 	local float checkext;
 
