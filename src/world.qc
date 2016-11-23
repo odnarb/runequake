@@ -50,6 +50,17 @@ aut = "American McGee & Tim Willits";
 else if (mapname == "e4m2" || mapname == "e4m3" || mapname == "e4m5" || mapname == "e4m6" || mapname == "e4m7" || mapname == "e4m8")
 aut = "Sandy Petersen";  
 else return;
+
+local entity oself;
+oself = self;
+self = world;
+
+self.message = strcat (self.message, ". (by ");
+self.message = strcat (self.message, aut); 
+self.message = strcat (self.message, ")");  
+
+self = oself;
+
           
 };
 
