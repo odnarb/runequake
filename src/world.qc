@@ -64,7 +64,7 @@ self.message = strcat (wm, ")");
 
 void () world_touch =
 {
- 
+ return;
 if (!(framecount)) SetMapAuthor ();
           
 };
