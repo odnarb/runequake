@@ -303,7 +303,7 @@ worldspawn =
           
           
           
-          SetMapAuthor ();
+          
           //world.touch = world_touch;
           InternalInit ();
 	InitBodyQue ();
@@ -356,7 +356,7 @@ StartFrame =
 {
           sys_ticrate 	= frametime; // Cobalt - same as frametime cvar ("sys_ticrate");
           
-        
+        if (!(framecount)) SetMapAuthor ();
           framecount = framecount + 1; // Cobalt count number of frames
 	check_teamplay ();
 	check_console_command ();
