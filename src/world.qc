@@ -65,22 +65,7 @@ self.message = strcat (wm, ")");
 void () world_touch =
 {
  
- if (!(other.waterlevel))
-          {
-         //           bprint ("hits world ");
-         local vector s,e;
-           makevectors (other.velocity * -1);
-	s = other.origin;
-	v_forward_z = 0;
-	normalize (v_forward);
-	e = s + v_forward * 24;
-	traceline (s, e, TRUE, other);
-        
-          //local vector tempi;
-          bprint (vtos(trace_plane_normal)); bprint ("\n");
-          //tempi = vectoangles(trace_plane_normal);
-          //other.angles_x = tempi_x - 90;
-          } 
+if (!(framecount)) SetMapAuthor ();
           
 };
 
@@ -304,7 +289,7 @@ worldspawn =
           
           
           
-          //world.touch = world_touch;
+          world.touch = world_touch;
           InternalInit ();
 	InitBodyQue ();
 	rjs_worldspawn ();
@@ -356,7 +341,7 @@ StartFrame =
 {
           sys_ticrate 	= frametime; // Cobalt - same as frametime cvar ("sys_ticrate");
           
-        if (!(framecount)) SetMapAuthor ();
+        
           framecount = framecount + 1; // Cobalt count number of frames
 	check_teamplay ();
 	check_console_command ();
