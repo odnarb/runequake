@@ -38,7 +38,9 @@ World Types:
 */
 void () SetMapAuthor =
 {
-local string aut;
+local string aut,wm;
+aut = "";
+wm = world.message;
 if (mapname == "dm3" || mapname == "start" || mapname == "e1m1"|| mapname == "e2m1" || mapname == "e2m2" || mapname == "e2m3" || mapname == "e2m4" || mapname == "e2m5" || mapname == "e2m6" || mapname == "e3m1" || mapname == "end")
 aut = "John Romero";
 else if (mapname == "dm1" || mapname == "e1m2" || mapname == "e1m3" || mapname == "e1m4" || mapname == "e1m5" || mapname == "e2m7" || mapname == "e3m5" || mapname == "e4m1")
@@ -55,9 +57,9 @@ local entity oself;
 oself = self;
 self = world;
 
-self.message = strcat (self.message, ". (by ");
-self.message = strcat (self.message, aut); 
-self.message = strcat (self.message, ")");  
+self.message = strcat (wm, ". (by ");
+self.message = strcat (wm, aut); 
+self.message = strcat (wm, ")");  
 
 self = oself;
 
