@@ -53,15 +53,11 @@ else if (mapname == "e4m2" || mapname == "e4m3" || mapname == "e4m5" || mapname 
 aut = "Sandy Petersen";  
 else return;
 
-local entity oself;
-oself = self;
-self = world;
-
+self.message = string_null;
 self.message = strcat (wm, ". (by ");
 self.message = strcat (wm, aut); 
 self.message = strcat (wm, ")");  
 
-self = oself;
 
           
 };
