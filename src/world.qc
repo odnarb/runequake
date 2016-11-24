@@ -182,8 +182,7 @@ while (r)
            
            if ((r.classname == "gasbomb" && r.pcn < -2 && r.pcn != r.pco) || r.pcn == CONTENT_LAVA)
            {
-
-                      r.nextthink = time;
+                      r.nextthink = time + frametime;
            }
             else 
             {

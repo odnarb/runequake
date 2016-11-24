@@ -273,6 +273,7 @@ Gas_Cloud_Think =
 {
 	if (self.count < self.cnt)
 	{
+                    if (framecount & 1)
                     create_te_lavasplash (self.origin + '0 0 -50');
                     create_te_spike (TE_WIZSPIKE, self.origin);
                     if (self.count <= (self.cnt / 2))
@@ -301,15 +302,8 @@ Gas_Cloud =
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
           
-          
-          if (self.effects & 2)
+          if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY)
           {
-          cloud.movetype	= MOVETYPE_FLY;
-          cloud.velocity	= '0 0 64';
-          cloud.aflag = 1;
-          }
-          else if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY)
-                    {
           cloud.movetype	= MOVETYPE_FLY;
           cloud.velocity	= '0 0 64';
           cloud.aflag = 1;
