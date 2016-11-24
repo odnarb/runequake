@@ -301,9 +301,8 @@ Gas_Cloud =
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
           
-          cloud.aflag = self.aflag;
           
-          if (cloud.aflag)
+          if (self.movetype == 0)
           {
           cloud.movetype	= MOVETYPE_FLY;
           cloud.velocity	= '0 0 64';

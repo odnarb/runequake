@@ -183,7 +183,7 @@ while (r)
            if ((r.classname == "gasbomb" && r.pcn < -2 && r.pcn != r.pco) || r.pcn == CONTENT_LAVA)
            {
                       if (pointcontents (r.origin + '0 0 56') == CONTENT_EMPTY)
-                      r.aflag = 1;
+                      r.movetype = 0;
                       r.nextthink = time;
            }
             else 
