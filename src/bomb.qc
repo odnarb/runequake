@@ -273,6 +273,7 @@ Gas_Cloud_Think =
 {
 	if (self.count < self.cnt)
 	{
+                    create_te_lavasplash (self.origin + '0 0 -50');
                     create_te_spike (TE_WIZSPIKE, self.origin);
                     if (self.count <= (self.cnt / 2))
                     Gas_Cloud_Damage (4, 225 + (self.cnt * 1.5));
@@ -280,6 +281,9 @@ Gas_Cloud_Think =
                     Gas_Cloud_Damage (4, 225 - (self.cnt * 1.5));
                     self.count	= self.count + 1;
 		self.nextthink	= time + 0.1;
+                    
+                    if (self.aflag && (!(self.velocity_z)))
+                              self.think = SUB_Remove;
 	}
 	else
 		remove (self);
@@ -290,7 +294,7 @@ Gas_Cloud =
 {
 	local entity cloud;
 
-	create_te_lavasplash (self.origin + '0 0 -50');
+	
 	cloud		= spawn ();
 	cloud.solid	= SOLID_NOT;
           cloud.cnt	= -25 * (self.watertype);
