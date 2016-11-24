@@ -301,18 +301,18 @@ Gas_Cloud =
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
           
-          if (self.pcn < -2 && self.pcn != self.pco)
-          {
-          if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY)
-                    cloud.aflag = 1;
-          }
-          else if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY)
-                    cloud.aflag = 1;
+          cloud.aflag = self.aflag;
           
           if (cloud.aflag)
           {
           cloud.movetype	= MOVETYPE_FLY;
           cloud.velocity	= '0 0 64';
+          }
+          else if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY)
+                    {
+          cloud.movetype	= MOVETYPE_FLY;
+          cloud.velocity	= '0 0 64';
+          cloud.aflag = 1;
           }
           
           cloud.effects = EF_MAYBE_DRAW; // Cobalt, try to minimize net traffic
