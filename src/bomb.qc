@@ -254,9 +254,11 @@ Gas_Cloud_Damage =
                               {         
                                         if (vlen(head.velocity))
                                         {
+                                        if (head.flags & FL_CLIENT)
                                         sound (head, CHAN_AUTO, "player/gasp1.wav", 0.5, ATTN_IDLE);
                                         head.flags = head.flags + (head.flags & FL_ONGROUND); //adding this will make the player limp
                                         }
+                                        if (head.flags & FL_CLIENT)
                                         create_te_spike (TE_WIZSPIKE, head.origin + head.view_ofs);
 				T_Damage (head, self, self.owner, head_dmg, "gas");
                                         
@@ -271,7 +273,7 @@ Gas_Cloud_Think =
 {
 	if (self.count < self.cnt)
 	{
-                    
+                    create_te_spike (TE_WIZSPIKE, self.origin);
                     if (self.count <= (self.cnt / 2))
                     Gas_Cloud_Damage (4, 225 + (self.cnt * 1.5));
 		else 
@@ -289,15 +291,16 @@ Gas_Cloud =
 	local entity cloud;
 
 	create_te_lavasplash (self.origin + '0 0 -50');
-
 	cloud		= spawn ();
-	cloud.movetype	= MOVETYPE_NONE;
-	cloud.velocity	= VEC_ORIGIN;
 	cloud.solid	= SOLID_NOT;
           cloud.cnt	= -25 * (self.watertype);
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
           if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY)
+          {
+          cloud.movetype	= MOVETYPE_FLY;
+          cloud.velocity	= '0 0 32';
+          }
           cloud.view_ofs = '0 0 56';
           cloud.effects = EF_MAYBE_DRAW; // Cobalt, try to minimize net traffic
 	setmodel (cloud, string_null);
