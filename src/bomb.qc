@@ -296,12 +296,21 @@ Gas_Cloud =
           cloud.cnt	= -25 * (self.watertype);
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
+          
+          if (self.pcn < -2 && self.pcn != self.pco)
+          {
           if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY)
+                    cloud.aflag = 1;
+          }
+          else if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY)
+                    cloud.aflag = 1;
+          
+          if (cloud.aflag)
           {
           cloud.movetype	= MOVETYPE_FLY;
-          cloud.velocity	= '0 0 32';
+          cloud.velocity	= '0 0 64';
           }
-          cloud.view_ofs = '0 0 56';
+          
           cloud.effects = EF_MAYBE_DRAW; // Cobalt, try to minimize net traffic
 	setmodel (cloud, string_null);
 	setorigin (cloud, self.origin);
