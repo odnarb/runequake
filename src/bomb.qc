@@ -302,10 +302,11 @@ Gas_Cloud =
 	cloud.classname	= "gascloud";
           
           
-          if (self.movetype == 0)
+          if (self.effects & 2)
           {
           cloud.movetype	= MOVETYPE_FLY;
           cloud.velocity	= '0 0 64';
+          cloud.aflag = 1;
           }
           else if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY)
                     {
