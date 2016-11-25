@@ -283,7 +283,6 @@ Gas_Cloud_Think =
                     Gas_Cloud_Damage (4, 225 - (self.cnt * 1.5));
                     self.count	= self.count + 1;
 		self.nextthink	= time + 0.1;
-                    	bprint ("Cloud think\n");
                     if (self.aflag && (!(self.velocity_z)))
                               self.think = SUB_Remove;
 	}
@@ -297,7 +296,7 @@ Gas_Cloud =
 	local entity cloud;
 	cloud		= spawn ();
 	cloud.solid	= SOLID_NOT;
-          cloud.cnt	= -25 * (self.watertype);
+          cloud.cnt	= -25 * (self.pcn);
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
           
