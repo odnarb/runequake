@@ -182,16 +182,6 @@ while (r)
            
            if ((r.classname == "gasbomb" && r.pcn < -2 && r.pcn != r.pco) || r.pcn == CONTENT_LAVA)
            {
-                      
-                       traceline (r.origin, r.origin + '0 0 56', 0, r);
-                       local float ct;
-                       ct = pointcontents (trace_endpos);
-          if (ct == CONTENT_EMPTY)
-          {
-          bprint ("empty");
-          } else bprint (ftos(ct));
-                      
-                      bprint ("\n");
                       r.nextthink = time;
            }
             else 

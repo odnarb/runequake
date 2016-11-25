@@ -303,13 +303,9 @@ Gas_Cloud =
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
           
-          traceline (self.origin, self.origin + '0 0 56', 0, self);
-          if (pointcontents (trace_endpos) == CONTENT_EMPTY)
-          {
           cloud.movetype	= MOVETYPE_FLY;
           cloud.velocity	= '0 0 64';
           cloud.aflag = 1;
-          }
           
           cloud.effects = EF_MAYBE_DRAW; // Cobalt, try to minimize net traffic
 	setmodel (cloud, string_null);
