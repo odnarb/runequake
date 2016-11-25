@@ -296,7 +296,7 @@ Gas_Cloud =
 {
 	local entity cloud;
 
-	
+	bprint ("Cloud\n");
 	cloud		= spawn ();
 	cloud.solid	= SOLID_NOT;
           cloud.cnt	= -25 * (self.watertype);
