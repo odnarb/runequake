@@ -182,7 +182,12 @@ while (r)
            
            if ((r.classname == "gasbomb" && r.pcn < -2 && r.pcn != r.pco) || r.pcn == CONTENT_LAVA)
            {
-
+                      local entity oself;
+                      oself = self;
+                      self = r;
+                      other = world;
+                      self.touch ();
+                      self = oself;
                       r.nextthink = time;
            }
             else 
