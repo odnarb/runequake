@@ -273,8 +273,9 @@ Gas_Cloud_Think =
 {
 	if (self.count < self.cnt)
 	{
-                    if (framecount & 1)
+                    if (random () < (1/3))
                     create_te_lavasplash (self.origin + '0 0 -50');
+                    else if (random () < (1/5))
                     create_te_spike (TE_WIZSPIKE, self.origin);
                     if (self.count <= (self.cnt / 2))
                     Gas_Cloud_Damage (4, 225 + (self.cnt * 1.5));
@@ -302,7 +303,8 @@ Gas_Cloud =
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
           
-          if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY || self.model == "progs/s_bubble.spr")
+          traceline (self.origin, self.origin + '0 0 56', 0, self);
+          if (pointcontents (trace_endpos) == CONTENT_EMPTY)
           {
           cloud.movetype	= MOVETYPE_FLY;
           cloud.velocity	= '0 0 64';
