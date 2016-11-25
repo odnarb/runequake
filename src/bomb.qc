@@ -302,7 +302,7 @@ Gas_Cloud =
 	cloud.owner	= self.owner;
 	cloud.classname	= "gascloud";
           
-          if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY)
+          if (pointcontents (self.origin + '0 0 56') == CONTENT_EMPTY || self.model == "progs/s_bubble.spr")
           {
           cloud.movetype	= MOVETYPE_FLY;
           cloud.velocity	= '0 0 64';

@@ -182,7 +182,8 @@ while (r)
            
            if ((r.classname == "gasbomb" && r.pcn < -2 && r.pcn != r.pco) || r.pcn == CONTENT_LAVA)
            {
-                      setmodel (r, string_null);
+                      if (pointcontents (r.origin + '0 0 56') == CONTENT_EMPTY)
+                                setmodel (r, "progs/s_bubble.spr");
                       r.nextthink = time + frametime;
            }
             else 
